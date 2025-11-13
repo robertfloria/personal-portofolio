@@ -2,13 +2,16 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Server, Palette } from 'lucide-react';
-import { services } from '@/data/services';
+import { Code2, Smartphone, Brain, Rocket, Server, Users } from 'lucide-react';
+import { services, personalInfo } from '@/lib/data';
 
 const iconMap = {
-  code: Code,
-  server: Server,
-  palette: Palette,
+  Code2,
+  Smartphone,
+  Brain,
+  Rocket,
+  Server,
+  Users,
 };
 
 export function AboutSection() {
@@ -25,8 +28,8 @@ export function AboutSection() {
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             What I <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Offer</span>
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Professional services to bring your ideas to life with modern technologies and best practices
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            {personalInfo.bio}
           </p>
         </motion.div>
 

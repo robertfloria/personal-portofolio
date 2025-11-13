@@ -19,6 +19,9 @@ module.exports = {
         border: 'hsl(var(--border) / <alpha-value>)',
         input: 'hsl(var(--input) / <alpha-value>)',
         ring: 'hsl(var(--ring) / <alpha-value>)'
+      },
+      animation: {
+        'spin-slow': 'spin 8s linear infinite',
       }
     }
   },

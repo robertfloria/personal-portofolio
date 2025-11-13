@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, User, MessageSquare, Send, CheckCircle, AlertCircle } from 'lucide-react';
-import { ContactFormData } from '@/types';
+import { Mail, User, MessageSquare, Send, CheckCircle, AlertCircle, Phone, MapPin } from 'lucide-react';
+import { personalInfo } from '@/lib/data';
+import type { ContactFormData } from '@portfolio/shared-types';
 
 export function ContactSection() {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -213,7 +214,7 @@ export function ContactSection() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-4 px-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center space-x-2"
+              className="w-full py-4 px-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-blue-500/50 transform hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center space-x-2"
             >
               {isSubmitting ? (
                 <>
@@ -228,6 +229,50 @@ export function ContactSection() {
               )}
             </button>
           </form>
+
+          {/* Contact Info */}
+          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+            <h3 className="text-lg font-semibold mb-6 text-gray-900 dark:text-white text-center">
+              Other Ways to Reach Me
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="flex flex-col items-center p-6 rounded-xl bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border border-blue-200 dark:border-blue-800 hover:shadow-lg hover:-translate-y-1 transition-all group"
+              >
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                  <Mail className="w-6 h-6 text-white" />
+                </div>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Email</p>
+                <p className="text-sm font-semibold text-gray-900 dark:text-white text-center break-all">
+                  {personalInfo.email}
+                </p>
+              </a>
+
+              <a
+                href={`tel:${personalInfo.phone}`}
+                className="flex flex-col items-center p-6 rounded-xl bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 border border-green-200 dark:border-green-800 hover:shadow-lg hover:-translate-y-1 transition-all group"
+              >
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-green-600 to-blue-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                  <Phone className="w-6 h-6 text-white" />
+                </div>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Phone</p>
+                <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                  {personalInfo.phone}
+                </p>
+              </a>
+
+              <div className="flex flex-col items-center p-6 rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 border border-purple-200 dark:border-purple-800">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center mb-3">
+                  <MapPin className="w-6 h-6 text-white" />
+                </div>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Location</p>
+                <p className="text-sm font-semibold text-gray-900 dark:text-white text-center">
+                  {personalInfo.location}
+                </p>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

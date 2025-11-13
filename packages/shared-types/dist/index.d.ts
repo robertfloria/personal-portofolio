@@ -1,57 +1,68 @@
 export interface PersonalInfo {
     name: string;
     title: string;
-    age: number;
-    languages: string;
+    subtitle?: string;
+    bio?: string;
+    email: string;
+    phone: string;
     location: string;
-    diploma: string;
-    description: string;
+    age: string;
+    education: string;
+    university?: string;
+    profileImage: string;
+    resumeUrl?: string;
 }
 export interface Skill {
     name: string;
-    icon: string;
-    value: number;
-    category: 'frontend' | 'backend' | 'tools';
+    category: string;
+    proficiency: number;
+    icon?: string;
+    yearsOfExperience?: number;
 }
 export interface Technology {
     name: string;
-    icon: string;
+    icon?: string;
 }
 export interface Project {
-    id: number;
+    id: string;
     title: string;
     description?: string;
-    images: string[];
-    technologies: Technology[];
+    imageUrl?: string;
+    images?: string[];
+    technologies: (string | Technology)[];
+    features?: string[];
     githubUrl?: string;
     liveUrl?: string;
+    category?: string;
+    featured?: boolean;
 }
 export interface TimelineItem {
+    id: string;
     title: string;
     organization: string;
     description: string;
     startDate: string;
-    endDate: string;
+    endDate?: string;
     type: 'education' | 'work' | 'certificate';
+    location?: string;
+    current?: boolean;
 }
 export interface Certificate {
-    id: number;
+    id: string;
     title: string;
-    organization: string;
-    organizationIcon: string;
-    image: string;
-    issueDate: string;
+    issuer: string;
+    date: string;
+    imageUrl?: string;
     credentialUrl?: string;
 }
 export interface Service {
-    id: number;
+    id: string;
     title: string;
     description: string;
     icon: string;
 }
 export interface SocialLink {
-    id: number;
-    name: string;
+    platform: string;
     url: string;
     icon: string;
 }

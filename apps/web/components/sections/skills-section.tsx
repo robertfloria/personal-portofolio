@@ -2,19 +2,22 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { skills } from '@/data/skills';
+// import Image from 'next/image'; // Not needed for static images
+import { skills } from '@/lib/data';
 
 const categories = {
-  frontend: 'Frontend',
-  backend: 'Backend',
-  tools: 'Tools & Others',
+  Frontend: 'Frontend Development',
+  Backend: 'Backend Development',
+  DevOps: 'DevOps & Cloud',
+  AI: 'AI & Integration',
 };
 
 export function SkillsSection() {
   const groupedSkills = {
-    frontend: skills.filter((s) => s.category === 'frontend'),
-    backend: skills.filter((s) => s.category === 'backend'),
-    tools: skills.filter((s) => s.category === 'tools'),
+    Frontend: skills.filter((s) => s.category === 'Frontend'),
+    Backend: skills.filter((s) => s.category === 'Backend'),
+    DevOps: skills.filter((s) => s.category === 'DevOps'),
+    AI: skills.filter((s) => s.category === 'AI'),
   };
 
   return (
@@ -55,23 +58,39 @@ export function SkillsSection() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.05 }}
-                    className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow"
+                    className="group bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:border-blue-500/50 dark:hover:border-blue-400/50 transition-all hover:-translate-y-1"
                   >
-                    <div className="flex items-center justify-between mb-4">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
-                        {skill.name}
-                      </h4>
-                      <span className="text-sm font-medium text-blue-600 dark:text-blue-400">
-                        {skill.value}%
+                    <div className="flex items-center gap-4 mb-4">
+                      {skill.icon && (
+                        <div className="relative w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 p-2 flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <img
+                            src={skill.icon}
+                            alt={skill.name}
+                            className="w-8 h-8 object-contain brightness-0 invert"
+                          />
+                        </div>
+                      )}
+                      <div className="flex-1">
+                        <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+                          {skill.name}
+                        </h4>
+                        {skill.yearsOfExperience && (
+                          <p className="text-sm text-gray-500 dark:text-gray-400">
+                            {skill.yearsOfExperience}+ years
+                          </p>
+                        )}
+                      </div>
+                      <span className="text-sm font-bold text-blue-600 dark:text-blue-400">
+                        {skill.proficiency}%
                       </span>
                     </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
                       <motion.div
-                        className="bg-gradient-to-r from-blue-600 to-purple-600 h-2.5 rounded-full"
+                        className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 h-3 rounded-full"
                         initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.value}%` }}
+                        whileInView={{ width: `${skill.proficiency}%` }}
                         viewport={{ once: true }}
-                        transition={{ duration: 1, delay: index * 0.05 }}
+                        transition={{ duration: 1.2, delay: index * 0.05, ease: "easeOut" }}
                       />
                     </div>
                   </motion.div>

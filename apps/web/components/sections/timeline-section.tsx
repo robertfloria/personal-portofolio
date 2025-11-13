@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, Briefcase, Award } from 'lucide-react';
-import { timeline } from '@/data/timeline';
+import { timeline } from '@/lib/data';
 
 const typeIcons = {
   education: GraduationCap,
@@ -61,19 +61,31 @@ export function TimelineSection() {
                   </div>
 
                   {/* Content Card */}
-                  <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
-                    <div className="flex flex-wrap items-center justify-between mb-2">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                  <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 border-2 border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-xl transition-all">
+                    <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {item.title}
                       </h3>
-                      <span className="text-sm font-medium text-blue-600 dark:text-blue-400">
-                        {item.startDate} {item.endDate && `- ${item.endDate}`}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full">
+                          {item.startDate} {item.endDate ? `- ${item.endDate}` : ''}
+                        </span>
+                        {item.current && (
+                          <span className="text-xs font-bold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30 px-2 py-1 rounded-full">
+                            Current
+                          </span>
+                        )}
+                      </div>
                     </div>
-                    <p className="text-md font-semibold text-gray-600 dark:text-gray-300 mb-2">
+                    <p className="text-md font-semibold text-gray-700 dark:text-gray-300 mb-2">
                       {item.organization}
                     </p>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    {item.location && (
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
+                        📍 {item.location}
+                      </p>
+                    )}
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
