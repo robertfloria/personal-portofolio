@@ -13,11 +13,12 @@ export interface PersonalInfo {
     resumeUrl?: string;
 }
 export interface Skill {
-    name: string;
-    category: | 'Frontend' | 'Backend' | 'DevOps' | 'AI' |'Tools';
-    proficiency: number;
-    iconKey?: string;
-    yearsOfExperience?: number;
+  name: string;
+  category: 'Frontend' | 'Backend' | 'DevOps' | 'AI' | 'Tools';
+  proficiency: number;
+  icon?: string;
+  iconKey?: string;
+  yearsOfExperience?: number;
 }
 
 export interface Technology {
