@@ -5,9 +5,9 @@ import { Github, Linkedin, Mail, MapPin, Calendar, Phone, GraduationCap, Briefca
 import { personalInfo, socialLinks } from '@/lib/data';
 
 const iconMap = {
-  Github,
-  Linkedin,
-  Mail,
+ github: Github,
+  linkedin: Linkedin,
+  mail: Mail,
 };
 
 const infoItems = [
@@ -172,7 +172,7 @@ export function HeroSection() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.8 + index * 0.1 }}
                   >
-                    {Icon && <Icon size={20} />}
+                    <Icon size={20} />
                   </motion.a>
                 );
               })}
