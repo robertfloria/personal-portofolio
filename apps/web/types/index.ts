@@ -1,18 +1,23 @@
 export interface PersonalInfo {
-  name: string;
-  title: string;
-  age: number;
-  languages: string;
-  location: string;
-  diploma: string;
-  description: string;
+    name: string;
+    title: string;
+    subtitle?: string;
+    bio?: string;
+    email: string;
+    phone: string;
+    location: string;
+    age: string;
+    education: string;
+    university?: string;
+    profileImage: string;
+    resumeUrl?: string;
 }
-
 export interface Skill {
-  name: string;
-  icon: string;
-  value: number;
-  category: 'frontend' | 'backend' | 'tools';
+    name: string;
+    category: | 'Frontend' | 'Backend' | 'DevOps' | 'AI' |'Tools';
+    proficiency: number;
+    iconKey?: string;
+    yearsOfExperience?: number;
 }
 
 export interface Technology {
@@ -21,32 +26,38 @@ export interface Technology {
 }
 
 export interface Project {
-  id: number;
-  title: string;
-  description?: string;
-  images: string[];
-  technologies: Technology[];
-  githubUrl?: string;
-  liveUrl?: string;
+    id: string;
+    title: string;
+    description?: string;
+    imageUrl?: string;
+    images?: string[];
+    technologies: (string | Technology)[];
+    features?: string[];
+    githubUrl?: string;
+    liveUrl?: string;
+    category?: string;
+    featured?: boolean;
 }
 
 export interface TimelineItem {
-  title: string;
-  organization: string;
-  description: string;
-  startDate: string;
-  endDate: string;
-  type: 'education' | 'work' | 'certificate';
+    id: string;
+    title: string;
+    organization: string;
+    description: string;
+    startDate: string;
+    endDate?: string;
+    type: 'education' | 'work' | 'certificate';
+    location?: string;
+    current?: boolean;
 }
 
 export interface Certificate {
-  id: number;
-  title: string;
-  organization: string;
-  organizationIcon: string;
-  image: string;
-  issueDate: string;
-  credentialUrl?: string;
+    id: string;
+    title: string;
+    issuer: string;
+    date: string;
+    imageUrl?: string;
+    credentialUrl?: string;
 }
 
 export interface Service {
@@ -57,10 +68,9 @@ export interface Service {
 }
 
 export interface SocialLink {
-  id: number;
-  name: string;
-  url: string;
-  icon: string;
+    platform: string;
+    url: string;
+    icon: string;
 }
 
 export interface ContactFormData {

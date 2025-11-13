@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, User, MessageSquare, Send, CheckCircle, AlertCircle, Phone, MapPin } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
-import type { ContactFormData } from '@portfolio/shared-types';
+import { ContactFormData } from '@/types';
 
 export function ContactSection() {
   const [formData, setFormData] = useState<ContactFormData>({

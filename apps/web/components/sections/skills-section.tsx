@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-// import Image from 'next/image'; // Not needed for static images
+import * as Icons from 'lucide-react';
 import { skills } from '@/lib/data';
 
 const categories = {
@@ -10,6 +10,7 @@ const categories = {
   Backend: 'Backend Development',
   DevOps: 'DevOps & Cloud',
   AI: 'AI & Integration',
+  Tools: 'Tools & Productivity',
 };
 
 export function SkillsSection() {
@@ -18,6 +19,7 @@ export function SkillsSection() {
     Backend: skills.filter((s) => s.category === 'Backend'),
     DevOps: skills.filter((s) => s.category === 'DevOps'),
     AI: skills.filter((s) => s.category === 'AI'),
+    Tools: skills.filter((s) => s.category === 'Tools'),
   };
 
   return (
@@ -61,13 +63,12 @@ export function SkillsSection() {
                     className="group bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:border-blue-500/50 dark:hover:border-blue-400/50 transition-all hover:-translate-y-1"
                   >
                     <div className="flex items-center gap-4 mb-4">
-                      {skill.icon && (
+                      {(skill as any).iconKey && (
                         <div className="relative w-12 h-12 rounded-lg bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-500 dark:to-purple-600 border border-gray-300 dark:border-transparent p-2 flex items-center justify-center group-hover:scale-110 transition-transform">
-                          <img
-                            src={skill.icon}
-                            alt={skill.name}
-                            className="w-8 h-8 object-contain"
-                          />
+                          {(() => {
+                            const IconComponent = (Icons as any)[(skill as any).iconKey] ?? Icons.Code;
+                            return <IconComponent className="w-8 h-8 text-gray-800 dark:text-white" />;
+                          })()}
                         </div>
                       )}
                       <div className="flex-1">

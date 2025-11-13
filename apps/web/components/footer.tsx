@@ -1,12 +1,11 @@
 import React from 'react';
-import { Github, Linkedin, Instagram, Facebook, Mail } from 'lucide-react';
-import { socialLinks } from '@/data/social-links';
+import { Github, Linkedin,  Mail } from 'lucide-react';
+import { socialLinks } from '@/lib/data';
 
 const iconMap = {
   github: Github,
   linkedin: Linkedin,
-  instagram: Instagram,
-  facebook: Facebook,
+  mail: Mail,
 };
 
 export function Footer() {
@@ -52,16 +51,16 @@ export function Footer() {
               Connect With Me
             </h3>
             <div className="flex space-x-4">
-              {socialLinks.map((social) => {
+              {socialLinks.map((social,index) => {
                 const Icon = iconMap[social.icon as keyof typeof iconMap];
                 return (
                   <a
-                    key={social.id}
+                    key={index}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-300 flex items-center justify-center hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-colors"
-                    aria-label={social.name}
+                    aria-label={social.icon}
                   >
                     <Icon size={20} />
                   </a>
