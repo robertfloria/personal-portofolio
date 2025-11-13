@@ -38,7 +38,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="min-h-screen bg-white dark:bg-gray-950">
+          <main className="min-h-screen">
             {children}
           </main>
           <Footer />

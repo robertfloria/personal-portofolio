@@ -11,7 +11,7 @@ export function CertificatesSection() {
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
 
   return (
-    <section id="certificates" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="certificates" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
