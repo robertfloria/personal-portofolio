@@ -22,7 +22,7 @@ const infoItems = [
 
 export function HeroSection() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white dark:bg-gray-950">
+    <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20 opacity-60" />
       
@@ -59,7 +59,7 @@ export function HeroSection() {
               </motion.div>
 
               <motion.div
-                className="absolute -bottom-4 -left-4 bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-lg font-semibold text-sm border border-gray-200 dark:border-gray-700"
+                className="absolute -bottom-4 -left-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-full shadow-lg font-semibold text-sm border border-gray-200 dark:border-gray-700"
                 animate={{ y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
               >
@@ -100,7 +100,7 @@ export function HeroSection() {
             </motion.h1>
 
             <motion.h2
-              className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-700 dark:text-gray-300 mb-4"
+              className="text-xl sm:text-2xl lg:text-3xl font-bold text-black dark:text-gray-300 mb-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -109,7 +109,7 @@ export function HeroSection() {
             </motion.h2>
 
             <motion.p
-              className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-6 leading-relaxed"
+              className="text-base sm:text-lg text-black dark:text-gray-400 mb-6 leading-relaxed font-medium"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -118,7 +118,7 @@ export function HeroSection() {
             </motion.p>
 
             <motion.p
-              className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-8 leading-relaxed max-w-2xl"
+              className="text-sm sm:text-base text-black dark:text-gray-400 mb-8 leading-relaxed max-w-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
@@ -145,7 +145,7 @@ export function HeroSection() {
               </a>
               <a
                 href="#projects"
-                className="px-8 py-4 border-2 border-gray-300 dark:border-gray-700 rounded-xl font-semibold hover:border-blue-600 dark:hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all flex items-center gap-2"
+                className="px-8 py-4 border-2 border-gray-400 dark:border-gray-700 text-black dark:text-white rounded-xl font-bold hover:border-blue-600 dark:hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all flex items-center gap-2"
               >
                 View My Work
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
@@ -168,7 +168,7 @@ export function HeroSection() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent transition-all transform hover:-translate-y-1 hover:shadow-lg"
+                    className="w-12 h-12 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-300 border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent transition-all transform hover:-translate-y-1 hover:shadow-lg"
                     aria-label={social.platform}
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}

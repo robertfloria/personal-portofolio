@@ -21,7 +21,7 @@ export function SkillsSection() {
   };
 
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ export function SkillsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
             >
-              <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+              <h3 className="text-2xl font-bold mb-6 text-black dark:text-white">
                 {categories[category as keyof typeof categories]}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -62,11 +62,11 @@ export function SkillsSection() {
                   >
                     <div className="flex items-center gap-4 mb-4">
                       {skill.icon && (
-                        <div className="relative w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 p-2 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <div className="relative w-12 h-12 rounded-lg bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-500 dark:to-purple-600 border border-gray-300 dark:border-transparent p-2 flex items-center justify-center group-hover:scale-110 transition-transform">
                           <img
                             src={skill.icon}
                             alt={skill.name}
-                            className="w-8 h-8 object-contain brightness-0 invert"
+                            className="w-8 h-8 object-contain"
                           />
                         </div>
                       )}
