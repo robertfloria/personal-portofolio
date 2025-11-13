@@ -1,0 +1,19 @@
+{
+  "name": "@portfolio/shared-utils",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@portfolio/shared-types": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.25",
+    "typescript": "^5.7.3"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "personal-portfolio-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:web\" \"npm run dev:api\"",
+    "dev:web": "npm run dev --workspace=web",
+    "dev:api": "npm run start:dev --workspace=api",
+    "build": "npm run build --workspaces --if-present",
+    "build:web": "npm run build --workspace=web",
+    "build:api": "npm run build --workspace=api",
+    "lint": "npm run lint --workspaces --if-present",
+    "lint:fix": "npm run lint --workspaces --if-present -- --fix",
+    "test": "npm run test --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present && rm -rf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "type-check": "npm run type-check --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}
