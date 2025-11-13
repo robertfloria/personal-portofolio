@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, Award } from 'lucide-react';
 // import Image from 'next/image'; // Using standard img for static assets
 import { certificates } from '@/lib/data';
-import type { Certificate } from '@portfolio/shared-types';
+import { Certificate } from '@/types';
 
 export function CertificatesSection() {
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);

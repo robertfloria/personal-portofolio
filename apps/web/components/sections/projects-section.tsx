@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, Github } from 'lucide-react';
 // import Image from 'next/image'; // Using standard img for static assets
 import { projects } from '@/lib/data';
-import type { Project } from '@portfolio/shared-types';
+import { Project } from '@/types';
 
 export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
