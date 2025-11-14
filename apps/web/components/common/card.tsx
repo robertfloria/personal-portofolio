@@ -1,7 +1,7 @@
 import React from 'react';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
+import { motion, type HTMLMotionProps } from 'framer-motion';
 
 const cardVariants = cva(
   'rounded-xl border transition-all',
@@ -37,10 +37,11 @@ const cardVariants = cva(
 );
 
 export interface CardProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends Omit<HTMLMotionProps<'div'>, 'children'>,
     VariantProps<typeof cardVariants> {
   animated?: boolean;
   animationDelay?: number;
+  children?: React.ReactNode;
 }
 
 export const Card = React.forwardRef<HTMLDivElement, CardProps>(
@@ -66,9 +67,9 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: animationDelay, duration: 0.6 }}
-          {...props}
+          {...(props as HTMLMotionProps<'div'>)}
         >
-          {children}
+          {children as React.ReactNode}
         </motion.div>
       );
     }
@@ -77,7 +78,7 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
       <div
         className={cn(cardVariants({ variant, hover, padding, className }))}
         ref={ref}
-        {...props}
+        {...(props as React.HTMLAttributes<HTMLDivElement>)}
       >
         {children}
       </div>
