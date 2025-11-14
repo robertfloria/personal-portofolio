@@ -1,5 +1,9 @@
 # Deployment Guide
 
+## ✅ Updated - Clean Architecture Implemented
+
+Your portfolio now has professional clean architecture with Redux, React Query, and reusable components ready for deployment.
+
 This guide will help you deploy your portfolio to production.
 
 ## Frontend Deployment (Vercel)
@@ -98,14 +102,29 @@ vercel --prod
 
 ## Post-Deployment Checklist
 
-- [ ] Test contact form in production
+- [ ] Test contact form in production (now uses React Query)
 - [ ] Check all links work
-- [ ] Verify dark mode works
+- [ ] Verify dark mode works (Redux state management)
 - [ ] Test on mobile devices
 - [ ] Check API CORS settings
 - [ ] Update social media links
 - [ ] Add Google Analytics (optional)
 - [ ] Setup custom domain (optional)
+- [ ] Verify all refactored sections work (About, Skills, Projects, Timeline, Certificates, Contact)
+- [ ] Test Redux DevTools (disabled in production automatically)
+- [ ] Verify React Query caching works correctly
+
+## 🎯 Clean Architecture Deployment Notes
+
+With the new architecture, make sure:
+
+1. **HTTP Client** - `NEXT_PUBLIC_API_URL` environment variable is set correctly in Vercel
+2. **Redux Store** - DevTools are automatically disabled in production builds
+3. **React Query** - Default caching policies work (5min stale time, 1 retry)
+4. **Validation** - Zod schemas validate on both client and server
+5. **Components** - All reusable components are tree-shaken properly
+6. **Hooks** - Custom hooks work without development-only dependencies
+7. **Services** - Email service uses production API URL from environment
 
 ## Custom Domain Setup
 
