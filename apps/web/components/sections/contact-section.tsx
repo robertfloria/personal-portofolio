@@ -6,7 +6,15 @@ import { personalInfo } from '@/lib/data';
 import { ContactFormData } from '@/types';
 import { useSendEmail } from '@/hooks/use-send-email';
 import { useReducedMotion } from '@/hooks';
-import { Section, SectionHeader, Card, Input, Textarea, Button, Text } from '@/components/common';
+import { 
+  Section, 
+  SectionHeader, 
+  Card, 
+  Input, 
+  Textarea, 
+  Button,
+  Text 
+} from '@/components/common';
 
 export function ContactSection() {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -166,7 +174,7 @@ export function ContactSection() {
               Other Ways to Reach Me
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {contactMethods.map((method) => {
+              {contactMethods.map((method, index) => {
                 const Icon = method.icon;
                 const isLink = !!method.href;
                 const Component = isLink ? 'a' : 'div';
@@ -176,11 +184,11 @@ export function ContactSection() {
                   <Component
                     key={method.label}
                     {...props}
-                    className={`flex flex-col items-center p-6 rounded-xl bg-linear-to-br ${method.gradient} border ${method.border} ${
+                    className={`flex flex-col items-center p-6 rounded-xl bg-gradient-to-br ${method.gradient} border ${method.border} ${
                       isLink ? 'hover:shadow-lg hover:-translate-y-1 transition-all' : ''
                     } group`}
                   >
-                    <div className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center mb-3 ${
+                    <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${method.iconGradient} flex items-center justify-center mb-3 ${
                       isLink ? 'group-hover:scale-110 transition-transform' : ''
                     }`}>
                       <Icon className="w-6 h-6 text-white" />
