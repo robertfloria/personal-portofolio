@@ -3,15 +3,8 @@
 import React, { useEffect } from 'react';
 import { CheckCircle, XCircle, AlertCircle, Info, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { type NotificationType } from '@/store/slices/notification.slice';
-
-export interface ToastProps {
-  id: string;
-  type: NotificationType;
-  message: string;
-  duration?: number;
-  onClose: (id: string) => void;
-}
+import { useAppSelector, useAppDispatch } from '@/store';
+import { removeNotification, type Notification, type NotificationType } from '@/store/slices/notification.slice';
 
 const toastConfig = {
   success: {
@@ -40,7 +33,15 @@ const toastConfig = {
   },
 };
 
-export const Toast: React.FC<ToastProps> = ({
+interface ToastProps {
+  id: string;
+  type: NotificationType;
+  message: string;
+  duration?: number;
+  onClose: (id: string) => void;
+}
+
+const Toast: React.FC<ToastProps> = ({
   id,
   type,
   message,
@@ -89,3 +90,40 @@ export const Toast: React.FC<ToastProps> = ({
 };
 
 Toast.displayName = 'Toast';
+
+// Toast Container Component
+export const ToastContainer: React.FC = () => {
+  const notifications = useAppSelector((state) => state.notification.notifications);
+  const dispatch = useAppDispatch();
+
+  const handleClose = (id: string) => {
+    dispatch(removeNotification(id));
+  };
+
+  if (notifications.length === 0) {
+    return null;
+  }
+
+  return (
+    <div
+      className="fixed top-4 right-4 z-50 flex flex-col gap-3 pointer-events-none"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <div className="flex flex-col gap-3 pointer-events-auto">
+        {notifications.map((notification: Notification) => (
+          <Toast
+            key={notification.id}
+            id={notification.id}
+            type={notification.type}
+            message={notification.message}
+            duration={notification.duration}
+            onClose={handleClose}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+ToastContainer.displayName = 'ToastContainer';

@@ -24,12 +24,12 @@ export function TimelineSection() {
   return (
     <Section id="timeline">
       <div className="max-w-4xl mx-auto">
-        <SectionHeader
-          title="Professional"
-          highlightText="Timeline"
-          subtitle="My journey through education and professional experience"
-          animated={!shouldReduceMotion}
-        />
+        <Section.Header animated={!shouldReduceMotion}>
+          <Section.Title highlightText="Timeline">Professional</Section.Title>
+          <Section.Subtitle>
+            My journey through education and professional experience
+          </Section.Subtitle>
+        </Section.Header>
 
         <div className="relative">
           {/* Timeline Line */}
@@ -56,32 +56,34 @@ export function TimelineSection() {
                   </div>
 
                   {/* Content */}
-                  <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                    <Heading variant="h4" className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                      {item.title}
-                    </Heading>
-                    <div className="flex items-center gap-2">
-                      <Badge variant="primary" size="sm">
-                        {item.startDate} {item.endDate ? `- ${item.endDate}` : ''}
-                      </Badge>
-                      {item.current && (
-                        <Badge variant="success" size="sm">
-                          Current
+                  <Card.Content>
+                    <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
+                      <Card.Title className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        {item.title}
+                      </Card.Title>
+                      <div className="flex items-center gap-2">
+                        <Badge variant="primary" size="sm">
+                          {item.startDate} {item.endDate ? `- ${item.endDate}` : ''}
                         </Badge>
-                      )}
+                        {item.current && (
+                          <Badge variant="success" size="sm">
+                            Current
+                          </Badge>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                  <Text variant="body" className="font-semibold mb-2">
-                    {item.organization}
-                  </Text>
-                  {item.location && (
-                    <Text variant="small" className="mb-3">
-                      📍 {item.location}
+                    <Text variant="body" className="font-semibold mb-2">
+                      {item.organization}
                     </Text>
-                  )}
-                  <Text variant="body" className="leading-relaxed">
-                    {item.description}
-                  </Text>
+                    {item.location && (
+                      <Text variant="small" className="mb-3">
+                        📍 {item.location}
+                      </Text>
+                    )}
+                    <Card.Description className="leading-relaxed">
+                      {item.description}
+                    </Card.Description>
+                  </Card.Content>
                 </Card>
               );
             })}

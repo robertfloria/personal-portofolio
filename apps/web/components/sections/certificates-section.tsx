@@ -6,7 +6,7 @@ import { X, ExternalLink, Award } from 'lucide-react';
 import { certificates } from '@/lib/data';
 import { Certificate } from '@/types';
 import { useReducedMotion } from '@/hooks';
-import { Section, SectionHeader, Card, Badge } from '@/components/common';
+import { Section, Card, Badge } from '@/components/common';
 
 export function CertificatesSection() {
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
@@ -14,12 +14,12 @@ export function CertificatesSection() {
 
   return (
     <Section id="certificates">
-      <SectionHeader
-        title="Certificates &"
-        highlightText="Achievements"
-        subtitle="Professional certifications and courses completed to enhance my skills"
-        animated={!shouldReduceMotion}
-      />
+      <Section.Header animated={!shouldReduceMotion}>
+        <Section.Title highlightText="Achievements">Certificates &</Section.Title>
+        <Section.Subtitle>
+          Professional certifications and courses completed to enhance my skills
+        </Section.Subtitle>
+      </Section.Header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {certificates.map((certificate, index) => (
@@ -32,7 +32,8 @@ export function CertificatesSection() {
             className="overflow-hidden cursor-pointer"
             onClick={() => setSelectedCertificate(certificate)}
           >
-            <div className="relative h-56 bg-linear-to-br from-green-500 via-blue-600 to-purple-600 overflow-hidden">
+            <Card.Content className="p-0">
+              <div className="relative h-56 bg-linear-to-br from-green-500 via-blue-600 to-purple-600 overflow-hidden">
               {certificate.imageUrl ? (
                 <>
                   <img
@@ -56,19 +57,20 @@ export function CertificatesSection() {
               <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
                 <Award className="w-6 h-6 text-white" />
               </div>
-            </div>
+              </div>
+            </Card.Content>
 
-            <div className="p-6">
-              <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white line-clamp-2 min-h-14 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            <Card.Footer className="flex-col items-start p-6">
+              <Card.Title className="text-lg mb-2 line-clamp-2 min-h-14 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                 {certificate.title}
-              </h3>
-              <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
+              </Card.Title>
+              <Card.Description className="text-sm font-medium mb-1">
                 {certificate.issuer}
-              </p>
+              </Card.Description>
               <p className="text-xs text-gray-500 dark:text-gray-500">
                 {certificate.date}
               </p>
-            </div>
+            </Card.Footer>
           </Card>
         ))}
       </div>

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, MapPin, Calendar, Phone, GraduationCap, Briefcase } from 'lucide-react';
 import { personalInfo, socialLinks } from '@/lib/data';
-import { Button, Card, CardContent, Heading, Text, IconBadge, Section } from '@/components/common';
+import { Button, Card, Heading, Text, IconBadge, Section } from '@/components/common';
 import { useReducedMotion } from '@/hooks';
 
 const iconMap = {
@@ -219,7 +219,7 @@ export function HeroSection() {
               animationDelay={1 + index * 0.1}
               className="group"
             >
-              <CardContent className="flex flex-col">
+              <Card.Content className="flex flex-col">
                 <IconBadge
                   icon={item.icon}
                   variant="solid"
@@ -232,7 +232,7 @@ export function HeroSection() {
                 <Text variant="body" className="font-semibold line-clamp-2">
                   {item.value}
                 </Text>
-              </CardContent>
+              </Card.Content>
             </Card>
           ))}
         </motion.div>

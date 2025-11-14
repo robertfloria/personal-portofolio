@@ -8,7 +8,6 @@ import { useSendEmail } from '@/hooks/use-send-email';
 import { useReducedMotion } from '@/hooks';
 import { 
   Section, 
-  SectionHeader, 
   Card, 
   Input, 
   Textarea, 
@@ -78,12 +77,12 @@ export function ContactSection() {
   return (
     <Section id="contact">
       <div className="max-w-4xl mx-auto">
-        <SectionHeader
-          title="Get In"
-          highlightText="Touch"
-          subtitle="Have a project in mind or want to collaborate? Feel free to reach out!"
-          animated={!shouldReduceMotion}
-        />
+        <Section.Header animated={!shouldReduceMotion}>
+          <Section.Title highlightText="Touch">Get In</Section.Title>
+          <Section.Subtitle>
+            Have a project in mind or want to collaborate? Feel free to reach out!
+          </Section.Subtitle>
+        </Section.Header>
 
         <Card
           variant="default"

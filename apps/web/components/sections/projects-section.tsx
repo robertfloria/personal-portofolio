@@ -14,12 +14,12 @@ export function ProjectsSection() {
 
   return (
     <Section id="projects">
-      <SectionHeader
-        title="Featured"
-        highlightText="Projects"
-        subtitle="A selection of projects I've worked on, showcasing different technologies and approaches"
-        animated={!shouldReduceMotion}
-      />
+      <Section.Header animated={!shouldReduceMotion}>
+        <Section.Title highlightText="Projects">Featured</Section.Title>
+        <Section.Subtitle>
+          A selection of projects I've worked on, showcasing different technologies and approaches
+        </Section.Subtitle>
+      </Section.Header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
@@ -59,14 +59,14 @@ export function ProjectsSection() {
               )}
             </div>
 
-            <div className="p-6">
-              <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            <Card.Footer className="flex-col items-start p-6">
+              <Card.Title className="text-xl mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                 {project.title}
-              </h3>
+              </Card.Title>
               {project.description && (
-                <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
+                <Card.Description className="mb-4 line-clamp-2">
                   {project.description}
-                </p>
+                </Card.Description>
               )}
 
               <div className="flex flex-wrap gap-2 mb-3">
@@ -86,7 +86,7 @@ export function ProjectsSection() {
                   </Badge>
                 )}
               </div>
-            </div>
+            </Card.Footer>
           </Card>
         ))}
       </div>

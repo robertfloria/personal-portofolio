@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Heading, Text } from './typography';
 
-export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
+interface SectionRootProps extends React.HTMLAttributes<HTMLElement> {
   id?: string;
   fullHeight?: boolean;
 }
 
-export const Section = React.forwardRef<HTMLElement, SectionProps>(
+const SectionRoot = React.forwardRef<HTMLElement, SectionRootProps>(
   ({ className, id, fullHeight, children, ...props }, ref) => {
     return (
       <section
@@ -27,53 +27,134 @@ export const Section = React.forwardRef<HTMLElement, SectionProps>(
   }
 );
 
-Section.displayName = 'Section';
+SectionRoot.displayName = 'Section.Root';
 
-export interface SectionHeaderProps {
-  title: string;
+interface SectionHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+  animated?: boolean;
+  // Legacy API support
+  title?: string;
   subtitle?: string;
   highlightText?: string;
-  className?: string;
-  animated?: boolean;
 }
 
-export const SectionHeader: React.FC<SectionHeaderProps> = ({
-  title,
-  subtitle,
-  highlightText,
-  className,
-  animated = true,
-}) => {
-  const Content = (
-    <div className={cn('text-center mb-16', className)}>
-      <Heading variant="h2" className="mb-4">
-        {title}{' '}
+const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
+  ({ className, animated = true, title, subtitle, highlightText, children, ...props }, ref) => {
+    // If using legacy API (with title prop), render old structure
+    if (title) {
+      const legacyContent = (
+        <div ref={ref} className={cn('text-center mb-16', className)} {...props}>
+          <Heading variant="h2" className="mb-4">
+            {title}{' '}
+            {highlightText && (
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                {highlightText}
+              </span>
+            )}
+          </Heading>
+          {subtitle && (
+            <Text variant="lead" className="max-w-2xl mx-auto">
+              {subtitle}
+            </Text>
+          )}
+        </div>
+      );
+
+      if (animated) {
+        return (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {legacyContent}
+          </motion.div>
+        );
+      }
+
+      return legacyContent;
+    }
+
+    // New compound component API
+    const content = (
+      <div ref={ref} className={cn('text-center mb-16', className)} {...props}>
+        {children}
+      </div>
+    );
+
+    if (animated) {
+      return (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {content}
+        </motion.div>
+      );
+    }
+
+    return content;
+  }
+);
+
+SectionHeader.displayName = 'Section.Header';
+
+interface SectionTitleProps extends React.HTMLAttributes<HTMLDivElement> {
+  highlightText?: string;
+}
+
+const SectionTitle = React.forwardRef<HTMLDivElement, SectionTitleProps>(
+  ({ className, highlightText, children, ...props }, ref) => (
+    <div ref={ref} {...props}>
+      <Heading variant="h2" className={cn('mb-4', className)}>
+        {children}{' '}
         {highlightText && (
           <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             {highlightText}
           </span>
         )}
       </Heading>
-      {subtitle && (
-        <Text variant="lead" className="max-w-2xl mx-auto">
-          {subtitle}
-        </Text>
-      )}
     </div>
-  );
+  )
+);
 
-  if (animated) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        {Content}
-      </motion.div>
-    );
-  }
+SectionTitle.displayName = 'Section.Title';
 
-  return Content;
-};
+const SectionSubtitle = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, children, ...props }, ref) => (
+  <Text
+    ref={ref}
+    variant="lead"
+    className={cn('max-w-2xl mx-auto', className)}
+    {...props}
+  >
+    {children}
+  </Text>
+));
+
+SectionSubtitle.displayName = 'Section.Subtitle';
+
+const SectionContent = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn('', className)} {...props} />
+));
+
+SectionContent.displayName = 'Section.Content';
+
+// Compound Component Pattern
+export const Section = Object.assign(SectionRoot, {
+  Root: SectionRoot,
+  Header: SectionHeader,
+  Title: SectionTitle,
+  Subtitle: SectionSubtitle,
+  Content: SectionContent,
+});
+
+// Export individual components
+export { SectionHeader, SectionTitle, SectionSubtitle, SectionContent };
