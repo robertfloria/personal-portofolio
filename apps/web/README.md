@@ -1,36 +1,160 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Web Application
 
-## Getting Started
+A modern, production-ready Next.js portfolio application with clean architecture, type safety, and excellent user experience.
 
-First, run the development server:
+## 🚀 Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+
+# Type checking
+npm run type-check
+
+# Linting
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Core Functionality
+- 📧 **Contact Form** with email integration and toast notifications
+- 🎨 **Dark Mode** with system preference detection
+- 📱 **Fully Responsive** design
+- ♿ **Accessible** with ARIA labels and reduced motion support
+- 🔔 **Toast Notifications** for user feedback (Redux-based)
+- ⚡ **Optimized Performance** with React Query caching
 
-## Learn More
+### Sections
+- Hero section with animated introduction
+- About section with personal information
+- Skills showcase with proficiency levels
+- Project portfolio with detailed views
+- Professional timeline
+- Certificates display
+- Contact form with validation
 
-To learn more about Next.js, take a look at the following resources:
+## 🏗️ Architecture
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This application follows **clean architecture principles**:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+Presentation → Business Logic → Data Layer
+  (Components)    (Hooks/Services)  (Types/Validators)
+```
 
-## Deploy on Vercel
+See [ARCHITECTURE.md](./ARCHITECTURE.md) for detailed documentation.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Key Patterns
+- **Component Composition**: Atomic design with reusable components
+- **Custom Hooks**: Encapsulated logic for reusability
+- **Service Layer**: Clean API abstraction
+- **State Management**: Redux for global state, React Query for server state
+- **Type Safety**: Full TypeScript coverage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📦 Tech Stack
+
+### Frontend
+- **Next.js 14+** - React framework with App Router
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Utility-first styling
+- **Framer Motion** - Animations
+
+### State Management
+- **Redux Toolkit** - Global state (UI, notifications)
+- **React Query** - Server state and caching
+
+### Form & Validation
+- **Zod** - Runtime type validation
+- Custom validation hooks
+
+### UI Components
+- **Lucide React** - Icon library
+- **next-themes** - Dark mode support
+- **class-variance-authority** - Component variants
+
+## 📂 Project Structure
+
+```
+apps/web/
+├── app/              # Next.js pages and layouts
+├── components/       # React components
+│   ├── common/      # Reusable UI components
+│   └── sections/    # Page sections
+├── hooks/           # Custom React hooks
+├── services/        # API services
+├── store/           # Redux store and slices
+├── lib/             # Utilities and helpers
+├── types/           # TypeScript definitions
+└── public/          # Static assets
+```
+
+## 🎯 Component Usage Examples
+
+### Toast Notifications
+
+```typescript
+import { useAppDispatch } from '@/store';
+import { addNotification } from '@/store/slices/notification.slice';
+
+const dispatch = useAppDispatch();
+
+// Success notification
+dispatch(addNotification({
+  type: 'success',
+  message: 'Operation completed!',
+  duration: 5000
+}));
+```
+
+### Custom Hooks
+
+```typescript
+// Email sending with automatic notifications
+const { mutate: sendEmail, isPending } = useSendEmail();
+
+sendEmail(formData, {
+  onSuccess: () => resetForm()
+});
+```
+
+## 🔧 Configuration
+
+### Environment Variables
+
+Create a `.env.local` file:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:4000/api
+```
+
+## 🚢 Deployment
+
+### Vercel (Recommended)
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new).
+
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## 📚 Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [React Query Docs](https://tanstack.com/query/latest)
+- [Redux Toolkit Docs](https://redux-toolkit.js.org/)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+- [ARCHITECTURE.md](./ARCHITECTURE.md) - Detailed architecture documentation
+
+---
+
+**Built with ❤️ using Next.js, TypeScript, and modern web technologies**

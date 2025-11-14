@@ -24,7 +24,7 @@ export function ContactSection() {
     message: '',
   });
 
-  const { mutate: sendEmail, isPending, isSuccess, isError, error } = useSendEmail();
+  const { mutate: sendEmail, isPending } = useSendEmail();
   const shouldReduceMotion = useReducedMotion();
 
   const handleChange = (
@@ -142,20 +142,6 @@ export function ContactSection() {
               rows={6}
               placeholder="Tell me about your project..."
             />
-
-            {isSuccess && (
-              <div className="flex items-center space-x-2 p-4 rounded-lg bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
-                <Text>Message sent successfully! I'll get back to you soon.</Text>
-              </div>
-            )}
-
-            {isError && (
-              <div className="flex items-center space-x-2 p-4 rounded-lg bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400">
-                <Text>
-                  {error?.message || 'Failed to send message. Please try again.'}
-                </Text>
-              </div>
-            )}
 
             <Button
               type="submit"

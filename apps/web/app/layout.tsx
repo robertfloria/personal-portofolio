@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Providers } from "@/components/providers";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { ToastContainer } from "@/components/common";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -44,6 +45,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <ToastContainer />
           </ThemeProvider>
         </Providers>
       </body>

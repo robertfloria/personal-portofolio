@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from './theme-toggle';
+import { useAppSelector, useAppDispatch } from '@/store';
+import { toggleMobileMenu, setMobileMenuOpen } from '@/store/slices/ui.slice';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -17,7 +19,8 @@ const navItems = [
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const dispatch = useAppDispatch();
+  const isMobileMenuOpen = useAppSelector((state) => state.ui.mobileMenuOpen);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +35,7 @@ export function Navbar() {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
+      dispatch(setMobileMenuOpen(false));
     }
   };
 
@@ -82,7 +85,7 @@ export function Navbar() {
           <div className="md:hidden flex items-center space-x-4">
             <ThemeToggle />
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => dispatch(toggleMobileMenu())}
               className="text-gray-900 dark:text-gray-300"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
