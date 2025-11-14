@@ -4,7 +4,7 @@ import React from 'react';
 import { GraduationCap, Briefcase, Award } from 'lucide-react';
 import { timeline } from '@/lib/data';
 import { useReducedMotion } from '@/hooks';
-import { Section, SectionHeader, Card, Heading, Text, Badge } from '@/components/common';
+import { Section, Card, Heading, Text, Badge } from '@/components/common';
 
 const typeIcons = {
   education: GraduationCap,
@@ -42,21 +42,22 @@ export function TimelineSection() {
               const colorClass = typeColors[item.type];
 
               return (
-                <Card
-                  key={item.id}
-                  animated={!shouldReduceMotion}
-                  animationDelay={index * 0.1}
-                  hover="glow"
-                  padding="md"
-                  className="relative pl-20 border-2"
-                >
-                  {/* Icon */}
-                  <div className={`absolute left-0 -translate-x-10 w-16 h-16 rounded-full bg-linear-to-br ${colorClass} flex items-center justify-center shadow-lg`}>
+                <div key={item.id} className="relative">
+                  {/* Icon (positioned relative to timeline container) */}
+                  <div className={`absolute left-8 top-4 -translate-x-1/2 w-16 h-16 rounded-full bg-linear-to-br ${colorClass} flex items-center justify-center shadow-lg`}>
                     <Icon className="w-8 h-8 text-white" />
                   </div>
 
-                  {/* Content */}
-                  <Card.Content>
+                  {/* Card shifted to the right of the line */}
+                  <Card
+                    animated={!shouldReduceMotion}
+                    animationDelay={index * 0.1}
+                    hover="glow"
+                    padding="md"
+                    className="ml-20 border-2"
+                  >
+                    {/* Content */}
+                    <Card.Content>
                     <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
                       <Card.Title className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {item.title}
@@ -85,6 +86,7 @@ export function TimelineSection() {
                     </Card.Description>
                   </Card.Content>
                 </Card>
+                </div>
               );
             })}
           </div>
