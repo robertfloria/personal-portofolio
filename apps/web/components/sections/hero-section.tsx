@@ -161,7 +161,7 @@ export function HeroSection() {
                   variant="primary"
                   size="lg"
                   leftIcon={<Mail size={20} />}
-                  className="bg-linear-to-r from-primary to-accent hover:shadow-xl hover:shadow-primary/50"
+                  className="bg-linear-to-r from-primary to-accent hover:shadow-xl hover:shadow-primary-strong hover:shadow-accent-strong"
                 >
                   Get In Touch
                 </Button>

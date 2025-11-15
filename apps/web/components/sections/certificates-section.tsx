@@ -151,7 +151,7 @@ export function CertificatesSection() {
                       href={selectedCertificate.credentialUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center space-x-2 px-8 py-4 bg-linear-to-r from-primary to-accent text-foreground dark:text-primary-foreground rounded-xl hover:shadow-xl transition-all hover:-translate-y-0.5 font-semibold"
+                      className="flex items-center justify-center space-x-2 px-8 py-4 bg-linear-to-r from-primary to-accent text-foreground dark:text-primary-foreground rounded-xl hover:shadow-xl hover:shadow-primary-strong hover:shadow-accent-strong transition-all hover:-translate-y-0.5 font-semibold"
                     >
                       <ExternalLink size={20} />
                       <span>View Credential</span>

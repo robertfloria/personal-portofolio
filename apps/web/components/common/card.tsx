@@ -17,7 +17,7 @@ const cardVariants = cva(
       },
       hover: {
         lift: 'hover:shadow-xl hover:-translate-y-2',
-        glow: 'hover:shadow-xl hover:shadow-primary/10 dark:hover:shadow-accent/10',
+        glow: 'hover:shadow-xl hover:shadow-primary-strong hover:shadow-accent-strong',
         scale: 'hover:scale-105',
         none: '',
       },

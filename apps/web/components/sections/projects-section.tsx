@@ -215,7 +215,7 @@ export function ProjectsSection() {
                         href={selectedProject.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center space-x-2 px-6 py-3 bg-linear-to-r from-primary to-accent text-foreground dark:text-primary-foreground rounded-xl hover:shadow-xl hover:shadow-primary/50 transition-all hover:-translate-y-0.5 font-semibold"
+                        className="flex items-center space-x-2 px-6 py-3 bg-linear-to-r from-primary to-accent text-foreground dark:text-primary-foreground rounded-xl hover:shadow-xl hover:shadow-primary-strong hover:shadow-accent-strong transition-all hover:-translate-y-0.5 font-semibold"
                       >
                         <ExternalLink size={20} />
                         <span>Live Demo</span>

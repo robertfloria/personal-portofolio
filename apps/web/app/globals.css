@@ -88,6 +88,8 @@
   .focus\:ring-primary:focus { box-shadow: 0 0 0 4px hsl(var(--ring) / 0.12); }
   .hover\:shadow-primary:hover { box-shadow: 0 10px 20px -6px hsl(var(--primary) / 0.12); }
   .hover\:shadow-primary-strong:hover { box-shadow: 0 20px 40px -10px hsl(var(--primary) / 0.18); }
+  .dark .hover\:shadow-accent:hover { box-shadow: 0 10px 20px -6px hsl(var(--accent) / 0.16); }
+  .dark .hover\:shadow-accent-strong:hover { box-shadow: 0 20px 40px -10px hsl(var(--accent) / 0.28); }
 
   /* semantic borders/text for destructive states */
   .border-destructive { border-color: hsl(var(--destructive) / 1); }
