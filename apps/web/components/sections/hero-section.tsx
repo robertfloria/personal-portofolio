@@ -53,13 +53,13 @@ export function HeroSection() {
               {/* Animated gradient rings */}
               {!shouldReduceMotion && (
                 <>
-                  <div className="absolute inset-0 rounded-full bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 animate-spin-slow opacity-75 blur-2xl" />
-                  <div className="absolute inset-4 rounded-full bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600 animate-pulse opacity-50" />
+                  <div className="absolute inset-0 rounded-full bg-linear-to-r from-primary via-primary to-accent animate-spin-slow opacity-75 blur-2xl" />
+                  <div className="absolute inset-4 rounded-full bg-linear-to-r from-secondary via-primary to-primary animate-pulse opacity-50" />
                 </>
               )}
               
               {/* Profile image container with glassmorphism */}
-              <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-white/20 dark:border-gray-800/20 backdrop-blur-sm bg-card/10 dark:bg-gray-800/10 shadow-2xl">
+              <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-border backdrop-blur-sm bg-card/10 dark:bg-card/10 shadow-2xl">
                 <Image
                   src={personalInfo.profileImage}
                   alt={personalInfo.name}
@@ -71,7 +71,7 @@ export function HeroSection() {
 
               {/* Floating badges */}
               <motion.div
-                className="absolute -top-4 -right-4 bg-linear-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full shadow-lg font-semibold text-sm"
+                className="absolute -top-4 -right-4 bg-linear-to-r from-primary to-accent text-primary-foreground px-6 py-3 rounded-full shadow-lg font-semibold text-sm"
                 animate={shouldReduceMotion ? {} : { y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 3 }}
               >
@@ -79,7 +79,7 @@ export function HeroSection() {
               </motion.div>
 
               <motion.div
-                className="absolute -bottom-4 -left-4 bg-card/90 text-foreground px-6 py-3 rounded-full shadow-lg font-semibold text-sm border border-gray-200 dark:border-gray-700"
+                className="absolute -bottom-4 -left-4 bg-card/90 text-foreground px-6 py-3 rounded-full shadow-lg font-semibold text-sm border border-border"
                 animate={shouldReduceMotion ? {} : { y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
               >
@@ -94,13 +94,13 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
             className="order-2 lg:order-2"
           >
-            <motion.div
-              className="inline-block mb-4"
+              <motion.div
+                className="inline-block mb-4"
               initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
               animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              <span className="px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium">
+              <span className="px-4 py-2 rounded-full bg-secondary/70 dark:bg-secondary/30 text-muted-foreground text-sm font-medium">
                 👋 Welcome to my portfolio
               </span>
             </motion.div>
@@ -113,7 +113,7 @@ export function HeroSection() {
               <Heading variant="h1" className="mb-4">
                 {personalInfo.name.split(' ').slice(0, 2).join(' ')}
                 <br />
-                <span className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
                   {personalInfo.name.split(' ').slice(2).join(' ')}
                 </span>
               </Heading>
@@ -161,7 +161,7 @@ export function HeroSection() {
                   variant="primary"
                   size="lg"
                   leftIcon={<Mail size={20} />}
-                    className="bg-linear-to-r from-blue-600 to-purple-600 hover:shadow-xl hover:shadow-blue-500/50"
+                  className="bg-linear-to-r from-primary to-accent hover:shadow-xl hover:shadow-primary/50"
                 >
                   Get In Touch
                 </Button>
@@ -183,8 +183,6 @@ export function HeroSection() {
                   Download CV
                 </Button>
               </a>
-            </motion.div>
-
             {/* Social Links */}
             <motion.div
               className="flex items-center gap-4"
@@ -240,7 +238,7 @@ export function HeroSection() {
                   icon={item.icon}
                   variant="solid"
                   size="md"
-                  className="group-hover:scale-110 transition-transform flex-shrink-0"
+                  className="group-hover:scale-110 transition-transform shrink-0"
                 />
                 <div>
                   <Card.Header className="text-lg font-semibold">{item.label}</Card.Header>

@@ -56,7 +56,7 @@ export function AboutSection() {
                 />
 
                 <div>
-                  <Card.Title className="text-2xl group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <Card.Title className="text-2xl group-hover:text-primary dark:group-hover:text-primary-foreground transition-colors">
                     {service.title}
                   </Card.Title>
 

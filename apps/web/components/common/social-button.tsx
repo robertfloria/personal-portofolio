@@ -10,9 +10,9 @@ export function SocialButton({ icon: Icon, size = 20, variant = 'default', class
   const base = 'inline-flex items-center justify-center rounded-full transition-colors';
 
   const variants: Record<string, string> = {
-    default: 'bg-card dark:bg-gray-800 text-foreground dark:text-muted-foreground hover:bg-blue-600 hover:text-white',
-    ghost: 'bg-transparent text-muted-foreground hover:text-blue-600',
-    brand: 'bg-linear-to-r from-blue-600 to-purple-600 text-white hover:opacity-90',
+    default: 'bg-card dark:bg-card text-foreground dark:text-muted-foreground hover:bg-primary hover:text-primary-foreground',
+    ghost: 'bg-transparent text-muted-foreground hover:text-primary',
+    brand: 'bg-linear-to-r from-primary to-accent text-primary-foreground hover:opacity-90',
   };
 
   return (

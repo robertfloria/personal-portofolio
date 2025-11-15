@@ -51,26 +51,26 @@ export function ContactSection() {
       label: 'Email',
       value: personalInfo.email,
       href: `mailto:${personalInfo.email}`,
-      gradient: 'from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20',
-      border: 'border-blue-200 dark:border-blue-800',
-      iconGradient: 'from-blue-600 to-purple-600',
+      gradient: 'from-primary to-accent dark:from-primary dark:to-accent',
+      border: 'border-border',
+      iconGradient: 'from-primary to-accent',
     },
     {
       icon: Phone,
       label: 'Phone',
       value: personalInfo.phone,
       href: `tel:${personalInfo.phone}`,
-      gradient: 'from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20',
-      border: 'border-green-200 dark:border-green-800',
-      iconGradient: 'from-green-600 to-blue-600',
+      gradient: 'from-secondary to-primary dark:from-secondary dark:to-primary',
+      border: 'border-border',
+      iconGradient: 'from-secondary to-primary',
     },
     {
       icon: MapPin,
       label: 'Location',
       value: personalInfo.location,
-      gradient: 'from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20',
-      border: 'border-purple-200 dark:border-purple-800',
-      iconGradient: 'from-purple-600 to-pink-600',
+      gradient: 'from-accent to-secondary dark:from-accent dark:to-secondary',
+      border: 'border-border',
+      iconGradient: 'from-accent to-secondary',
     },
   ];
 
@@ -154,7 +154,7 @@ export function ContactSection() {
             </Button>
           </form>
 
-          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <div className="mt-12 pt-8 border-t border-border dark:border-card">
             <h3 className="text-lg font-semibold mb-6 text-foreground text-center">
               Other Ways to Reach Me
             </h3>

@@ -54,7 +54,7 @@ export function SkillsSection() {
                   <Card.Content>
                     <div className="flex items-center gap-4 mb-4">
                       {(skill as any).iconKey && (
-                        <div className="relative w-12 h-12 rounded-lg bg-linear-to-br from-blue-100 to-purple-100 dark:from-blue-500 dark:to-purple-600 border border-gray-300 dark:border-transparent p-2 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <div className="relative w-12 h-12 rounded-lg bg-linear-to-br from-secondary to-primary dark:from-secondary dark:to-primary border border-border p-2 flex items-center justify-center group-hover:scale-110 transition-transform">
                           {(() => {
                             const IconComponent = (Icons as any)[(skill as any).iconKey] ?? Icons.Code;
                             return <IconComponent className="w-8 h-8 text-foreground" />;
@@ -77,7 +77,7 @@ export function SkillsSection() {
                     </div>
                       <div className="w-full bg-card rounded-full h-3 overflow-hidden">
                       <motion.div
-                        className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 h-3 rounded-full"
+                        className="bg-linear-to-r from-primary via-primary to-accent h-3 rounded-full"
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.proficiency}%` }}
                         viewport={{ once: true }}

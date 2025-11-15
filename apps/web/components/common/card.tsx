@@ -9,15 +9,15 @@ const cardVariants = cva(
     variants: {
       variant: {
         default: 
-          'bg-card dark:bg-gray-800 border-gray-200 dark:border-gray-700 semantic-default',
+          'bg-card dark:bg-card border-border semantic-default',
         gradient:
-          'bg-linear-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border-blue-200 dark:border-blue-800 semantic-gradient',
+          'bg-linear-to-br from-secondary to-accent dark:from-secondary dark:to-accent border-border semantic-gradient',
         glass:
-          'bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50 semantic-glass',
+          'bg-card/60 dark:bg-card/60 backdrop-blur-sm border-border semantic-glass',
       },
       hover: {
         lift: 'hover:shadow-xl hover:-translate-y-2',
-        glow: 'hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-purple-500/10',
+        glow: 'hover:shadow-xl hover:shadow-primary/10 dark:hover:shadow-accent/10',
         scale: 'hover:scale-105',
         none: '',
       },

@@ -37,7 +37,7 @@ export function ProjectsSection() {
             className="overflow-hidden cursor-pointer group"
             onClick={() => setSelectedProject(project)}
           >
-            <div className="relative h-56 bg-linear-to-br from-blue-500 to-purple-600 overflow-hidden">
+            <div className="relative h-56 bg-linear-to-br from-secondary to-accent overflow-hidden">
               {project.imageUrl ? (
                 <>
                   <Image
@@ -47,7 +47,7 @@ export function ProjectsSection() {
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-foreground-overlay via-foreground-overlay to-transparent" />
                 </>
               ) : (
                 <div className="flex items-center justify-center h-full">
@@ -56,7 +56,7 @@ export function ProjectsSection() {
                   </div>
                 </div>
               )}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <div className="absolute inset-0 bg-overlay opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <span className="text-foreground font-semibold text-lg">View Details →</span>
               </div>
               {project.featured && (
@@ -67,7 +67,7 @@ export function ProjectsSection() {
             </div>
 
               <Card.Footer className="flex-col items-start p-6">
-              <Card.Title className="text-xl mb-2 group-hover:text-blue-600 transition-colors">
+              <Card.Title className="text-xl mb-2 group-hover:text-primary transition-colors">
                 {project.title}
               </Card.Title>
               {project.description && (
@@ -105,7 +105,7 @@ export function ProjectsSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-overlay z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedProject(null)}
             role="dialog"
             aria-modal="true"
@@ -115,18 +115,18 @@ export function ProjectsSection() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                className="bg-card rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
                 ref={modalRef}
                 tabIndex={-1}
             >
               
-              <div className="sticky top-0 bg-card dark:bg-gray-800 border-b dark:border-gray-700 p-6 flex items-center justify-between z-10">
+              <div className="sticky top-0 bg-card border-b border-border dark:border-card p-6 flex items-center justify-between z-10">
                 <h2 className="text-2xl font-bold text-foreground">
                   {selectedProject.title}
                 </h2>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 text-foreground flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  className="w-10 h-10 rounded-full bg-card/90 text-foreground shrink-0 flex items-center justify-center hover:bg-card/80 transition-colors"
                   aria-label="Close project details"
                   ref={(el) => { if (el) { el.focus(); } }}
                 >
@@ -169,7 +169,7 @@ export function ProjectsSection() {
                     <ul className="space-y-2">
                       {selectedProject.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-3 text-muted-foreground">
-                          <span className="shrink-0 w-6 h-6 rounded-full bg-linear-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white text-xs font-bold mt-0.5">
+                          <span className="shrink-0 w-6 h-6 rounded-full bg-linear-to-r from-primary to-accent flex items-center justify-center text-primary-foreground text-xs font-bold mt-0.5">
                             ✓
                           </span>
                           <span>{feature}</span>
@@ -187,7 +187,7 @@ export function ProjectsSection() {
                     {selectedProject.technologies.map((tech, idx) => (
                       <div
                         key={idx}
-                        className="flex items-center justify-center p-3 bg-linear-to-br from-blue-50 to-purple-50 dark:from-gray-700/50 dark:to-gray-700/30 rounded-lg border border-blue-200 dark:border-gray-600"
+                        className="flex items-center justify-center p-3 bg-linear-to-br from-secondary to-primary dark:from-card/50 dark:to-card/30 rounded-lg border border-border"
                       >
                         <span className="text-sm font-medium text-foreground text-center">
                           {typeof tech === 'string' ? tech : tech.name}
@@ -198,7 +198,7 @@ export function ProjectsSection() {
                 </div>
 
                 {(selectedProject.githubUrl || selectedProject.liveUrl) && (
-                  <div className="flex flex-wrap gap-4 pt-4 border-t dark:border-gray-700">
+                  <div className="flex flex-wrap gap-4 pt-4 border-t border-border dark:border-card">
                     {selectedProject.githubUrl && (
                       <a
                         href={selectedProject.githubUrl}
@@ -215,7 +215,7 @@ export function ProjectsSection() {
                         href={selectedProject.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center space-x-2 px-6 py-3 bg-linear-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-xl hover:shadow-blue-500/50 transition-all hover:-translate-y-0.5 font-semibold"
+                        className="flex items-center space-x-2 px-6 py-3 bg-linear-to-r from-primary to-accent text-primary-foreground rounded-xl hover:shadow-xl hover:shadow-primary/50 transition-all hover:-translate-y-0.5 font-semibold"
                       >
                         <ExternalLink size={20} />
                         <span>Live Demo</span>

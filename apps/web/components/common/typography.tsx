@@ -13,7 +13,7 @@ const headingVariants = cva('font-bold', {
       h6: 'text-base sm:text-lg',
     },
     gradient: {
-      true: 'bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent',
+      true: 'bg-linear-to-r from-primary to-accent bg-clip-text text-transparent',
       false: 'text-foreground',
     },
   },
@@ -88,7 +88,7 @@ export interface GradientTextProps extends React.HTMLAttributes<HTMLSpanElement>
 }
 
 export const GradientText = React.forwardRef<HTMLSpanElement, GradientTextProps>(
-  ({ className, from = 'from-blue-600', to = 'to-purple-600', children, ...props }, ref) => {
+  ({ className, from = 'from-primary', to = 'to-accent', children, ...props }, ref) => {
     return (
       <span
         className={cn(`bg-linear-to-r ${from} ${to} bg-clip-text text-transparent`, className)}

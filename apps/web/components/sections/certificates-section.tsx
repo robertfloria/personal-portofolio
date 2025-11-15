@@ -37,7 +37,7 @@ export function CertificatesSection() {
             onClick={() => setSelectedCertificate(certificate)}
           >
             <Card.Content className="p-0">
-              <div className="relative h-56 bg-linear-to-br from-green-500 via-blue-600 to-purple-600 overflow-hidden">
+              <div className="relative h-56 bg-linear-to-br from-secondary to-accent overflow-hidden">
                   {certificate.imageUrl ? (
                 <>
                   <Image
@@ -46,14 +46,14 @@ export function CertificatesSection() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-foreground-overlay via-foreground-overlay to-transparent" />
                 </>
               ) : (
                 <div className="flex items-center justify-center h-full">
                   <Award className="w-20 h-20 text-muted-foreground opacity-30" />
                 </div>
               )}
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <div className="absolute inset-0 bg-overlay opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <span className="text-foreground font-semibold text-lg flex items-center gap-2">
                   <Award size={24} />
                   View Certificate
@@ -65,8 +65,8 @@ export function CertificatesSection() {
               </div>
             </Card.Content>
 
-            <Card.Footer className="flex-col items-start p-6">
-              <Card.Title className="text-lg mb-2 line-clamp-2 min-h-14 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <Card.Footer className="flex-col items-start p-6">
+              <Card.Title className="text-lg mb-2 line-clamp-2 min-h-14 group-hover:text-primary dark:group-hover:text-primary-foreground transition-colors">
                 {certificate.title}
               </Card.Title>
               <Card.Description className="text-sm font-medium mb-1 text-foreground">
@@ -87,7 +87,7 @@ export function CertificatesSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-overlay z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedCertificate(null)}
             role="dialog"
             aria-modal="true"
@@ -97,9 +97,9 @@ export function CertificatesSection() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-                className="bg-card dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                className="bg-card rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
             >
-                <div className="sticky top-0 bg-card dark:bg-gray-800 border-b dark:border-gray-700 p-6 flex items-center justify-between z-10">
+                <div className="sticky top-0 bg-card border-b border-border dark:border-card p-6 flex items-center justify-between z-10">
                 <h2 className="text-2xl font-bold text-foreground">
                   {selectedCertificate.title}
                 </h2>
@@ -114,8 +114,8 @@ export function CertificatesSection() {
               </div>
 
               <div className="p-6 space-y-6" ref={modalRef} tabIndex={-1}>
-                  <div className="flex items-center space-x-4 p-4 bg-linear-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-xl">
-                  <div className="w-16 h-16 rounded-full bg-linear-to-br from-green-500 to-blue-600 flex items-center justify-center">
+                  <div className="flex items-center space-x-4 p-4 bg-linear-to-r from-secondary to-primary rounded-xl">
+                    <div className="w-16 h-16 rounded-full bg-linear-to-br from-secondary to-primary flex items-center justify-center">
                     <Award className="w-8 h-8 text-foreground" />
                   </div>
                   <div>
@@ -129,7 +129,7 @@ export function CertificatesSection() {
                 </div>
 
                 {selectedCertificate.imageUrl ? (
-                    <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden border-4 border-gray-200 dark:border-gray-700 shadow-2xl">
+                    <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden border-4 border-border shadow-2xl">
                     <Image
                       src={selectedCertificate.imageUrl}
                       alt={selectedCertificate.title}
@@ -138,7 +138,7 @@ export function CertificatesSection() {
                     />
                   </div>
                 ) : (
-                  <div className="bg-linear-to-br from-green-500 to-blue-600 rounded-xl p-16 text-center text-white">
+                  <div className="bg-linear-to-br from-secondary to-primary rounded-xl p-16 text-center text-primary-foreground">
                     <Award className="w-24 h-24 mx-auto mb-4 opacity-50" />
                     <p className="text-2xl font-semibold">{selectedCertificate.title}</p>
                     <p className="text-lg opacity-80 mt-2">{selectedCertificate.issuer}</p>
@@ -151,7 +151,7 @@ export function CertificatesSection() {
                       href={selectedCertificate.credentialUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center space-x-2 px-8 py-4 bg-linear-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-xl hover:shadow-blue-500/50 transition-all hover:-translate-y-0.5 font-semibold"
+                      className="flex items-center justify-center space-x-2 px-8 py-4 bg-linear-to-r from-primary to-accent text-primary-foreground rounded-xl hover:shadow-xl transition-all hover:-translate-y-0.5 font-semibold"
                     >
                       <ExternalLink size={20} />
                       <span>View Credential</span>

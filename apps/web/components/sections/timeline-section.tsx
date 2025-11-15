@@ -13,9 +13,9 @@ const typeIcons = {
 };
 
 const typeColors = {
-  education: 'from-blue-500 to-blue-600',
-  work: 'from-purple-500 to-purple-600',
-  certificate: 'from-green-500 to-green-600',
+  education: 'from-primary to-accent',
+  work: 'from-secondary to-accent',
+  certificate: 'from-accent to-primary',
 };
 
 export function TimelineSection() {
@@ -33,7 +33,7 @@ export function TimelineSection() {
 
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-blue-600 via-purple-600 to-green-600" />
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-primary via-primary to-accent" />
 
           {/* Timeline Items */}
           <div className="space-y-8">
@@ -59,7 +59,7 @@ export function TimelineSection() {
                     {/* Content */}
                     <Card.Content>
                     <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                      <Card.Title className="group-hover:text-blue-600 transition-colors">
+                      <Card.Title className="group-hover:text-primary transition-colors">
                         {item.title}
                       </Card.Title>
                       <div className="flex items-center gap-2">

@@ -43,10 +43,10 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
     if (title) {
       const legacyContent = (
         <div ref={ref} className={cn('text-center mb-16', className)} {...props}>
-          <Heading variant="h2" className="mb-4">
+            <Heading variant="h2" className="mb-4">
             {title}{' '}
             {highlightText && (
-              <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
                 {highlightText}
               </span>
             )}
@@ -108,10 +108,10 @@ interface SectionTitleProps extends React.HTMLAttributes<HTMLDivElement> {
 const SectionTitle = React.forwardRef<HTMLDivElement, SectionTitleProps>(
   ({ className, highlightText, children, ...props }, ref) => (
     <div ref={ref} {...props}>
-      <Heading variant="h2" className={cn('mb-4', className)}>
+        <Heading variant="h2" className={cn('mb-4', className)}>
         {children}{' '}
         {highlightText && (
-          <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
             {highlightText}
           </span>
         )}

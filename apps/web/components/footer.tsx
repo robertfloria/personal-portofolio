@@ -13,7 +13,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-card/70 border-t dark:border-gray-800">
+    <footer className="bg-card/70 border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About */}
@@ -37,7 +37,7 @@ export function Footer() {
                 <li key={link}>
                   <a
                     href={`#${link.toLowerCase()}`}
-                    className="text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className="text-muted-foreground hover:text-primary dark:hover:text-primary-foreground transition-colors"
                   >
                     {link}
                   </a>
@@ -72,7 +72,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t dark:border-gray-800 text-center text-muted-foreground">
+        <div className="mt-8 pt-8 border-t border-border text-center text-muted-foreground">
           <p>
             © {currentYear} Robert Nicolae Floria. All rights reserved.
           </p>

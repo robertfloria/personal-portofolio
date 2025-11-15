@@ -9,27 +9,27 @@ import { type NotificationType } from '@/components/contexts/notification-contex
 const toastConfig = {
   success: {
     icon: CheckCircle,
-    bgClass: 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800',
-    textClass: 'text-green-800 dark:text-green-300',
-    iconClass: 'text-green-600 dark:text-green-400',
+    bgClass: 'bg-overlay-strong border-border',
+    textClass: 'text-muted-foreground',
+    iconClass: 'text-primary',
   },
   error: {
     icon: XCircle,
-    bgClass: 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800',
-    textClass: 'text-red-800 dark:text-red-300',
-    iconClass: 'text-red-600 dark:text-red-400',
+    bgClass: 'bg-overlay border-destructive',
+    textClass: 'text-destructive',
+    iconClass: 'text-destructive',
   },
   warning: {
     icon: AlertCircle,
-    bgClass: 'bg-yellow-50 dark:bg-yellow-900/30 border-yellow-200 dark:border-yellow-800',
-    textClass: 'text-yellow-800 dark:text-yellow-300',
-    iconClass: 'text-yellow-600 dark:text-yellow-400',
+    bgClass: 'bg-overlay border-border',
+    textClass: 'text-muted-foreground',
+    iconClass: 'text-primary',
   },
   info: {
     icon: Info,
-    bgClass: 'bg-blue-50 dark:bg-blue-900/30 border-blue-200 dark:border-blue-800',
-    textClass: 'text-blue-800 dark:text-blue-300',
-    iconClass: 'text-blue-600 dark:text-blue-400',
+    bgClass: 'bg-overlay-strong border-border',
+    textClass: 'text-muted-foreground',
+    iconClass: 'text-primary',
   },
 };
 
@@ -78,7 +78,7 @@ const Toast: React.FC<ToastProps> = ({
       <button
         onClick={() => onClose(id)}
         className={cn(
-          'shrink-0 rounded-md p-1 hover:bg-black/10 dark:hover:bg-white/10 transition-colors',
+          'shrink-0 rounded-md p-1 hover:bg-overlay/10 dark:hover:bg-overlay/10 transition-colors',
           config.textClass
         )}
         aria-label="Close notification"

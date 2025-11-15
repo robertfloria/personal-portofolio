@@ -122,7 +122,7 @@ export function Navbar() {
                 e.preventDefault();
                 scrollToSection('#home');
               }}
-              className="text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              className="text-2xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent"
             >
               Robert
             </Link>
@@ -142,8 +142,8 @@ export function Navbar() {
                   }}
                   className={`cursor-pointer font-medium transition-colors ${
                     isActive
-                      ? 'text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4'
-                      : 'text-foreground hover:text-blue-600 dark:hover:text-blue-400'
+                      ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
+                        : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
                   }`}
                 >
                   {item.name}
@@ -190,7 +190,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div id="mobile-menu" className="md:hidden bg-card border-t dark:border-gray-800">
+        <div id="mobile-menu" className="md:hidden bg-card border-t border-border">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => {
               const isActive = activeSection === item.href;
@@ -204,8 +204,8 @@ export function Navbar() {
                   }}
                   className={`block px-3 py-2 rounded-md cursor-pointer font-medium transition-colors ${
                     isActive
-                      ? 'text-blue-600 dark:text-blue-400 bg-card bg-opacity-50'
-                      : 'text-foreground hover:text-blue-600 dark:hover:text-blue-400 hover:bg-card/90 dark:hover:bg-card/80'
+                      ? 'text-primary dark:text-primary-foreground bg-card bg-opacity-50'
+                      : 'text-foreground hover:text-primary dark:hover:text-primary-foreground hover:bg-card/90 dark:hover:bg-card/80'
                   }`}
                 >
                   {item.name}
