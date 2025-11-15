@@ -54,6 +54,14 @@
   }
 }
 
+/* Theme-aware utility classes using CSS variables */
+@layer utilities {
+  .text-foreground { color: hsl(var(--foreground) / 1); }
+  .text-muted-foreground { color: hsl(var(--muted-foreground) / 1); }
+  .bg-card { background-color: hsl(var(--card) / 1); }
+  .text-card-foreground { color: hsl(var(--card-foreground) / 1); }
+}
+
 html {
   scroll-behavior: smooth;
 }

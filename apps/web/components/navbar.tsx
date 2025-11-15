@@ -144,8 +144,8 @@ export function Navbar() {
                   }}
                   className={`cursor-pointer font-medium transition-colors ${
                     isActive
-                      ? 'text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4'
-                      : 'text-gray-900 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                              ? 'text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4'
+                                : 'text-foreground dark:text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400'
                   }`}
                 >
                   {item.name}
@@ -179,7 +179,7 @@ export function Navbar() {
             <ThemeToggle />
             <button
               onClick={toggleMobileMenu}
-              className="text-gray-900 dark:text-gray-300"
+              className="text-foreground"
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
@@ -207,7 +207,7 @@ export function Navbar() {
                   className={`block px-3 py-2 rounded-md cursor-pointer font-medium transition-colors ${
                     isActive
                       ? 'text-blue-600 dark:text-blue-400 bg-gray-50 dark:bg-gray-800'
-                      : 'text-gray-900 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+                        : 'text-foreground dark:text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800'
                   }`}
                 >
                   {item.name}

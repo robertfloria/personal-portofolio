@@ -14,7 +14,7 @@ const headingVariants = cva('font-bold', {
     },
     gradient: {
       true: 'bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent',
-      false: 'text-gray-900 dark:text-white',
+        false: 'text-foreground',
     },
   },
   defaultVariants: {
@@ -50,11 +50,11 @@ Heading.displayName = 'Heading';
 const textVariants = cva('', {
   variants: {
     variant: {
-      body: 'text-base text-gray-600 dark:text-gray-400',
-      lead: 'text-lg text-gray-600 dark:text-gray-400',
-      small: 'text-sm text-gray-600 dark:text-gray-400',
-      muted: 'text-sm text-gray-500 dark:text-gray-500',
-      label: 'text-sm font-medium text-gray-700 dark:text-gray-300',
+      body: 'text-base text-muted-foreground',
+      lead: 'text-lg text-muted-foreground',
+      small: 'text-sm text-muted-foreground',
+      muted: 'text-sm text-muted-foreground',
+      label: 'text-sm font-medium text-muted-foreground',
     },
   },
   defaultVariants: {

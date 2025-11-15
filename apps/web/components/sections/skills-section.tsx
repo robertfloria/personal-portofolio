@@ -57,12 +57,12 @@ export function SkillsSection() {
                         <div className="relative w-12 h-12 rounded-lg bg-linear-to-br from-blue-100 to-purple-100 dark:from-blue-500 dark:to-purple-600 border border-gray-300 dark:border-transparent p-2 flex items-center justify-center group-hover:scale-110 transition-transform">
                           {(() => {
                             const IconComponent = (Icons as any)[(skill as any).iconKey] ?? Icons.Code;
-                            return <IconComponent className="w-8 h-8 text-gray-800 dark:text-white" />;
+                            return <IconComponent className="w-8 h-8 text-foreground" />;
                           })()}
                         </div>
                       )}
                       <div className="flex-1">
-                        <Heading variant="h4" className="text-lg">
+                        <Heading variant="h4" className="text-lg text-foreground">
                           {skill.name}
                         </Heading>
                         {skill.yearsOfExperience && (
@@ -75,7 +75,7 @@ export function SkillsSection() {
                         {skill.proficiency}%
                       </Badge>
                     </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
+                      <div className="w-full bg-linear-to-r bg-card dark:bg-gray-700 rounded-full h-3 overflow-hidden">
                       <motion.div
                         className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 h-3 rounded-full"
                         initial={{ width: 0 }}

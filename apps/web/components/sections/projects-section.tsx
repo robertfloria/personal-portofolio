@@ -56,7 +56,7 @@ export function ProjectsSection() {
                   </div>
                 </div>
               )}
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <span className="text-white font-semibold text-lg">View Details →</span>
               </div>
               {project.featured && (
@@ -120,13 +120,13 @@ export function ProjectsSection() {
                 tabIndex={-1}
             >
               
-              <div className="sticky top-0 bg-white dark:bg-gray-800 border-b dark:border-gray-700 p-6 flex items-center justify-between z-10">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <div className="sticky top-0 bg-card dark:bg-gray-800 border-b dark:border-gray-700 p-6 flex items-center justify-between z-10">
+                <h2 className="text-2xl font-bold text-foreground">
                   {selectedProject.title}
                 </h2>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 text-foreground flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
                   aria-label="Close project details"
                   ref={(el) => { if (el) { el.focus(); } }}
                 >
@@ -152,10 +152,10 @@ export function ProjectsSection() {
 
                 {selectedProject.description && (
                   <div>
-                    <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">
+                    <h3 className="text-lg font-semibold mb-2 text-foreground">
                       Overview
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed">
                       {selectedProject.description}
                     </p>
                   </div>
@@ -163,12 +163,12 @@ export function ProjectsSection() {
 
                 {selectedProject.features && selectedProject.features.length > 0 && (
                   <div>
-                    <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
+                    <h3 className="text-lg font-semibold mb-3 text-foreground">
                       Key Features
                     </h3>
                     <ul className="space-y-2">
                       {selectedProject.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
+                        <li key={idx} className="flex items-start gap-3 text-muted-foreground">
                           <span className="shrink-0 w-6 h-6 rounded-full bg-linear-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white text-xs font-bold mt-0.5">
                             ✓
                           </span>
@@ -180,7 +180,7 @@ export function ProjectsSection() {
                 )}
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
+                  <h3 className="text-lg font-semibold mb-4 text-foreground">
                     Technologies Used
                   </h3>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
@@ -189,7 +189,7 @@ export function ProjectsSection() {
                         key={idx}
                         className="flex items-center justify-center p-3 bg-linear-to-br from-blue-50 to-purple-50 dark:from-gray-700/50 dark:to-gray-700/30 rounded-lg border border-blue-200 dark:border-gray-600"
                       >
-                        <span className="text-sm font-medium text-gray-900 dark:text-white text-center">
+                        <span className="text-sm font-medium text-foreground text-center">
                           {typeof tech === 'string' ? tech : tech.name}
                         </span>
                       </div>

@@ -79,7 +79,7 @@ export function HeroSection() {
               </motion.div>
 
               <motion.div
-                className="absolute -bottom-4 -left-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-full shadow-lg font-semibold text-sm border border-gray-200 dark:border-gray-700"
+                className="absolute -bottom-4 -left-4 bg-white dark:bg-gray-800 text-foreground px-6 py-3 rounded-full shadow-lg font-semibold text-sm border border-gray-200 dark:border-gray-700"
                 animate={shouldReduceMotion ? {} : { y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
               >
@@ -192,7 +192,7 @@ export function HeroSection() {
               animate={shouldReduceMotion ? {} : { opacity: 1 }}
               transition={{ delay: 0.7 }}
             >
-              <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">Connect:</span>
+              <span className="text-sm text-muted-foreground font-medium">Connect:</span>
               {socialLinks.map((social, index) => {
                 const Icon = iconMap[social.icon as keyof typeof iconMap];
                 return (

@@ -69,10 +69,10 @@ export function CertificatesSection() {
               <Card.Title className="text-lg mb-2 line-clamp-2 min-h-14 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                 {certificate.title}
               </Card.Title>
-              <Card.Description className="text-sm font-medium mb-1">
+              <Card.Description className="text-sm font-medium mb-1 text-foreground">
                 {certificate.issuer}
               </Card.Description>
-              <p className="text-xs text-gray-500 dark:text-gray-500">
+              <p className="text-xs text-muted-foreground">
                 {certificate.date}
               </p>
             </Card.Footer>
@@ -97,15 +97,15 @@ export function CertificatesSection() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                className="bg-card dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
             >
-              <div className="sticky top-0 bg-white dark:bg-gray-800 border-b dark:border-gray-700 p-6 flex items-center justify-between z-10">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <div className="sticky top-0 bg-card dark:bg-gray-800 border-b dark:border-gray-700 p-6 flex items-center justify-between z-10">
+                <h2 className="text-2xl font-bold text-foreground">
                   {selectedCertificate.title}
                 </h2>
                 <button
                   onClick={() => setSelectedCertificate(null)}
-                  className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 text-foreground flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
                   aria-label="Close certificate details"
                   ref={(el) => { if (el) { el.focus(); } }}
                 >
@@ -114,27 +114,27 @@ export function CertificatesSection() {
               </div>
 
               <div className="p-6 space-y-6" ref={modalRef} tabIndex={-1}>
-                <div className="flex items-center space-x-4 p-4 bg-linear-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-xl">
+                  <div className="flex items-center space-x-4 p-4 bg-linear-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-xl">
                   <div className="w-16 h-16 rounded-full bg-linear-to-br from-green-500 to-blue-600 flex items-center justify-center">
                     <Award className="w-8 h-8 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                    <h3 className="text-lg font-semibold text-foreground">
                       {selectedCertificate.issuer}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-muted-foreground">
                       Issued: {selectedCertificate.date}
                     </p>
                   </div>
                 </div>
 
                 {selectedCertificate.imageUrl ? (
-                  <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden border-4 border-gray-200 dark:border-gray-700 shadow-2xl">
+                    <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden border-4 border-gray-200 dark:border-gray-700 shadow-2xl">
                     <Image
                       src={selectedCertificate.imageUrl}
                       alt={selectedCertificate.title}
                       fill
-                      className="object-contain bg-white"
+                      className="object-contain bg-card"
                     />
                   </div>
                 ) : (

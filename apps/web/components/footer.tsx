@@ -13,15 +13,15 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-100 dark:bg-gray-900 border-t dark:border-gray-800">
+    <footer className="bg-white/70 dark:bg-gray-900 border-t dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-white">
+            <h3 className="text-lg font-bold mb-4 text-foreground">
               Robert Nicolae Floria
             </h3>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-muted-foreground">
               Full-Stack Software Developer specializing in modern web technologies.
               Building scalable and maintainable applications.
             </p>
@@ -29,7 +29,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-white">
+            <h3 className="text-lg font-bold mb-4 text-foreground">
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -37,7 +37,7 @@ export function Footer() {
                 <li key={link}>
                   <a
                     href={`#${link.toLowerCase()}`}
-                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className="text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     {link}
                   </a>
@@ -48,7 +48,7 @@ export function Footer() {
 
           {/* Social Links */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-white">
+            <h3 className="text-lg font-bold mb-4 text-foreground">
               Connect With Me
             </h3>
             <div className="flex space-x-4">
@@ -72,7 +72,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t dark:border-gray-800 text-center text-gray-600 dark:text-gray-400">
+        <div className="mt-8 pt-8 border-t dark:border-gray-800 text-center text-muted-foreground">
           <p>
             © {currentYear} Robert Nicolae Floria. All rights reserved.
           </p>
