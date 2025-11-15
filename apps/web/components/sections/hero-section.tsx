@@ -235,19 +235,19 @@ export function HeroSection() {
               animationDelay={1 + index * 0.1}
               className="group"
             >
-              <Card.Content className="flex flex-col">
+              <Card.Content className="flex gap-4">
                 <IconBadge
                   icon={item.icon}
                   variant="solid"
                   size="md"
-                  className="mb-4 group-hover:scale-110 transition-transform"
+                  className="group-hover:scale-110 transition-transform flex-shrink-0"
                 />
-                <Text variant="small" className="mb-1 uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                  {item.label}
-                </Text>
-                <Text variant="body" className="font-semibold line-clamp-2">
-                  {item.value}
-                </Text>
+                <div>
+                  <Card.Header className="text-lg font-semibold">{item.label}</Card.Header>
+                  <Card.Description>
+                    {item.value}
+                  </Card.Description>
+                </div>
               </Card.Content>
             </Card>
           ))}

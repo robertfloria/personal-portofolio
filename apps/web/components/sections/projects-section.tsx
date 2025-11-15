@@ -34,7 +34,7 @@ export function ProjectsSection() {
             animationDelay={index * 0.1}
             hover="lift"
             padding="none"
-            className="overflow-hidden cursor-pointer"
+            className="overflow-hidden cursor-pointer group"
             onClick={() => setSelectedProject(project)}
           >
             <div className="relative h-56 bg-linear-to-br from-blue-500 to-purple-600 overflow-hidden">

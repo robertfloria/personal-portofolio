@@ -4,10 +4,10 @@ import React from 'react';
 import { Code2, Smartphone, Brain, Rocket, Server, Users } from 'lucide-react';
 import { services, personalInfo } from '@/lib/data';
 import { useReducedMotion } from '@/hooks';
-import { 
+import {
   Section,
   Card,
-  IconBadge 
+  IconBadge
 } from '@/components/common';
 
 const iconMap = {
@@ -43,23 +43,27 @@ export function AboutSection() {
               padding="lg"
               animated={!shouldReduceMotion}
               animationDelay={index * 0.2}
+              className="group"
             >
-              <Card.Content className="space-y-4">
+              <Card.Content className="flex gap-4">
                 <IconBadge
                   icon={Icon}
                   variant="gradient"
                   size="lg"
                   iconSize={32}
-                  hover="scale"
+                  // hover="scale"
+                  className="group-hover:scale-110 transition-transform flex-shrink-0"
                 />
-                
-                <Card.Title className="text-2xl group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  {service.title}
-                </Card.Title>
-                
-                <Card.Description className="leading-relaxed">
-                  {service.description}
-                </Card.Description>
+
+                <div>
+                  <Card.Title className="text-2xl group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {service.title}
+                  </Card.Title>
+
+                  <Card.Description className="leading-relaxed">
+                    {service.description}
+                  </Card.Description>
+                </div>
               </Card.Content>
             </Card>
           );

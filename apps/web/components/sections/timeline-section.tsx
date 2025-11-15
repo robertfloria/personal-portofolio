@@ -4,7 +4,7 @@ import React from 'react';
 import { GraduationCap, Briefcase, Award } from 'lucide-react';
 import { timeline } from '@/lib/data';
 import { useReducedMotion } from '@/hooks';
-import { Section, Card, Heading, Text, Badge } from '@/components/common';
+import { Section, Card, Text, Badge } from '@/components/common';
 
 const typeIcons = {
   education: GraduationCap,
@@ -54,7 +54,7 @@ export function TimelineSection() {
                     animationDelay={index * 0.1}
                     hover="glow"
                     padding="md"
-                    className="ml-20 border-2"
+                    className="ml-20 border-2 group"
                   >
                     {/* Content */}
                     <Card.Content>

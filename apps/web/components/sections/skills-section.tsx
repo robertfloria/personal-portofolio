@@ -49,6 +49,7 @@ export function SkillsSection() {
                   animationDelay={index * 0.05}
                   hover="glow"
                   padding="md"
+                  className='group'
                 >
                   <Card.Content>
                     <div className="flex items-center gap-4 mb-4">

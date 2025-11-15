@@ -33,7 +33,7 @@ export function CertificatesSection() {
             animationDelay={index * 0.05}
             hover="lift"
             padding="none"
-            className="overflow-hidden cursor-pointer"
+            className="overflow-hidden cursor-pointer group"
             onClick={() => setSelectedCertificate(certificate)}
           >
             <Card.Content className="p-0">
