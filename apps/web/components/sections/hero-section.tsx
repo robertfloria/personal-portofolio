@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, MapPin, Calendar, Phone, GraduationCap, Briefcase, Download } from 'lucide-react';
 import { personalInfo, socialLinks } from '@/lib/data';
 import { Button, Card, Heading, Text, IconBadge, Section } from '@/components/common';
+import { SocialButton } from '@/components/common/social-button';
 import { useReducedMotion } from '@/hooks';
 
 const iconMap = {
@@ -195,19 +196,22 @@ export function HeroSection() {
               {socialLinks.map((social, index) => {
                 const Icon = iconMap[social.icon as keyof typeof iconMap];
                 return (
-                  <motion.a
+                  <motion.div
                     key={social.platform}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-300 border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-linear-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent transition-all transform hover:-translate-y-1 hover:shadow-lg"
-                    aria-label={social.platform}
                     initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0 }}
                     animate={shouldReduceMotion ? {} : { opacity: 1, scale: 1 }}
                     transition={{ delay: 0.8 + index * 0.1 }}
                   >
-                    <Icon size={20} />
-                  </motion.a>
+                    <SocialButton
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.platform}
+                      icon={Icon}
+                      size={20}
+                      className="w-12 h-12"
+                    />
+                  </motion.div>
                 );
               })}
             </motion.div>
