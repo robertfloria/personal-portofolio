@@ -3,8 +3,8 @@
 import React, { useEffect } from 'react';
 import { CheckCircle, XCircle, AlertCircle, Info, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useAppSelector, useAppDispatch } from '@/store';
-import { removeNotification, type Notification, type NotificationType } from '@/store/slices/notification.slice';
+import { useNotifications, type NotificationItem } from '@/components/contexts/notification-context';
+import { type NotificationType } from '@/components/contexts/notification-context';
 
 const toastConfig = {
   success: {
@@ -93,11 +93,10 @@ Toast.displayName = 'Toast';
 
 // Toast Container Component
 export const ToastContainer: React.FC = () => {
-  const notifications = useAppSelector((state) => state.notification.notifications);
-  const dispatch = useAppDispatch();
+  const { notifications, removeNotification } = useNotifications();
 
   const handleClose = (id: string) => {
-    dispatch(removeNotification(id));
+    removeNotification(id);
   };
 
   if (notifications.length === 0) {
@@ -111,7 +110,7 @@ export const ToastContainer: React.FC = () => {
       aria-atomic="true"
     >
       <div className="flex flex-col gap-3 pointer-events-auto">
-        {notifications.map((notification: Notification) => (
+        {notifications.map((notification: NotificationItem) => (
           <Toast
             key={notification.id}
             id={notification.id}

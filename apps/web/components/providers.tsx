@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Provider } from 'react-redux';
+import { UIProvider } from './contexts/ui-context';
+import { NotificationProvider } from './contexts/notification-context';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { store } from '@/store';
+
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,10 +22,12 @@ interface ProvidersProps {
 
 export function Providers({ children }: ProvidersProps) {
   return (
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        {children}
-      </QueryClientProvider>
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <UIProvider>
+        <NotificationProvider>
+          {children}
+        </NotificationProvider>
+      </UIProvider>
+    </QueryClientProvider>
   );
 }

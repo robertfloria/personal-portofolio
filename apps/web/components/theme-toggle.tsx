@@ -3,12 +3,11 @@
 import * as React from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { useAppDispatch } from '@/store';
-import { setTheme as setReduxTheme } from '@/store/slices/ui.slice';
+import { useUI } from './contexts/ui-context';
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
-  const dispatch = useAppDispatch();
+  const { setTheme: setUITheme } = useUI();
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -18,7 +17,7 @@ export function ThemeToggle() {
   const handleThemeToggle = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
-    dispatch(setReduxTheme(newTheme as 'light' | 'dark'));
+    setUITheme(newTheme as 'light' | 'dark');
   };
 
   if (!mounted) {

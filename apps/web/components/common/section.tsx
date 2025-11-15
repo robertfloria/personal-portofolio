@@ -46,7 +46,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
           <Heading variant="h2" className="mb-4">
             {title}{' '}
             {highlightText && (
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 {highlightText}
               </span>
             )}
@@ -111,7 +111,7 @@ const SectionTitle = React.forwardRef<HTMLDivElement, SectionTitleProps>(
       <Heading variant="h2" className={cn('mb-4', className)}>
         {children}{' '}
         {highlightText && (
-          <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             {highlightText}
           </span>
         )}

@@ -12,15 +12,19 @@ export const httpClient = axios.create({
   },
 });
 
+// Manage auth token centrally (client-only)
+export function setAuthToken(token: string | null) {
+  if (token) {
+    httpClient.defaults.headers.common.Authorization = `Bearer ${token}`;
+  } else {
+    delete httpClient.defaults.headers.common.Authorization;
+  }
+}
+
 // Request interceptor
 httpClient.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    // Add auth token if available
-    const token = typeof window !== 'undefined' ? localStorage.getItem('authToken') : null;
-    if (token && config.headers) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-
+    // Authentication header should be set via `setAuthToken` on the client.
     // Log request in development
     if (process.env.NODE_ENV === 'development') {
       console.log(`[HTTP Request] ${config.method?.toUpperCase()} ${config.url}`, {

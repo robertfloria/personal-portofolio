@@ -33,7 +33,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 - 🎨 **Dark Mode** with system preference detection
 - 📱 **Fully Responsive** design
 - ♿ **Accessible** with ARIA labels and reduced motion support
-- 🔔 **Toast Notifications** for user feedback (Redux-based)
+  - 🔔 **Toast Notifications** for user feedback (Context-based)
 - ⚡ **Optimized Performance** with React Query caching
 
 ### Sections
@@ -60,7 +60,7 @@ See [ARCHITECTURE.md](./ARCHITECTURE.md) for detailed documentation.
 - **Component Composition**: Atomic design with reusable components
 - **Custom Hooks**: Encapsulated logic for reusability
 - **Service Layer**: Clean API abstraction
-- **State Management**: Redux for global state, React Query for server state
+- **State Management**: React Context for lightweight UI state, React Query for server state
 - **Type Safety**: Full TypeScript coverage
 
 ## 📦 Tech Stack
@@ -71,8 +71,9 @@ See [ARCHITECTURE.md](./ARCHITECTURE.md) for detailed documentation.
 - **Tailwind CSS** - Utility-first styling
 - **Framer Motion** - Animations
 
-### State Management
-- **Redux Toolkit** - Global state (UI, notifications)
+-### State Management
+- **React Context** - Lightweight UI state (theme, menus, notifications)
+- **React Query** - Server state and caching
 - **React Query** - Server state and caching
 
 ### Form & Validation
@@ -94,7 +95,7 @@ apps/web/
 │   └── sections/    # Page sections
 ├── hooks/           # Custom React hooks
 ├── services/        # API services
-├── store/           # Redux store and slices
+├── (no store/)      # UI state managed via React Context; Redux removed
 ├── lib/             # Utilities and helpers
 ├── types/           # TypeScript definitions
 └── public/          # Static assets
@@ -105,17 +106,11 @@ apps/web/
 ### Toast Notifications
 
 ```typescript
-import { useAppDispatch } from '@/store';
-import { addNotification } from '@/store/slices/notification.slice';
+import { useNotifications } from '@/components/contexts/notification-context';
 
-const dispatch = useAppDispatch();
+const { addNotification } = useNotifications();
 
-// Success notification
-dispatch(addNotification({
-  type: 'success',
-  message: 'Operation completed!',
-  duration: 5000
-}));
+addNotification({ type: 'success', message: 'Operation completed!', duration: 5000 });
 ```
 
 ### Custom Hooks

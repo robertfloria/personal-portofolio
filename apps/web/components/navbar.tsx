@@ -4,8 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from './theme-toggle';
-import { useAppSelector, useAppDispatch } from '@/store';
-import { toggleMobileMenu, setMobileMenuOpen } from '@/store/slices/ui.slice';
+import { useUI } from './contexts/ui-context';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -19,8 +18,7 @@ const navItems = [
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const dispatch = useAppDispatch();
-  const isMobileMenuOpen = useAppSelector((state) => state.ui.mobileMenuOpen);
+  const { mobileMenuOpen: isMobileMenuOpen, setMobileMenuOpen, toggleMobileMenu } = useUI();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,7 +33,7 @@ export function Navbar() {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      dispatch(setMobileMenuOpen(false));
+      setMobileMenuOpen(false);
     }
   };
 
@@ -50,14 +48,14 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="shrink-0">
             <Link
               href="#home"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection('#home');
               }}
-              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              className="text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
             >
               Robert
             </Link>
@@ -85,8 +83,9 @@ export function Navbar() {
           <div className="md:hidden flex items-center space-x-4">
             <ThemeToggle />
             <button
-              onClick={() => dispatch(toggleMobileMenu())}
+              onClick={toggleMobileMenu}
               className="text-gray-900 dark:text-gray-300"
+              aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

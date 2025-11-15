@@ -18,7 +18,7 @@ const badgeVariants = cva(
         danger:
           'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300',
         gradient:
-          'bg-gradient-to-r from-blue-600 to-purple-600 text-white',
+          'bg-linear-to-r from-blue-600 to-purple-600 text-white',
         outline:
           'border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300',
       },

@@ -9,7 +9,7 @@ const iconBadgeVariants = cva(
     variants: {
       variant: {
         gradient:
-          'bg-gradient-to-br from-blue-500 to-purple-600 text-white',
+          'bg-linear-to-br from-blue-500 to-purple-600 text-white',
         solid: 'bg-blue-600 text-white',
         outline:
           'border-2 border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400',

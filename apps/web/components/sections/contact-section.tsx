@@ -169,11 +169,11 @@ export function ContactSection() {
                   <Component
                     key={method.label}
                     {...props}
-                    className={`flex flex-col items-center p-6 rounded-xl bg-gradient-to-br ${method.gradient} border ${method.border} ${
+                    className={`flex flex-col items-center p-6 rounded-xl bg-linear-to-br ${method.gradient} border ${method.border} ${
                       isLink ? 'hover:shadow-lg hover:-translate-y-1 transition-all' : ''
                     } group`}
                   >
-                    <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${method.iconGradient} flex items-center justify-center mb-3 ${
+                    <div className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center mb-3 ${
                       isLink ? 'group-hover:scale-110 transition-transform' : ''
                     }`}>
                       <Icon className="w-6 h-6 text-white" />
