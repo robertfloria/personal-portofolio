@@ -1,16 +1,21 @@
-'use client';
+"use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, Github } from 'lucide-react';
 import { projects } from '@/lib/data';
 import { Project } from '@/types';
 import { useReducedMotion } from '@/hooks';
 import { Section, SectionHeader, Card, Badge, Button } from '@/components/common';
+import { useRef } from 'react';
+import { useFocusTrap } from '@/hooks/use-focus-trap';
 
 export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const shouldReduceMotion = useReducedMotion();
+  const modalRef = useRef<HTMLDivElement | null>(null);
+  useFocusTrap(modalRef, Boolean(selectedProject), () => setSelectedProject(null));
 
   return (
     <Section id="projects">
@@ -35,10 +40,12 @@ export function ProjectsSection() {
             <div className="relative h-56 bg-linear-to-br from-blue-500 to-purple-600 overflow-hidden">
               {project.imageUrl ? (
                 <>
-                  <img
+                  <Image
                     src={project.imageUrl}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
                 </>
@@ -100,14 +107,19 @@ export function ProjectsSection() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedProject(null)}
+            role="dialog"
+            aria-modal="true"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                onClick={(e) => e.stopPropagation()}
+                className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                ref={modalRef}
+                tabIndex={-1}
             >
+              
               <div className="sticky top-0 bg-white dark:bg-gray-800 border-b dark:border-gray-700 p-6 flex items-center justify-between z-10">
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                   {selectedProject.title}
@@ -115,6 +127,8 @@ export function ProjectsSection() {
                 <button
                   onClick={() => setSelectedProject(null)}
                   className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  aria-label="Close project details"
+                  ref={(el) => { if (el) { el.focus(); } }}
                 >
                   <X size={20} />
                 </button>
@@ -125,10 +139,11 @@ export function ProjectsSection() {
                   <div className="grid grid-cols-2 gap-4">
                     {selectedProject.images.slice(0, 4).map((img, idx) => (
                       <div key={idx} className="relative h-48 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700">
-                        <img
+                        <Image
                           src={img}
                           alt={`${selectedProject.title} screenshot ${idx + 1}`}
-                          className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                          fill
+                          className="object-cover hover:scale-110 transition-transform duration-300"
                         />
                       </div>
                     ))}

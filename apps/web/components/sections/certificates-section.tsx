@@ -1,6 +1,8 @@
-'use client';
+"use client";
 
 import React, { useState } from 'react';
+import { useFocusTrap } from '@/hooks/use-focus-trap';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, Award } from 'lucide-react';
 import { certificates } from '@/lib/data';
@@ -11,6 +13,8 @@ import { Section, Card, Badge } from '@/components/common';
 export function CertificatesSection() {
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
   const shouldReduceMotion = useReducedMotion();
+  const modalRef = React.useRef<HTMLDivElement | null>(null);
+  useFocusTrap(modalRef as any, Boolean(selectedCertificate), () => setSelectedCertificate(null));
 
   return (
     <Section id="certificates">
@@ -34,12 +38,13 @@ export function CertificatesSection() {
           >
             <Card.Content className="p-0">
               <div className="relative h-56 bg-linear-to-br from-green-500 via-blue-600 to-purple-600 overflow-hidden">
-              {certificate.imageUrl ? (
+                  {certificate.imageUrl ? (
                 <>
-                  <img
+                  <Image
                     src={certificate.imageUrl}
                     alt={certificate.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
                 </>
@@ -84,6 +89,8 @@ export function CertificatesSection() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedCertificate(null)}
+            role="dialog"
+            aria-modal="true"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -99,12 +106,14 @@ export function CertificatesSection() {
                 <button
                   onClick={() => setSelectedCertificate(null)}
                   className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  aria-label="Close certificate details"
+                  ref={(el) => { if (el) { el.focus(); } }}
                 >
                   <X size={20} />
                 </button>
               </div>
 
-              <div className="p-6 space-y-6">
+              <div className="p-6 space-y-6" ref={modalRef} tabIndex={-1}>
                 <div className="flex items-center space-x-4 p-4 bg-linear-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-xl">
                   <div className="w-16 h-16 rounded-full bg-linear-to-br from-green-500 to-blue-600 flex items-center justify-center">
                     <Award className="w-8 h-8 text-white" />
@@ -121,10 +130,11 @@ export function CertificatesSection() {
 
                 {selectedCertificate.imageUrl ? (
                   <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden border-4 border-gray-200 dark:border-gray-700 shadow-2xl">
-                    <img
+                    <Image
                       src={selectedCertificate.imageUrl}
                       alt={selectedCertificate.title}
-                      className="w-full h-full object-contain bg-white"
+                      fill
+                      className="object-contain bg-white"
                     />
                   </div>
                 ) : (

@@ -1,5 +1,6 @@
-'use client';
+"use client";
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, MapPin, Calendar, Phone, GraduationCap, Briefcase } from 'lucide-react';
 import { personalInfo, socialLinks } from '@/lib/data';
@@ -58,10 +59,12 @@ export function HeroSection() {
               
               {/* Profile image container with glassmorphism */}
               <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-white/20 dark:border-gray-800/20 backdrop-blur-sm bg-white/10 dark:bg-gray-800/10 shadow-2xl">
-                <img
+                <Image
                   src={personalInfo.profileImage}
                   alt={personalInfo.name}
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 24rem, (max-width: 1024px) 24rem, 28rem"
+                  className="object-cover"
                 />
               </div>
 

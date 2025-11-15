@@ -20,6 +20,23 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { mobileMenuOpen: isMobileMenuOpen, setMobileMenuOpen, toggleMobileMenu } = useUI();
 
+  // focus first link when mobile menu opens
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      const firstLink = document.querySelector('#mobile-menu a');
+      if (firstLink instanceof HTMLElement) firstLink.focus();
+    }
+  }, [isMobileMenuOpen]);
+
+  // close on Escape
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMobileMenuOpen) setMobileMenuOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isMobileMenuOpen, setMobileMenuOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -86,6 +103,8 @@ export function Navbar() {
               onClick={toggleMobileMenu}
               className="text-gray-900 dark:text-gray-300"
               aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -95,7 +114,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 border-t dark:border-gray-800">
+        <div id="mobile-menu" className="md:hidden bg-white dark:bg-gray-900 border-t dark:border-gray-800">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
               <a

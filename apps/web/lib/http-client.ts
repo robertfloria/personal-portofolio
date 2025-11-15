@@ -57,10 +57,14 @@ httpClient.interceptors.response.use(
       const message = (error.response.data as any)?.message || error.message;
 
       if (status === 401) {
-        // Unauthorized - clear auth and redirect to login
-        if (typeof window !== 'undefined') {
-          localStorage.removeItem('authToken');
-          // You can dispatch a logout action here
+        // Unauthorized - clear auth. Use central helper to remove Authorization header.
+        try {
+          // safe to call on client only
+          if (typeof window !== 'undefined') {
+            setAuthToken(null);
+          }
+        } catch (e) {
+          // noop
         }
       } else if (status === 403) {
         console.error('[HTTP Error] Forbidden:', message);
