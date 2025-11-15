@@ -8,12 +8,12 @@ const cardVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700',
+        default: 
+          'bg-card dark:bg-gray-800 border-gray-200 dark:border-gray-700 semantic-default',
         gradient:
-          'bg-linear-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border-blue-200 dark:border-blue-800',
+          'bg-linear-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border-blue-200 dark:border-blue-800 semantic-gradient',
         glass:
-          'bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50',
+          'bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50 semantic-glass',
       },
       hover: {
         lift: 'hover:shadow-xl hover:-translate-y-2',
@@ -107,7 +107,7 @@ const CardTitle = React.forwardRef<
   <h3
     ref={ref}
     className={cn(
-      'text-2xl font-bold text-gray-900 dark:text-white',
+      'text-2xl font-bold text-foreground',
       className
     )}
     {...props}
@@ -121,7 +121,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn('text-gray-600 dark:text-gray-400', className)}
+    className={cn('text-muted-foreground', className)}
     {...props}
   />
 ));

@@ -59,7 +59,7 @@ export function HeroSection() {
               )}
               
               {/* Profile image container with glassmorphism */}
-              <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-white/20 dark:border-gray-800/20 backdrop-blur-sm bg-white/10 dark:bg-gray-800/10 shadow-2xl">
+              <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-white/20 dark:border-gray-800/20 backdrop-blur-sm bg-card/10 dark:bg-gray-800/10 shadow-2xl">
                 <Image
                   src={personalInfo.profileImage}
                   alt={personalInfo.name}
@@ -79,7 +79,7 @@ export function HeroSection() {
               </motion.div>
 
               <motion.div
-                className="absolute -bottom-4 -left-4 bg-white dark:bg-gray-800 text-foreground px-6 py-3 rounded-full shadow-lg font-semibold text-sm border border-gray-200 dark:border-gray-700"
+                className="absolute -bottom-4 -left-4 bg-card/90 text-foreground px-6 py-3 rounded-full shadow-lg font-semibold text-sm border border-gray-200 dark:border-gray-700"
                 animate={shouldReduceMotion ? {} : { y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
               >
@@ -161,7 +161,7 @@ export function HeroSection() {
                   variant="primary"
                   size="lg"
                   leftIcon={<Mail size={20} />}
-                  className="bg-linear-to-r from-blue-600 to-purple-600 hover:shadow-xl hover:shadow-blue-500/50"
+                    className="bg-linear-to-r from-blue-600 to-purple-600 hover:shadow-xl hover:shadow-blue-500/50"
                 >
                   Get In Touch
                 </Button>

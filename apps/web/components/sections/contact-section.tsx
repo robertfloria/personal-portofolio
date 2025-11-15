@@ -155,7 +155,7 @@ export function ContactSection() {
           </form>
 
           <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg font-semibold mb-6 text-gray-900 dark:text-white text-center">
+            <h3 className="text-lg font-semibold mb-6 text-foreground text-center">
               Other Ways to Reach Me
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -177,10 +177,10 @@ export function ContactSection() {
                         >
                           <Icon className="w-6 h-6 text-white" />
                         </div>
-                        <Card.Title className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
+                        <Card.Title className="text-sm font-medium text-muted-foreground mb-1">
                           {method.label}
                         </Card.Title>
-                        <Card.Description className="text-sm font-semibold text-gray-900 dark:text-white text-center break-all">
+                        <Card.Description className="text-sm font-semibold text-foreground text-center break-all">
                           {method.value}
                         </Card.Description>
                       </Card.Content>
@@ -200,10 +200,10 @@ export function ContactSection() {
                       >
                         <Icon className="w-6 h-6 text-white" />
                       </div>
-                      <Card.Title className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
+                      <Card.Title className="text-sm font-medium text-muted-foreground mb-1">
                         {method.label}
                       </Card.Title>
-                      <Card.Description className="text-sm font-semibold text-gray-900 dark:text-white text-center break-all">
+                      <Card.Description className="text-sm font-semibold text-foreground text-center break-all">
                         {method.value}
                       </Card.Description>
                     </Card.Content>

@@ -14,7 +14,7 @@ const headingVariants = cva('font-bold', {
     },
     gradient: {
       true: 'bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent',
-        false: 'text-foreground',
+      false: 'text-foreground',
     },
   },
   defaultVariants: {

@@ -59,7 +59,7 @@ export function TimelineSection() {
                     {/* Content */}
                     <Card.Content>
                     <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                      <Card.Title className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      <Card.Title className="group-hover:text-blue-600 transition-colors">
                         {item.title}
                       </Card.Title>
                       <div className="flex items-center gap-2">

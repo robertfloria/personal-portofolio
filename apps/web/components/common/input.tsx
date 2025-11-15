@@ -7,17 +7,9 @@ const inputVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
-        error:
-          'border-red-500 dark:border-red-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-red-500',
+        default: 'border-gray-300 dark:border-gray-600 bg-card dark:bg-gray-700 text-foreground',
+        error: 'border-red-500 dark:border-red-500 bg-card dark:bg-gray-700 text-foreground focus:ring-red-500',
       },
-      inputSize: {
-        sm: 'px-3 py-2 text-sm',
-        md: 'px-4 py-3 text-base',
-        lg: 'px-5 py-4 text-lg',
-      },
-    },
     defaultVariants: {
       variant: 'default',
       inputSize: 'md',
@@ -57,14 +49,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            className="block text-sm font-medium text-muted-foreground mb-2"
           >
             {label}
           </label>
         )}
         <div className="relative">
           {leftIcon && (
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
               {leftIcon}
             </div>
           )}
@@ -83,7 +75,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {...props}
           />
           {rightIcon && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400">
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">
               {rightIcon}
             </div>
           )}
@@ -114,7 +106,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         {label && (
           <label
             htmlFor={textareaId}
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            className="block text-sm font-medium text-muted-foreground mb-2"
           >
             {label}
           </label>
@@ -126,7 +118,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             hasError
               ? 'border-red-500 dark:border-red-500 focus:ring-red-500'
               : 'border-gray-300 dark:border-gray-600',
-            'bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
+            'bg-card dark:bg-gray-700 text-foreground',
             className
           )}
           ref={ref}

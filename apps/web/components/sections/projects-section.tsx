@@ -51,13 +51,13 @@ export function ProjectsSection() {
                 </>
               ) : (
                 <div className="flex items-center justify-center h-full">
-                  <div className="text-white text-6xl font-bold opacity-20">
+                  <div className="text-foreground text-6xl font-bold opacity-20">
                     {project.id}
                   </div>
                 </div>
               )}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="text-white font-semibold text-lg">View Details →</span>
+                <span className="text-foreground font-semibold text-lg">View Details →</span>
               </div>
               {project.featured && (
                 <Badge variant="gradient" size="sm" className="absolute top-4 right-4">
@@ -66,8 +66,8 @@ export function ProjectsSection() {
               )}
             </div>
 
-            <Card.Footer className="flex-col items-start p-6">
-              <Card.Title className="text-xl mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <Card.Footer className="flex-col items-start p-6">
+              <Card.Title className="text-xl mb-2 group-hover:text-blue-600 transition-colors">
                 {project.title}
               </Card.Title>
               {project.description && (
@@ -138,7 +138,7 @@ export function ProjectsSection() {
                 {selectedProject.images && selectedProject.images.length > 0 && (
                   <div className="grid grid-cols-2 gap-4">
                     {selectedProject.images.slice(0, 4).map((img, idx) => (
-                      <div key={idx} className="relative h-48 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700">
+                      <div key={idx} className="relative h-48 rounded-lg overflow-hidden bg-card/90">
                         <Image
                           src={img}
                           alt={`${selectedProject.title} screenshot ${idx + 1}`}
@@ -183,7 +183,7 @@ export function ProjectsSection() {
                   <h3 className="text-lg font-semibold mb-4 text-foreground">
                     Technologies Used
                   </h3>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                     {selectedProject.technologies.map((tech, idx) => (
                       <div
                         key={idx}
@@ -204,7 +204,7 @@ export function ProjectsSection() {
                         href={selectedProject.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center space-x-2 px-6 py-3 bg-gray-900 dark:bg-gray-700 text-white rounded-xl hover:bg-gray-800 dark:hover:bg-gray-600 transition-all hover:shadow-lg hover:-translate-y-0.5 font-semibold"
+                        className="flex items-center space-x-2 px-6 py-3 bg-card/90 text-foreground rounded-xl hover:bg-card/80 transition-all hover:shadow-lg hover:-translate-y-0.5 font-semibold"
                       >
                         <Github size={20} />
                         <span>View Code</span>

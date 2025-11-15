@@ -10,8 +10,8 @@ export function SocialButton({ icon: Icon, size = 20, variant = 'default', class
   const base = 'inline-flex items-center justify-center rounded-full transition-colors';
 
   const variants: Record<string, string> = {
-    default: 'bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-300 hover:bg-blue-600 hover:text-white',
-    ghost: 'bg-transparent text-gray-700 dark:text-gray-300 hover:text-blue-600',
+    default: 'bg-card dark:bg-gray-800 text-foreground dark:text-muted-foreground hover:bg-blue-600 hover:text-white',
+    ghost: 'bg-transparent text-muted-foreground hover:text-blue-600',
     brand: 'bg-linear-to-r from-blue-600 to-purple-600 text-white hover:opacity-90',
   };
 

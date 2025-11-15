@@ -50,17 +50,17 @@ export function CertificatesSection() {
                 </>
               ) : (
                 <div className="flex items-center justify-center h-full">
-                  <Award className="w-20 h-20 text-white/30" />
+                  <Award className="w-20 h-20 text-muted-foreground opacity-30" />
                 </div>
               )}
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="text-white font-semibold text-lg flex items-center gap-2">
+                <span className="text-foreground font-semibold text-lg flex items-center gap-2">
                   <Award size={24} />
                   View Certificate
                 </span>
               </div>
-              <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                <Award className="w-6 h-6 text-white" />
+              <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-card/20 backdrop-blur-sm flex items-center justify-center">
+                <Award className="w-6 h-6 text-foreground" />
               </div>
               </div>
             </Card.Content>
@@ -99,13 +99,13 @@ export function CertificatesSection() {
               onClick={(e) => e.stopPropagation()}
                 className="bg-card dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
             >
-              <div className="sticky top-0 bg-card dark:bg-gray-800 border-b dark:border-gray-700 p-6 flex items-center justify-between z-10">
+                <div className="sticky top-0 bg-card dark:bg-gray-800 border-b dark:border-gray-700 p-6 flex items-center justify-between z-10">
                 <h2 className="text-2xl font-bold text-foreground">
                   {selectedCertificate.title}
                 </h2>
                 <button
                   onClick={() => setSelectedCertificate(null)}
-                  className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 text-foreground flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  className="w-10 h-10 rounded-full bg-card text-foreground flex items-center justify-center hover:bg-card/90 transition-colors"
                   aria-label="Close certificate details"
                   ref={(el) => { if (el) { el.focus(); } }}
                 >
@@ -116,7 +116,7 @@ export function CertificatesSection() {
               <div className="p-6 space-y-6" ref={modalRef} tabIndex={-1}>
                   <div className="flex items-center space-x-4 p-4 bg-linear-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-xl">
                   <div className="w-16 h-16 rounded-full bg-linear-to-br from-green-500 to-blue-600 flex items-center justify-center">
-                    <Award className="w-8 h-8 text-white" />
+                    <Award className="w-8 h-8 text-foreground" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-foreground">

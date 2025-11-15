@@ -20,7 +20,7 @@ const badgeVariants = cva(
         gradient:
           'bg-linear-to-r from-blue-600 to-purple-600 text-white',
         outline:
-          'border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300',
+          'border-2 border-gray-300 dark:border-gray-600 text-muted-foreground',
       },
       size: {
         sm: 'px-2 py-1 text-xs',
