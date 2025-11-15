@@ -9,8 +9,8 @@ const iconBadgeVariants = cva(
     variants: {
       variant: {
         gradient:
-          'bg-linear-to-br from-primary to-accent text-primary-foreground',
-        solid: 'bg-primary text-primary-foreground',
+          'bg-linear-to-br from-primary to-accent text-foreground dark:text-primary-foreground',
+        solid: 'bg-primary text-foreground dark:text-primary-foreground',
         outline:
           'border-2 border-border text-muted-foreground',
         light:

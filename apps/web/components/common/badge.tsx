@@ -12,7 +12,7 @@ const badgeVariants = cva(
         secondary:
           'bg-accent/60 dark:bg-accent/30 text-muted-foreground',
         success:
-          'bg-overlay-strong text-muted-foreground',
+          'bg-linear-to-r from-primary to-accent text-primary-foreground',
         warning:
           'bg-overlay text-muted-foreground',
         danger:

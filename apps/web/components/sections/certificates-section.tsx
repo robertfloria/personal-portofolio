@@ -46,7 +46,7 @@ export function CertificatesSection() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-foreground-overlay via-foreground-overlay to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-foreground-overlay-strong via-foreground-overlay-strong to-transparent" />
                 </>
               ) : (
                 <div className="flex items-center justify-center h-full">
@@ -54,7 +54,7 @@ export function CertificatesSection() {
                 </div>
               )}
               <div className="absolute inset-0 bg-overlay opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="text-foreground font-semibold text-lg flex items-center gap-2">
+                <span className="text-foreground dark:text-primary-foreground font-semibold text-lg flex items-center gap-2">
                   <Award size={24} />
                   View Certificate
                 </span>
@@ -138,7 +138,7 @@ export function CertificatesSection() {
                     />
                   </div>
                 ) : (
-                  <div className="bg-linear-to-br from-secondary to-primary rounded-xl p-16 text-center text-primary-foreground">
+                  <div className="bg-linear-to-br from-secondary to-primary rounded-xl p-16 text-center text-foreground dark:text-primary-foreground">
                     <Award className="w-24 h-24 mx-auto mb-4 opacity-50" />
                     <p className="text-2xl font-semibold">{selectedCertificate.title}</p>
                     <p className="text-lg opacity-80 mt-2">{selectedCertificate.issuer}</p>
@@ -151,7 +151,7 @@ export function CertificatesSection() {
                       href={selectedCertificate.credentialUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center space-x-2 px-8 py-4 bg-linear-to-r from-primary to-accent text-primary-foreground rounded-xl hover:shadow-xl transition-all hover:-translate-y-0.5 font-semibold"
+                      className="flex items-center justify-center space-x-2 px-8 py-4 bg-linear-to-r from-primary to-accent text-foreground dark:text-primary-foreground rounded-xl hover:shadow-xl transition-all hover:-translate-y-0.5 font-semibold"
                     >
                       <ExternalLink size={20} />
                       <span>View Credential</span>

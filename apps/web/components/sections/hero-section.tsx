@@ -71,7 +71,7 @@ export function HeroSection() {
 
               {/* Floating badges */}
               <motion.div
-                className="absolute -top-4 -right-4 bg-linear-to-r from-primary to-accent text-primary-foreground px-6 py-3 rounded-full shadow-lg font-semibold text-sm"
+                className="absolute -top-4 -right-4 bg-linear-to-r from-primary to-accent text-foreground dark:text-primary-foreground px-6 py-3 rounded-full shadow-lg font-semibold text-sm"
                 animate={shouldReduceMotion ? {} : { y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 3 }}
               >
@@ -183,6 +183,7 @@ export function HeroSection() {
                   Download CV
                 </Button>
               </a>
+            </motion.div>
             {/* Social Links */}
             <motion.div
               className="flex items-center gap-4"

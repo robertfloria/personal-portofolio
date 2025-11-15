@@ -47,7 +47,7 @@ export function ProjectsSection() {
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-foreground-overlay via-foreground-overlay to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-foreground-overlay-strong via-foreground-overlay-strong to-transparent" />
                 </>
               ) : (
                 <div className="flex items-center justify-center h-full">
@@ -57,7 +57,7 @@ export function ProjectsSection() {
                 </div>
               )}
                 <div className="absolute inset-0 bg-overlay opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="text-foreground font-semibold text-lg">View Details →</span>
+                <span className="text-foreground dark:text-primary-foreground font-semibold text-lg">View Details →</span>
               </div>
               {project.featured && (
                 <Badge variant="gradient" size="sm" className="absolute top-4 right-4">
@@ -169,7 +169,7 @@ export function ProjectsSection() {
                     <ul className="space-y-2">
                       {selectedProject.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-3 text-muted-foreground">
-                          <span className="shrink-0 w-6 h-6 rounded-full bg-linear-to-r from-primary to-accent flex items-center justify-center text-primary-foreground text-xs font-bold mt-0.5">
+                          <span className="shrink-0 w-6 h-6 rounded-full bg-linear-to-r from-primary to-accent flex items-center justify-center text-foreground dark:text-primary-foreground text-xs font-bold mt-0.5">
                             ✓
                           </span>
                           <span>{feature}</span>
@@ -215,7 +215,7 @@ export function ProjectsSection() {
                         href={selectedProject.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center space-x-2 px-6 py-3 bg-linear-to-r from-primary to-accent text-primary-foreground rounded-xl hover:shadow-xl hover:shadow-primary/50 transition-all hover:-translate-y-0.5 font-semibold"
+                        className="flex items-center space-x-2 px-6 py-3 bg-linear-to-r from-primary to-accent text-foreground dark:text-primary-foreground rounded-xl hover:shadow-xl hover:shadow-primary/50 transition-all hover:-translate-y-0.5 font-semibold"
                       >
                         <ExternalLink size={20} />
                         <span>Live Demo</span>

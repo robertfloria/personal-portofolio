@@ -44,9 +44,9 @@ export function TimelineSection() {
               return (
                 <div key={item.id} className="relative">
                   {/* Icon (positioned relative to timeline container) */}
-                  <div className={`absolute left-8 top-4 -translate-x-1/2 w-16 h-16 rounded-full bg-linear-to-br ${colorClass} flex items-center justify-center shadow-lg`}>
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
+                    <div className={`absolute left-8 top-4 -translate-x-1/2 w-16 h-16 rounded-full bg-linear-to-br ${colorClass} flex items-center justify-center shadow-lg`}>
+                          <Icon className="w-8 h-8 text-foreground dark:text-primary-foreground" />
+                        </div>
 
                   {/* Card shifted to the right of the line */}
                   <Card

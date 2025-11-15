@@ -175,7 +175,7 @@ export function ContactSection() {
                         <div
                           className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}
                         >
-                          <Icon className="w-6 h-6 text-white" />
+                          <Icon className="w-6 h-6 text-foreground dark:text-primary-foreground" />
                         </div>
                         <Card.Title className="text-sm font-medium text-muted-foreground mb-1">
                           {method.label}
@@ -198,7 +198,7 @@ export function ContactSection() {
                       <div
                         className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center mb-3`}
                       >
-                        <Icon className="w-6 h-6 text-white" />
+                          <Icon className="w-6 h-6 text-foreground dark:text-primary-foreground" />
                       </div>
                       <Card.Title className="text-sm font-medium text-muted-foreground mb-1">
                         {method.label}

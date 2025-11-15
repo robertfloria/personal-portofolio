@@ -10,6 +10,12 @@ const inputVariants = cva(
         default: 'border-border bg-card dark:bg-card text-foreground',
         error: 'border-destructive bg-card dark:bg-card text-foreground focus:ring-destructive',
       },
+      inputSize: {
+        sm: 'px-3 py-2 text-sm',
+        md: 'px-4 py-3 text-base',
+        lg: 'px-4 py-4 text-lg',
+      },
+    },
     defaultVariants: {
       variant: 'default',
       inputSize: 'md',
