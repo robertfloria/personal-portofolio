@@ -22,7 +22,7 @@ export function ProjectsSection() {
       <Section.Header animated={!shouldReduceMotion}>
         <Section.Title highlightText="Projects">Featured</Section.Title>
         <Section.Subtitle>
-          A selection of projects I've worked on, showcasing different technologies and approaches
+          Built full-stack and mobile applications with a focus on performance, maintainability, and AI integration.
         </Section.Subtitle>
       </Section.Header>
 

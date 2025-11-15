@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, MapPin, Calendar, Phone, GraduationCap, Briefcase } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, Calendar, Phone, GraduationCap, Briefcase, Download } from 'lucide-react';
 import { personalInfo, socialLinks } from '@/lib/data';
 import { Button, Card, Heading, Text, IconBadge, Section } from '@/components/common';
 import { useReducedMotion } from '@/hooks';
@@ -144,7 +144,7 @@ export function HeroSection() {
               transition={{ delay: 0.5 }}
             >
               <Text variant="body" className="mb-8 max-w-2xl">
-                {personalInfo.bio?.split('.')[0]}.
+                {personalInfo.bio}
               </Text>
             </motion.div>
 
@@ -171,6 +171,15 @@ export function HeroSection() {
                   size="lg"
                 >
                   View My Work →
+                </Button>
+              </a>
+              <a href={personalInfo.resumeUrl} download target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  leftIcon={<Download size={18} />}
+                >
+                  Download CV
                 </Button>
               </a>
             </motion.div>

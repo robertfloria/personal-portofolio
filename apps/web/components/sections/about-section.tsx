@@ -25,8 +25,10 @@ export function AboutSection() {
   return (
     <Section id="about">
       <Section.Header animated={!shouldReduceMotion}>
-        <Section.Title highlightText="Offer">What I</Section.Title>
-        <Section.Subtitle>{personalInfo.bio}</Section.Subtitle>
+        <div>
+          <Section.Title highlightText="Offer">What I</Section.Title>
+          <Section.Subtitle>{personalInfo.bio}</Section.Subtitle>
+        </div>
       </Section.Header>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

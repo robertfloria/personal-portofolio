@@ -27,7 +27,7 @@ export function TimelineSection() {
         <Section.Header animated={!shouldReduceMotion}>
           <Section.Title highlightText="Timeline">Professional</Section.Title>
           <Section.Subtitle>
-            My journey through education and professional experience
+            Career milestones and roles where I led frontend efforts, built backend services, and promoted AI adoption.
           </Section.Subtitle>
         </Section.Header>
 

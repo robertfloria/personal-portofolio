@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
+import { personalInfo } from '@/lib/data';
 import { ThemeToggle } from './theme-toggle';
 import { useUI } from './contexts/ui-context';
 
@@ -93,11 +94,30 @@ export function Navbar() {
                 {item.name}
               </a>
             ))}
+            <a
+              href={personalInfo.resumeUrl}
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-3 py-2 border rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              <Download size={16} />
+              <span>Download CV</span>
+            </a>
             <ThemeToggle />
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-4">
+            <a
+              href={personalInfo.resumeUrl}
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-3 py-2 border rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              <Download size={16} />
+            </a>
             <ThemeToggle />
             <button
               onClick={toggleMobileMenu}
