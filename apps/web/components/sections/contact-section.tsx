@@ -159,32 +159,55 @@ export function ContactSection() {
               Other Ways to Reach Me
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {contactMethods.map((method, index) => {
+              {contactMethods.map((method) => {
                 const Icon = method.icon;
                 const isLink = !!method.href;
-                const Component = isLink ? 'a' : 'div';
-                const props = isLink ? { href: method.href } : {};
 
-                return (
-                  <Component
+                return isLink ? (
+                  <a key={method.label} href={method.href} className="block">
+                    <Card
+                      variant="gradient"
+                      padding="lg"
+                      hover="glow"
+                      className={`flex flex-col items-center text-center ${method.gradient} border ${method.border} group`}
+                    >
+                      <Card.Content className="flex flex-col items-center text-center p-0">
+                        <div
+                          className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}
+                        >
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
+                        <Card.Title className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
+                          {method.label}
+                        </Card.Title>
+                        <Card.Description className="text-sm font-semibold text-gray-900 dark:text-white text-center break-all">
+                          {method.value}
+                        </Card.Description>
+                      </Card.Content>
+                    </Card>
+                  </a>
+                ) : (
+                  <Card
                     key={method.label}
-                    {...props}
-                    className={`flex flex-col items-center p-6 rounded-xl bg-linear-to-br ${method.gradient} border ${method.border} ${
-                      isLink ? 'hover:shadow-lg hover:-translate-y-1 transition-all' : ''
-                    } group`}
+                    variant="gradient"
+                    padding="lg"
+                    hover="glow"
+                    className={`flex flex-col items-center text-center ${method.gradient} border ${method.border} group`}
                   >
-                    <div className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center mb-3 ${
-                      isLink ? 'group-hover:scale-110 transition-transform' : ''
-                    }`}>
-                      <Icon className="w-6 h-6 text-white" />
-                    </div>
-                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
-                      {method.label}
-                    </p>
-                    <p className="text-sm font-semibold text-gray-900 dark:text-white text-center break-all">
-                      {method.value}
-                    </p>
-                  </Component>
+                    <Card.Content className="flex flex-col items-center text-center p-0">
+                      <div
+                        className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center mb-3`}
+                      >
+                        <Icon className="w-6 h-6 text-white" />
+                      </div>
+                      <Card.Title className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
+                        {method.label}
+                      </Card.Title>
+                      <Card.Description className="text-sm font-semibold text-gray-900 dark:text-white text-center break-all">
+                        {method.value}
+                      </Card.Description>
+                    </Card.Content>
+                  </Card>
                 );
               })}
             </div>
