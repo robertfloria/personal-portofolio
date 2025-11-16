@@ -244,6 +244,29 @@
     box-shadow: 0 20px 40px -10px hsl(var(--accent) / 0.28);
   }
 
+  /* Hover utilities for border-first glow (no heavy shadows) */
+  .hover\:border-primary:hover {
+    border-color: hsl(var(--primary) / 0.44);
+  }
+
+  .hover\:glow-primary:hover {
+    box-shadow: 0 0 0 6px hsl(var(--primary) / 0.06);
+  }
+
+  /* Gradient color shadow implemented with a blurred ::after pseudo-element */
+  .hover\:gradient-shadow-primary:hover::after {
+    content: "";
+    position: absolute;
+    inset: -14px;
+    background: linear-gradient(45deg, hsl(var(--primary) / 0.18), hsl(var(--accent) / 0.12));
+    filter: blur(16px);
+    opacity: 0.95;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    transition: opacity 220ms ease, filter 220ms ease, transform 220ms ease;
+  }
+
   /* semantic borders/text for destructive states */
   .border-destructive {
     border-color: hsl(var(--destructive) / 1);

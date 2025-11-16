@@ -8,18 +8,14 @@ const cardVariants = cva(
   {
     variants: {
       variant: {
-        default: 
+        default:
           'bg-card dark:bg-card border-border semantic-default',
-        gradient:
-          'glass-zone dark:glass-strong border-border semantic-gradient relative overflow-hidden after:content-["\"] after:absolute after:inset-x-0 after:top-0 after:h-1.5 after:bg-linear-to-r after:from-primary after:to-accent',
-        fullGradient:
-          'bg-linear-to-br border-border semantic-gradient',
         glass:
           'glass-zone dark:glass-strong border-border semantic-glass',
       },
       hover: {
-        lift: 'hover:shadow-xl hover:-translate-y-2',
-        glow: 'hover:shadow-xl hover:shadow-primary-strong hover:shadow-accent-strong',
+        lift: 'hover:-translate-y-1 hover:brightness-105',
+        glow: 'relative overflow-visible hover:brightness-110 hover:border-primary hover:gradient-shadow-primary',
         scale: 'hover:scale-105',
         none: '',
       },
@@ -40,7 +36,7 @@ const cardVariants = cva(
 
 interface CardRootProps
   extends Omit<HTMLMotionProps<'div'>, 'children'>,
-    VariantProps<typeof cardVariants> {
+  VariantProps<typeof cardVariants> {
   animated?: boolean;
   animationDelay?: number;
   children?: React.ReactNode;

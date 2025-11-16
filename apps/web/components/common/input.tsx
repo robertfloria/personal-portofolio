@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { type VariantProps, cva } from 'class-variance-authority';
 
 const inputVariants = cva(
-  'w-full border rounded-lg transition-all outline-none focus:ring-2 focus:ring-primary focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed',
+  'w-full border rounded-xl transition-all outline-none focus:ring-2 focus:ring-primary focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed',
   {
     variants: {
       variant: {
@@ -117,10 +117,10 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             {label}
           </label>
         )}
-        <textarea
+            <textarea
           id={textareaId}
           className={cn(
-            'w-full px-4 py-3 border rounded-lg transition-all outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none disabled:opacity-50 disabled:cursor-not-allowed',
+            'w-full px-4 py-3 border rounded-xl transition-all outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none disabled:opacity-50 disabled:cursor-not-allowed',
             hasError
               ? 'border-destructive dark:border-destructive focus:ring-destructive'
               : 'border-border',

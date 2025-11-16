@@ -161,14 +161,13 @@ export function HeroSection() {
                   variant="primary"
                   size="lg"
                   leftIcon={<Mail size={20} />}
-                  className="bg-linear-to-r from-primary to-accent hover:shadow-xl hover:shadow-primary-strong hover:shadow-accent-strong"
                 >
                   Get In Touch
                 </Button>
               </a>
               <a href="#projects">
                 <Button
-                  variant="outline"
+                  variant='outline'
                   size="lg"
                 >
                   View My Work →
