@@ -227,7 +227,7 @@ export function HeroSection() {
             <Card
               key={item.label}
               variant="glass"
-              hover="lift"
+              hover='glow'
               padding="md"
               animated={!shouldReduceMotion}
               animationDelay={1 + index * 0.1}
