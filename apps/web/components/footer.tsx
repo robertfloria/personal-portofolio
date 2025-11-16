@@ -63,7 +63,7 @@ export function Footer() {
                     aria-label={social.icon}
                     icon={Icon}
                     size={20}
-                    variant="default"
+                    variant="outline"
                     className="w-10 h-10"
                   />
                 );
