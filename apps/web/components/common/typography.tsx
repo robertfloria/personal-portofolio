@@ -5,12 +5,12 @@ import { cn } from '@/lib/utils';
 const headingVariants = cva('font-bold', {
   variants: {
     variant: {
-      h1: 'text-4xl sm:text-5xl lg:text-6xl xl:text-7xl',
-      h2: 'text-4xl sm:text-5xl',
-      h3: 'text-2xl sm:text-3xl',
-      h4: 'text-xl sm:text-2xl',
-      h5: 'text-lg sm:text-xl',
-      h6: 'text-base sm:text-lg',
+      h1: 'text-3xl sm:text-4xl lg:text-5xl xl:text-6xl',
+      h2: 'text-2xl sm:text-3xl lg:text-4xl',
+      h3: 'text-xl sm:text-2xl lg:text-3xl',
+      h4: 'text-lg sm:text-xl',
+      h5: 'text-base sm:text-lg',
+      h6: 'text-sm sm:text-base',
     },
     gradient: {
       true: 'bg-linear-to-r from-primary to-accent bg-clip-text text-transparent',

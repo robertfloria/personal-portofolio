@@ -39,7 +39,7 @@ export function AboutSection() {
             <Card
               key={service.id}
               variant="default"
-              hover="lift"
+              hover="glow"
               padding="lg"
               animated={!shouldReduceMotion}
               animationDelay={index * 0.2}
@@ -51,7 +51,6 @@ export function AboutSection() {
                   variant="gradient"
                   size="lg"
                   iconSize={32}
-                  // hover="scale"
                   className="group-hover:scale-110 transition-transform flex-shrink-0"
                 />
 

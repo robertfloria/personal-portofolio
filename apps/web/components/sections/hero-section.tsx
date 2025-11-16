@@ -28,16 +28,16 @@ export function HeroSection() {
   const imageVariants = shouldReduceMotion
     ? {}
     : {
-        initial: { opacity: 0, scale: 0.8 },
-        animate: { opacity: 1, scale: 1 },
-      };
+      initial: { opacity: 0, scale: 0.8 },
+      animate: { opacity: 1, scale: 1 },
+    };
 
   const textVariants = shouldReduceMotion
     ? {}
     : {
-        initial: { opacity: 0, x: 50 },
-        animate: { opacity: 1, x: 0 },
-      };
+      initial: { opacity: 0, x: 50 },
+      animate: { opacity: 1, x: 0 },
+    };
 
   return (
     <Section id="home" className="min-h-screen flex items-center justify-center">
@@ -57,7 +57,7 @@ export function HeroSection() {
                   <div className="absolute inset-4 rounded-full bg-linear-to-r from-secondary via-primary to-primary animate-pulse opacity-50" />
                 </>
               )}
-              
+
               {/* Profile image container with glassmorphism */}
               <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-border glass-strong shadow-2xl">
                 <Image
@@ -70,20 +70,13 @@ export function HeroSection() {
               </div>
 
               {/* Floating badges */}
-              <motion.div
-                className="absolute -top-4 -right-4 glass-zone bg-linear-to-r from-primary to-accent text-foreground dark:text-primary-foreground px-6 py-3 rounded-full shadow-lg font-semibold text-sm"
-                animate={shouldReduceMotion ? {} : { y: [0, -10, 0] }}
-                transition={{ repeat: Infinity, duration: 3 }}
-              >
-                Available for Hire
-              </motion.div>
 
               <motion.div
                 className="absolute -bottom-4 -left-4 glass-zone text-foreground px-6 py-3 rounded-full shadow-lg font-semibold text-sm border border-border"
                 animate={shouldReduceMotion ? {} : { y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
               >
-                3+ Years Experience
+                Open to new opportunities
               </motion.div>
             </div>
           </motion.div>
@@ -94,8 +87,8 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
             className="order-2 lg:order-2"
           >
-              <motion.div
-                className="inline-block mb-4"
+            <motion.div
+              className="inline-block mb-4"
               initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
               animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -110,7 +103,7 @@ export function HeroSection() {
               animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <Heading variant="h1" className="mb-4">
+              <Heading variant="h2" className="mb-4">
                 {personalInfo.name.split(' ').slice(0, 2).join(' ')}
                 <br />
                 <span className="bg-linear-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
@@ -124,7 +117,7 @@ export function HeroSection() {
               animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <Heading variant="h2" className="mb-4">
+              <Heading variant="h4" className="mb-4">
                 {personalInfo.title}
               </Heading>
             </motion.div>
@@ -134,7 +127,7 @@ export function HeroSection() {
               animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              <Text variant="lead" className="mb-6">
+              <Text variant='lead' className="mb-6">
                 {personalInfo.subtitle}
               </Text>
             </motion.div>
@@ -144,7 +137,7 @@ export function HeroSection() {
               animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <Text variant="body" className="mb-8 max-w-2xl">
+              <Text variant='body' className="mb-8 max-w-2xl">
                 {personalInfo.bio}
               </Text>
             </motion.div>
