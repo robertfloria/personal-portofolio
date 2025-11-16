@@ -166,7 +166,7 @@ export function ContactSection() {
                 return isLink ? (
                   <a key={method.label} href={method.href} className="block">
                     <Card
-                      variant="gradient"
+                      variant="fullGradient"
                       padding="lg"
                       hover="glow"
                       className={`flex flex-col items-center text-center ${method.gradient} border ${method.border} group`}
@@ -190,7 +190,7 @@ export function ContactSection() {
                 ) : (
                   <Card
                     key={method.label}
-                    variant="gradient"
+                    variant="fullGradient"
                     padding="lg"
                     hover="glow"
                     className={`flex flex-col items-center text-center ${method.gradient} border ${method.border} group`}
