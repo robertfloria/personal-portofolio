@@ -3,18 +3,18 @@ import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none',
+  'inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none',
   {
     variants: {
       variant: {
         primary:
-          'bg-linear-to-r from-primary to-accent text-primary-foreground hover:brightness-105 hover:-translate-y-0.5',
+          'bg-linear-to-r from-primary to-accent text-primary-foreground hover:brightness-105 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary-strong hover:shadow-accent-strong',
         secondary:
-          'border-2 border-border text-foreground hover:border-border/80 hover:bg-card/5',
+          'border-2 border-border text-foreground hover:border-border/80 hover:bg-card/5 hover:-translate-y-0.5',
         outline:
-          'border-2 border-border dark:border-card text-foreground hover:bg-card/5 dark:hover:bg-card/80',
+          'border-2 border-border dark:border-card text-foreground hover:bg-card/5 dark:hover:bg-card/80 hover:-translate-y-0.5',
         ghost:
-          'text-foreground hover:bg-card/5 dark:hover:bg-card/80',
+          'text-foreground hover:bg-card/5 dark:hover:bg-card/80 hover:-translate-y-0.5',
         link: 'text-primary dark:text-primary-foreground underline-offset-4 hover:underline',
       },
       size: {

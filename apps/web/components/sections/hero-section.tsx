@@ -208,6 +208,7 @@ export function HeroSection() {
                       icon={Icon}
                       size={20}
                       className="w-12 h-12"
+                      variant='outline'
                     />
                   </motion.div>
                 );

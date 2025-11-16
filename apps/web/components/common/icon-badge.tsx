@@ -4,17 +4,17 @@ import { cn } from '@/lib/utils';
 import { LucideIcon } from 'lucide-react';
 
 const iconBadgeVariants = cva(
-  'flex items-center justify-center rounded-full transition-transform',
+  'flex items-center justify-center rounded-full transition-all',
   {
     variants: {
       variant: {
         gradient:
-          'bg-linear-to-br from-primary to-accent text-foreground dark:text-primary-foreground',
-        solid: 'bg-primary text-foreground dark:text-primary-foreground',
+          'bg-linear-to-br from-primary to-accent text-foreground dark:text-primary-foreground hover:brightness-105 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary-strong hover:shadow-accent-strong',
+        solid: 'bg-primary text-foreground dark:text-primary-foreground hover:brightness-105 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary-strong',
         outline:
-          'border-2 border-border text-muted-foreground',
+          'border-2 border-border text-muted-foreground hover:bg-card/5 hover:-translate-y-0.5',
         light:
-          'bg-card/50 dark:bg-card/30 text-muted-foreground',
+          'bg-card/50 dark:bg-card/30 text-muted-foreground hover:brightness-105 hover:-translate-y-0.5',
       },
       size: {
         sm: 'w-8 h-8',
