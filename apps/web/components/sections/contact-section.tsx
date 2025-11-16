@@ -6,13 +6,13 @@ import { personalInfo } from '@/lib/data';
 import { ContactFormData } from '@/types';
 import { useSendEmail } from '@/hooks/use-send-email';
 import { useReducedMotion } from '@/hooks';
-import { 
-  Section, 
-  Card, 
-  Input, 
-  Textarea, 
+import {
+  Section,
+  Card,
+  Input,
+  Textarea,
   Button,
-  Text 
+  Text
 } from '@/components/common';
 
 export function ContactSection() {
@@ -37,7 +37,7 @@ export function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     sendEmail(formData, {
       onSuccess: () => {
         setFormData({ name: '', from: '', subject: '', message: '' });
@@ -167,6 +167,7 @@ export function ContactSection() {
                   <a key={method.label} href={method.href} className="block">
                     <Card
                       padding="lg"
+                      variant={'glass'}
                       hover="glow"
                       className={`flex flex-col items-center text-center ${method.gradient} border ${method.border} group`}
                     >
@@ -189,6 +190,7 @@ export function ContactSection() {
                 ) : (
                   <Card
                     key={method.label}
+                    variant={'glass'}
                     padding="lg"
                     hover="glow"
                     className={`flex flex-col items-center text-center ${method.gradient} border ${method.border} group`}
@@ -198,7 +200,7 @@ export function ContactSection() {
                         className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center mb-3 ring-1 ring-white/10`}
                         style={{ boxShadow: '0 6px 18px rgba(0,0,0,0.12)' }}
                       >
-                          <Icon className="w-6 h-6 text-foreground dark:text-primary-foreground drop-shadow-[0_8px_20px_rgba(0,0,0,0.6)]" />
+                        <Icon className="w-6 h-6 text-foreground dark:text-primary-foreground drop-shadow-[0_8px_20px_rgba(0,0,0,0.6)]" />
                       </div>
                       <Card.Title className="text-sm font-medium text-foreground mb-1">
                         {method.label}

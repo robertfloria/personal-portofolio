@@ -177,31 +177,32 @@
 
   /* Glassmorphism helpers */
   .glass-zone {
-    background-color: hsl(var(--card) / 0.32);
-    backdrop-filter: blur(3px) saturate(40%);
-    border: 1px solid hsl(var(--border) / 0.18);
-    /* No outer shadow; rely on border for separation */
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    /* stronger contrast on light theme: slightly more opaque, higher saturation and clearer border */
+    background-color: hsl(var(--card) / 0.48);
+    backdrop-filter: blur(3px) saturate(60%);
+    border: 1px solid hsl(var(--border) / 0.36);
+    /* subtle top highlight to soft bottom shadow for readable separation */
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.03));
     transition: background-color 220ms ease, backdrop-filter 220ms ease, -webkit-backdrop-filter 220ms ease;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
   }
 
   .glass-strong {
-    background-color: hsl(var(--card) / 0.44);
-    backdrop-filter: blur(5px) saturate(60%);
-    border: 1px solid hsl(var(--border) / 0.26);
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    background-color: hsl(var(--card) / 0.64);
+    backdrop-filter: blur(5px) saturate(75%);
+    border: 1px solid hsl(var(--border) / 0.44);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.04));
     transition: background-color 220ms ease, backdrop-filter 220ms ease, -webkit-backdrop-filter 220ms ease;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
   }
 
   .glass-ultra {
-    background-color: hsl(var(--card) / 0.56);
-    backdrop-filter: blur(10px) saturate(80%);
-    border: 1px solid hsl(var(--border) / 0.34);
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.04));
+    background-color: hsl(var(--card) / 0.72);
+    backdrop-filter: blur(10px) saturate(90%);
+    border: 1px solid hsl(var(--border) / 0.52);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.10), rgba(0, 0, 0, 0.06));
     transition: background-color 220ms ease, backdrop-filter 220ms ease, -webkit-backdrop-filter 220ms ease;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
