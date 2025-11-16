@@ -59,7 +59,7 @@ export function HeroSection() {
               )}
               
               {/* Profile image container with glassmorphism */}
-              <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-border backdrop-blur-sm bg-card/10 dark:bg-card/10 shadow-2xl">
+              <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-border glass-strong shadow-2xl">
                 <Image
                   src={personalInfo.profileImage}
                   alt={personalInfo.name}
@@ -71,7 +71,7 @@ export function HeroSection() {
 
               {/* Floating badges */}
               <motion.div
-                className="absolute -top-4 -right-4 bg-linear-to-r from-primary to-accent text-foreground dark:text-primary-foreground px-6 py-3 rounded-full shadow-lg font-semibold text-sm"
+                className="absolute -top-4 -right-4 glass-zone bg-linear-to-r from-primary to-accent text-foreground dark:text-primary-foreground px-6 py-3 rounded-full shadow-lg font-semibold text-sm"
                 animate={shouldReduceMotion ? {} : { y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 3 }}
               >
@@ -79,7 +79,7 @@ export function HeroSection() {
               </motion.div>
 
               <motion.div
-                className="absolute -bottom-4 -left-4 bg-card/90 text-foreground px-6 py-3 rounded-full shadow-lg font-semibold text-sm border border-border"
+                className="absolute -bottom-4 -left-4 glass-zone text-foreground px-6 py-3 rounded-full shadow-lg font-semibold text-sm border border-border"
                 animate={shouldReduceMotion ? {} : { y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
               >

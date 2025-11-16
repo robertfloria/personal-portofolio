@@ -13,7 +13,7 @@ const cardVariants = cva(
         gradient:
           'bg-linear-to-br from-secondary to-accent dark:from-secondary dark:to-accent border-border semantic-gradient',
         glass:
-          'bg-card/60 dark:bg-card/60 backdrop-blur-sm border-border semantic-glass',
+          'glass-zone dark:glass-strong border-border semantic-glass',
       },
       hover: {
         lift: 'hover:shadow-xl hover:-translate-y-2',
