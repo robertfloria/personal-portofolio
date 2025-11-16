@@ -86,19 +86,29 @@
 
   /* Glassmorphism helpers */
   .glass-zone {
-    background-color: hsl(var(--card) / 0.12);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid hsl(var(--border) / 0.08);
+    background-color: hsl(var(--card) / 0.14);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid hsl(var(--border) / 0.14);
+    transition: background-color 220ms ease, backdrop-filter 220ms ease, -webkit-backdrop-filter 220ms ease;
   }
   .glass-strong {
-    background-color: hsl(var(--card) / 0.22);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid hsl(var(--border) / 0.12);
+    background-color: hsl(var(--card) / 0.26);
+    backdrop-filter: blur(44px);
+    -webkit-backdrop-filter: blur(44px);
+    border: 1px solid hsl(var(--border) / 0.22);
+    transition: background-color 220ms ease, backdrop-filter 220ms ease, -webkit-backdrop-filter 220ms ease;
   }
-  .dark .glass-zone { background-color: hsl(var(--card) / 0.10); border-color: hsl(var(--border) / 0.14); }
-  .dark .glass-strong { background-color: hsl(var(--card) / 0.16); border-color: hsl(var(--border) / 0.18); }
+  .glass-ultra {
+    background-color: hsl(var(--card) / 0.30);
+    backdrop-filter: blur(64px);
+    -webkit-backdrop-filter: blur(64px);
+    border: 1px solid hsl(var(--border) / 0.28);
+    transition: background-color 220ms ease, backdrop-filter 220ms ease, -webkit-backdrop-filter 220ms ease;
+  }
+  .dark .glass-zone { background-color: hsl(var(--card) / 0.18); border-color: hsl(var(--border) / 0.20); }
+  .dark .glass-strong { background-color: hsl(var(--card) / 0.26); border-color: hsl(var(--border) / 0.30); }
+  .dark .glass-ultra { background-color: hsl(var(--card) / 0.30); border-color: hsl(var(--border) / 0.36); }
 
   /* focus and hover helpers using theme variables */
   .focus\:ring-primary:focus { box-shadow: 0 0 0 4px hsl(var(--ring) / 0.12); }

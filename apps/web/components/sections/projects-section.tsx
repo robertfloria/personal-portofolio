@@ -56,8 +56,8 @@ export function ProjectsSection() {
                   </div>
                 </div>
               )}
-                <div className="absolute inset-0 bg-overlay opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="text-foreground dark:text-primary-foreground font-semibold text-lg">View Details →</span>
+                <div className="absolute inset-0 glass-zone opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span className="font-semibold text-lg text-primary dark:text-primary-foreground drop-shadow-[0_8px_24px_rgba(0,0,0,0.6)]">View Details →</span>
               </div>
               {project.featured && (
                 <Badge variant="gradient" size="sm" className="absolute top-4 right-4">

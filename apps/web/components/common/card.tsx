@@ -11,7 +11,7 @@ const cardVariants = cva(
         default: 
           'bg-card dark:bg-card border-border semantic-default',
         gradient:
-          'bg-linear-to-br from-secondary to-accent dark:from-secondary dark:to-accent border-border semantic-gradient',
+          'glass-zone dark:glass-strong border-border semantic-gradient relative overflow-hidden after:content-["\"] after:absolute after:inset-x-0 after:top-0 after:h-1.5 after:bg-linear-to-r after:from-primary after:to-accent',
         glass:
           'glass-zone dark:glass-strong border-border semantic-glass',
       },

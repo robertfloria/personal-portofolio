@@ -173,14 +173,15 @@ export function ContactSection() {
                     >
                       <Card.Content className="flex flex-col items-center text-center p-0">
                         <div
-                          className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}
+                          className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform ring-1 ring-white/10`}
+                          style={{ boxShadow: '0 6px 18px rgba(0,0,0,0.12)' }}
                         >
-                          <Icon className="w-6 h-6 text-foreground dark:text-primary-foreground" />
+                          <Icon className="w-6 h-6 text-foreground dark:text-primary-foreground drop-shadow-[0_8px_20px_rgba(0,0,0,0.6)]" />
                         </div>
-                        <Card.Title className="text-sm font-medium text-muted-foreground mb-1">
+                        <Card.Title className="text-sm font-medium text-foreground mb-1">
                           {method.label}
                         </Card.Title>
-                        <Card.Description className="text-sm font-semibold text-foreground text-center break-all">
+                        <Card.Description className="text-sm font-semibold text-muted-foreground text-center break-all">
                           {method.value}
                         </Card.Description>
                       </Card.Content>
@@ -196,14 +197,15 @@ export function ContactSection() {
                   >
                     <Card.Content className="flex flex-col items-center text-center p-0">
                       <div
-                        className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center mb-3`}
+                        className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center mb-3 ring-1 ring-white/10`}
+                        style={{ boxShadow: '0 6px 18px rgba(0,0,0,0.12)' }}
                       >
-                          <Icon className="w-6 h-6 text-foreground dark:text-primary-foreground" />
+                          <Icon className="w-6 h-6 text-foreground dark:text-primary-foreground drop-shadow-[0_8px_20px_rgba(0,0,0,0.6)]" />
                       </div>
-                      <Card.Title className="text-sm font-medium text-muted-foreground mb-1">
+                      <Card.Title className="text-sm font-medium text-foreground mb-1">
                         {method.label}
                       </Card.Title>
-                      <Card.Description className="text-sm font-semibold text-foreground text-center break-all">
+                      <Card.Description className="text-sm font-semibold text-muted-foreground text-center break-all">
                         {method.value}
                       </Card.Description>
                     </Card.Content>

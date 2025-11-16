@@ -53,14 +53,14 @@ export function CertificatesSection() {
                   <Award className="w-20 h-20 text-muted-foreground opacity-30" />
                 </div>
               )}
-              <div className="absolute inset-0 bg-overlay opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="text-foreground dark:text-primary-foreground font-semibold text-lg flex items-center gap-2">
+              <div className="absolute inset-0 glass-zone opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span className="font-semibold text-lg text-primary dark:text-primary-foreground drop-shadow-[0_8px_24px_rgba(0,0,0,0.6)] flex items-center gap-2">
                   <Award size={24} />
                   View Certificate
                 </span>
               </div>
-              <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-card/20 backdrop-blur-sm flex items-center justify-center">
-                <Award className="w-6 h-6 text-foreground" />
+              <div className="absolute top-4 right-4 w-12 h-12 rounded-full glass-zone flex items-center justify-center">
+                <Award className="w-6 h-6 text-primary dark:text-primary-foreground" />
               </div>
               </div>
             </Card.Content>
