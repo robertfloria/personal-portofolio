@@ -86,29 +86,36 @@
 
   /* Glassmorphism helpers */
   .glass-zone {
-    background-color: hsl(var(--card) / 0.14);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    border: 1px solid hsl(var(--border) / 0.14);
-    transition: background-color 220ms ease, backdrop-filter 220ms ease, -webkit-backdrop-filter 220ms ease;
+    background-color: hsl(var(--card) / 0.32);
+    backdrop-filter: blur(28px) saturate(150%);
+    -webkit-backdrop-filter: blur(28px) saturate(150%);
+    border: 1px solid hsl(var(--border) / 0.18);
+    box-shadow: 0 8px 24px rgba(12, 18, 30, 0.06), inset 0 1px 0 rgba(255,255,255,0.03);
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    transition: background-color 220ms ease, backdrop-filter 220ms ease, -webkit-backdrop-filter 220ms ease, box-shadow 220ms ease;
+    -webkit-backface-visibility: hidden;
   }
   .glass-strong {
-    background-color: hsl(var(--card) / 0.26);
-    backdrop-filter: blur(44px);
-    -webkit-backdrop-filter: blur(44px);
-    border: 1px solid hsl(var(--border) / 0.22);
-    transition: background-color 220ms ease, backdrop-filter 220ms ease, -webkit-backdrop-filter 220ms ease;
+    background-color: hsl(var(--card) / 0.44);
+    backdrop-filter: blur(44px) saturate(165%);
+    -webkit-backdrop-filter: blur(44px) saturate(165%);
+    border: 1px solid hsl(var(--border) / 0.26);
+    box-shadow: 0 14px 40px rgba(12, 18, 30, 0.08), inset 0 2px 0 rgba(255,255,255,0.04);
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    transition: background-color 220ms ease, backdrop-filter 220ms ease, -webkit-backdrop-filter 220ms ease, box-shadow 220ms ease;
   }
   .glass-ultra {
-    background-color: hsl(var(--card) / 0.30);
-    backdrop-filter: blur(64px);
-    -webkit-backdrop-filter: blur(64px);
-    border: 1px solid hsl(var(--border) / 0.28);
-    transition: background-color 220ms ease, backdrop-filter 220ms ease, -webkit-backdrop-filter 220ms ease;
+    background-color: hsl(var(--card) / 0.56);
+    backdrop-filter: blur(80px) saturate(185%);
+    -webkit-backdrop-filter: blur(80px) saturate(185%);
+    border: 1px solid hsl(var(--border) / 0.34);
+    box-shadow: 0 18px 64px rgba(12, 18, 30, 0.12), inset 0 3px 0 rgba(255,255,255,0.05);
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+    transition: background-color 220ms ease, backdrop-filter 220ms ease, -webkit-backdrop-filter 220ms ease, box-shadow 220ms ease;
   }
-  .dark .glass-zone { background-color: hsl(var(--card) / 0.18); border-color: hsl(var(--border) / 0.20); }
-  .dark .glass-strong { background-color: hsl(var(--card) / 0.26); border-color: hsl(var(--border) / 0.30); }
-  .dark .glass-ultra { background-color: hsl(var(--card) / 0.30); border-color: hsl(var(--border) / 0.36); }
+  .dark .glass-zone { background-color: hsl(var(--card) / 0.36); border-color: hsl(var(--border) / 0.26); }
+  .dark .glass-strong { background-color: hsl(var(--card) / 0.46); border-color: hsl(var(--border) / 0.34); }
+  .dark .glass-ultra { background-color: hsl(var(--card) / 0.60); border-color: hsl(var(--border) / 0.40); }
 
   /* focus and hover helpers using theme variables */
   .focus\:ring-primary:focus { box-shadow: 0 0 0 4px hsl(var(--ring) / 0.12); }
