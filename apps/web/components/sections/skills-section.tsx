@@ -74,7 +74,7 @@ export function SkillsSection() {
                           {skill.proficiency}%
                         </Badge>
                       </div>
-                      <div className="w-full bg-card rounded-full h-3 overflow-hidden">
+                      <div className="w-full bg-[hsl(var(--card)/1)] rounded-full h-3 overflow-hidden">
                         <motion.div
                           className="bg-linear-to-r from-primary via-primary to-accent h-3 rounded-full"
                           initial={{ width: 0 }}

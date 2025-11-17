@@ -8,7 +8,8 @@ const cardVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-card dark:bg-card border-border semantic-default',
+        default:
+          'bg-[hsl(var(--card))] dark:bg-[hsl(var(--card))] border-[hsl(var(--border))] semantic-default',
         glass: 'glass-zone dark:glass-strong border-border semantic-glass',
       },
       hover: {

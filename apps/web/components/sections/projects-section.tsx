@@ -48,10 +48,10 @@ export function ProjectsSection() {
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-card/80 dark:bg-card/60" />
+                  <div className="absolute inset-0 bg-[hsl(var(--card)/0.8)] dark:bg-[hsl(var(--card)/0.6)]" />
                 </>
               ) : (
-                <div className="flex items-center justify-center h-full bg-card/80 dark:bg-card/60">
+                <div className="flex items-center justify-center h-full bg-[hsl(var(--card)/0.8)] dark:bg-[hsl(var(--card)/0.6)]">
                   <div className="text-foreground text-6xl font-bold opacity-20">{project.id}</div>
                 </div>
               )}

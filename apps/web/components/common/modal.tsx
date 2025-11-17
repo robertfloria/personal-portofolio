@@ -95,7 +95,7 @@ function ModalBase({ isOpen, onClose, children, className }: ModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className={cn(
-              'fixed inset-0 z-50 flex items-center justify-center bg-overlay p-4',
+              'fixed inset-0 z-50 flex items-center justify-center bg-[hsl(var(--foreground)/0.6)] p-4',
               className,
             )}
             onClick={onClose}
@@ -125,7 +125,7 @@ export const ModalContent = React.forwardRef<
       ref={ref}
       onClick={(e) => e.stopPropagation()}
       className={cn(
-        'bg-card rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-border',
+        'bg-[hsl(var(--card)/1)] rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-[hsl(var(--border)/1)]',
         className,
       )}
       {...props}
@@ -152,7 +152,7 @@ export function ModalHeader({
   return (
     <div
       className={cn(
-        'sticky top-0 bg-card border-b border-border p-6 flex items-center justify-between z-10',
+        'sticky top-0 bg-[hsl(var(--card)/1)] border-b border-[hsl(var(--border)/1)] p-6 flex items-center justify-between z-10',
         className,
       )}
       {...props}

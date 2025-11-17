@@ -7,8 +7,10 @@ const inputVariants = cva(
   {
     variants: {
       variant: {
-        default: 'border-border bg-card dark:bg-card text-foreground',
-        error: 'border-destructive bg-card dark:bg-card text-foreground focus:ring-destructive',
+        default:
+          'border-[hsl(var(--border)/1)] bg-[hsl(var(--card)/1)] dark:bg-[hsl(var(--card)/1)] text-[hsl(var(--foreground)/1)]',
+        error:
+          'border-[hsl(var(--destructive)/1)] bg-[hsl(var(--card)/1)] dark:bg-[hsl(var(--card)/1)] text-[hsl(var(--foreground)/1)] focus:ring-[hsl(var(--destructive)/1)]',
       },
       inputSize: {
         sm: 'px-3 py-2 text-sm',

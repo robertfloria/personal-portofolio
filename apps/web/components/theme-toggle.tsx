@@ -21,7 +21,7 @@ export function ThemeToggle() {
   };
 
   if (!mounted) {
-    return <div className="w-10 h-10 rounded-full bg-card animate-pulse" />;
+    return <div className="w-10 h-10 rounded-full bg-[hsl(var(--card)/1)] animate-pulse" />;
   }
 
   return (

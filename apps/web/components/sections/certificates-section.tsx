@@ -46,10 +46,10 @@ export function CertificatesSection() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-card/80 dark:bg-card/60" />
+                    <div className="absolute inset-0 bg-[hsl(var(--card)/0.8)] dark:bg-[hsl(var(--card)/0.6)]" />
                   </>
                 ) : (
-                  <div className="flex items-center justify-center h-full bg-card/80 dark:bg-card/60">
+                  <div className="flex items-center justify-center h-full bg-[hsl(var(--card)/0.8)] dark:bg-[hsl(var(--card)/0.6)]">
                     <Award className="w-20 h-20 text-muted-foreground opacity-30" />
                   </div>
                 )}
@@ -104,7 +104,7 @@ export function CertificatesSection() {
                     src={selectedCertificate.imageUrl}
                     alt={selectedCertificate.title}
                     fill
-                    className="object-contain bg-card"
+                    className="object-contain bg-[hsl(var(--card)/1)]"
                   />
                 </div>
               ) : (

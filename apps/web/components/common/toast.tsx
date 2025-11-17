@@ -12,25 +12,25 @@ import { type NotificationType } from '@/components/contexts/notification-contex
 const toastConfig = {
   success: {
     icon: CheckCircle,
-    bgClass: 'bg-overlay-strong border-border',
+    bgClass: 'bg-[hsl(var(--foreground)/0.8)] border-[hsl(var(--border)/1)]',
     textClass: 'text-muted-foreground',
     iconClass: 'text-primary',
   },
   error: {
     icon: XCircle,
-    bgClass: 'bg-overlay border-destructive',
+    bgClass: 'bg-[hsl(var(--foreground)/0.6)] border-[hsl(var(--destructive)/1)]',
     textClass: 'text-destructive',
     iconClass: 'text-destructive',
   },
   warning: {
     icon: AlertCircle,
-    bgClass: 'bg-overlay border-border',
+    bgClass: 'bg-[hsl(var(--foreground)/0.6)] border-[hsl(var(--border)/1)]',
     textClass: 'text-muted-foreground',
     iconClass: 'text-primary',
   },
   info: {
     icon: Info,
-    bgClass: 'bg-overlay-strong border-border',
+    bgClass: 'bg-[hsl(var(--foreground)/0.8)] border-[hsl(var(--border)/1)]',
     textClass: 'text-muted-foreground',
     iconClass: 'text-primary',
   },
