@@ -3,12 +3,11 @@
 import React, { useState } from 'react';
 import { useFocusTrap } from '@/hooks/use-focus-trap';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, Award } from 'lucide-react';
+import { ExternalLink, Award } from 'lucide-react';
 import { certificates } from '@/lib/data';
 import { Certificate } from '@/types';
 import { useReducedMotion } from '@/hooks';
-import { Section, Card, Badge, Modal } from '@/components/common';
+import { Section, Card, Modal } from '@/components/common';
 
 export function CertificatesSection() {
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
