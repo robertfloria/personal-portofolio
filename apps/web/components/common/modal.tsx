@@ -95,7 +95,7 @@ function ModalBase({ isOpen, onClose, children, className }: ModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className={cn(
-              'fixed inset-0 z-50 flex items-center justify-center bg-[hsl(var(--foreground)/0.6)] p-4',
+              'fixed inset-0 z-50 flex items-center justify-center bg-[hsl(var(--card)/0.72)] dark:bg-[rgba(20,22,34,0.72)] p-4',
               className,
             )}
             onClick={onClose}
