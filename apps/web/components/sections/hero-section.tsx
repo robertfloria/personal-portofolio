@@ -86,7 +86,7 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
               >
-                Open to new opportunities
+                👋 Welcome to my portfolio
               </motion.div>
             </div>
           </motion.div>
@@ -97,17 +97,6 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
             className="order-2 lg:order-2"
           >
-            <motion.div
-              className="inline-block mb-4"
-              initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-              animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-            >
-              <span className="px-4 py-2 rounded-full bg-[hsl(var(--secondary)/0.7)] dark:bg-[hsl(var(--secondary)/0.3)] text-muted-foreground text-sm font-medium">
-                👋 Welcome to my portfolio
-              </span>
-            </motion.div>
-
             <motion.div
               initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
               animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
