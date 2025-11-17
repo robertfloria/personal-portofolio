@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "clean": "node -e \"require('fs').rmSync('.next', { recursive: true, force: true })\""
+    "clean": "node -e \"require('fs').rmSync('.next', { recursive: true, force: true })\"",
+    "test": "jest"
   },
   "dependencies": {
     "@portfolio/shared-types": "*",
