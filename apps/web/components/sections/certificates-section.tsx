@@ -65,11 +65,11 @@ export function CertificatesSection() {
               </div>
             </Card.Content>
 
-            <Card.Footer className="flex-col items-start p-6">
-              <Card.Title className="text-lg mb-2 line-clamp-2 min-h-14 group-hover:text-primary dark:group-hover:text-primary-foreground transition-colors">
+            <Card.Footer className="flex flex-col gap-2 items-start p-6">
+              <Card.Title className="text-lg line-clamp-2 min-h-14 group-hover:text-primary dark:group-hover:text-primary-foreground transition-colors">
                 {certificate.title}
               </Card.Title>
-              <Card.Description className="text-sm font-medium mb-1 text-foreground">
+              <Card.Description className="text-sm font-medium text-foreground">
                 {certificate.issuer}
               </Card.Description>
               <p className="text-xs text-muted-foreground">{certificate.date}</p>

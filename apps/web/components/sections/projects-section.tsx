@@ -67,17 +67,15 @@ export function ProjectsSection() {
               )}
             </div>
 
-            <Card.Footer className="flex-col items-start p-6">
-              <Card.Title className="text-xl mb-2 group-hover:text-primary transition-colors">
+            <Card.Footer className="flex flex-col gap-3 items-start p-6">
+              <Card.Title className="text-xl group-hover:text-primary transition-colors">
                 {project.title}
               </Card.Title>
               {project.description && (
-                <Card.Description className="mb-4 line-clamp-2">
-                  {project.description}
-                </Card.Description>
+                <Card.Description className="line-clamp-2">{project.description}</Card.Description>
               )}
 
-              <div className="flex flex-wrap gap-2 mb-3">
+              <div className="flex flex-wrap gap-2">
                 <Badge variant="secondary" size="sm">
                   {project.category}
                 </Badge>

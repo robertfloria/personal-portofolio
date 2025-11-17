@@ -61,32 +61,30 @@ export function TimelineSection() {
                   >
                     {/* Content */}
                     <Card.Content>
-                      <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                        <Card.Title className="group-hover:text-primary transition-colors">
-                          {item.title}
-                        </Card.Title>
-                        <div className="flex items-center gap-2">
-                          <Badge variant="primary" size="sm">
-                            {item.startDate} {item.endDate ? `- ${item.endDate}` : ''}
-                          </Badge>
-                          {item.current && (
-                            <Badge variant="success" size="sm">
-                              Current
+                      <div className="flex flex-col gap-3">
+                        <div className="flex flex-wrap items-start justify-between gap-2">
+                          <Card.Title className="group-hover:text-primary transition-colors">
+                            {item.title}
+                          </Card.Title>
+                          <div className="flex items-center gap-2">
+                            <Badge variant="primary" size="sm">
+                              {item.startDate} {item.endDate ? `- ${item.endDate}` : ''}
                             </Badge>
-                          )}
+                            {item.current && (
+                              <Badge variant="success" size="sm">
+                                Current
+                              </Badge>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                      <Text variant="body" className="font-semibold mb-2">
-                        {item.organization}
-                      </Text>
-                      {item.location && (
-                        <Text variant="small" className="mb-3">
-                          📍 {item.location}
+                        <Text variant="body" className="font-semibold">
+                          {item.organization}
                         </Text>
-                      )}
-                      <Card.Description className="leading-relaxed">
-                        {item.description}
-                      </Card.Description>
+                        {item.location && <Text variant="small">📍 {item.location}</Text>}
+                        <Card.Description className="leading-relaxed">
+                          {item.description}
+                        </Card.Description>
+                      </div>
                     </Card.Content>
                   </Card>
                 </div>

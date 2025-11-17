@@ -51,7 +51,7 @@ export function HeroSection() {
 
   return (
     <Section id="home" className="min-h-screen flex items-center justify-center">
-      <div className="max-w-7xl mx-auto w-full relative z-10">
+      <div className="max-w-7xl mx-auto w-full relative z-10 flex flex-col gap-y-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Profile Image with Glassmorphism */}
           <motion.div
@@ -97,112 +97,112 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
             className="order-2 lg:order-2"
           >
-            <motion.div
-              initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-              animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              <Heading variant="h2" className="mb-4 flex gap-2 flex-wrap">
-                {personalInfo.name.split(' ').slice(0, 2).join(' ')}
-                <span className="bg-linear-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
-                  {personalInfo.name.split(' ').slice(2).join(' ')}
-                </span>
-              </Heading>
-            </motion.div>
+            {/* Use gap instead of margins for spacing */}
+            <div className="flex flex-col gap-4">
+              <motion.div
+                initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
+                animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <Heading variant="h2" className="flex gap-2 flex-wrap">
+                  {personalInfo.name.split(' ').slice(0, 2).join(' ')}
+                  <span className="bg-linear-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
+                    {personalInfo.name.split(' ').slice(2).join(' ')}
+                  </span>
+                </Heading>
+              </motion.div>
 
-            <motion.div
-              initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-              animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-            >
-              <Heading variant="h4" className="mb-4">
-                {personalInfo.title}
-              </Heading>
-            </motion.div>
+              <motion.div
+                initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
+                animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <Heading variant="h4">{personalInfo.title}</Heading>
+              </motion.div>
 
-            <motion.div
-              initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-              animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-            >
-              <Text variant="lead" className="mb-6">
-                {personalInfo.subtitle}
-              </Text>
-            </motion.div>
+              <motion.div
+                initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
+                animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                <Text variant="lead">{personalInfo.subtitle}</Text>
+              </motion.div>
 
-            <motion.div
-              initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-              animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              <Text variant="body" className="mb-8 max-w-2xl">
-                {personalInfo.bio}
-              </Text>
-            </motion.div>
+              <motion.div
+                initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
+                animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <Text variant="body" className="max-w-2xl">
+                  {personalInfo.bio}
+                </Text>
+              </motion.div>
 
-            {/* CTA Buttons */}
-            <motion.div
-              className="flex flex-wrap gap-4 mb-8"
-              initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-              animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-            >
-              <a href="#contact">
-                <Button variant="primary" size="lg" leftIcon={<Mail size={20} />}>
-                  Get In Touch
-                </Button>
-              </a>
-              <a href="#projects">
-                <Button variant="outline" size="lg">
-                  View My Work →
-                </Button>
-              </a>
-              <a href={personalInfo.resumeUrl} download target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="lg" leftIcon={<Download size={18} />}>
-                  Download CV
-                </Button>
-              </a>
-            </motion.div>
-            {/* Social Links */}
-            <motion.div
-              className="flex items-center gap-4"
-              initial={shouldReduceMotion ? {} : { opacity: 0 }}
-              animate={shouldReduceMotion ? {} : { opacity: 1 }}
-              transition={{ delay: 0.7 }}
-            >
-              <span className="text-sm text-muted-foreground font-medium">Connect:</span>
-              {socialLinks.map((social, index) => {
-                const Icon = iconMap[social.icon as keyof typeof iconMap];
-                return (
-                  <motion.div
-                    key={social.platform}
-                    initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0 }}
-                    animate={shouldReduceMotion ? {} : { opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.8 + index * 0.1 }}
-                  >
-                    <SocialButton
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.platform}
-                      icon={Icon}
-                      size={20}
-                      className="w-12 h-12"
-                      variant="outline"
-                    />
-                  </motion.div>
-                );
-              })}
-            </motion.div>
+              {/* CTA Buttons */}
+              <motion.div
+                className="flex flex-wrap gap-4"
+                initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
+                animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                <a href="#contact">
+                  <Button variant="primary" size="lg" leftIcon={<Mail size={20} />}>
+                    Get In Touch
+                  </Button>
+                </a>
+                <a href="#projects">
+                  <Button variant="outline" size="lg">
+                    View My Work →
+                  </Button>
+                </a>
+                <a href={personalInfo.resumeUrl} download target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="lg" leftIcon={<Download size={18} />}>
+                    Download CV
+                  </Button>
+                </a>
+              </motion.div>
+
+              {/* Social Links */}
+              <motion.div
+                className="flex items-center gap-4"
+                initial={shouldReduceMotion ? {} : { opacity: 0 }}
+                animate={shouldReduceMotion ? {} : { opacity: 1 }}
+                transition={{ delay: 0.7 }}
+              >
+                <span className="text-sm text-muted-foreground font-medium">Connect:</span>
+                {socialLinks.map((social, index) => {
+                  const Icon = iconMap[social.icon as keyof typeof iconMap];
+                  return (
+                    <motion.div
+                      key={social.platform}
+                      initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0 }}
+                      animate={shouldReduceMotion ? {} : { opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.8 + index * 0.1 }}
+                    >
+                      <SocialButton
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.platform}
+                        icon={Icon}
+                        size={20}
+                        className="w-12 h-12"
+                        variant="outline"
+                      />
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            </div>
           </motion.div>
         </div>
 
-        {/* Info Cards Section Below */}
+        {/* Info Cards Section Below - use gap instead of margin */}
         <motion.div
           initial={shouldReduceMotion ? {} : { opacity: 0, y: 50 }}
           animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
         >
           {infoItems.map((item, index) => (
             <Card

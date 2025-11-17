@@ -35,12 +35,10 @@ export function SkillsSection() {
         </Section.Subtitle>
       </Section.Header>
 
-      <div className="space-y-12">
+      <div className="flex flex-col gap-12">
         {Object.entries(groupedSkills).map(([category, categorySkills], categoryIndex) => (
-          <div key={category}>
-            <Heading variant="h3" className="mb-6">
-              {categories[category as keyof typeof categories]}
-            </Heading>
+          <div key={category} className="flex flex-col gap-6">
+            <Heading variant="h3">{categories[category as keyof typeof categories]}</Heading>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {categorySkills.map((skill, index) => (
                 <Card
@@ -53,40 +51,42 @@ export function SkillsSection() {
                   variant={'glass'}
                 >
                   <Card.Content>
-                    <div className="flex items-center gap-4 mb-4">
-                      {(skill as any).iconKey && (
-                        <div className="relative w-12 h-12 rounded-lg bg-linear-to-br from-secondary to-primary dark:from-secondary dark:to-primary border border-border p-2 flex items-center justify-center group-hover:scale-110 transition-transform">
-                          {(() => {
-                            const IconComponent =
-                              (Icons as any)[(skill as any).iconKey] ?? Icons.Code;
-                            return <IconComponent className="w-8 h-8 text-foreground" />;
-                          })()}
-                        </div>
-                      )}
-                      <div className="flex-1">
-                        <Heading variant="h4" className="text-lg text-foreground">
-                          {skill.name}
-                        </Heading>
-                        {skill.yearsOfExperience && (
-                          <Text variant="small">{skill.yearsOfExperience}+ years</Text>
+                    <div className="flex flex-col gap-4">
+                      <div className="flex items-center gap-4">
+                        {(skill as any).iconKey && (
+                          <div className="relative w-12 h-12 rounded-lg bg-linear-to-br from-secondary to-primary dark:from-secondary dark:to-primary border border-border p-2 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            {(() => {
+                              const IconComponent =
+                                (Icons as any)[(skill as any).iconKey] ?? Icons.Code;
+                              return <IconComponent className="w-8 h-8 text-foreground" />;
+                            })()}
+                          </div>
                         )}
+                        <div className="flex-1">
+                          <Heading variant="h4" className="text-lg text-foreground">
+                            {skill.name}
+                          </Heading>
+                          {skill.yearsOfExperience && (
+                            <Text variant="small">{skill.yearsOfExperience}+ years</Text>
+                          )}
+                        </div>
+                        <Badge variant="primary" size="sm">
+                          {skill.proficiency}%
+                        </Badge>
                       </div>
-                      <Badge variant="primary" size="sm">
-                        {skill.proficiency}%
-                      </Badge>
-                    </div>
-                    <div className="w-full bg-card rounded-full h-3 overflow-hidden">
-                      <motion.div
-                        className="bg-linear-to-r from-primary via-primary to-accent h-3 rounded-full"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.proficiency}%` }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: shouldReduceMotion ? 0 : 1.2,
-                          delay: index * 0.05,
-                          ease: 'easeOut',
-                        }}
-                      />
+                      <div className="w-full bg-card rounded-full h-3 overflow-hidden">
+                        <motion.div
+                          className="bg-linear-to-r from-primary via-primary to-accent h-3 rounded-full"
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.proficiency}%` }}
+                          viewport={{ once: true }}
+                          transition={{
+                            duration: shouldReduceMotion ? 0 : 1.2,
+                            delay: index * 0.05,
+                            ease: 'easeOut',
+                          }}
+                        />
+                      </div>
                     </div>
                   </Card.Content>
                 </Card>

@@ -161,13 +161,13 @@ export function ContactSection() {
                       hover="glow"
                       className={`flex flex-col items-center text-center ${method.gradient} border ${method.border} group`}
                     >
-                      <Card.Content className="flex flex-col items-center text-center p-0">
+                      <Card.Content className="flex flex-col items-center text-center p-0 gap-2">
                         <div
-                          className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform ring-1 ring-white/10`}
+                          className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center group-hover:scale-110 transition-transform ring-1 ring-white/10`}
                         >
                           <Icon className="w-6 h-6 text-foreground dark:text-primary-foreground" />
                         </div>
-                        <Card.Title className="text-sm font-medium text-foreground mb-1">
+                        <Card.Title className="text-sm font-medium text-foreground">
                           {method.label}
                         </Card.Title>
                         <Card.Description className="text-sm font-semibold text-muted-foreground text-center break-all">
@@ -184,13 +184,13 @@ export function ContactSection() {
                     hover="glow"
                     className={`flex flex-col items-center text-center ${method.gradient} border ${method.border} group`}
                   >
-                    <Card.Content className="flex flex-col items-center text-center p-0">
+                    <Card.Content className="flex flex-col items-center text-center p-0 gap-2">
                       <div
-                        className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center mb-3 ring-1 ring-white/10`}
+                        className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center ring-1 ring-white/10`}
                       >
                         <Icon className="w-6 h-6 text-foreground dark:text-primary-foreground" />
                       </div>
-                      <Card.Title className="text-sm font-medium text-foreground mb-1">
+                      <Card.Title className="text-sm font-medium text-foreground">
                         {method.label}
                       </Card.Title>
                       <Card.Description className="text-sm font-semibold text-muted-foreground text-center break-all">
