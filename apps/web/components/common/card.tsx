@@ -3,15 +3,15 @@ import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { motion, type HTMLMotionProps } from 'framer-motion';
 
-const cardVariants = cva('rounded-xl border transition-all', {
+const cardVariants = cva('rounded-xl border transition-transform transition-shadow duration-300 ease-out', {
   variants: {
     variant: {
       default: 'bg-card dark:bg-card border-border semantic-default',
       glass: 'glass-zone dark:glass-strong border-border semantic-glass',
     },
     hover: {
-      lift: 'hover:-translate-y-1 hover:brightness-105',
-      glow: 'relative overflow-visible hover:brightness-110 hover:border-primary hover:gradient-shadow-primary',
+      lift: 'hover:-translate-y-0.5 hover:brightness-105',
+      glow: 'relative overflow-visible hover:brightness-105 hover:border-primary hover:gradient-shadow-primary hover:shadow-xl',
       scale: 'hover:scale-105',
       none: '',
     },
