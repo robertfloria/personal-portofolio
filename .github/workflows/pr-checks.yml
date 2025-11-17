@@ -47,7 +47,7 @@ jobs:
             echo "❌ Web build failed"
             exit 1
           fi
-          if [ ! -d "apps/api/dist" ]; then
+          if [ ! -d "apps/api/dist" ] && [ ! -d "apps/api/.output" ]; then
             echo "❌ API build failed"
             exit 1
           fi

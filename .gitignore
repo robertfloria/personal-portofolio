@@ -69,8 +69,6 @@ pids
 !.vscode/extensions.json
 
 # Prettier/formatting
-.prettierrc
-.prettierignore
 
 # Node diagnostic reports
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -84,6 +82,14 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 /**/build/
 /**/.next/
 /**/out/
+/**/.output/
+/**/.turbo/
+# API output and TurboRepo cache (root and workspaces)
+apps/*/.output/**
+packages/*/.output/**
+.turbo/
+apps/*/.turbo/**
+packages/*/.turbo/**
 
 # Logs and temp files
 **/logs/
