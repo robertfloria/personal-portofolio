@@ -84,7 +84,9 @@ const Toast: React.FC<ToastProps> = ({ id, type, message, duration = 5000, onClo
   );
 };
 
+
 Toast.displayName = 'Toast';
+export default Toast;
 
 // Toast Container Component
 export const ToastContainer: React.FC = () => {
