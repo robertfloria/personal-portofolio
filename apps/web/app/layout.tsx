@@ -6,6 +6,7 @@ import { Providers } from '@/components/providers';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { ToastContainer } from '@/components/common';
+import { WelcomeModal } from '@/components/common/welcome-modal';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -47,6 +48,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Navbar />
+            <WelcomeModal />
             <main className="min-h-screen">{children}</main>
             <Footer />
             <ToastContainer />

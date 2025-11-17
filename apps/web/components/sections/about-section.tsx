@@ -34,7 +34,6 @@ export function AboutSection() {
           return (
             <Card
               key={service.id}
-              // variant="glass"
               hover="glow"
               padding="lg"
               animated={!shouldReduceMotion}

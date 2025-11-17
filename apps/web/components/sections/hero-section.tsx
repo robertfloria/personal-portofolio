@@ -113,9 +113,8 @@ export function HeroSection() {
               animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <Heading variant="h2" className="mb-4">
+              <Heading variant="h2" className="mb-4 flex gap-2 flex-wrap">
                 {personalInfo.name.split(' ').slice(0, 2).join(' ')}
-                <br />
                 <span className="bg-linear-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
                   {personalInfo.name.split(' ').slice(2).join(' ')}
                 </span>

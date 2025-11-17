@@ -8,7 +8,7 @@ import { X, ExternalLink, Award } from 'lucide-react';
 import { certificates } from '@/lib/data';
 import { Certificate } from '@/types';
 import { useReducedMotion } from '@/hooks';
-import { Section, Card, Badge } from '@/components/common';
+import { Section, Card, Badge, Modal } from '@/components/common';
 
 export function CertificatesSection() {
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
@@ -46,10 +46,10 @@ export function CertificatesSection() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-foreground-overlay-strong via-foreground-overlay-strong to-transparent" />
+                    <div className="absolute inset-0 bg-card/80 dark:bg-card/60" />
                   </>
                 ) : (
-                  <div className="flex items-center justify-center h-full">
+                  <div className="flex items-center justify-center h-full bg-card/80 dark:bg-card/60">
                     <Award className="w-20 h-20 text-muted-foreground opacity-30" />
                   </div>
                 )}
@@ -78,89 +78,60 @@ export function CertificatesSection() {
         ))}
       </div>
 
-      {/* Certificate Detail Modal */}
-      <AnimatePresence>
+      <Modal isOpen={Boolean(selectedCertificate)} onClose={() => setSelectedCertificate(null)}>
         {selectedCertificate && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-overlay z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedCertificate(null)}
-            role="dialog"
-            aria-modal="true"
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-card rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-            >
-              <div className="sticky top-0 bg-card border-b border-border dark:border-card p-6 flex items-center justify-between z-10">
-                <h2 className="text-2xl font-bold text-foreground">{selectedCertificate.title}</h2>
-                <button
-                  onClick={() => setSelectedCertificate(null)}
-                  className="w-10 h-10 rounded-full bg-[hsl(var(--card)/1)] text-foreground flex items-center justify-center hover:bg-[hsl(var(--card)/0.9)] transition-colors"
-                  aria-label="Close certificate details"
-                  ref={(el) => {
-                    if (el) {
-                      el.focus();
-                    }
-                  }}
-                >
-                  <X size={20} />
-                </button>
-              </div>
+          <Modal.Content>
+            <Modal.Header showClose onClose={() => setSelectedCertificate(null)}>
+              <h2 className="text-2xl font-bold text-foreground">{selectedCertificate.title}</h2>
+            </Modal.Header>
 
-              <div className="p-6 space-y-6" ref={modalRef} tabIndex={-1}>
-                <div className="flex items-center space-x-4 p-4 bg-linear-to-r from-secondary to-primary rounded-xl">
-                  <div className="w-16 h-16 rounded-full bg-linear-to-br from-secondary to-primary flex items-center justify-center">
-                    <Award className="w-8 h-8 text-foreground" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-foreground">
-                      {selectedCertificate.issuer}
-                    </h3>
-                    <p className="text-muted-foreground">Issued: {selectedCertificate.date}</p>
-                  </div>
+            <Modal.Body>
+              <div className="flex items-center space-x-4 p-4 bg-linear-to-r from-secondary to-primary rounded-xl">
+                <div className="w-16 h-16 rounded-full bg-linear-to-br from-secondary to-primary flex items-center justify-center">
+                  <Award className="w-8 h-8 text-foreground" />
                 </div>
-
-                {selectedCertificate.imageUrl ? (
-                  <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden border-4 border-border shadow-2xl">
-                    <Image
-                      src={selectedCertificate.imageUrl}
-                      alt={selectedCertificate.title}
-                      fill
-                      className="object-contain bg-card"
-                    />
-                  </div>
-                ) : (
-                  <div className="bg-linear-to-br from-secondary to-primary rounded-xl p-16 text-center text-foreground dark:text-primary-foreground">
-                    <Award className="w-24 h-24 mx-auto mb-4 opacity-50" />
-                    <p className="text-2xl font-semibold">{selectedCertificate.title}</p>
-                    <p className="text-lg opacity-80 mt-2">{selectedCertificate.issuer}</p>
-                  </div>
-                )}
-
-                {selectedCertificate.credentialUrl && (
-                  <div className="pt-4">
-                    <a
-                      href={selectedCertificate.credentialUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center space-x-2 px-8 py-4 bg-linear-to-r from-primary to-accent text-foreground dark:text-primary-foreground rounded-xl hover:shadow-xl hover:shadow-primary-strong hover:shadow-accent-strong transition-all hover:-translate-y-0.5 font-semibold"
-                    >
-                      <ExternalLink size={20} />
-                      <span>View Credential</span>
-                    </a>
-                  </div>
-                )}
+                <div>
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {selectedCertificate.issuer}
+                  </h3>
+                  <p className="text-muted-foreground">Issued: {selectedCertificate.date}</p>
+                </div>
               </div>
-            </motion.div>
-          </motion.div>
+
+              {selectedCertificate.imageUrl ? (
+                <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden border-4 border-border shadow-2xl">
+                  <Image
+                    src={selectedCertificate.imageUrl}
+                    alt={selectedCertificate.title}
+                    fill
+                    className="object-contain bg-card"
+                  />
+                </div>
+              ) : (
+                <div className="bg-linear-to-br from-secondary to-primary rounded-xl p-16 text-center text-foreground dark:text-primary-foreground">
+                  <Award className="w-24 h-24 mx-auto mb-4 opacity-50" />
+                  <p className="text-2xl font-semibold">{selectedCertificate.title}</p>
+                  <p className="text-lg opacity-80 mt-2">{selectedCertificate.issuer}</p>
+                </div>
+              )}
+
+              {selectedCertificate.credentialUrl && (
+                <div className="pt-4">
+                  <a
+                    href={selectedCertificate.credentialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center space-x-2 px-8 py-4 bg-linear-to-r from-primary to-accent text-foreground dark:text-primary-foreground rounded-xl hover:shadow-xl hover:shadow-primary-strong hover:shadow-accent-strong transition-all hover:-translate-y-0.5 font-semibold"
+                  >
+                    <ExternalLink size={20} />
+                    <span>View Credential</span>
+                  </a>
+                </div>
+              )}
+            </Modal.Body>
+          </Modal.Content>
         )}
-      </AnimatePresence>
+      </Modal>
     </Section>
   );
 }

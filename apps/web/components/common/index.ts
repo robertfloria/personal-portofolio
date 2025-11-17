@@ -6,3 +6,4 @@ export * from './section';
 export * from './icon-badge';
 export * from './badge';
 export * from './toast';
+export * from './modal';
