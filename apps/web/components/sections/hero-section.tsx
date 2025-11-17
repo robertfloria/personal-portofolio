@@ -69,7 +69,7 @@ export function HeroSection() {
               )}
 
               {/* Profile image container with glassmorphism */}
-              <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-border glass-strong shadow-2xl">
+              <div className="absolute inset-8 rounded-full overflow-hidden shadow-2xl backdrop-blur-xl bg-white/20 dark:bg-black/20  ring-white/30 dark:ring-black/30">
                 <Image
                   src={personalInfo.profileImage}
                   alt={personalInfo.name}
