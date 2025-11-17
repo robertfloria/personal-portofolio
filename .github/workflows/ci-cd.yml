@@ -179,64 +179,15 @@ jobs:
         run: npm run test --workspace=${{ matrix.app }} || echo "No tests configured"
         continue-on-error: true
 
-  # Job 5: Deploy to Vercel (Web)
-  deploy-web:
-    name: Deploy Web to Vercel
+
+  # Job 5: Deploy both Web and API to Railway
+  deploy-railway:
+    name: Deploy Web and API to Railway
     runs-on: ubuntu-latest
     needs: build
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     environment:
-      name: production-web
-      url: ${{ steps.deploy.outputs.url }}
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
-
-      - name: Pull Vercel Environment
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-        working-directory: ./apps/web
-
-      - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-        working-directory: ./apps/web
-        env:
-          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-
-      - name: Deploy to Vercel
-        id: deploy
-        run: |
-          url=$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})
-          echo "url=$url" >> $GITHUB_OUTPUT
-        working-directory: ./apps/web
-
-      - name: Comment PR with deployment URL
-        if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '🚀 Web deployed to: ${{ steps.deploy.outputs.url }}'
-            })
-
-  # Job 6: Deploy to Railway (API)
-  deploy-api:
-    name: Deploy API to Railway
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    environment:
-      name: production-api
+      name: production
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -244,29 +195,43 @@ jobs:
       - name: Install Railway CLI
         run: npm install -g @railway/cli
 
-      - name: Deploy to Railway
+      - name: Deploy API to Railway
         run: railway up --service=api
         working-directory: ./apps/api
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 
-      - name: Get Railway URL
-        id: railway-url
-        run: |
-          url=$(railway status --service=api --json | jq -r '.url')
-          echo "url=$url" >> $GITHUB_OUTPUT
+      - name: Deploy Web to Railway
+        run: railway up --service=web
+        working-directory: ./apps/web
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 
-  # Job 7: Notify on completion
+      - name: Get Railway API URL
+        id: railway-api-url
+        run: |
+          url=$(railway status --service=api --json | jq -r '.url')
+          echo "api_url=$url" >> $GITHUB_OUTPUT
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+
+      - name: Get Railway Web URL
+        id: railway-web-url
+        run: |
+          url=$(railway status --service=web --json | jq -r '.url')
+          echo "web_url=$url" >> $GITHUB_OUTPUT
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+
+  # Job 6: Notify on completion
   notify:
     name: Notify Deployment Status
     runs-on: ubuntu-latest
-    needs: [deploy-web, deploy-api]
+    needs: [deploy-railway]
     if: always()
     steps:
       - name: Deployment Summary
         run: |
           echo "✅ Deployment pipeline completed!"
-          echo "Web: Deployed to Vercel"
+          echo "Web: Deployed to Railway"
           echo "API: Deployed to Railway"

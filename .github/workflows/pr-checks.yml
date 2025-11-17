@@ -37,10 +37,9 @@ jobs:
       - name: Type check all workspaces
         run: npm run type-check
 
+
       - name: Build all workspaces
         run: npm run build
-        env:
-          NEXT_PUBLIC_API_URL: http://localhost:4000/api
 
       - name: Check for build artifacts
         run: |
