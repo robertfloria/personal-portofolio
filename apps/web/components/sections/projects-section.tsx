@@ -124,7 +124,7 @@ export function ProjectsSection() {
                 <h2 className="text-2xl font-bold text-foreground">{selectedProject.title}</h2>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="w-10 h-10 rounded-full bg-card/90 text-foreground shrink-0 flex items-center justify-center hover:bg-card/80 transition-colors"
+                  className="w-10 h-10 rounded-full bg-[hsl(var(--card)/0.9)] text-foreground shrink-0 flex items-center justify-center hover:bg-[hsl(var(--card)/0.8)] transition-colors"
                   aria-label="Close project details"
                   ref={(el) => {
                     if (el) {
@@ -142,7 +142,7 @@ export function ProjectsSection() {
                     {selectedProject.images.slice(0, 4).map((img, idx) => (
                       <div
                         key={idx}
-                        className="relative h-48 rounded-lg overflow-hidden bg-card/90"
+                        className="relative h-48 rounded-lg overflow-hidden bg-[hsl(var(--card)/0.9)]"
                       >
                         <Image
                           src={img}
@@ -186,7 +186,7 @@ export function ProjectsSection() {
                     {selectedProject.technologies.map((tech, idx) => (
                       <div
                         key={idx}
-                        className="flex items-center justify-center p-3 bg-linear-to-br from-secondary to-primary dark:from-card/50 dark:to-card/30 rounded-lg border border-border"
+                        className="flex items-center justify-center p-3 bg-linear-to-br from-secondary to-primary dark:from-[hsl(var(--card)/0.5)] dark:to-[hsl(var(--card)/0.3)] rounded-lg border border-border"
                       >
                         <span className="text-sm font-medium text-foreground text-center">
                           {typeof tech === 'string' ? tech : tech.name}
@@ -203,7 +203,7 @@ export function ProjectsSection() {
                         href={selectedProject.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center space-x-2 px-6 py-3 bg-card/90 text-foreground rounded-xl hover:bg-card/80 transition-all hover:shadow-lg hover:-translate-y-0.5 font-semibold"
+                        className="flex items-center space-x-2 px-6 py-3 bg-[hsl(var(--card)/0.9)] text-foreground rounded-xl hover:bg-[hsl(var(--card)/0.8)] transition-all hover:shadow-lg hover:-translate-y-0.5 font-semibold"
                       >
                         <Github size={20} />
                         <span>View Code</span>

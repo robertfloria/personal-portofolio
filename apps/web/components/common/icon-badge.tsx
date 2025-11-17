@@ -11,9 +11,9 @@ const iconBadgeVariants = cva('flex items-center justify-center rounded-full tra
       solid:
         'bg-primary text-foreground dark:text-primary-foreground hover:brightness-105 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary-strong',
       outline:
-        'border-2 border-border text-muted-foreground hover:bg-card/5 hover:-translate-y-0.5',
+        'border-2 border-border text-muted-foreground hover:bg-[hsl(var(--card)/0.05)] hover:-translate-y-0.5',
       light:
-        'bg-card/50 dark:bg-card/30 text-muted-foreground hover:brightness-105 hover:-translate-y-0.5',
+        'bg-[hsl(var(--card)/0.5)] dark:bg-[hsl(var(--card)/0.3)] text-muted-foreground hover:brightness-105 hover:-translate-y-0.5',
     },
     size: {
       sm: 'w-8 h-8',

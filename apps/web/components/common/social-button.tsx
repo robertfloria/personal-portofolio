@@ -17,12 +17,12 @@ export function SocialButton({
 
   const variants: Record<string, string> = {
     default:
-      'bg-card dark:bg-card text-foreground dark:text-muted-foreground hover:brightness-105 hover:bg-card/50',
+      'bg-[hsl(var(--card)/1)] dark:bg-[hsl(var(--card)/1)] text-foreground dark:text-muted-foreground hover:brightness-105 hover:bg-[hsl(var(--card)/0.5)]',
     ghost: 'bg-transparent text-muted-foreground hover:text-primary',
     brand:
       'bg-linear-to-r from-primary to-accent text-foreground dark:text-primary-foreground hover:opacity-90',
     outline:
-      'border-2 border-border text-foreground hover:bg-card/5 dark:hover:bg-card/80 hover:-translate-y-0.5 transition-all',
+      'border-2 border-border text-foreground hover:bg-[hsl(var(--card)/0.05)] dark:hover:bg-[hsl(var(--card)/0.8)] hover:-translate-y-0.5 transition-all',
   };
 
   return (

@@ -101,7 +101,7 @@ export function CertificatesSection() {
                 <h2 className="text-2xl font-bold text-foreground">{selectedCertificate.title}</h2>
                 <button
                   onClick={() => setSelectedCertificate(null)}
-                  className="w-10 h-10 rounded-full bg-card text-foreground flex items-center justify-center hover:bg-card/90 transition-colors"
+                  className="w-10 h-10 rounded-full bg-[hsl(var(--card)/1)] text-foreground flex items-center justify-center hover:bg-[hsl(var(--card)/0.9)] transition-colors"
                   aria-label="Close certificate details"
                   ref={(el) => {
                     if (el) {

@@ -153,7 +153,7 @@ export function Navbar() {
               download
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3 py-2 border rounded-md text-sm font-medium hover:bg-card/90 dark:hover:bg-card/80"
+              className="inline-flex items-center gap-2 px-3 py-2 border rounded-md text-sm font-medium hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]"
             >
               <Download size={16} />
               <span>Download CV</span>
@@ -168,7 +168,7 @@ export function Navbar() {
               download
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3 py-2 border rounded-md text-sm font-medium hover:bg-card/90 dark:hover:bg-card/80"
+              className="inline-flex items-center gap-2 px-3 py-2 border rounded-md text-sm font-medium hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]"
             >
               <Download size={16} />
             </a>
@@ -202,8 +202,8 @@ export function Navbar() {
                   }}
                   className={`block px-3 py-2 rounded-md cursor-pointer font-medium transition-colors ${
                     isActive
-                      ? 'text-primary dark:text-primary-foreground bg-card bg-opacity-50'
-                      : 'text-foreground hover:text-primary dark:hover:text-primary-foreground hover:bg-card/90 dark:hover:bg-card/80'
+                      ? 'text-primary dark:text-primary-foreground bg-[hsl(var(--card)/1)] bg-opacity-50'
+                      : 'text-foreground hover:text-primary dark:hover:text-primary-foreground hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]'
                   }`}
                 >
                   {item.name}

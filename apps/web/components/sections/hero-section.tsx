@@ -103,7 +103,7 @@ export function HeroSection() {
               animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              <span className="px-4 py-2 rounded-full bg-secondary/70 dark:bg-secondary/30 text-muted-foreground text-sm font-medium">
+              <span className="px-4 py-2 rounded-full bg-[hsl(var(--secondary)/0.7)] dark:bg-[hsl(var(--secondary)/0.3)] text-muted-foreground text-sm font-medium">
                 👋 Welcome to my portfolio
               </span>
             </motion.div>

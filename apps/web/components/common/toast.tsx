@@ -73,7 +73,7 @@ const Toast: React.FC<ToastProps> = ({ id, type, message, duration = 5000, onClo
       <button
         onClick={() => onClose(id)}
         className={cn(
-          'shrink-0 rounded-md p-1 hover:bg-overlay/10 dark:hover:bg-overlay/10 transition-colors',
+          'shrink-0 rounded-md p-1 hover:bg-[hsl(var(--overlay)/0.1)] dark:hover:bg-[hsl(var(--overlay)/0.1)] transition-colors',
           config.textClass,
         )}
         aria-label="Close notification"

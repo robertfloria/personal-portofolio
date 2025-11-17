@@ -7,8 +7,10 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-secondary/60 dark:bg-secondary/30 text-muted-foreground',
-        secondary: 'bg-accent/60 dark:bg-accent/30 text-muted-foreground',
+        primary:
+          'bg-[hsl(var(--secondary)/0.6)] dark:bg-[hsl(var(--secondary)/0.3)] text-muted-foreground',
+        secondary:
+          'bg-[hsl(var(--accent)/0.6)] dark:bg-[hsl(var(--accent)/0.3)] text-muted-foreground',
         success: 'bg-linear-to-r from-primary to-accent text-primary-foreground',
         warning: 'bg-overlay text-muted-foreground',
         danger: 'bg-linear-to-r from-accent to-primary text-primary-foreground',
