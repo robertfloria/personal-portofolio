@@ -75,6 +75,25 @@ jobs:
         run: npm run format:check --workspace=${{ matrix.app }}
         continue-on-error: false
 
+      - name: Fail on manual CSS color helpers
+        if: ${{ matrix.app == 'web' }}
+        run: |
+          echo "Searching for manual 'hsl(var(--' usages outside apps/web/app/globals.css..."
+          set -e
+          # Find files with the pattern
+          matches=$(git ls-files | grep -E "\.(css|ts|tsx|js|jsx)$" | xargs grep -I -n "hsl(var\(--" || true)
+          if [ -n "$matches" ]; then
+            # Filter out allowed file
+            echo "$matches" | grep -v "apps/web/app/globals.css" || true
+            filtered=$(echo "$matches" | grep -v "apps/web/app/globals.css" || true)
+            if [ -n "$filtered" ]; then
+              echo "ERROR: Found manual color helpers in the repo. Please use Tailwind color tokens instead (e.g., bg-secondary, text-muted-foreground)."
+              echo "$filtered"
+              exit 1
+            fi
+          fi
+          echo "No forbidden manual color helper usages found."
+
       - name: Run linter - ${{ matrix.app }}
         run: npm run lint --workspace=${{ matrix.app }}
         continue-on-error: false

@@ -3,31 +3,34 @@ import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { motion, type HTMLMotionProps } from 'framer-motion';
 
-const cardVariants = cva('rounded-xl border transition-transform transition-shadow duration-300 ease-out', {
-  variants: {
-    variant: {
-      default: 'bg-card dark:bg-card border-border semantic-default',
-      glass: 'glass-zone dark:glass-strong border-border semantic-glass',
+const cardVariants = cva(
+  'rounded-xl border transition-transform transition-shadow duration-300 ease-out',
+  {
+    variants: {
+      variant: {
+        default: 'bg-card dark:bg-card border-border semantic-default',
+        glass: 'glass-zone dark:glass-strong border-border semantic-glass',
+      },
+      hover: {
+        lift: 'hover:-translate-y-0.5 hover:brightness-105',
+        glow: 'relative overflow-visible hover:brightness-105 hover:border-primary hover:gradient-shadow-primary hover:shadow-xl',
+        scale: 'hover:scale-105',
+        none: '',
+      },
+      padding: {
+        none: 'p-0',
+        sm: 'p-4',
+        md: 'p-6',
+        lg: 'p-8',
+      },
     },
-    hover: {
-      lift: 'hover:-translate-y-0.5 hover:brightness-105',
-      glow: 'relative overflow-visible hover:brightness-105 hover:border-primary hover:gradient-shadow-primary hover:shadow-xl',
-      scale: 'hover:scale-105',
-      none: '',
-    },
-    padding: {
-      none: 'p-0',
-      sm: 'p-4',
-      md: 'p-6',
-      lg: 'p-8',
+    defaultVariants: {
+      variant: 'default',
+      hover: 'lift',
+      padding: 'md',
     },
   },
-  defaultVariants: {
-    variant: 'default',
-    hover: 'lift',
-    padding: 'md',
-  },
-});
+);
 
 interface CardRootProps
   extends Omit<HTMLMotionProps<'div'>, 'children'>,

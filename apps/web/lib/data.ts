@@ -8,8 +8,6 @@ import type {
   SocialLink,
 } from '@/types';
 
-import { Smartphone } from 'lucide-react';
-
 export const personalInfo: PersonalInfo = {
   name: 'Robert Nicolae Floria',
   title: 'Software Engineer',
