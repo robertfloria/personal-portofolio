@@ -60,18 +60,22 @@ personal-portfolio-monorepo/
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <your-repo-url>
    cd personal-portofolio
    ```
 
 2. **Install all dependencies (monorepo)**
+
    ```bash
    npm install
    ```
+
    This installs dependencies for all workspaces (web, api, and shared packages).
 
 3. **Build shared packages**
+
    ```bash
    npm run build --workspace=@portfolio/shared-types
    npm run build --workspace=@portfolio/shared-utils
@@ -80,11 +84,12 @@ personal-portfolio-monorepo/
 4. **Configure environment variables**
 
    **For the API** (`apps/api/.env`):
+
    ```env
    PORT=4000
    NODE_ENV=development
    CORS_ORIGIN=http://localhost:3000
-   
+
    # Gmail Configuration
    EMAIL_USER=your-email@gmail.com
    EMAIL_PASS=your-app-password
@@ -92,11 +97,12 @@ personal-portfolio-monorepo/
    ```
 
    **For the Web** (`apps/web/.env.local`):
+
    ```env
    NEXT_PUBLIC_API_URL=http://localhost:4000/api
    ```
 
-4. **Setup Gmail App Password** (for contact form):
+5. **Setup Gmail App Password** (for contact form):
    - Go to your Google Account settings
    - Enable 2-Step Verification
    - Generate an App Password for "Mail"
@@ -107,11 +113,13 @@ personal-portfolio-monorepo/
 #### Development Mode (from root)
 
 **Option 1: Run both apps concurrently**
+
 ```bash
 npm run dev
 ```
 
 **Option 2: Run separately**
+
 ```bash
 # Terminal 1 - API
 npm run dev:api
@@ -167,6 +175,7 @@ npm run clean           # Clean all build artifacts
 ### Personal Information
 
 Update your personal details in `apps/web/data/`:
+
 - `personal-info.ts` - Name, title, location, etc.
 - `skills.ts` - Your technical skills
 - `projects.ts` - Your projects
@@ -184,6 +193,7 @@ Update your personal details in `apps/web/data/`:
 ### Images
 
 Place your images in `apps/web/public/images/`:
+
 - `icons/` - Technology and social media icons
 - `projects/` - Project screenshots
 - `certificates/` - Certificate images
@@ -191,6 +201,7 @@ Place your images in `apps/web/public/images/`:
 ## 🔧 Technologies Used
 
 ### Frontend
+
 - **Next.js 16** - React framework with App Router
 - **TypeScript** - Type safety
 - **Tailwind CSS** - Utility-first styling
@@ -199,6 +210,7 @@ Place your images in `apps/web/public/images/`:
 - **next-themes** - Dark mode
 
 ### Backend
+
 - **NestJS** - Node.js framework
 - **TypeScript** - Type safety
 - **class-validator** - DTO validation
@@ -208,6 +220,7 @@ Place your images in `apps/web/public/images/`:
 ## 📚 API Endpoints
 
 ### Email
+
 - `POST /api/email/send` - Send contact form email
   ```json
   {
@@ -221,6 +234,7 @@ Place your images in `apps/web/public/images/`:
 ## 🚢 Deployment
 
 ### Vercel (Recommended for Next.js)
+
 1. Push code to GitHub
 2. Import project in Vercel
 3. Set root directory to `apps/web`
@@ -228,6 +242,7 @@ Place your images in `apps/web/public/images/`:
 5. Deploy
 
 ### Backend Deployment Options
+
 - **Railway** - Easy deployment with auto-scaling
 - **Render** - Free tier available
 - **Heroku** - Classic PaaS
@@ -242,6 +257,7 @@ MIT License - feel free to use this for your own portfolio!
 ## 👤 Author
 
 **Robert Nicolae Floria**
+
 - LinkedIn: [robert-nicolae-floria](https://www.linkedin.com/in/robert-nicolae-floria-51981920b/)
 - GitHub: [@robertfloria](https://github.com/robertfloria)
 

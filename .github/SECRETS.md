@@ -7,6 +7,7 @@ This guide explains how to set up all required secrets for the CI/CD pipeline.
 ### 1. Vercel Deployment (Web App)
 
 #### VERCEL_TOKEN
+
 1. Go to https://vercel.com/account/tokens
 2. Click "Create Token"
 3. Name it "GitHub Actions"
@@ -16,6 +17,7 @@ This guide explains how to set up all required secrets for the CI/CD pipeline.
    - Value: (paste token)
 
 #### VERCEL_ORG_ID
+
 1. Install Vercel CLI: `npm install -g vercel`
 2. Run: `cd apps/web && vercel link`
 3. Follow prompts to link project
@@ -26,6 +28,7 @@ This guide explains how to set up all required secrets for the CI/CD pipeline.
    - Value: (paste orgId)
 
 #### VERCEL_PROJECT_ID
+
 1. From same `.vercel/project.json` file
 2. Copy `projectId` value
 3. In GitHub: Settings → Secrets → New secret
@@ -35,6 +38,7 @@ This guide explains how to set up all required secrets for the CI/CD pipeline.
 ### 2. Railway Deployment (API)
 
 #### RAILWAY_TOKEN
+
 1. Go to https://railway.app/account/tokens
 2. Click "Create New Token"
 3. Name it "GitHub Actions"
@@ -46,6 +50,7 @@ This guide explains how to set up all required secrets for the CI/CD pipeline.
 ### 3. Environment Variables
 
 #### NEXT_PUBLIC_API_URL
+
 - This is your production API URL from Railway
 - Example: `https://your-api.railway.app/api`
 - In GitHub: Settings → Secrets → New secret
@@ -92,11 +97,13 @@ railway up
 ### Test GitHub Actions
 
 1. Create a test branch:
+
    ```bash
    git checkout -b test-ci-cd
    ```
 
 2. Make a small change and push:
+
    ```bash
    git add .
    git commit -m "test: CI/CD setup"
@@ -109,18 +116,22 @@ railway up
 ## Troubleshooting
 
 ### "Invalid token" error
+
 - Regenerate token in Vercel/Railway
 - Update secret in GitHub
 
 ### "Project not found" error
+
 - Verify `VERCEL_PROJECT_ID` is correct
 - Run `vercel link` again
 
 ### "Cannot find module" error
+
 - Ensure shared packages are built first in CI
 - Check workflow job order
 
 ### Railway deployment fails
+
 - Check Railway service is configured correctly
 - Verify `RAILWAY_TOKEN` has correct permissions
 - Check Railway logs in dashboard
@@ -152,6 +163,7 @@ For multi-environment setups:
 ## Contact
 
 If you need help setting up secrets, check:
+
 - [GitHub Secrets Documentation](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
 - [Vercel CLI Documentation](https://vercel.com/docs/cli)
 - [Railway CLI Documentation](https://docs.railway.app/develop/cli)

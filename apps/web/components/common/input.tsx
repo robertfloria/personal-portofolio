@@ -20,7 +20,7 @@ const inputVariants = cva(
       variant: 'default',
       inputSize: 'md',
     },
-  }
+  },
 );
 
 export interface InputProps
@@ -33,30 +33,14 @@ export interface InputProps
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  (
-    {
-      className,
-      variant,
-      inputSize,
-      label,
-      error,
-      leftIcon,
-      rightIcon,
-      id,
-      ...props
-    },
-    ref
-  ) => {
+  ({ className, variant, inputSize, label, error, leftIcon, rightIcon, id, ...props }, ref) => {
     const inputId = id || label?.toLowerCase().replace(/\s+/g, '-');
     const hasError = !!error;
 
     return (
       <div className="w-full">
         {label && (
-          <label
-            htmlFor={inputId}
-            className="block text-sm font-medium text-muted-foreground mb-2"
-          >
+          <label htmlFor={inputId} className="block text-sm font-medium text-muted-foreground mb-2">
             {label}
           </label>
         )}
@@ -75,7 +59,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 className,
               }),
               leftIcon && 'pl-12',
-              rightIcon && 'pr-12'
+              rightIcon && 'pr-12',
             )}
             ref={ref}
             {...props}
@@ -86,18 +70,15 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             </div>
           )}
         </div>
-        {error && (
-          <p className="mt-1 text-sm text-destructive dark:text-destructive">{error}</p>
-        )}
+        {error && <p className="mt-1 text-sm text-destructive dark:text-destructive">{error}</p>}
       </div>
     );
-  }
+  },
 );
 
 Input.displayName = 'Input';
 
-export interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
   error?: string;
 }
@@ -117,7 +98,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             {label}
           </label>
         )}
-            <textarea
+        <textarea
           id={textareaId}
           className={cn(
             'w-full px-4 py-3 border rounded-xl transition-all outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none disabled:opacity-50 disabled:cursor-not-allowed',
@@ -125,17 +106,15 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
               ? 'border-destructive dark:border-destructive focus:ring-destructive'
               : 'border-border',
             'bg-card text-foreground',
-            className
+            className,
           )}
           ref={ref}
           {...props}
         />
-        {error && (
-          <p className="mt-1 text-sm text-destructive">{error}</p>
-        )}
+        {error && <p className="mt-1 text-sm text-destructive">{error}</p>}
       </div>
     );
-  }
+  },
 );
 
 Textarea.displayName = 'Textarea';

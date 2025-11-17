@@ -12,14 +12,9 @@ export interface UseIntersectionObserverOptions {
  * Useful for lazy loading and scroll animations
  */
 export function useIntersectionObserver(
-  options: UseIntersectionObserverOptions = {}
+  options: UseIntersectionObserverOptions = {},
 ): [React.RefObject<HTMLDivElement | null>, boolean] {
-  const {
-    threshold = 0.1,
-    root = null,
-    rootMargin = '0px',
-    freezeOnceVisible = false,
-  } = options;
+  const { threshold = 0.1, root = null, rootMargin = '0px', freezeOnceVisible = false } = options;
 
   const elementRef = useRef<HTMLDivElement>(null);
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -40,7 +35,7 @@ export function useIntersectionObserver(
           observer.unobserve(element);
         }
       },
-      { threshold, root, rootMargin }
+      { threshold, root, rootMargin },
     );
 
     observer.observe(element);

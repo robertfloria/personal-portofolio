@@ -42,7 +42,7 @@ export const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
         {children}
       </Component>
     );
-  }
+  },
 );
 
 Heading.displayName = 'Heading';
@@ -69,15 +69,11 @@ export interface TextProps
 export const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
   ({ className, variant, children, ...props }, ref) => {
     return (
-      <p
-        className={cn(textVariants({ variant, className }))}
-        ref={ref}
-        {...props}
-      >
+      <p className={cn(textVariants({ variant, className }))} ref={ref} {...props}>
         {children}
       </p>
     );
-  }
+  },
 );
 
 Text.displayName = 'Text';
@@ -98,7 +94,7 @@ export const GradientText = React.forwardRef<HTMLSpanElement, GradientTextProps>
         {children}
       </span>
     );
-  }
+  },
 );
 
 GradientText.displayName = 'GradientText';

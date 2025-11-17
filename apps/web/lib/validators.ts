@@ -33,7 +33,10 @@ export const contactFormSchema = z.object({
  */
 export const phoneSchema = z
   .string()
-  .regex(/^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/, 'Invalid phone number');
+  .regex(
+    /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/,
+    'Invalid phone number',
+  );
 
 /**
  * URL validation
@@ -43,7 +46,10 @@ export const urlSchema = z.string().url('Invalid URL');
 /**
  * Validate data against a schema
  */
-export function validateSchema<T>(schema: z.ZodSchema<T>, data: unknown): {
+export function validateSchema<T>(
+  schema: z.ZodSchema<T>,
+  data: unknown,
+): {
   success: boolean;
   data?: T;
   errors?: Record<string, string[]>;

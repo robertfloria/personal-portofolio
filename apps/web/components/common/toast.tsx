@@ -3,7 +3,10 @@
 import React, { useEffect } from 'react';
 import { CheckCircle, XCircle, AlertCircle, Info, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useNotifications, type NotificationItem } from '@/components/contexts/notification-context';
+import {
+  useNotifications,
+  type NotificationItem,
+} from '@/components/contexts/notification-context';
 import { type NotificationType } from '@/components/contexts/notification-context';
 
 const toastConfig = {
@@ -41,13 +44,7 @@ interface ToastProps {
   onClose: (id: string) => void;
 }
 
-const Toast: React.FC<ToastProps> = ({
-  id,
-  type,
-  message,
-  duration = 5000,
-  onClose,
-}) => {
+const Toast: React.FC<ToastProps> = ({ id, type, message, duration = 5000, onClose }) => {
   const config = toastConfig[type];
   const Icon = config.icon;
 
@@ -67,19 +64,17 @@ const Toast: React.FC<ToastProps> = ({
         'flex items-start gap-3 p-4 rounded-xl border',
         'animate-in slide-in-from-right-full duration-300',
         'max-w-md w-full',
-        config.bgClass
+        config.bgClass,
       )}
       role="alert"
     >
       <Icon className={cn('w-5 h-5 mt-0.5 shrink-0', config.iconClass)} />
-      <p className={cn('flex-1 text-sm font-medium', config.textClass)}>
-        {message}
-      </p>
+      <p className={cn('flex-1 text-sm font-medium', config.textClass)}>{message}</p>
       <button
         onClick={() => onClose(id)}
         className={cn(
           'shrink-0 rounded-md p-1 hover:bg-overlay/10 dark:hover:bg-overlay/10 transition-colors',
-          config.textClass
+          config.textClass,
         )}
         aria-label="Close notification"
       >

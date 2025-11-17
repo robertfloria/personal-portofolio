@@ -44,7 +44,7 @@ export class EmailService {
 
       await this.transporter.sendMail(mailOptions);
       this.logger.log(`Email sent successfully from ${from}`);
-      
+
       return { message: 'Email sent successfully' };
     } catch (error) {
       this.logger.error(`Failed to send email: ${error.message}`, error.stack);

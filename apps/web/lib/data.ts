@@ -1,4 +1,12 @@
-import type { PersonalInfo, Skill, Project, TimelineItem, Certificate, Service, SocialLink } from '@/types';
+import type {
+  PersonalInfo,
+  Skill,
+  Project,
+  TimelineItem,
+  Certificate,
+  Service,
+  SocialLink,
+} from '@/types';
 
 import { Smartphone } from 'lucide-react';
 
@@ -164,7 +172,8 @@ export const timeline: TimelineItem[] = [
     organization: 'Technical University of Cluj-Napoca',
     startDate: 'October 2018',
     endDate: 'October 2022',
-    description: 'Faculty of Automation and Computer Science. Graduated with Software Engineer diploma.',
+    description:
+      'Faculty of Automation and Computer Science. Graduated with Software Engineer diploma.',
     type: 'education',
     location: 'Cluj-Napoca, Romania',
   },
@@ -174,7 +183,8 @@ export const timeline: TimelineItem[] = [
     organization: 'Transilvania Bank',
     startDate: 'September 2022',
     endDate: 'Present',
-    description: 'Led frontend development for React.js applications using TypeScript/JavaScript. Implemented CI/CD pipelines with Jenkins, reducing deployment time by 30%. Contributed to ASP.NET Core backend using SOLID principles and clean architecture. Organized AI workshops and promoted GitHub Copilot and MCP servers to accelerate team productivity. Technologies: ReactJS 18, TypeScript, ASP.NET Core 8, SQL Server, JavaScript, HTML5, CSS/SASS.',
+    description:
+      'Led frontend development for React.js applications using TypeScript/JavaScript. Implemented CI/CD pipelines with Jenkins, reducing deployment time by 30%. Contributed to ASP.NET Core backend using SOLID principles and clean architecture. Organized AI workshops and promoted GitHub Copilot and MCP servers to accelerate team productivity. Technologies: ReactJS 18, TypeScript, ASP.NET Core 8, SQL Server, JavaScript, HTML5, CSS/SASS.',
     type: 'work',
     location: 'Cluj-Napoca, Romania',
     current: true,
@@ -185,7 +195,8 @@ export const timeline: TimelineItem[] = [
     organization: 'Self-Employed',
     startDate: 'August 2025',
     endDate: 'Present',
-    description: 'Delivered cross-platform mobile applications with React Native (Expo), published to Google Play and App Store. Implemented OAuth 2.0 authentication (Firebase) and In-App Purchases for subscription models. Built full-stack web applications with React.js frontend and Node.js/NestJS backends. Designed and optimized relational databases (MySQL, Transact-SQL) and automated deployments with GitHub Actions, Firebase Hosting, Railway, and Docker.',
+    description:
+      'Delivered cross-platform mobile applications with React Native (Expo), published to Google Play and App Store. Implemented OAuth 2.0 authentication (Firebase) and In-App Purchases for subscription models. Built full-stack web applications with React.js frontend and Node.js/NestJS backends. Designed and optimized relational databases (MySQL, Transact-SQL) and automated deployments with GitHub Actions, Firebase Hosting, Railway, and Docker.',
     type: 'work',
     location: 'Remote',
     current: true,
@@ -196,8 +207,22 @@ export const projects: Project[] = [
   {
     id: '1',
     title: 'Mental Health Mobile App – AI Assistant',
-    description: 'Cross-platform mobile application (Expo) featuring an AI-powered chatbot for personalized mental health guidance, secure OAuth authentication, and in-app purchases. Published to Google Play and Apple App Store.',
-    technologies: ['React Native (Expo)', 'TypeScript', 'OpenAI API', 'Node.js', 'Express.js', 'Firebase', 'OAuth 2.0', 'Google Pay', 'Apple Pay', 'Railway', 'Docker', 'AWS S3'],
+    description:
+      'Cross-platform mobile application (Expo) featuring an AI-powered chatbot for personalized mental health guidance, secure OAuth authentication, and in-app purchases. Published to Google Play and Apple App Store.',
+    technologies: [
+      'React Native (Expo)',
+      'TypeScript',
+      'OpenAI API',
+      'Node.js',
+      'Express.js',
+      'Firebase',
+      'OAuth 2.0',
+      'Google Pay',
+      'Apple Pay',
+      'Railway',
+      'Docker',
+      'AWS S3',
+    ],
     features: [
       'AI chatbot using OpenAI API for personalized mental health guidance',
       'Secure OAuth authentication (Google & Apple) with Firebase integration',
@@ -221,8 +246,20 @@ export const projects: Project[] = [
   {
     id: '2',
     title: 'Guaranteed Loan Management System',
-    description: 'Microservices platform for secured loan management with compliance, automated origination, and risk scoring; focused on reliability and maintainability for financial environments.',
-    technologies: ['React.js', 'Next.js', 'TypeScript', 'ASP.NET Core', 'NestJS', 'SQL Server', 'Jest', 'GitHub Actions', 'Jenkins', 'SASS'],
+    description:
+      'Microservices platform for secured loan management with compliance, automated origination, and risk scoring; focused on reliability and maintainability for financial environments.',
+    technologies: [
+      'React.js',
+      'Next.js',
+      'TypeScript',
+      'ASP.NET Core',
+      'NestJS',
+      'SQL Server',
+      'Jest',
+      'GitHub Actions',
+      'Jenkins',
+      'SASS',
+    ],
     features: [
       'Automated loan origination and risk scoring',
       'Repayment tracking reducing manual workload by 40%',
@@ -245,8 +282,17 @@ export const projects: Project[] = [
   {
     id: '3',
     title: 'AI Adoption Initiative for Frontend Teams',
-    description: 'Company-wide program to integrate AI tooling and workflows (Copilot, OpenAI) into frontend teams, including demos, automation and workshops to accelerate development.',
-    technologies: ['React.js', 'Next.js', 'TypeScript', 'GitHub Copilot', 'MCP Servers', 'OpenAI API', 'Figma'],
+    description:
+      'Company-wide program to integrate AI tooling and workflows (Copilot, OpenAI) into frontend teams, including demos, automation and workshops to accelerate development.',
+    technologies: [
+      'React.js',
+      'Next.js',
+      'TypeScript',
+      'GitHub Copilot',
+      'MCP Servers',
+      'OpenAI API',
+      'Figma',
+    ],
     features: [
       'Demo applications showcasing Copilot-assisted coding and AI-driven patterns',
       'Figma-to-code automation prototypes to speed UI development',
@@ -269,7 +315,8 @@ export const projects: Project[] = [
   {
     id: '4',
     title: 'Banking Web Application',
-    description: 'Responsive banking platform with cost negotiation, card management, and campaign details.',
+    description:
+      'Responsive banking platform with cost negotiation, card management, and campaign details.',
     technologies: ['React.js', 'JavaScript', 'SASS', 'Node.js', 'Express.js', 'Jest', 'HTML5'],
     features: [
       'Cost negotiation interface with expandable details',
@@ -371,13 +418,15 @@ export const services: Service[] = [
   {
     id: 1,
     title: 'Web Development',
-    description: 'Full-stack web applications focused on performance and maintainability, using React.js, Next.js, Node.js, and modern best practices',
+    description:
+      'Full-stack web applications focused on performance and maintainability, using React.js, Next.js, Node.js, and modern best practices',
     icon: 'Code2',
   },
   {
     id: 2,
     title: 'Mobile Development',
-    description: 'Cross-platform mobile apps with React Native (Expo), published to Google Play and App Store, including IAP and OAuth integrations',
+    description:
+      'Cross-platform mobile apps with React Native (Expo), published to Google Play and App Store, including IAP and OAuth integrations',
     icon: 'Smartphone',
   },
   {
@@ -389,7 +438,8 @@ export const services: Service[] = [
   {
     id: 4,
     title: 'CI/CD & DevOps',
-    description: 'Implemented CI/CD pipelines (GitHub Actions, Jenkins) and containerized deployments (Docker) reducing deployment time and improving release reliability',
+    description:
+      'Implemented CI/CD pipelines (GitHub Actions, Jenkins) and containerized deployments (Docker) reducing deployment time and improving release reliability',
     icon: 'Rocket',
   },
   {

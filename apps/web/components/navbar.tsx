@@ -75,9 +75,7 @@ export function Navbar() {
 
   useEffect(() => {
     const ids = navItems.map((n) => n.href);
-    const sections = ids
-      .map((id) => document.querySelector(id))
-      .filter(Boolean) as Element[];
+    const sections = ids.map((id) => document.querySelector(id)).filter(Boolean) as Element[];
 
     if (sections.length === 0) return;
 
@@ -92,7 +90,7 @@ export function Navbar() {
           }
         });
       },
-      { root: null, rootMargin: '-40% 0px -40% 0px', threshold: 0 }
+      { root: null, rootMargin: '-40% 0px -40% 0px', threshold: 0 },
     );
 
     sections.forEach((s) => observer.observe(s));
@@ -143,7 +141,7 @@ export function Navbar() {
                   className={`cursor-pointer font-medium transition-colors ${
                     isActive
                       ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
-                        : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
+                      : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
                   }`}
                 >
                   {item.name}

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -24,9 +24,10 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({ 
   const [notifications, setNotifications] = React.useState<NotificationItem[]>([]);
 
   const addNotification = React.useCallback((n: Omit<NotificationItem, 'id'>) => {
-    const id = typeof crypto !== 'undefined' && typeof (crypto as any).randomUUID === 'function'
-      ? (crypto as any).randomUUID()
-      : Date.now().toString();
+    const id =
+      typeof crypto !== 'undefined' && typeof (crypto as any).randomUUID === 'function'
+        ? (crypto as any).randomUUID()
+        : Date.now().toString();
 
     const item: NotificationItem = { id, ...n, duration: n.duration ?? 5000 };
     setNotifications((prev) => [...prev, item]);
@@ -38,13 +39,12 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({ 
 
   const clearAll = React.useCallback(() => setNotifications([]), []);
 
-  const value = React.useMemo(() => ({ notifications, addNotification, removeNotification, clearAll }), [notifications, addNotification, removeNotification, clearAll]);
-
-  return (
-    <NotificationContext.Provider value={value}>
-      {children}
-    </NotificationContext.Provider>
+  const value = React.useMemo(
+    () => ({ notifications, addNotification, removeNotification, clearAll }),
+    [notifications, addNotification, removeNotification, clearAll],
   );
+
+  return <NotificationContext.Provider value={value}>{children}</NotificationContext.Provider>;
 };
 
 export function useNotifications() {

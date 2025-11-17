@@ -3,6 +3,7 @@
 ## Getting Started in 5 Minutes
 
 ### 1. Install Dependencies (both apps)
+
 ```bash
 # Web app
 cd apps/web
@@ -16,6 +17,7 @@ npm install
 ### 2. Configure Environment Variables
 
 **API** - Create `apps/api/.env`:
+
 ```env
 PORT=4000
 CORS_ORIGIN=http://localhost:3000
@@ -31,12 +33,14 @@ RECIPIENT_EMAIL=your-gmail@gmail.com
 Open 2 terminals:
 
 **Terminal 1 - API:**
+
 ```bash
 cd apps/api
 npm run start:dev
 ```
 
 **Terminal 2 - Web:**
+
 ```bash
 cd apps/web
 npm run dev
@@ -49,6 +53,7 @@ Open http://localhost:3000 in your browser!
 ## Customize Your Portfolio
 
 Edit these files in `apps/web/data/`:
+
 - `personal-info.ts` - Your name, title, bio
 - `skills.ts` - Your tech skills
 - `projects.ts` - Your projects

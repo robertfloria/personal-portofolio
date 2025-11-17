@@ -48,7 +48,7 @@ export function useFormValidation<T extends Record<string, any>>({
         return false;
       }
     },
-    [schema]
+    [schema],
   );
 
   const validateAll = useCallback(() => {
@@ -73,13 +73,13 @@ export function useFormValidation<T extends Record<string, any>>({
   const handleChange = useCallback(
     (name: string, value: any) => {
       setValues((prev) => ({ ...prev, [name]: value }));
-      
+
       // Validate field if it has been touched
       if (touched.has(name)) {
         validateField(name, value);
       }
     },
-    [touched, validateField]
+    [touched, validateField],
   );
 
   const handleBlur = useCallback(
@@ -87,7 +87,7 @@ export function useFormValidation<T extends Record<string, any>>({
       setTouched((prev) => new Set(prev).add(name));
       validateField(name, values[name]);
     },
-    [values, validateField]
+    [values, validateField],
   );
 
   const resetForm = useCallback(() => {

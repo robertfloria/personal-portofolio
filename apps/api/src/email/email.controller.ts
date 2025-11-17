@@ -23,9 +23,7 @@ export class EmailController {
       if (error instanceof BadRequestException) {
         throw error;
       }
-      throw new InternalServerErrorException(
-        error.message || 'Failed to send email',
-      );
+      throw new InternalServerErrorException(error.message || 'Failed to send email');
     }
   }
 }

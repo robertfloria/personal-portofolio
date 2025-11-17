@@ -27,7 +27,8 @@ export function TimelineSection() {
         <Section.Header animated={!shouldReduceMotion}>
           <Section.Title highlightText="Timeline">Professional</Section.Title>
           <Section.Subtitle>
-            Career milestones and roles where I led frontend efforts, built backend services, and promoted AI adoption.
+            Career milestones and roles where I led frontend efforts, built backend services, and
+            promoted AI adoption.
           </Section.Subtitle>
         </Section.Header>
 
@@ -44,9 +45,11 @@ export function TimelineSection() {
               return (
                 <div key={item.id} className="relative">
                   {/* Icon (positioned relative to timeline container) */}
-                    <div className={`absolute left-8 top-4 -translate-x-1/2 w-16 h-16 rounded-full bg-linear-to-br ${colorClass} flex items-center justify-center shadow-lg`}>
-                          <Icon className="w-8 h-8 text-foreground dark:text-primary-foreground" />
-                        </div>
+                  <div
+                    className={`absolute left-8 top-4 -translate-x-1/2 w-16 h-16 rounded-full bg-linear-to-br ${colorClass} flex items-center justify-center shadow-lg`}
+                  >
+                    <Icon className="w-8 h-8 text-foreground dark:text-primary-foreground" />
+                  </div>
 
                   {/* Card shifted to the right of the line */}
                   <Card
@@ -58,34 +61,34 @@ export function TimelineSection() {
                   >
                     {/* Content */}
                     <Card.Content>
-                    <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                      <Card.Title className="group-hover:text-primary transition-colors">
-                        {item.title}
-                      </Card.Title>
-                      <div className="flex items-center gap-2">
-                        <Badge variant="primary" size="sm">
-                          {item.startDate} {item.endDate ? `- ${item.endDate}` : ''}
-                        </Badge>
-                        {item.current && (
-                          <Badge variant="success" size="sm">
-                            Current
+                      <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
+                        <Card.Title className="group-hover:text-primary transition-colors">
+                          {item.title}
+                        </Card.Title>
+                        <div className="flex items-center gap-2">
+                          <Badge variant="primary" size="sm">
+                            {item.startDate} {item.endDate ? `- ${item.endDate}` : ''}
                           </Badge>
-                        )}
+                          {item.current && (
+                            <Badge variant="success" size="sm">
+                              Current
+                            </Badge>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                    <Text variant="body" className="font-semibold mb-2">
-                      {item.organization}
-                    </Text>
-                    {item.location && (
-                      <Text variant="small" className="mb-3">
-                        📍 {item.location}
+                      <Text variant="body" className="font-semibold mb-2">
+                        {item.organization}
                       </Text>
-                    )}
-                    <Card.Description className="leading-relaxed">
-                      {item.description}
-                    </Card.Description>
-                  </Card.Content>
-                </Card>
+                      {item.location && (
+                        <Text variant="small" className="mb-3">
+                          📍 {item.location}
+                        </Text>
+                      )}
+                      <Card.Description className="leading-relaxed">
+                        {item.description}
+                      </Card.Description>
+                    </Card.Content>
+                  </Card>
                 </div>
               );
             })}

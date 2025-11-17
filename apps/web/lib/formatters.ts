@@ -3,14 +3,14 @@
  */
 export function formatDate(date: string | Date, format: 'short' | 'long' = 'long'): string {
   const d = typeof date === 'string' ? new Date(date) : date;
-  
+
   if (format === 'short') {
     return d.toLocaleDateString('en-US', {
       month: 'short',
       year: 'numeric',
     });
   }
-  
+
   return d.toLocaleDateString('en-US', {
     month: 'long',
     day: 'numeric',
@@ -24,11 +24,11 @@ export function formatDate(date: string | Date, format: 'short' | 'long' = 'long
 export function formatPhoneNumber(phone: string): string {
   const cleaned = phone.replace(/\D/g, '');
   const match = cleaned.match(/^(\d{2})(\d{3})(\d{3})(\d{3})$/);
-  
+
   if (match) {
     return `+${match[1]} ${match[2]} ${match[3]} ${match[4]}`;
   }
-  
+
   return phone;
 }
 
@@ -79,7 +79,7 @@ export function sleep(ms: number): Promise<void> {
  */
 export function debounce<T extends (...args: any[]) => any>(
   func: T,
-  wait: number
+  wait: number,
 ): (...args: Parameters<T>) => void {
   let timeout: NodeJS.Timeout | null = null;
 
@@ -94,7 +94,7 @@ export function debounce<T extends (...args: any[]) => any>(
  */
 export function throttle<T extends (...args: any[]) => any>(
   func: T,
-  limit: number
+  limit: number,
 ): (...args: Parameters<T>) => void {
   let inThrottle: boolean;
 

@@ -5,7 +5,6 @@ import { UIProvider } from './contexts/ui-context';
 import { NotificationProvider } from './contexts/notification-context';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -24,9 +23,7 @@ export function Providers({ children }: ProvidersProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <UIProvider>
-        <NotificationProvider>
-          {children}
-        </NotificationProvider>
+        <NotificationProvider>{children}</NotificationProvider>
       </UIProvider>
     </QueryClientProvider>
   );

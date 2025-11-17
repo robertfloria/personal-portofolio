@@ -13,8 +13,7 @@ const buttonVariants = cva(
           'border-2 border-border text-foreground hover:border-border/80 hover:bg-card/5 hover:-translate-y-0.5',
         outline:
           'border-2 border-border dark:border-card text-foreground hover:bg-card/5 dark:hover:bg-card/80 hover:-translate-y-0.5',
-        ghost:
-          'text-foreground hover:bg-card/5 dark:hover:bg-card/80 hover:-translate-y-0.5',
+        ghost: 'text-foreground hover:bg-card/5 dark:hover:bg-card/80 hover:-translate-y-0.5',
         link: 'text-primary dark:text-primary-foreground underline-offset-4 hover:underline',
       },
       size: {
@@ -28,7 +27,7 @@ const buttonVariants = cva(
       variant: 'primary',
       size: 'md',
     },
-  }
+  },
 );
 
 export interface ButtonProps
@@ -41,18 +40,8 @@ export interface ButtonProps
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    {
-      className,
-      variant,
-      size,
-      isLoading,
-      leftIcon,
-      rightIcon,
-      children,
-      disabled,
-      ...props
-    },
-    ref
+    { className, variant, size, isLoading, leftIcon, rightIcon, children, disabled, ...props },
+    ref,
   ) => {
     return (
       <button
@@ -69,7 +58,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {!isLoading && rightIcon && rightIcon}
       </button>
     );
-  }
+  },
 );
 
 Button.displayName = 'Button';

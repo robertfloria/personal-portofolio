@@ -16,7 +16,7 @@ const SectionRoot = React.forwardRef<HTMLElement, SectionRootProps>(
         className={cn(
           'p-20 sm:px-6 lg:px-8',
           fullHeight && 'min-h-screen flex items-center justify-center',
-          className
+          className,
         )}
         ref={ref}
         {...props}
@@ -24,7 +24,7 @@ const SectionRoot = React.forwardRef<HTMLElement, SectionRootProps>(
         <div className="max-w-7xl mx-auto w-full">{children}</div>
       </section>
     );
-  }
+  },
 );
 
 SectionRoot.displayName = 'Section.Root';
@@ -43,7 +43,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
     if (title) {
       const legacyContent = (
         <div ref={ref} className={cn('text-center mb-16', className)} {...props}>
-            <Heading variant="h2" className="mb-4">
+          <Heading variant="h2" className="mb-4">
             {title}{' '}
             {highlightText && (
               <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -96,7 +96,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
     }
 
     return content;
-  }
+  },
 );
 
 SectionHeader.displayName = 'Section.Header';
@@ -108,7 +108,7 @@ interface SectionTitleProps extends React.HTMLAttributes<HTMLDivElement> {
 const SectionTitle = React.forwardRef<HTMLDivElement, SectionTitleProps>(
   ({ className, highlightText, children, ...props }, ref) => (
     <div ref={ref} {...props}>
-        <Heading variant="h2" className={cn('mb-4', className)}>
+      <Heading variant="h2" className={cn('mb-4', className)}>
         {children}{' '}
         {highlightText && (
           <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -117,7 +117,7 @@ const SectionTitle = React.forwardRef<HTMLDivElement, SectionTitleProps>(
         )}
       </Heading>
     </div>
-  )
+  ),
 );
 
 SectionTitle.displayName = 'Section.Title';
@@ -126,24 +126,16 @@ const SectionSubtitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, children, ...props }, ref) => (
-  <Text
-    ref={ref}
-    variant="lead"
-    className={cn('max-w-2xl mx-auto', className)}
-    {...props}
-  >
+  <Text ref={ref} variant="lead" className={cn('max-w-2xl mx-auto', className)} {...props}>
     {children}
   </Text>
 ));
 
 SectionSubtitle.displayName = 'Section.Subtitle';
 
-const SectionContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn('', className)} {...props} />
-));
+const SectionContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => <div ref={ref} className={cn('', className)} {...props} />,
+);
 
 SectionContent.displayName = 'Section.Content';
 

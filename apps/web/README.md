@@ -29,6 +29,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 ## ✨ Features
 
 ### Core Functionality
+
 - 📧 **Contact Form** with email integration and toast notifications
 - 🎨 **Dark Mode** with system preference detection
 - 📱 **Fully Responsive** design
@@ -37,6 +38,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 - ⚡ **Optimized Performance** with React Query caching
 
 ### Sections
+
 - Hero section with animated introduction
 - About section with personal information
 - Skills showcase with proficiency levels
@@ -57,6 +59,7 @@ Presentation → Business Logic → Data Layer
 See [ARCHITECTURE.md](./ARCHITECTURE.md) for detailed documentation.
 
 ### Key Patterns
+
 - **Component Composition**: Atomic design with reusable components
 - **Custom Hooks**: Encapsulated logic for reusability
 - **Service Layer**: Clean API abstraction
@@ -66,21 +69,25 @@ See [ARCHITECTURE.md](./ARCHITECTURE.md) for detailed documentation.
 ## 📦 Tech Stack
 
 ### Frontend
+
 - **Next.js 14+** - React framework with App Router
 - **TypeScript** - Type safety
 - **Tailwind CSS** - Utility-first styling
 - **Framer Motion** - Animations
 
 -### State Management
+
 - **React Context** - Lightweight UI state (theme, menus, notifications)
 - **React Query** - Server state and caching
 - **React Query** - Server state and caching
 
 ### Form & Validation
+
 - **Zod** - Runtime type validation
 - Custom validation hooks
 
 ### UI Components
+
 - **Lucide React** - Icon library
 - **next-themes** - Dark mode support
 - **class-variance-authority** - Component variants
@@ -120,7 +127,7 @@ addNotification({ type: 'success', message: 'Operation completed!', duration: 50
 const { mutate: sendEmail, isPending } = useSendEmail();
 
 sendEmail(formData, {
-  onSuccess: () => resetForm()
+  onSuccess: () => resetForm(),
 });
 ```
 

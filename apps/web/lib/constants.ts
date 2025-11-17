@@ -3,7 +3,8 @@
  */
 
 export const APP_NAME = 'Robert Nicolae Floria - Portfolio';
-export const APP_DESCRIPTION = 'Full-Stack Software Engineer specializing in React.js, React Native, Node.js, and AI Integration';
+export const APP_DESCRIPTION =
+  'Full-Stack Software Engineer specializing in React.js, React Native, Node.js, and AI Integration';
 
 export const ROUTES = {
   HOME: '/',

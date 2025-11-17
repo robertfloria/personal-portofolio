@@ -18,6 +18,7 @@
     "test": "npm run test --workspaces --if-present",
     "clean": "npm run clean --workspaces --if-present && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "type-check": "npm run type-check --workspaces --if-present"
   },
   "devDependencies": {

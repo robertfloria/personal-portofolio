@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -16,22 +16,25 @@ interface UIContextValue {
 
 const UIContext = React.createContext<UIContextValue | undefined>(undefined);
 
-export const UIProvider: React.FC<{ children: React.ReactNode }>= ({ children }) => {
+export const UIProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setTheme] = React.useState<ThemeMode>('light');
   const [sidebarOpen, setSidebarOpen] = React.useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   const toggleMobileMenu = React.useCallback(() => setMobileMenuOpen((v) => !v), []);
 
-  const value = React.useMemo(() => ({
-    theme,
-    setTheme,
-    sidebarOpen,
-    setSidebarOpen,
-    mobileMenuOpen,
-    setMobileMenuOpen,
-    toggleMobileMenu,
-  }), [theme, sidebarOpen, mobileMenuOpen, toggleMobileMenu]);
+  const value = React.useMemo(
+    () => ({
+      theme,
+      setTheme,
+      sidebarOpen,
+      setSidebarOpen,
+      mobileMenuOpen,
+      setMobileMenuOpen,
+      toggleMobileMenu,
+    }),
+    [theme, sidebarOpen, mobileMenuOpen, toggleMobileMenu],
+  );
 
   return <UIContext.Provider value={value}>{children}</UIContext.Provider>;
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin,  Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { socialLinks } from '@/lib/data';
 import { SocialButton } from '@/components/common/social-button';
 
@@ -18,20 +18,16 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-foreground">
-              Robert Nicolae Floria
-            </h3>
+            <h3 className="text-lg font-bold mb-4 text-foreground">Robert Nicolae Floria</h3>
             <p className="text-muted-foreground">
-              Full-Stack Software Developer specializing in modern web technologies.
-              Building scalable and maintainable applications.
+              Full-Stack Software Developer specializing in modern web technologies. Building
+              scalable and maintainable applications.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-foreground">
-              Quick Links
-            </h3>
+            <h3 className="text-lg font-bold mb-4 text-foreground">Quick Links</h3>
             <ul className="space-y-2">
               {['About', 'Skills', 'Projects', 'Contact'].map((link) => (
                 <li key={link}>
@@ -48,11 +44,9 @@ export function Footer() {
 
           {/* Social Links */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-foreground">
-              Connect With Me
-            </h3>
+            <h3 className="text-lg font-bold mb-4 text-foreground">Connect With Me</h3>
             <div className="flex space-x-4">
-              {socialLinks.map((social,index) => {
+              {socialLinks.map((social, index) => {
                 const Icon = iconMap[social.icon as keyof typeof iconMap];
                 return (
                   <SocialButton
@@ -73,9 +67,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-border text-center text-muted-foreground">
-          <p>
-            © {currentYear} Robert Nicolae Floria. All rights reserved.
-          </p>
+          <p>© {currentYear} Robert Nicolae Floria. All rights reserved.</p>
         </div>
       </div>
     </footer>

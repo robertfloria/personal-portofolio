@@ -11,10 +11,12 @@ import { EmailModule } from './email/email.module';
       isGlobal: true,
       envFilePath: '.env',
     }),
-    ThrottlerModule.forRoot([{
-      ttl: 60000, // 1 minute
-      limit: 5, // 5 requests per minute
-    }]),
+    ThrottlerModule.forRoot([
+      {
+        ttl: 60000, // 1 minute
+        limit: 5, // 5 requests per minute
+      },
+    ]),
     EmailModule,
   ],
   controllers: [AppController],

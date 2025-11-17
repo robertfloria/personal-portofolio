@@ -71,6 +71,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Prettier check - ${{ matrix.app }}
+        run: npm run format:check --workspace=${{ matrix.app }}
+        continue-on-error: false
+
       - name: Run linter - ${{ matrix.app }}
         run: npm run lint --workspace=${{ matrix.app }}
         continue-on-error: false

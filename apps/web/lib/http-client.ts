@@ -1,7 +1,6 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
 
 // Create axios instance
 export const httpClient = axios.create({
@@ -37,7 +36,7 @@ httpClient.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 // Response interceptor
@@ -73,14 +72,11 @@ httpClient.interceptors.response.use(
       }
 
       if (process.env.NODE_ENV === 'development') {
-        console.error(
-          `[HTTP Error] ${error.config?.method?.toUpperCase()} ${error.config?.url}`,
-          {
-            status,
-            message,
-            data: error.response.data,
-          }
-        );
+        console.error(`[HTTP Error] ${error.config?.method?.toUpperCase()} ${error.config?.url}`, {
+          status,
+          message,
+          data: error.response.data,
+        });
       }
     } else if (error.request) {
       // Request was made but no response received
@@ -91,25 +87,20 @@ httpClient.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  }
+  },
 );
 
 // API service helpers
 export const api = {
-  get: <T = any>(url: string, config = {}) =>
-    httpClient.get<T>(url, config),
+  get: <T = any>(url: string, config = {}) => httpClient.get<T>(url, config),
 
-  post: <T = any>(url: string, data?: any, config = {}) =>
-    httpClient.post<T>(url, data, config),
+  post: <T = any>(url: string, data?: any, config = {}) => httpClient.post<T>(url, data, config),
 
-  put: <T = any>(url: string, data?: any, config = {}) =>
-    httpClient.put<T>(url, data, config),
+  put: <T = any>(url: string, data?: any, config = {}) => httpClient.put<T>(url, data, config),
 
-  patch: <T = any>(url: string, data?: any, config = {}) =>
-    httpClient.patch<T>(url, data, config),
+  patch: <T = any>(url: string, data?: any, config = {}) => httpClient.patch<T>(url, data, config),
 
-  delete: <T = any>(url: string, config = {}) =>
-    httpClient.delete<T>(url, config),
+  delete: <T = any>(url: string, config = {}) => httpClient.delete<T>(url, config),
 };
 
 export default httpClient;

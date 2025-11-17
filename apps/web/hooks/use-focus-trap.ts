@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useEffect, RefObject } from 'react';
 
@@ -15,17 +15,24 @@ function getFocusableElements(element: HTMLElement | null): HTMLElement[] {
     'object',
     'embed',
     '[tabindex]:not([tabindex="-1"])',
-    '[contenteditable]'
+    '[contenteditable]',
   ];
   const nodes = Array.from(element.querySelectorAll<HTMLElement>(selectors.join(',')));
-  return nodes.filter((n) => n.offsetWidth > 0 || n.offsetHeight > 0 || n === document.activeElement);
+  return nodes.filter(
+    (n) => n.offsetWidth > 0 || n.offsetHeight > 0 || n === document.activeElement,
+  );
 }
 
-export function useFocusTrap(containerRef: RefObject<HTMLElement | null>, active: boolean, onClose?: () => void) {
+export function useFocusTrap(
+  containerRef: RefObject<HTMLElement | null>,
+  active: boolean,
+  onClose?: () => void,
+) {
   useEffect(() => {
     if (!active) return;
     const container = containerRef.current;
-    const previouslyFocused = typeof document !== 'undefined' ? (document.activeElement as HTMLElement | null) : null;
+    const previouslyFocused =
+      typeof document !== 'undefined' ? (document.activeElement as HTMLElement | null) : null;
 
     // focus first focusable element or container
     const focusable = getFocusableElements(container);

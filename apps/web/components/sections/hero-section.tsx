@@ -1,8 +1,18 @@
-"use client";
+'use client';
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, MapPin, Calendar, Phone, GraduationCap, Briefcase, Download } from 'lucide-react';
+import {
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Calendar,
+  Phone,
+  GraduationCap,
+  Briefcase,
+  Download,
+} from 'lucide-react';
 import { personalInfo, socialLinks } from '@/lib/data';
 import { Button, Card, Heading, Text, IconBadge, Section } from '@/components/common';
 import { SocialButton } from '@/components/common/social-button';
@@ -28,16 +38,16 @@ export function HeroSection() {
   const imageVariants = shouldReduceMotion
     ? {}
     : {
-      initial: { opacity: 0, scale: 0.8 },
-      animate: { opacity: 1, scale: 1 },
-    };
+        initial: { opacity: 0, scale: 0.8 },
+        animate: { opacity: 1, scale: 1 },
+      };
 
   const textVariants = shouldReduceMotion
     ? {}
     : {
-      initial: { opacity: 0, x: 50 },
-      animate: { opacity: 1, x: 0 },
-    };
+        initial: { opacity: 0, x: 50 },
+        animate: { opacity: 1, x: 0 },
+      };
 
   return (
     <Section id="home" className="min-h-screen flex items-center justify-center">
@@ -46,7 +56,7 @@ export function HeroSection() {
           {/* Left Column - Profile Image with Glassmorphism */}
           <motion.div
             {...imageVariants}
-            transition={{ duration: 0.8, type: "spring" }}
+            transition={{ duration: 0.8, type: 'spring' }}
             className="relative order-1 lg:order-1"
           >
             <div className="relative mx-auto w-72 h-72 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px]">
@@ -127,7 +137,7 @@ export function HeroSection() {
               animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              <Text variant='lead' className="mb-6">
+              <Text variant="lead" className="mb-6">
                 {personalInfo.subtitle}
               </Text>
             </motion.div>
@@ -137,7 +147,7 @@ export function HeroSection() {
               animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <Text variant='body' className="mb-8 max-w-2xl">
+              <Text variant="body" className="mb-8 max-w-2xl">
                 {personalInfo.bio}
               </Text>
             </motion.div>
@@ -150,28 +160,17 @@ export function HeroSection() {
               transition={{ delay: 0.6 }}
             >
               <a href="#contact">
-                <Button
-                  variant="primary"
-                  size="lg"
-                  leftIcon={<Mail size={20} />}
-                >
+                <Button variant="primary" size="lg" leftIcon={<Mail size={20} />}>
                   Get In Touch
                 </Button>
               </a>
               <a href="#projects">
-                <Button
-                  variant='outline'
-                  size="lg"
-                >
+                <Button variant="outline" size="lg">
                   View My Work →
                 </Button>
               </a>
               <a href={personalInfo.resumeUrl} download target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  leftIcon={<Download size={18} />}
-                >
+                <Button variant="outline" size="lg" leftIcon={<Download size={18} />}>
                   Download CV
                 </Button>
               </a>
@@ -201,7 +200,7 @@ export function HeroSection() {
                       icon={Icon}
                       size={20}
                       className="w-12 h-12"
-                      variant='outline'
+                      variant="outline"
                     />
                   </motion.div>
                 );
@@ -220,8 +219,8 @@ export function HeroSection() {
           {infoItems.map((item, index) => (
             <Card
               key={item.label}
-              variant='default'
-              hover='glow'
+              variant="default"
+              hover="glow"
               padding="md"
               animated={!shouldReduceMotion}
               animationDelay={1 + index * 0.1}
@@ -236,9 +235,7 @@ export function HeroSection() {
                 />
                 <div>
                   <Card.Header className="text-lg font-semibold">{item.label}</Card.Header>
-                  <Card.Description>
-                    {item.value}
-                  </Card.Description>
+                  <Card.Description>{item.value}</Card.Description>
                 </div>
               </Card.Content>
             </Card>

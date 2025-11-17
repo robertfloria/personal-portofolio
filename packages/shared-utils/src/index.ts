@@ -11,11 +11,7 @@ export function validateEmail(email: string): boolean {
 /**
  * String length validation
  */
-export function validateLength(
-  value: string,
-  min: number,
-  max: number
-): boolean {
+export function validateLength(value: string, min: number, max: number): boolean {
   return value.length >= min && value.length <= max;
 }
 
@@ -92,7 +88,7 @@ export function formatDate(date: string): string {
  */
 export function debounce<T extends (...args: any[]) => any>(
   func: T,
-  wait: number
+  wait: number,
 ): (...args: Parameters<T>) => void {
   let timeout: NodeJS.Timeout | null = null;
 
@@ -114,7 +110,7 @@ export function debounce<T extends (...args: any[]) => any>(
  */
 export function throttle<T extends (...args: any[]) => any>(
   func: T,
-  limit: number
+  limit: number,
 ): (...args: Parameters<T>) => void {
   let inThrottle: boolean;
 

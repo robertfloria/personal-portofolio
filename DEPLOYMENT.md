@@ -11,6 +11,7 @@ This guide will help you deploy your portfolio to production.
 ### Option 1: Vercel Dashboard (Recommended)
 
 1. **Push to GitHub**
+
    ```bash
    git add .
    git commit -m "Initial portfolio setup"
@@ -129,11 +130,13 @@ With the new architecture, make sure:
 ## Custom Domain Setup
 
 ### Vercel (Frontend)
+
 1. Go to Project Settings > Domains
 2. Add your domain
 3. Update DNS records as instructed
 
 ### Railway/Render (Backend)
+
 1. Go to Settings > Custom Domain
 2. Add your API subdomain (e.g., api.yourdomain.com)
 3. Update DNS CNAME record
@@ -141,21 +144,25 @@ With the new architecture, make sure:
 ## Monitoring & Analytics
 
 ### Frontend
+
 - **Vercel Analytics**: Built-in (free)
 - **Google Analytics**: Add script to layout.tsx
 
 ### Backend
+
 - **Railway Metrics**: Built-in dashboard
 - **Sentry**: For error tracking (optional)
 
 ## Environment Variables Summary
 
 ### Production Frontend (.env.production)
+
 ```env
 NEXT_PUBLIC_API_URL=https://your-api.railway.app/api
 ```
 
 ### Production Backend (.env)
+
 ```env
 PORT=4000
 NODE_ENV=production
@@ -168,17 +175,20 @@ RECIPIENT_EMAIL=your-email@gmail.com
 ## Troubleshooting
 
 ### Contact Form Not Working
+
 - Check API URL is correct in Vercel environment variables
 - Verify CORS_ORIGIN in backend matches your Vercel domain
 - Check Gmail App Password is correct
 - Look at backend logs in Railway/Render
 
 ### Build Failures
+
 - Ensure all dependencies are in package.json
 - Check TypeScript errors locally first
 - Verify environment variables are set
 
 ### 404 Errors
+
 - Make sure root directory is set correctly
 - Check build output directory
 
@@ -200,6 +210,7 @@ RECIPIENT_EMAIL=your-email@gmail.com
 ## Continuous Deployment
 
 Both Vercel and Railway support automatic deployments:
+
 - Push to `main` branch → Auto deploy
 - Pull Requests → Preview deployments
 

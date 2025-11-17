@@ -6,14 +6,7 @@ import { personalInfo } from '@/lib/data';
 import { ContactFormData } from '@/types';
 import { useSendEmail } from '@/hooks/use-send-email';
 import { useReducedMotion } from '@/hooks';
-import {
-  Section,
-  Card,
-  Input,
-  Textarea,
-  Button,
-  Text
-} from '@/components/common';
+import { Section, Card, Input, Textarea, Button, Text } from '@/components/common';
 
 export function ContactSection() {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -26,9 +19,7 @@ export function ContactSection() {
   const { mutate: sendEmail, isPending } = useSendEmail();
   const shouldReduceMotion = useReducedMotion();
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -85,9 +76,9 @@ export function ContactSection() {
         </Section.Header>
 
         <Card
-          variant='default'
+          variant="default"
           padding="lg"
-          hover='none'
+          hover="none"
           animated={!shouldReduceMotion}
           animationDelay={0.2}
         >

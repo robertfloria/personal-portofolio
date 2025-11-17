@@ -7,20 +7,13 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        primary:
-          'bg-secondary/60 dark:bg-secondary/30 text-muted-foreground',
-        secondary:
-          'bg-accent/60 dark:bg-accent/30 text-muted-foreground',
-        success:
-          'bg-linear-to-r from-primary to-accent text-primary-foreground',
-        warning:
-          'bg-overlay text-muted-foreground',
-        danger:
-          'bg-linear-to-r from-accent to-primary text-primary-foreground',
-        gradient:
-          'bg-linear-to-r from-primary to-accent text-primary-foreground',
-        outline:
-          'border-2 border-border text-muted-foreground',
+        primary: 'bg-secondary/60 dark:bg-secondary/30 text-muted-foreground',
+        secondary: 'bg-accent/60 dark:bg-accent/30 text-muted-foreground',
+        success: 'bg-linear-to-r from-primary to-accent text-primary-foreground',
+        warning: 'bg-overlay text-muted-foreground',
+        danger: 'bg-linear-to-r from-accent to-primary text-primary-foreground',
+        gradient: 'bg-linear-to-r from-primary to-accent text-primary-foreground',
+        outline: 'border-2 border-border text-muted-foreground',
       },
       size: {
         sm: 'px-2 py-1 text-xs',
@@ -32,7 +25,7 @@ const badgeVariants = cva(
       variant: 'primary',
       size: 'md',
     },
-  }
+  },
 );
 
 export interface BadgeProps
@@ -42,15 +35,11 @@ export interface BadgeProps
 export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
   ({ className, variant, size, children, ...props }, ref) => {
     return (
-      <span
-        className={cn(badgeVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      >
+      <span className={cn(badgeVariants({ variant, size, className }))} ref={ref} {...props}>
         {children}
       </span>
     );
-  }
+  },
 );
 
 Badge.displayName = 'Badge';
