@@ -13,6 +13,7 @@ import { useFocusTrap } from '@/hooks/use-focus-trap';
 
 export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const shouldReduceMotion = useReducedMotion();
   const modalRef = useRef<HTMLDivElement | null>(null);
   useFocusTrap(modalRef, Boolean(selectedProject), () => setSelectedProject(null));
@@ -107,11 +108,12 @@ export function ProjectsSection() {
 
             <Modal.Body>
               {selectedProject.images && selectedProject.images.length > 0 && (
-                <div className="grid grid-cols-2 gap-4">
-                  {selectedProject.images.slice(0, 4).map((img, idx) => (
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {selectedProject.images.map((img, idx) => (
                     <div
                       key={idx}
-                      className="relative h-48 rounded-lg overflow-hidden bg-[hsl(var(--card)/0.9)]"
+                      className="relative h-48 rounded-lg overflow-hidden bg-[hsl(var(--card)/0.9)] cursor-pointer"
+                      onClick={() => setSelectedImage(img)}
                     >
                       <Image
                         src={img}
@@ -191,6 +193,27 @@ export function ProjectsSection() {
                   )}
                 </div>
               )}
+            </Modal.Body>
+          </Modal.Content>
+        )}
+      </Modal>
+
+      {/* Full Image Modal */}
+      <Modal isOpen={Boolean(selectedImage)} onClose={() => setSelectedImage(null)}>
+        {selectedImage && (
+          <Modal.Content>
+            <Modal.Header showClose onClose={() => setSelectedImage(null)}>
+              <h2 className="text-lg font-semibold text-foreground">Image Preview</h2>
+            </Modal.Header>
+            <Modal.Body>
+              <div className="relative w-full h-[60vh] flex items-center justify-center">
+                <Image
+                  src={selectedImage}
+                  alt="Full preview"
+                  fill
+                  className="object-contain rounded-lg bg-[hsl(var(--card)/1)]"
+                />
+              </div>
             </Modal.Body>
           </Modal.Content>
         )}
