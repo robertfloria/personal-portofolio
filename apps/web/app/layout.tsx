@@ -3,8 +3,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Providers } from '@/components/providers';
-import { Navbar } from '@/components/navbar';
-import { Footer } from '@/components/footer';
+import { Navbar } from '@/components/layout/navbar';
+import { Footer } from '@/components/layout/footer';
 import { ToastContainer } from '@/components/common';
 import { WelcomeModal } from '@/components/common/welcome-modal';
 

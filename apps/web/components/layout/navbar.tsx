@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, Download } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
-import { ThemeToggle } from './theme-toggle';
-import { useUI } from './contexts/ui-context';
+import { ThemeToggle } from '../theme-toggle';
+import { useUI } from '../contexts/ui-context';
 
 const navItems = [
   { name: 'Home', href: '#home' },
