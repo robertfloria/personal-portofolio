@@ -195,14 +195,15 @@ jobs:
       - name: Install Railway CLI
         run: npm install -g @railway/cli
 
+
       - name: Deploy API to Railway
-        run: railway up --service=api
+        run: railway up --service=${{ secrets.RAILWAY_API_SERVICE_ID }}
         working-directory: ./apps/api
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 
       - name: Deploy Web to Railway
-        run: railway up --service=web
+        run: railway up --service=${{ secrets.RAILWAY_WEB_SERVICE_ID }}
         working-directory: ./apps/web
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
