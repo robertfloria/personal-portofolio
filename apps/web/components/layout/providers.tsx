@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
-import { UIProvider } from './contexts/ui-context';
-import { NotificationProvider } from './contexts/notification-context';
+import { UIProvider } from '../contexts/ui-context';
+import { NotificationProvider } from '../contexts/notification-context';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,7 +24,16 @@ export function Providers({ children }: ProvidersProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <UIProvider>
-        <NotificationProvider>{children}</NotificationProvider>
+        <NotificationProvider>
+          <NextThemesProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </NextThemesProvider>
+        </NotificationProvider>
       </UIProvider>
     </QueryClientProvider>
   );

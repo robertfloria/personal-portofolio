@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { ThemeProvider } from '@/components/theme-provider';
-import { Providers } from '@/components/providers';
+import { Providers } from '@/components/layout/providers';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { ToastContainer } from '@/components/common';
@@ -41,18 +40,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
         <Providers>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Navbar />
-            <WelcomeModal />
-            <main className="min-h-screen">{children}</main>
-            <Footer />
-            <ToastContainer />
-          </ThemeProvider>
+          <Navbar />
+          <WelcomeModal />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+          <ToastContainer />
         </Providers>
       </body>
     </html>
