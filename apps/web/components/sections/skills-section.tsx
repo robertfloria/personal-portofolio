@@ -50,6 +50,7 @@ export function SkillsSection() {
                   hover="glow"
                   padding="md"
                   className="group"
+                  variant={'glass'}
                 >
                   <Card.Content>
                     <div className="flex items-center gap-4 mb-4">

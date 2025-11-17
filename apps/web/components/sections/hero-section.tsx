@@ -219,7 +219,7 @@ export function HeroSection() {
           {infoItems.map((item, index) => (
             <Card
               key={item.label}
-              variant="default"
+              variant="glass"
               hover="glow"
               padding="md"
               animated={!shouldReduceMotion}
