@@ -9,7 +9,8 @@
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "clean": "node -e \"require('fs').rmSync('.next', { recursive: true, force: true })\"",
-    "test": "jest"
+    "test": "jest",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@portfolio/shared-types": "*",
