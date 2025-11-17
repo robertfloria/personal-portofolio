@@ -1,7 +1,7 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['@testing-library/jest-dom'],
+  setupFilesAfterEnv: ['@testing-library/jest-dom', '<rootDir>/jest.setup.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
@@ -9,5 +9,8 @@ module.exports = {
   testMatch: ['**/?(*.)+(spec|test).[tj]s?(x)'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
+    '^next/image$': '<rootDir>/__mocks__/next-image.tsx',
+    '^framer-motion$': '<rootDir>/__mocks__/framer-motion.tsx',
+    '^next-themes$': '<rootDir>/__mocks__/next-themes.tsx',
   },
 };

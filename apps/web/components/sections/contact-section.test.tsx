@@ -3,21 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { ContactSection } from './contact-section';
 import { Providers } from '../layout/providers';
 
-// Jest setup for window.matchMedia mock
-beforeAll(() => {
-  window.matchMedia =
-    window.matchMedia ||
-    function () {
-      return {
-        matches: false,
-        addListener: () => {},
-        removeListener: () => {},
-        addEventListener: () => {},
-        removeEventListener: () => {},
-        dispatchEvent: () => {},
-      };
-    };
-});
+// window.matchMedia is provided globally by jest.setup.ts
 
 describe('ContactSection', () => {
   it('renders contact form fields', () => {
