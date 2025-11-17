@@ -8,5 +8,6 @@ const motionObj = {
 };
 
 export const motion = motionObj;
-export const AnimatePresence = ({ children }: any) => React.createElement(React.Fragment, null, children);
+export const AnimatePresence = ({ children }: any) =>
+  React.createElement(React.Fragment, null, children);
 export default motionObj;

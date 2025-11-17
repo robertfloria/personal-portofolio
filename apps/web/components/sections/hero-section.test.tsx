@@ -10,7 +10,7 @@ describe('HeroSection', () => {
     render(
       <Providers>
         <HeroSection />
-      </Providers>
+      </Providers>,
     );
     expect(screen.getByText(/Welcome to my portfolio/i)).toBeInTheDocument();
   });

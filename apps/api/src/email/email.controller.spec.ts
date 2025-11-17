@@ -35,6 +35,8 @@ describe('EmailController', () => {
       subject: 'Hello',
       message: 'Test message',
     };
-    await expect(controller.sendEmail(dto)).resolves.toEqual({ message: 'Email sent successfully' });
+    await expect(controller.sendEmail(dto)).resolves.toEqual({
+      message: 'Email sent successfully',
+    });
   });
 });

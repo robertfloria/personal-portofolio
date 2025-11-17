@@ -6,7 +6,7 @@ describe('UIProvider', () => {
     render(
       <UIProvider>
         <div>Child</div>
-      </UIProvider>
+      </UIProvider>,
     );
   });
 });

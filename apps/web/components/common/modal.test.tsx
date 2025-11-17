@@ -3,6 +3,10 @@ import { Modal } from './modal';
 
 describe('Modal', () => {
   it('renders without crashing', () => {
-    render(<Modal open={true} onClose={() => {}}>Modal content</Modal>);
+    render(
+      <Modal open={true} onClose={() => {}}>
+        Modal content
+      </Modal>,
+    );
   });
 });

@@ -7,7 +7,7 @@ describe('Navbar', () => {
     render(
       <UIProvider>
         <Navbar />
-      </UIProvider>
+      </UIProvider>,
     );
   });
 });

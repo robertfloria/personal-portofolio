@@ -7,7 +7,7 @@ describe('ThemeToggle', () => {
     render(
       <UIProvider>
         <ThemeToggle />
-      </UIProvider>
+      </UIProvider>,
     );
   });
 });

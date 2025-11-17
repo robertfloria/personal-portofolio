@@ -14,7 +14,14 @@ const NextImage = (props: any) => {
 
   return (
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={typeof src === 'string' ? src : src?.src || ''} alt={alt} width={width} height={height} style={imgStyle} {...rest} />
+    <img
+      src={typeof src === 'string' ? src : src?.src || ''}
+      alt={alt}
+      width={width}
+      height={height}
+      style={imgStyle}
+      {...rest}
+    />
   );
 };
 

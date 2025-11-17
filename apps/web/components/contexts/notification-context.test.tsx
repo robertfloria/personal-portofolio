@@ -6,7 +6,7 @@ describe('NotificationProvider', () => {
     render(
       <NotificationProvider>
         <div>Child</div>
-      </NotificationProvider>
+      </NotificationProvider>,
     );
   });
 });

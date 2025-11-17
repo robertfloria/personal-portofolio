@@ -10,7 +10,7 @@ describe('ContactSection', () => {
     render(
       <Providers>
         <ContactSection />
-      </Providers>
+      </Providers>,
     );
     expect(screen.getByLabelText(/Your Name/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Your Email/i)).toBeInTheDocument();
