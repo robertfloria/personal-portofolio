@@ -46,7 +46,7 @@ export function AboutSection() {
                   variant="gradient"
                   size="lg"
                   iconSize={32}
-                  className="group-hover:scale-110 transition-transform flex-shrink-0" //s
+                  className="group-hover:scale-110 transition-transform flex-shrink-0" //ss
                 />
 
                 <div>
