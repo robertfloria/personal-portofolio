@@ -4,7 +4,7 @@ import { Modal } from './modal';
 describe('Modal', () => {
   it('renders without crashing', () => {
     render(
-      <Modal open={true} onClose={() => {}}>
+      <Modal isOpen={true} onClose={() => {}}>
         Modal content
       </Modal>,
     );
