@@ -5,13 +5,12 @@ import { SendEmailDto } from './dto/send-email.dto';
 
 jest.mock('nodemailer', () => ({
   createTransport: jest.fn(() => ({
-    sendMail: jest.fn(() => Promise.resolve()),
+    sendMail: jest.fn(() => undefined),
   })),
 }));
 
 describe('EmailService', () => {
   let service: EmailService;
-  let configService: ConfigService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -32,7 +31,6 @@ describe('EmailService', () => {
     }).compile();
 
     service = module.get<EmailService>(EmailService);
-    configService = module.get<ConfigService>(ConfigService);
   });
 
   it('should be defined', () => {

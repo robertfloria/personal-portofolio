@@ -19,11 +19,14 @@ export class EmailController {
   async sendEmail(@Body() sendEmailDto: SendEmailDto) {
     try {
       return await this.emailService.sendEmail(sendEmailDto);
-    } catch (error) {
+    } catch (error: unknown) {
       if (error instanceof BadRequestException) {
         throw error;
       }
-      throw new InternalServerErrorException(error.message || 'Failed to send email');
+      if (error instanceof Error) {
+        throw new InternalServerErrorException(error.message || 'Failed to send email');
+      }
+      throw new InternalServerErrorException('Failed to send email');
     }
   }
 }

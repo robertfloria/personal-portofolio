@@ -46,8 +46,12 @@ export class EmailService {
       this.logger.log(`Email sent successfully from ${from}`);
 
       return { message: 'Email sent successfully' };
-    } catch (error) {
-      this.logger.error(`Failed to send email: ${error.message}`, error.stack);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        this.logger.error(`Failed to send email: ${error.message}`, error.stack);
+      } else {
+        this.logger.error('Failed to send email: Unknown error');
+      }
       throw new Error('Failed to send email. Please try again later.');
     }
   }

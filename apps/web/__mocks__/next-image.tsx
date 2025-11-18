@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const NextImage = (props: any) => {
+const NextImage = (props: React.ImgHTMLAttributes<HTMLImageElement> & { fill?: boolean }) => {
   // Render a normal img for tests to avoid Next.js optimizations
   // Support `fill` prop by mapping to style
   const { src, alt, width, height, style, fill, ...rest } = props;

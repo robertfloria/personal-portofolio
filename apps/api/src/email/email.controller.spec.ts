@@ -4,7 +4,7 @@ import { EmailService } from './email.service';
 import { SendEmailDto } from './dto/send-email.dto';
 
 const mockEmailService = {
-  sendEmail: jest.fn(async (dto: SendEmailDto) => ({ message: 'Email sent successfully' })),
+  sendEmail: jest.fn(() => ({ message: 'Email sent successfully' })),
 };
 
 describe('EmailController', () => {
