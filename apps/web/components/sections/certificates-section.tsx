@@ -13,7 +13,9 @@ export function CertificatesSection() {
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
   const shouldReduceMotion = useReducedMotion();
   const modalRef = React.useRef<HTMLDivElement | null>(null);
-  useFocusTrap(modalRef as React.RefObject<HTMLDivElement>, Boolean(selectedCertificate), () => setSelectedCertificate(null));
+  useFocusTrap(modalRef as React.RefObject<HTMLDivElement>, Boolean(selectedCertificate), () =>
+    setSelectedCertificate(null),
+  );
 
   return (
     <Section id="certificates">

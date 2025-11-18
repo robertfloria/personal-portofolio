@@ -97,11 +97,14 @@ httpClient.interceptors.response.use(
 export const api = {
   get: <T = unknown>(url: string, config = {}) => httpClient.get<T>(url, config),
 
-  post: <T = unknown>(url: string, data?: unknown, config = {}) => httpClient.post<T>(url, data, config),
+  post: <T = unknown>(url: string, data?: unknown, config = {}) =>
+    httpClient.post<T>(url, data, config),
 
-  put: <T = unknown>(url: string, data?: unknown, config = {}) => httpClient.put<T>(url, data, config),
+  put: <T = unknown>(url: string, data?: unknown, config = {}) =>
+    httpClient.put<T>(url, data, config),
 
-  patch: <T = unknown>(url: string, data?: unknown, config = {}) => httpClient.patch<T>(url, data, config),
+  patch: <T = unknown>(url: string, data?: unknown, config = {}) =>
+    httpClient.patch<T>(url, data, config),
 
   delete: <T = unknown>(url: string, config = {}) => httpClient.delete<T>(url, config),
 };

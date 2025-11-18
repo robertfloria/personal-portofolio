@@ -1,4 +1,3 @@
-
 'use client';
 type ModalContextType = {
   onClose: () => void;
@@ -9,7 +8,6 @@ const ModalContext = React.createContext<ModalContextType | null>(null);
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
-
 
 export interface ModalProps {
   isOpen: boolean;
@@ -210,7 +208,6 @@ export function ModalFooter({
     </div>
   );
 }
-
 
 export const Modal = Object.assign(ModalBase, {
   Content: ModalContent,

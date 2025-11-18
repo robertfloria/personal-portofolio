@@ -15,7 +15,9 @@ export function ProjectsSection() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const shouldReduceMotion = useReducedMotion();
   const modalRef = useRef<HTMLDivElement | null>(null);
-  useFocusTrap(modalRef as React.RefObject<HTMLElement>, Boolean(selectedProject), () => setSelectedProject(null));
+  useFocusTrap(modalRef as React.RefObject<HTMLElement>, Boolean(selectedProject), () =>
+    setSelectedProject(null),
+  );
 
   return (
     <Section id="projects">
