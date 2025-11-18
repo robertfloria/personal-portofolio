@@ -4,47 +4,53 @@ html {
   scrollbar-color: hsl(var(--muted-foreground) / 0.5) hsl(var(--card) / 1);
 }
 
-body::-webkit-scrollbar, html::-webkit-scrollbar {
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
   width: 10px;
   background: hsl(var(--card) / 1);
 }
 
-body::-webkit-scrollbar-thumb, html::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb,
+html::-webkit-scrollbar-thumb {
   background: hsl(var(--muted-foreground) / 0.5);
   border-radius: 8px;
   border: 2px solid hsl(var(--card) / 1);
 }
 
-body::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
+body::-webkit-scrollbar-thumb:hover,
+html::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--primary) / 0.5);
 }
 
-.dark body::-webkit-scrollbar, .dark html::-webkit-scrollbar {
+.dark body::-webkit-scrollbar,
+.dark html::-webkit-scrollbar {
   background: hsl(var(--card) / 1);
 }
-.dark body::-webkit-scrollbar-thumb, .dark html::-webkit-scrollbar-thumb {
+.dark body::-webkit-scrollbar-thumb,
+.dark html::-webkit-scrollbar-thumb {
   background: hsl(var(--muted-foreground) / 0.4);
   border: 2px solid hsl(var(--card) / 1);
 }
-.dark body::-webkit-scrollbar-thumb:hover, .dark html::-webkit-scrollbar-thumb:hover {
+.dark body::-webkit-scrollbar-thumb:hover,
+.dark html::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--accent) / 0.5);
 }
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @layer base {
   :root {
     --background: 0 0% 100%;
     /* white */
-    --foreground: 222.2 6.0% 12.0%;
+    --foreground: 222.2 6% 12%;
     /* soft near-black for modern readability */
-    --primary: 205.6 90.0% 54.0%;
+    --primary: 205.6 90% 54%;
     /* lively cyan-blue */
     --primary-foreground: 210 16% 98%;
     /* light foreground on primary */
-    --secondary: 216 12% 96.0%;
+    --secondary: 216 12% 96%;
     /* subtle cool neutral */
     --secondary-foreground: 222.2 47.4% 11.2%;
-    --accent: 285.0 72.0% 60.0%;
+    --accent: 285 72% 60%;
     /* modern violet/purple accent */
     --accent-foreground: 210 16% 98%;
     --destructive: 0 84.2% 60.2%;
@@ -54,11 +60,11 @@ body::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
     --muted-foreground: 215.4 16.3% 46.9%;
     --card: 0 0% 100%;
     /* surfaces stay white in light mode */
-    --card-foreground: 222.2 6.0% 12.0%;
+    --card-foreground: 222.2 6% 12%;
     --border: 220 12% 92%;
     /* subtle neutral border */
     --input: 220 12% 92%;
-    --ring: 205.6 90.0% 54.0%;
+    --ring: 205.6 90% 54%;
     /* ring matches primary */
     --radius: 0.5rem;
   }
@@ -68,13 +74,13 @@ body::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
     /* deep but not pitch-black */
     --foreground: 0 0% 98%;
     /* near-white text */
-    --primary: 205.6 90.0% 60.0%;
+    --primary: 205.6 90% 60%;
     /* a bit brighter in dark */
-    --primary-foreground: 222.2 14.0% 8.0%;
+    --primary-foreground: 222.2 14% 8%;
     --secondary: 252 18% 20%;
     /* muted cool tone */
     --secondary-foreground: 210 40% 98%;
-    --accent: 285.0 74.0% 58.0%;
+    --accent: 285 74% 58%;
     /* strong accent in dark */
     --accent-foreground: 210 16% 98%;
     --destructive: 0 62.8% 30.6%;
@@ -86,7 +92,7 @@ body::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
     --card-foreground: 0 0% 98%;
     --border: 220 12% 20%;
     --input: 220 12% 20%;
-    --ring: 205.6 90.0% 60.0%;
+    --ring: 205.6 90% 60%;
   }
 }
 
@@ -185,7 +191,9 @@ body::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
   }
 
   .via-primary {
-    --tw-gradient-stops: var(--tw-gradient-from), hsl(var(--primary) / 0.8), var(--tw-gradient-to, rgba(255, 255, 255, 0));
+    --tw-gradient-stops:
+      var(--tw-gradient-from), hsl(var(--primary) / 0.8),
+      var(--tw-gradient-to, rgba(255, 255, 255, 0));
   }
 
   .from-foreground-overlay {
@@ -220,7 +228,10 @@ body::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
     border: 1px solid hsl(var(--border) / 0.36);
     /* subtle top highlight to soft bottom shadow for readable separation */
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.03));
-    transition: background-color 220ms ease, backdrop-filter 220ms ease, -webkit-backdrop-filter 220ms ease;
+    transition:
+      background-color 220ms ease,
+      backdrop-filter 220ms ease,
+      -webkit-backdrop-filter 220ms ease;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
   }
@@ -230,7 +241,10 @@ body::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
     backdrop-filter: blur(5px) saturate(75%);
     border: 1px solid hsl(var(--border) / 0.44);
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.04));
-    transition: background-color 220ms ease, backdrop-filter 220ms ease, -webkit-backdrop-filter 220ms ease;
+    transition:
+      background-color 220ms ease,
+      backdrop-filter 220ms ease,
+      -webkit-backdrop-filter 220ms ease;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
   }
@@ -239,8 +253,11 @@ body::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
     background-color: hsl(var(--card) / 0.72);
     backdrop-filter: blur(10px) saturate(90%);
     border: 1px solid hsl(var(--border) / 0.52);
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.10), rgba(0, 0, 0, 0.06));
-    transition: background-color 220ms ease, backdrop-filter 220ms ease, -webkit-backdrop-filter 220ms ease;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.06));
+    transition:
+      background-color 220ms ease,
+      backdrop-filter 220ms ease,
+      -webkit-backdrop-filter 220ms ease;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
   }
@@ -256,8 +273,8 @@ body::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
   }
 
   .dark .glass-ultra {
-    background-color: hsl(var(--card) / 0.60);
-    border-color: hsl(var(--border) / 0.40);
+    background-color: hsl(var(--card) / 0.6);
+    border-color: hsl(var(--border) / 0.4);
   }
 
   /* focus and hover helpers using theme variables */
@@ -292,7 +309,7 @@ body::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
 
   /* Gradient color shadow implemented with a blurred ::after pseudo-element */
   .hover\:gradient-shadow-primary:hover::after {
-    content: "";
+    content: '';
     position: absolute;
     inset: -14px;
     background: linear-gradient(45deg, hsl(var(--primary) / 0.18), hsl(var(--accent) / 0.12));
@@ -301,7 +318,10 @@ body::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
     z-index: -1;
     border-radius: inherit;
     pointer-events: none;
-    transition: opacity 220ms ease, filter 220ms ease, transform 220ms ease;
+    transition:
+      opacity 220ms ease,
+      filter 220ms ease,
+      transform 220ms ease;
   }
 
   /* semantic borders/text for destructive states */
