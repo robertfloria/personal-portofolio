@@ -115,7 +115,6 @@ export const ModalContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<typeof motion.div>
 >(({ children, className, ...props }, ref) => {
-  const ctx = React.useContext(ModalContext);
   return (
     <motion.div
       initial={{ scale: 0.95, opacity: 0 }}

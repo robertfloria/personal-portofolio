@@ -101,7 +101,7 @@ export function ProjectsSection() {
       {/* Project Detail Modal */}
       <Modal isOpen={Boolean(selectedProject)} onClose={() => setSelectedProject(null)}>
         {selectedProject && (
-          <Modal.Content ref={modalRef as any} tabIndex={-1}>
+          <Modal.Content ref={modalRef as React.RefObject<HTMLDivElement>} tabIndex={-1}>
             <Modal.Header showClose onClose={() => setSelectedProject(null)}>
               <h2 className="text-2xl font-bold text-foreground">{selectedProject.title}</h2>
             </Modal.Header>
