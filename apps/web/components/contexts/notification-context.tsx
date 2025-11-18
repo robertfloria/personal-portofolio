@@ -25,8 +25,8 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({ 
 
   const addNotification = React.useCallback((n: Omit<NotificationItem, 'id'>) => {
     const id =
-      typeof crypto !== 'undefined' && typeof (crypto as any).randomUUID === 'function'
-        ? (crypto as any).randomUUID()
+      typeof crypto !== 'undefined' && typeof (crypto as Crypto).randomUUID === 'function'
+        ? (crypto as Crypto).randomUUID()
         : Date.now().toString();
 
     const item: NotificationItem = { id, ...n, duration: n.duration ?? 5000 };
