@@ -53,7 +53,10 @@ httpClient.interceptors.response.use(
     if (error.response) {
       // Server responded with error
       const status = error.response.status;
-      const message = (error.response.data as any)?.message || error.message;
+      const message =
+        typeof error.response.data === 'object' && error.response.data !== null
+          ? (error.response.data as { message?: string }).message || error.message
+          : error.message;
 
       if (status === 401) {
         // Unauthorized - clear auth. Use central helper to remove Authorization header.
@@ -92,15 +95,15 @@ httpClient.interceptors.response.use(
 
 // API service helpers
 export const api = {
-  get: <T = any>(url: string, config = {}) => httpClient.get<T>(url, config),
+  get: <T = unknown>(url: string, config = {}) => httpClient.get<T>(url, config),
 
-  post: <T = any>(url: string, data?: any, config = {}) => httpClient.post<T>(url, data, config),
+  post: <T = unknown>(url: string, data?: unknown, config = {}) => httpClient.post<T>(url, data, config),
 
-  put: <T = any>(url: string, data?: any, config = {}) => httpClient.put<T>(url, data, config),
+  put: <T = unknown>(url: string, data?: unknown, config = {}) => httpClient.put<T>(url, data, config),
 
-  patch: <T = any>(url: string, data?: any, config = {}) => httpClient.patch<T>(url, data, config),
+  patch: <T = unknown>(url: string, data?: unknown, config = {}) => httpClient.patch<T>(url, data, config),
 
-  delete: <T = any>(url: string, config = {}) => httpClient.delete<T>(url, config),
+  delete: <T = unknown>(url: string, config = {}) => httpClient.delete<T>(url, config),
 };
 
 export default httpClient;

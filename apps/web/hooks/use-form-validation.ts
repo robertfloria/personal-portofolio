@@ -14,7 +14,7 @@ interface ValidationErrors {
  * Custom hook for form validation using Zod schemas
  * Provides real-time validation and error handling
  */
-export function useFormValidation<T extends Record<string, any>>({
+export function useFormValidation<T extends Record<string, unknown>>({
   schema,
   initialValues,
 }: UseFormValidationOptions<T>) {
@@ -23,10 +23,10 @@ export function useFormValidation<T extends Record<string, any>>({
   const [touched, setTouched] = useState<Set<string>>(new Set());
 
   const validateField = useCallback(
-    (name: string, value: any) => {
+    (name: string, value: unknown) => {
       try {
         // Validate single field using schema
-        const fieldSchema = (schema as any).shape[name];
+        const fieldSchema = (schema as z.ZodObject<any>).shape[name];
         if (fieldSchema) {
           fieldSchema.parse(value);
           setErrors((prev) => {
@@ -71,7 +71,7 @@ export function useFormValidation<T extends Record<string, any>>({
   }, [schema, values]);
 
   const handleChange = useCallback(
-    (name: string, value: any) => {
+    (name: string, value: unknown) => {
       setValues((prev) => ({ ...prev, [name]: value }));
 
       // Validate field if it has been touched

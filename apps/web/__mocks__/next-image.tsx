@@ -15,7 +15,7 @@ const NextImage = (props: React.ImgHTMLAttributes<HTMLImageElement> & { fill?: b
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={typeof src === 'string' ? src : src?.src || ''}
+      src={typeof src === 'string' ? src : ''}
       alt={alt}
       width={width}
       height={height}

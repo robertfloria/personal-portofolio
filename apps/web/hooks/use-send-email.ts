@@ -21,9 +21,9 @@ export function useSendEmail(): UseMutationResult<SendEmailResponse, AxiosError,
     },
     onError: (error: AxiosError) => {
       const errorMessage =
-        (error.response?.data as any)?.message ||
-        error.message ||
-        'Failed to send message. Please try again later.';
+        typeof error.response?.data === 'object' && error.response?.data !== null
+          ? (error.response?.data as { message?: string }).message || error.message
+          : error.message || 'Failed to send message. Please try again later.';
 
       addNotification({
         type: 'error',
