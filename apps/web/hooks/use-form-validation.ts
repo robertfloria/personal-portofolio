@@ -73,7 +73,6 @@ export function useFormValidation<T extends Record<string, unknown>>({
     (name: string, value: unknown) => {
       setValues((prev) => ({ ...prev, [name]: value }));
 
-      // Validate field if it has been touched
       if (touched.has(name)) {
         validateField(name, value);
       }
