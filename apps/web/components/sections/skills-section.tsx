@@ -37,7 +37,7 @@ export function SkillsSection() {
       </Section.Header>
 
       <div className="flex flex-col gap-12">
-        {Object.entries(groupedSkills).map(([category, categorySkills], categoryIndex) => (
+        {Object.entries(groupedSkills).map(([category, categorySkills]) => (
           <div key={category} className="flex flex-col gap-6">
             <Heading variant="h3">{categories[category as keyof typeof categories]}</Heading>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -1,9 +1,10 @@
+
+'use client';
 type ModalContextType = {
   onClose: () => void;
 };
 
 const ModalContext = React.createContext<ModalContextType | null>(null);
-'use client';
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';

@@ -65,7 +65,7 @@ httpClient.interceptors.response.use(
           if (typeof window !== 'undefined') {
             setAuthToken(null);
           }
-        } catch (e) {
+        } catch {
           // noop
         }
       } else if (status === 403) {

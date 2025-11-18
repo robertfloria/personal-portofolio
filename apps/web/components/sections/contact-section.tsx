@@ -6,7 +6,7 @@ import { personalInfo } from '@/lib/data';
 import { ContactFormData } from '@/types';
 import { useSendEmail } from '@/hooks/use-send-email';
 import { useReducedMotion } from '@/hooks';
-import { Section, Card, Input, Textarea, Button, Text } from '@/components/common';
+import { Section, Card, Input, Textarea, Button } from '@/components/common';
 
 export function ContactSection() {
   const [formData, setFormData] = useState<ContactFormData>({

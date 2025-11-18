@@ -2,12 +2,11 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import { projects } from '@/lib/data';
 import { Project } from '@/types';
 import { useReducedMotion } from '@/hooks';
-import { Section, SectionHeader, Card, Badge, Button, Modal } from '@/components/common';
+import { Section, Card, Badge, Modal } from '@/components/common';
 import { useRef } from 'react';
 import { useFocusTrap } from '@/hooks/use-focus-trap';
 
