@@ -10,7 +10,7 @@ export function useReducedMotion(): boolean {
   useEffect(() => {
     if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
       // Assume no preference on server-side or unsupported env
-      setPrefersReducedMotion(false);
+      setTimeout(() => setPrefersReducedMotion(false), 0);
       return;
     }
 
