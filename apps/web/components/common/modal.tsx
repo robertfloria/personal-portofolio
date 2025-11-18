@@ -1,14 +1,14 @@
+type ModalContextType = {
+  onClose: () => void;
+};
+
+const ModalContext = React.createContext<ModalContextType | null>(null);
 'use client';
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-type ModalContextType = {
-  onClose: () => void;
-};
-
-const ModalContext = React.createContext<ModalContextType | null>(null);
 
 export interface ModalProps {
   isOpen: boolean;
@@ -148,6 +148,8 @@ export function ModalHeader({
   onClose,
   ...props
 }: ModalHeaderProps) {
+  const ctx = React.useContext(ModalContext);
+  const handleClose = onClose ?? ctx?.onClose;
   return (
     <div
       className={cn(
@@ -159,7 +161,7 @@ export function ModalHeader({
       <div>{children}</div>
       {showClose && (
         <button
-          onClick={onClose}
+          onClick={handleClose}
           className="w-8 h-8 rounded-full bg-[hsl(var(--card)/0.9)] text-foreground flex items-center justify-center hover:bg-[hsl(var(--card)/0.8)] hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-primary focus:ring-2 transform transition duration-200"
           aria-label="Close modal"
         >
@@ -208,11 +210,6 @@ export function ModalFooter({
   );
 }
 
-export function useModal() {
-  const ctx = React.useContext(ModalContext);
-  if (!ctx) throw new Error('useModal must be used within a Modal');
-  return ctx;
-}
 
 export const Modal = Object.assign(ModalBase, {
   Content: ModalContent,
