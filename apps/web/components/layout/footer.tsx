@@ -16,7 +16,6 @@ export function Footer() {
     <footer className="bg-[hsl(var(--card)/0.7)] border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* About */}
           <div>
             <h3 className="text-lg font-bold mb-4 text-foreground">Robert Nicolae Floria</h3>
             <p className="text-muted-foreground">
