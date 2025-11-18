@@ -1,4 +1,5 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
+import { devConsole } from '../../../packages/shared-utils/src/dev-console';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
 
@@ -25,12 +26,10 @@ httpClient.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     // Authentication header should be set via `setAuthToken` on the client.
     // Log request in development
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`[HTTP Request] ${config.method?.toUpperCase()} ${config.url}`, {
-        data: config.data,
-        params: config.params,
-      });
-    }
+    devConsole.log(`[HTTP Request] ${config.method?.toUpperCase()} ${config.url}`, {
+      data: config.data,
+      params: config.params,
+    });
 
     return config;
   },
@@ -43,9 +42,7 @@ httpClient.interceptors.request.use(
 httpClient.interceptors.response.use(
   (response) => {
     // Log response in development
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`[HTTP Response] ${response.config.url}`, response.data);
-    }
+    devConsole.log(`[HTTP Response] ${response.config.url}`, response.data);
     return response;
   },
   (error: AxiosError) => {
@@ -69,24 +66,22 @@ httpClient.interceptors.response.use(
           // noop
         }
       } else if (status === 403) {
-        console.error('[HTTP Error] Forbidden:', message);
+        devConsole.error('[HTTP Error] Forbidden:', message);
       } else if (status >= 500) {
-        console.error('[HTTP Error] Server error:', message);
+        devConsole.error('[HTTP Error] Server error:', message);
       }
 
-      if (process.env.NODE_ENV === 'development') {
-        console.error(`[HTTP Error] ${error.config?.method?.toUpperCase()} ${error.config?.url}`, {
-          status,
-          message,
-          data: error.response.data,
-        });
-      }
+      devConsole.error(`[HTTP Error] ${error.config?.method?.toUpperCase()} ${error.config?.url}`, {
+        status,
+        message,
+        data: error.response.data,
+      });
     } else if (error.request) {
       // Request was made but no response received
-      console.error('[HTTP Error] No response received:', error.message);
+      devConsole.error('[HTTP Error] No response received:', error.message);
     } else {
       // Something else happened
-      console.error('[HTTP Error]:', error.message);
+      devConsole.error('[HTTP Error]:', error.message);
     }
 
     return Promise.reject(error);

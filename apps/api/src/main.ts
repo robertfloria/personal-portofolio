@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
+import { devConsole } from '../../../packages/shared-utils/src/dev-console';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -25,12 +26,12 @@ async function bootstrap() {
 
   const port = process.env.PORT || 4000;
   await app.listen(port);
-  console.log(`🚀 API is running on: http://localhost:${port}/api`);
+  devConsole.log(`🚀 API is running on: http://localhost:${port}/api`);
 }
 bootstrap().catch((err: unknown) => {
   if (err instanceof Error) {
-    console.error('API failed to start:', err.message, err.stack);
+    devConsole.error('API failed to start:', err.message, err.stack);
   } else {
-    console.error('API failed to start:', err);
+    devConsole.error('API failed to start:', err);
   }
 });

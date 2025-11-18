@@ -1,14 +1,14 @@
-'use client';
+import { motion, AnimatePresence } from 'framer-motion';
+import { cn } from '@/lib/utils';
+"use client";
+import React from 'react';
 type ModalContextType = {
   onClose: () => void;
 };
 
 const ModalContext = React.createContext<ModalContextType | null>(null);
 
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { cn } from '@/lib/utils';
-
+// ...existing code...
 export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
