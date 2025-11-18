@@ -1,7 +1,6 @@
 import { api } from '@/lib/http-client';
-import { ContactFormData } from '@/types';
 
-export interface SendEmailRequest extends ContactFormData {}
+import { ContactFormData } from '@/types';
 
 export interface SendEmailResponse {
   success: boolean;
@@ -15,7 +14,7 @@ export const emailService = {
   /**
    * Send contact email
    */
-  sendEmail: async (data: SendEmailRequest): Promise<SendEmailResponse> => {
+  sendEmail: async (data: ContactFormData): Promise<SendEmailResponse> => {
     const response = await api.post<SendEmailResponse>('/email/send', data);
     return response.data;
   },
