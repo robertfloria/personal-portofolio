@@ -10,7 +10,7 @@ export const WelcomeModal = () => {
     // Only show if not dismissed before
     const dismissed = localStorage.getItem('welcomeModalDismissed');
     if (!dismissed) {
-      setOpen(true);
+      setTimeout(() => setOpen(true), 0);
     }
   }, []);
 

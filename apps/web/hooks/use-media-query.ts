@@ -18,7 +18,7 @@ export function useMediaQuery(query: string): boolean {
 
   useEffect(() => {
     if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
-      setMatches(false);
+      setTimeout(() => setMatches(false), 0);
       return;
     }
 
