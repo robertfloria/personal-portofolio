@@ -1,11 +1,12 @@
 'use client';
 
 import React from 'react';
-import * as Icons from 'lucide-react';
+import type { Skill } from '@/types';
 import { skills } from '@/lib/data';
 import { useReducedMotion } from '@/hooks';
 import { Section, Card, Heading, Text, Badge } from '@/components/common';
 import { motion } from 'framer-motion';
+import { getLucideIconComponent } from '@/lib/utils';
 
 const categories = {
   Frontend: 'Frontend Development',
@@ -40,7 +41,7 @@ export function SkillsSection() {
           <div key={category} className="flex flex-col gap-6">
             <Heading variant="h3">{categories[category as keyof typeof categories]}</Heading>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {categorySkills.map((skill, index) => (
+              {categorySkills.map((skill: Skill, index) => (
                 <Card
                   key={skill.name}
                   animated={!shouldReduceMotion}
@@ -53,11 +54,10 @@ export function SkillsSection() {
                   <Card.Content>
                     <div className="flex flex-col gap-4">
                       <div className="flex items-center gap-4">
-                        {(skill as any).iconKey && (
+                        {skill.iconKey && (
                           <div className="relative w-12 h-12 rounded-lg bg-linear-to-br from-secondary to-primary dark:from-secondary dark:to-primary border border-border p-2 flex items-center justify-center group-hover:scale-110 transition-transform">
                             {(() => {
-                              const IconComponent =
-                                (Icons as any)[(skill as any).iconKey] ?? Icons.Code;
+                              const IconComponent = getLucideIconComponent(skill.iconKey ?? '');
                               return <IconComponent className="w-8 h-8 text-foreground" />;
                             })()}
                           </div>
