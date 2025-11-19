@@ -17,6 +17,17 @@ export interface ModalProps {
 }
 
 function ModalBase({ isOpen, onClose, children, className }: ModalProps) {
+    // Block scroll under modal
+    React.useEffect(() => {
+      if (isOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+      return () => {
+        document.body.style.overflow = '';
+      };
+    }, [isOpen]);
   const containerRef = React.useRef<HTMLDivElement | null>(null);
 
   // focus management and escape handler

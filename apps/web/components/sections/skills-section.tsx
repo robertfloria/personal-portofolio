@@ -28,7 +28,7 @@ export function SkillsSection() {
   };
 
   return (
-    <Section id="skills" className="p-2 md:p-6 lg:p-8">
+    <Section id="skills" className="p-4 md:p-6 lg:p-8">
       <Section.Header animated={!shouldReduceMotion}>
         <div className="text-center mx-auto">
           <Section.Title highlightText="Expertise">Skills &</Section.Title>

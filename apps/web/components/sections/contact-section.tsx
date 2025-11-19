@@ -66,7 +66,7 @@ export function ContactSection() {
   ];
 
   return (
-    <Section id="contact" className="p-2 md:p-6 lg:p-8">
+    <Section id="contact" className="p-4 md:p-6 lg:p-8">
       <div className="max-w-4xl mx-auto">
         <Section.Header animated={!shouldReduceMotion}>
           <div className="text-center mx-auto">

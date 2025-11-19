@@ -18,7 +18,7 @@ export function CertificatesSection() {
   );
 
   return (
-    <Section id="certificates" className="p-2 md:p-6 lg:p-8">
+    <Section id="certificates" className="p-4 md:p-6 lg:p-8">
       <Section.Header animated={!shouldReduceMotion}>
         <div className="text-center mx-auto">
           <Section.Title highlightText="Achievements">Certificates &</Section.Title>

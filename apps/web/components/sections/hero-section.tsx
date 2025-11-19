@@ -50,7 +50,7 @@ export function HeroSection() {
     };
 
   return (
-    <Section id="home" className="min-h-screen flex items-center justify-center p-2 md:p-6 lg:p-8">
+    <Section id="home" className="min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto w-full relative z-10 flex flex-col gap-y-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 lg:gap-16 items-center">
           {/* Left Column - Profile Image with Glassmorphism */}
@@ -59,7 +59,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, type: 'spring' }}
             className="relative order-1 lg:order-1"
           >
-            <div className="relative mx-auto w-[calc(100vw-1rem)] h-[calc(100vw-1rem)] sm:w-100 sm:h-100 lg:w-110 lg:h-110">
+            <div className="relative mx-auto w-[calc(100vw-2rem)] h-[calc(100vw-2rem)] sm:w-100 sm:h-100 lg:w-110 lg:h-110">
               {/* Animated gradient rings */}
               {!shouldReduceMotion && (
                 <>
