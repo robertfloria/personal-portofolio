@@ -3,9 +3,9 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Providers } from '@/components/layout/providers';
 import { Footer } from '@/components/layout/footer';
-import { ToastContainer } from '@/components/common';
 import { WelcomeModal } from '@/components/common/welcome-modal';
 import { Navbar } from '@/components/layout/navbar';
+import { ToastContainer } from '@/components/layout/toast';
 
 const inter = Inter({
   subsets: ['latin'],

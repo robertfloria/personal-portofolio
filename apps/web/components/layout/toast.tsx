@@ -12,25 +12,25 @@ import { type NotificationType } from '@/components/contexts/notification-contex
 const toastConfig = {
   success: {
     icon: CheckCircle,
-    bgClass: 'bg-[hsl(var(--foreground)/0.8)] border-[hsl(var(--border)/1)]',
+    bgClass: 'glass-ultra',
     textClass: 'text-muted-foreground',
     iconClass: 'text-primary',
   },
   error: {
     icon: XCircle,
-    bgClass: 'bg-[hsl(var(--foreground)/0.6)] border-[hsl(var(--destructive)/1)]',
+    bgClass: 'glass-ultra',
     textClass: 'text-destructive',
     iconClass: 'text-destructive',
   },
   warning: {
     icon: AlertCircle,
-    bgClass: 'bg-[hsl(var(--foreground)/0.6)] border-[hsl(var(--border)/1)]',
+    bgClass: 'glass-ultra',
     textClass: 'text-muted-foreground',
     iconClass: 'text-primary',
   },
   info: {
     icon: Info,
-    bgClass: 'bg-[hsl(var(--foreground)/0.8)] border-[hsl(var(--border)/1)]',
+    bgClass: 'glass-ultra',
     textClass: 'text-muted-foreground',
     iconClass: 'text-primary',
   },
@@ -62,7 +62,7 @@ const Toast: React.FC<ToastProps> = ({ id, type, message, duration = 5000, onClo
     <div
       className={cn(
         'flex items-start gap-3 p-4 rounded-xl border',
-        'animate-in slide-in-from-right-full duration-300',
+        'animate-in fade-in-up duration-300',
         'max-w-md w-full',
         config.bgClass,
       )}
@@ -101,7 +101,7 @@ export const ToastContainer: React.FC = () => {
 
   return (
     <div
-      className="fixed top-4 right-4 z-50 flex flex-col gap-3 pointer-events-none"
+      className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-3 pointer-events-none"
       aria-live="polite"
       aria-atomic="true"
     >
@@ -120,5 +120,3 @@ export const ToastContainer: React.FC = () => {
     </div>
   );
 };
-
-ToastContainer.displayName = 'ToastContainer';
