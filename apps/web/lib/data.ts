@@ -219,7 +219,9 @@ export const projects: Project[] = [
       'Apple Pay',
       'Railway',
       'Docker',
+      'Jest Testing Library',
       'AWS S3',
+      'CI-CD: GitHub Actions & Google Play Console & Apple App Store Connect',
     ],
     features: [
       'AI chatbot using OpenAI API for personalized mental health guidance',
@@ -253,20 +255,16 @@ export const projects: Project[] = [
       'Microservices platform for secured loan management with compliance, automated origination, and risk scoring; focused on reliability and maintainability for financial environments.',
     technologies: [
       'React.js',
-      'Next.js',
       'TypeScript',
       'ASP.NET Core',
-      'NestJS',
       'SQL Server',
-      'Jest',
-      'GitHub Actions',
-      'Jenkins',
-      'SASS',
+      'Jest Testing Library',
+      'CI-CD: Jenkins',
     ],
     features: [
       'Automated loan origination and risk scoring',
       'Repayment tracking reducing manual workload by 40%',
-      'CI/CD pipelines using GitHub Actions and Jenkins',
+      'CI/CD pipelines using Jenkins',
       'Microservices architecture for scalability',
       'Production-ready financial system with compliance',
     ],
@@ -289,7 +287,6 @@ export const projects: Project[] = [
       'Company-wide program to integrate AI tooling and workflows (Copilot, OpenAI) into frontend teams, including demos, automation and workshops to accelerate development.',
     technologies: [
       'React.js',
-      'Next.js',
       'TypeScript',
       'GitHub Copilot',
       'MCP Servers',
@@ -320,7 +317,7 @@ export const projects: Project[] = [
     title: 'Banking Web Application',
     description:
       'Responsive banking platform with cost negotiation, card management, and campaign details.',
-    technologies: ['React.js', 'JavaScript', 'SASS', 'Node.js', 'Express.js', 'Jest', 'HTML5'],
+    technologies: ['React.js', 'JavaScript', 'Node.js', 'Express.js', 'Jest Testing Library'],
     features: [
       'Cost negotiation interface with expandable details',
       'Card management and addition',
@@ -422,7 +419,7 @@ export const services: Service[] = [
     id: 1,
     title: 'Web Development',
     description:
-      'Full-stack web applications focused on performance and maintainability, using React.js, Next.js, Node.js, and modern best practices',
+      'Full-stack web applications focused on performance and maintainability, using React.js, Next.js, Node.js, NestJS and modern best practices',
     icon: 'Code2',
   },
   {
@@ -448,7 +445,7 @@ export const services: Service[] = [
   {
     id: 5,
     title: 'Backend Development',
-    description: 'Scalable backend APIs with Node.js, NestJS, Express.js, and ASP.NET Core',
+    description: 'Scalable backend APIs with Node.js, NestJS, Express.js',
     icon: 'Server',
   },
   {

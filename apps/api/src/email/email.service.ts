@@ -24,7 +24,7 @@ export class EmailService {
     try {
       const mailOptions = {
         from: this.configService.get<string>('EMAIL_USER'),
-        to: this.configService.get<string>('RECIPIENT_EMAIL'),
+        to: this.configService.get<string>('EMAIL_USER'),
         replyTo: from,
         subject: `Portfolio Contact: ${subject}`,
         html: `

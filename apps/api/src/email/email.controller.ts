@@ -6,7 +6,9 @@ import {
   HttpStatus,
   BadRequestException,
   InternalServerErrorException,
+  UseGuards,
 } from '@nestjs/common';
+import { ApiKeyGuard } from './api-key.guard';
 import { EmailService } from './email.service';
 import { SendEmailDto } from './dto/send-email.dto';
 
@@ -16,6 +18,7 @@ export class EmailController {
 
   @Post('send')
   @HttpCode(HttpStatus.OK)
+  @UseGuards(ApiKeyGuard)
   async sendEmail(@Body() sendEmailDto: SendEmailDto) {
     try {
       return await this.emailService.sendEmail(sendEmailDto);
