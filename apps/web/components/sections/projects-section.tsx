@@ -20,16 +20,18 @@ export function ProjectsSection() {
   );
 
   return (
-    <Section id="projects">
+    <Section id="projects" className="p-2 md:p-6 lg:p-8">
       <Section.Header animated={!shouldReduceMotion}>
-        <Section.Title highlightText="Projects">Featured</Section.Title>
-        <Section.Subtitle>
-          Built full-stack and mobile applications with a focus on performance, maintainability, and
-          AI integration.
-        </Section.Subtitle>
+        <div className="text-center mx-auto">
+          <Section.Title highlightText="Projects">Featured</Section.Title>
+          <Section.Subtitle>
+            Built full-stack and mobile applications with a focus on performance, maintainability, and
+            AI integration.
+          </Section.Subtitle>
+        </div>
       </Section.Header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
         {projects.map((project, index) => (
           <Card
             key={project.id}
@@ -40,7 +42,7 @@ export function ProjectsSection() {
             className="overflow-hidden cursor-pointer group"
             onClick={() => setSelectedProject(project)}
           >
-            <div className="relative h-56 bg-linear-to-br from-secondary to-accent overflow-hidden">
+            <div className="relative h-40 sm:h-56 lg:h-64 bg-linear-to-br from-secondary to-accent overflow-hidden">
               {project.imageUrl ? (
                 <>
                   <Image
@@ -69,8 +71,8 @@ export function ProjectsSection() {
               )}
             </div>
 
-            <Card.Footer className="flex flex-col gap-3 items-start p-6">
-              <Card.Title className="text-xl group-hover:text-primary transition-colors">
+            <Card.Footer className="flex flex-col gap-3 items-start p-3 sm:p-4 md:p-6">
+              <Card.Title className="text-base sm:text-lg md:text-xl group-hover:text-primary transition-colors">
                 {project.title}
               </Card.Title>
               {project.description && (

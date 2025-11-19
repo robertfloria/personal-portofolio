@@ -28,27 +28,28 @@ export function SkillsSection() {
   };
 
   return (
-    <Section id="skills">
+    <Section id="skills" className="p-2 md:p-6 lg:p-8">
       <Section.Header animated={!shouldReduceMotion}>
-        <Section.Title highlightText="Expertise">Skills &</Section.Title>
-        <Section.Subtitle>
-          Technologies and tools I use to build modern web applications
-        </Section.Subtitle>
+        <div className="text-center mx-auto">
+          <Section.Title highlightText="Expertise">Skills &</Section.Title>
+          <Section.Subtitle>
+            Technologies and tools I use to build modern web applications
+          </Section.Subtitle>
+        </div>
       </Section.Header>
 
       <div className="flex flex-col gap-12">
         {Object.entries(groupedSkills).map(([category, categorySkills]) => (
           <div key={category} className="flex flex-col gap-6">
             <Heading variant="h3">{categories[category as keyof typeof categories]}</Heading>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
               {categorySkills.map((skill: Skill, index) => (
                 <Card
                   key={skill.name}
                   animated={!shouldReduceMotion}
                   animationDelay={index * 0.05}
                   hover="glow"
-                  padding="md"
-                  className="group"
+                  className="group p-3 sm:p-4 md:p-6"
                   variant={'glass'}
                 >
                   <Card.Content>
@@ -63,7 +64,7 @@ export function SkillsSection() {
                           </div>
                         )}
                         <div className="flex-1">
-                          <Heading variant="h4" className="text-lg text-foreground">
+                          <Heading variant="h4" className="text-base sm:text-lg md:text-xl text-foreground">
                             {skill.name}
                           </Heading>
                           {skill.yearsOfExperience && (

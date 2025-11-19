@@ -15,8 +15,8 @@ export function Footer() {
   return (
     <footer className="bg-[hsl(var(--card)/0.7)] border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div className="mx-auto">
             <h3 className="text-lg font-bold mb-4 text-foreground">Robert Nicolae Floria</h3>
             <p className="text-muted-foreground">
               Full-Stack Software Developer specializing in modern web technologies. Building
@@ -25,11 +25,11 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="mx-auto">
             <h3 className="text-lg font-bold mb-4 text-foreground">Quick Links</h3>
             <ul className="space-y-2">
               {['About', 'Skills', 'Projects', 'Contact'].map((link) => (
-                <li key={link}>
+                <li key={link} className="inline-block mx-2">
                   <a
                     href={`#${link.toLowerCase()}`}
                     className="text-muted-foreground hover:text-primary dark:hover:text-primary-foreground transition-colors"
@@ -42,9 +42,9 @@ export function Footer() {
           </div>
 
           {/* Social Links */}
-          <div>
+          <div className="mx-auto">
             <h3 className="text-lg font-bold mb-4 text-foreground">Connect With Me</h3>
-            <div className="flex space-x-4">
+            <div className="flex justify-center space-x-4">
               {socialLinks.map((social, index) => {
                 const Icon = iconMap[social.icon as keyof typeof iconMap];
                 return (

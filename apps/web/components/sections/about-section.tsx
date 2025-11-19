@@ -19,15 +19,15 @@ export function AboutSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section id="about">
+    <Section id="about" className="p-2 md:p-6 lg:p-8">
       <Section.Header animated={!shouldReduceMotion}>
-        <div>
+        <div className="text-center mx-auto">
           <Section.Title highlightText="Offer">What I</Section.Title>
           <Section.Subtitle>{personalInfo.bio}</Section.Subtitle>
         </div>
       </Section.Header>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
         {services.map((service, index) => {
           const Icon = iconMap[service.icon as keyof typeof iconMap];
 
@@ -35,22 +35,21 @@ export function AboutSection() {
             <Card
               key={service.id}
               hover="glow"
-              padding="lg"
+              className="group p-4 md:p-6 lg:p-8"
               animated={!shouldReduceMotion}
               animationDelay={index * 0.2}
-              className="group"
             >
-              <Card.Content className="flex gap-4">
+              <Card.Content className="flex flex-col md:flex-row gap-3 md:gap-4">
                 <IconBadge
                   icon={Icon}
                   variant="gradient"
                   size="lg"
                   iconSize={32}
-                  className="group-hover:scale-110 transition-transform flex-shrink-0" //ss
+                  className="group-hover:scale-110 transition-transform shrink-0 mb-2 md:mb-0" //ss
                 />
 
                 <div>
-                  <Card.Title className="text-2xl group-hover:text-primary dark:group-hover:text-primary-foreground transition-colors">
+                  <Card.Title className="text-lg md:text-2xl group-hover:text-primary dark:group-hover:text-primary-foreground transition-colors">
                     {service.title}
                   </Card.Title>
 

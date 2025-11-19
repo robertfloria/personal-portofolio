@@ -14,7 +14,6 @@ const SectionRoot = React.forwardRef<HTMLElement, SectionRootProps>(
       <section
         id={id}
         className={cn(
-          'p-20 sm:px-6 lg:px-8',
           fullHeight && 'min-h-screen flex items-center justify-center',
           className,
         )}

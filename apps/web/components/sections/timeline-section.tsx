@@ -22,22 +22,24 @@ export function TimelineSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section id="timeline">
+    <Section id="timeline" className="p-2 md:p-6 lg:p-8">
       <div className="max-w-4xl mx-auto">
         <Section.Header animated={!shouldReduceMotion}>
-          <Section.Title highlightText="Timeline">Professional</Section.Title>
-          <Section.Subtitle>
-            Career milestones and roles where I led frontend efforts, built backend services, and
-            promoted AI adoption.
-          </Section.Subtitle>
+          <div className="text-center mx-auto">
+            <Section.Title highlightText="Timeline">Professional</Section.Title>
+            <Section.Subtitle>
+              Career milestones and roles where I led frontend efforts, built backend services, and
+              promoted AI adoption.
+            </Section.Subtitle>
+          </div>
         </Section.Header>
 
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-primary via-primary to-accent" />
+          <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-primary via-primary to-accent" />
 
           {/* Timeline Items */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {timeline.map((item, index) => {
               const Icon = typeIcons[item.type];
               const colorClass = typeColors[item.type];
@@ -46,9 +48,9 @@ export function TimelineSection() {
                 <div key={item.id} className="relative">
                   {/* Icon (positioned relative to timeline container) */}
                   <div
-                    className={`absolute left-8 top-4 -translate-x-1/2 w-16 h-16 rounded-full bg-linear-to-br ${colorClass} flex items-center justify-center shadow-lg`}
+                    className={`absolute left-4 sm:left-8 top-4 -translate-x-1/2 w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-linear-to-br ${colorClass} flex items-center justify-center shadow-lg`}
                   >
-                    <Icon className="w-8 h-8 text-foreground dark:text-primary-foreground" />
+                    <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-foreground dark:text-primary-foreground" />
                   </div>
 
                   {/* Card shifted to the right of the line */}
@@ -56,14 +58,13 @@ export function TimelineSection() {
                     animated={!shouldReduceMotion}
                     animationDelay={index * 0.1}
                     hover="glow"
-                    padding="md"
-                    className="ml-20 border-2 group"
+                    className="ml-12 sm:ml-20 border-2 group p-3 sm:p-4 md:p-6"
                   >
                     {/* Content */}
                     <Card.Content>
                       <div className="flex flex-col gap-3">
                         <div className="flex flex-wrap items-start justify-between gap-2">
-                          <Card.Title className="group-hover:text-primary transition-colors">
+                          <Card.Title className="text-base sm:text-lg md:text-xl group-hover:text-primary transition-colors">
                             {item.title}
                           </Card.Title>
                           <div className="flex items-center gap-2">

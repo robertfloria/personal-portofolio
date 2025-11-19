@@ -18,15 +18,17 @@ export function CertificatesSection() {
   );
 
   return (
-    <Section id="certificates">
+    <Section id="certificates" className="p-2 md:p-6 lg:p-8">
       <Section.Header animated={!shouldReduceMotion}>
-        <Section.Title highlightText="Achievements">Certificates &</Section.Title>
-        <Section.Subtitle>
-          Professional certifications and courses completed to enhance my skills
-        </Section.Subtitle>
+        <div className="text-center mx-auto">
+          <Section.Title highlightText="Achievements">Certificates &</Section.Title>
+          <Section.Subtitle>
+            Professional certifications and courses completed to enhance my skills
+          </Section.Subtitle>
+        </div>
       </Section.Header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {certificates.map((certificate, index) => (
           <Card
             key={certificate.id}
@@ -38,7 +40,7 @@ export function CertificatesSection() {
             onClick={() => setSelectedCertificate(certificate)}
           >
             <Card.Content className="p-0">
-              <div className="relative h-56 bg-linear-to-br from-secondary to-accent overflow-hidden">
+              <div className="relative h-36 sm:h-56 lg:h-64 bg-linear-to-br from-secondary to-accent overflow-hidden">
                 {certificate.imageUrl ? (
                   <>
                     <Image
@@ -65,9 +67,8 @@ export function CertificatesSection() {
                 </div>
               </div>
             </Card.Content>
-
-            <Card.Footer className="flex flex-col gap-2 items-start p-6">
-              <Card.Title className="text-lg line-clamp-2 min-h-14 group-hover:text-primary dark:group-hover:text-primary-foreground transition-colors">
+            <Card.Footer className="flex flex-col gap-2 items-start p-3 sm:p-4 md:p-6">
+              <Card.Title className="text-base sm:text-lg md:text-xl line-clamp-2 min-h-10 sm:min-h-14 group-hover:text-primary dark:group-hover:text-primary-foreground transition-colors">
                 {certificate.title}
               </Card.Title>
               <Card.Description className="text-sm font-medium text-foreground">

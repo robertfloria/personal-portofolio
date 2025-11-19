@@ -50,16 +50,16 @@ export function HeroSection() {
       };
 
   return (
-    <Section id="home" className="min-h-screen flex items-center justify-center">
+    <Section id="home" className="min-h-screen flex items-center justify-center p-2 md:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto w-full relative z-10 flex flex-col gap-y-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 lg:gap-16 items-center">
           {/* Left Column - Profile Image with Glassmorphism */}
           <motion.div
             {...imageVariants}
             transition={{ duration: 0.8, type: 'spring' }}
             className="relative order-1 lg:order-1"
           >
-            <div className="relative mx-auto w-72 h-72 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px]">
+            <div className="relative mx-auto w-40 h-40 sm:w-72 sm:h-72 lg:w-[450px] lg:h-[450px]">
               {/* Animated gradient rings */}
               {!shouldReduceMotion && (
                 <>
@@ -82,7 +82,7 @@ export function HeroSection() {
               {/* Floating badges */}
 
               <motion.div
-                className="absolute -bottom-4 -left-4 glass-zone text-foreground px-6 py-3 rounded-full shadow-lg font-semibold text-sm border border-border"
+                className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 glass-zone text-foreground px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg font-semibold text-xs sm:text-sm border border-border"
                 animate={shouldReduceMotion ? {} : { y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
               >
@@ -104,7 +104,7 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <Heading variant="h2" className="flex gap-2 flex-wrap">
+                <Heading variant="h2" className="flex gap-2 flex-wrap text-xl sm:text-2xl lg:text-4xl">
                   {personalInfo.name.split(' ').slice(0, 2).join(' ')}
                   <span className="bg-linear-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
                     {personalInfo.name.split(' ').slice(2).join(' ')}
@@ -117,7 +117,7 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <Heading variant="h4">{personalInfo.title}</Heading>
+                <Heading variant="h4" className="text-base sm:text-lg lg:text-xl">{personalInfo.title}</Heading>
               </motion.div>
 
               <motion.div

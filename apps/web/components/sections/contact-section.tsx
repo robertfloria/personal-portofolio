@@ -66,34 +66,37 @@ export function ContactSection() {
   ];
 
   return (
-    <Section id="contact">
+    <Section id="contact" className="p-2 md:p-6 lg:p-8">
       <div className="max-w-4xl mx-auto">
         <Section.Header animated={!shouldReduceMotion}>
-          <Section.Title highlightText="Touch">Get In</Section.Title>
-          <Section.Subtitle>
-            Have a project in mind or want to collaborate? Feel free to reach out!
-          </Section.Subtitle>
+          <div className="text-center mx-auto">
+            <Section.Title highlightText="Touch">Get In</Section.Title>
+            <Section.Subtitle>
+              Have a project in mind or want to collaborate? Feel free to reach out!
+            </Section.Subtitle>
+          </div>
         </Section.Header>
 
         <Card
           variant="default"
-          padding="lg"
+          className="p-3 sm:p-4 md:p-8"
           hover="none"
           animated={!shouldReduceMotion}
           animationDelay={0.2}
         >
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
             <Input
               label="Your Name"
               name="name"
               type="text"
               value={formData.name}
-              onChange={handleChange}
+              // className="w-full text-base sm:text-lg"
               required
               minLength={3}
               maxLength={50}
               placeholder="John Doe"
               leftIcon={<User size={20} />}
+              className="h-12 min-w-12"
             />
 
             <Input
@@ -105,6 +108,7 @@ export function ContactSection() {
               required
               placeholder="john@example.com"
               leftIcon={<Mail size={20} />}
+              className="h-12 min-w-12"
             />
 
             <Input
@@ -118,6 +122,7 @@ export function ContactSection() {
               maxLength={100}
               placeholder="Project Inquiry"
               leftIcon={<MessageSquare size={20} />}
+              className="h-12 min-w-12"
             />
 
             <Textarea
