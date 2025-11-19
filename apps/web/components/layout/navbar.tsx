@@ -192,7 +192,7 @@ export function Navbar() {
       {isMobileMenuOpen && (
         <div
           id="mobile-menu"
-          className="md:hidden bg-[hsl(var(--card)/1)] border-t border-[hsl(var(--border)/1)]"
+          className="md:hidden fixed top-16 left-0 right-0 z-50 glass-ultra border-b border-[hsl(var(--border)/1)]"
         >
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => {
@@ -206,7 +206,7 @@ export function Navbar() {
                     scrollToSection(item.href);
                   }}
                   className={`block px-3 py-2 rounded-md cursor-pointer font-medium transition-colors ${isActive
-                    ? 'text-primary dark:text-primary-foreground bg-[hsl(var(--card)/1)] bg-opacity-50'
+                    ? 'text-primary dark:text-primary-foreground'
                     : 'text-foreground hover:text-primary dark:hover:text-primary-foreground hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]'
                     }`}
                 >
