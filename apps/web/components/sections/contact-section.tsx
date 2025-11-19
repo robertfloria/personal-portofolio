@@ -90,7 +90,7 @@ export function ContactSection() {
               name="name"
               type="text"
               value={formData.name}
-              // className="w-full text-base sm:text-lg"
+              onChange={handleChange}
               required
               minLength={3}
               maxLength={50}

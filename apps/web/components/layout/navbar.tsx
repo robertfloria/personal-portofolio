@@ -51,11 +51,15 @@ export function Navbar() {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
+      const navbar = document.querySelector('nav');
+      const navbarHeight = navbar ? navbar.offsetHeight : 0;
+      const elementTop = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementTop - navbarHeight;
       // mark that we're initiating a programmatic smooth scroll
       isProgrammaticScroll.current = true;
       // set active immediately so the UI reflects the user's intent
       setActiveSection(href);
-      element.scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       setMobileMenuOpen(false);
       // clear the programmatic flag after a short delay (allows smooth scroll to finish)
       if (programmaticTimer.current !== null) {
@@ -106,9 +110,8 @@ export function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass-ultra shadow-lg' : 'bg-[hsl(var(--card)/1)]'
-      }`}
+      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-ultra shadow-lg' : 'bg-[hsl(var(--card)/1)]'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -138,11 +141,10 @@ export function Navbar() {
                     e.preventDefault();
                     scrollToSection(item.href);
                   }}
-                  className={`cursor-pointer font-medium transition-colors ${
-                    isActive
-                      ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
-                      : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
-                  }`}
+                  className={`cursor-pointer font-medium transition-colors ${isActive
+                    ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
+                    : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
+                    }`}
                 >
                   {item.name}
                 </a>
@@ -203,11 +205,10 @@ export function Navbar() {
                     e.preventDefault();
                     scrollToSection(item.href);
                   }}
-                  className={`block px-3 py-2 rounded-md cursor-pointer font-medium transition-colors ${
-                    isActive
-                      ? 'text-primary dark:text-primary-foreground bg-[hsl(var(--card)/1)] bg-opacity-50'
-                      : 'text-foreground hover:text-primary dark:hover:text-primary-foreground hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]'
-                  }`}
+                  className={`block px-3 py-2 rounded-md cursor-pointer font-medium transition-colors ${isActive
+                    ? 'text-primary dark:text-primary-foreground bg-[hsl(var(--card)/1)] bg-opacity-50'
+                    : 'text-foreground hover:text-primary dark:hover:text-primary-foreground hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]'
+                    }`}
                 >
                   {item.name}
                 </a>
