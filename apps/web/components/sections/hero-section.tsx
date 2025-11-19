@@ -38,16 +38,16 @@ export function HeroSection() {
   const imageVariants = shouldReduceMotion
     ? {}
     : {
-        initial: { opacity: 0, scale: 0.8 },
-        animate: { opacity: 1, scale: 1 },
-      };
+      initial: { opacity: 0, scale: 0.8 },
+      animate: { opacity: 1, scale: 1 },
+    };
 
   const textVariants = shouldReduceMotion
     ? {}
     : {
-        initial: { opacity: 0, x: 50 },
-        animate: { opacity: 1, x: 0 },
-      };
+      initial: { opacity: 0, x: 50 },
+      animate: { opacity: 1, x: 0 },
+    };
 
   return (
     <Section id="home" className="min-h-screen flex items-center justify-center p-2 md:p-6 lg:p-8">
@@ -95,7 +95,7 @@ export function HeroSection() {
           <motion.div
             {...textVariants}
             transition={{ duration: 0.6 }}
-            className="order-2 lg:order-2"
+            className="order-2 lg:order-2 justify-center items-center flex"
           >
             {/* Use gap instead of margins for spacing */}
             <div className="flex flex-col gap-4">
@@ -104,7 +104,7 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <Heading variant="h2" className="flex gap-2 flex-wrap text-xl sm:text-2xl lg:text-4xl">
+                <Heading variant="h2" className="flex gap-2 flex-wrap text-xl sm:text-2xl lg:text-4xl justify-start sm:justify-center">
                   {personalInfo.name.split(' ').slice(0, 2).join(' ')}
                   <span className="bg-linear-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
                     {personalInfo.name.split(' ').slice(2).join(' ')}
@@ -202,7 +202,7 @@ export function HeroSection() {
           initial={shouldReduceMotion ? {} : { opacity: 0, y: 50 }}
           animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4"
         >
           {infoItems.map((item, index) => (
             <Card

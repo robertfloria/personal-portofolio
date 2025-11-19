@@ -35,7 +35,7 @@ export const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
 
     return (
       <Component
-        className={cn(headingVariants({ variant, gradient, className }))}
+        className={cn(headingVariants({ variant, gradient }), className)}
         ref={ref}
         {...props}
       >

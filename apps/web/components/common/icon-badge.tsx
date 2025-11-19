@@ -44,7 +44,7 @@ export const IconBadge = React.forwardRef<HTMLDivElement, IconBadgeProps>(
   ({ className, variant, size, hover, icon: Icon, iconSize = 20, ...props }, ref) => {
     return (
       <div
-        className={cn(iconBadgeVariants({ variant, size, hover, className }))}
+        className={cn(iconBadgeVariants({ variant, size, hover }), className)}
         ref={ref}
         {...props}
       >

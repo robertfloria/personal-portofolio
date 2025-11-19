@@ -58,7 +58,7 @@ const CardRoot = React.forwardRef<HTMLDivElement, CardRootProps>(
     if (animated) {
       return (
         <motion.div
-          className={cn(cardVariants({ variant, hover, padding, className }))}
+          className={cn(cardVariants({ variant, hover, padding }), className)}
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ const CardRoot = React.forwardRef<HTMLDivElement, CardRootProps>(
 
     return (
       <div
-        className={cn(cardVariants({ variant, hover, padding, className }))}
+        className={cn(cardVariants({ variant, hover, padding }), className)}
         ref={ref}
         {...(props as React.HTMLAttributes<HTMLDivElement>)}
       >

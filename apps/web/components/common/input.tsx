@@ -58,8 +58,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               inputVariants({
                 variant: hasError ? 'error' : variant,
                 inputSize,
-                className,
               }),
+              className,
               leftIcon && 'pl-12',
               rightIcon && 'pr-12',
             )}
