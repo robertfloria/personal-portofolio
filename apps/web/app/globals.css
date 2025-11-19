@@ -1,4 +1,6 @@
 /* Custom Scrollbar Styles: Modern, theme-aware */
+@import 'tailwindcss';
+
 html {
   scrollbar-width: thin;
   scrollbar-color: hsl(var(--muted-foreground) / 0.5) hsl(var(--card) / 1);
@@ -26,16 +28,17 @@ html::-webkit-scrollbar-thumb:hover {
 .dark html::-webkit-scrollbar {
   background: hsl(var(--card) / 1);
 }
+
 .dark body::-webkit-scrollbar-thumb,
 .dark html::-webkit-scrollbar-thumb {
   background: hsl(var(--muted-foreground) / 0.4);
   border: 2px solid hsl(var(--card) / 1);
 }
+
 .dark body::-webkit-scrollbar-thumb:hover,
 .dark html::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--accent) / 0.5);
 }
-@import 'tailwindcss';
 
 @layer base {
   :root {
@@ -211,7 +214,8 @@ html::-webkit-scrollbar-thumb:hover {
   }
 
   .dark .bg-overlay {
-    background-color: rgba(20, 22, 34, 0.72); /* softer, blurred dark overlay */
+    background-color: rgba(20, 22, 34, 0.72);
+    /* softer, blurred dark overlay */
     backdrop-filter: blur(4px) saturate(120%);
     -webkit-backdrop-filter: blur(4px) saturate(120%);
   }
@@ -232,8 +236,6 @@ html::-webkit-scrollbar-thumb:hover {
       background-color 220ms ease,
       backdrop-filter 220ms ease,
       -webkit-backdrop-filter 220ms ease;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
   }
 
   .glass-strong {
@@ -245,8 +247,6 @@ html::-webkit-scrollbar-thumb:hover {
       background-color 220ms ease,
       backdrop-filter 220ms ease,
       -webkit-backdrop-filter 220ms ease;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
   }
 
   .glass-ultra {
@@ -258,8 +258,6 @@ html::-webkit-scrollbar-thumb:hover {
       background-color 220ms ease,
       backdrop-filter 220ms ease,
       -webkit-backdrop-filter 220ms ease;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
   }
 
   .dark .glass-zone {

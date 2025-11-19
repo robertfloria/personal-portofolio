@@ -42,7 +42,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           <WelcomeModal />
-          <main className="min-h-screen gap-8 flex flex-col">{children}</main>
+          <main className="min-h-screen gap-8 flex flex-col pt-16">{children}</main>
           <Footer />
           <ToastContainer />
         </Providers>

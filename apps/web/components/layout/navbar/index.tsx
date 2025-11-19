@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, Download } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
-import { ThemeToggle } from './theme-toggle';
-import { useUI } from '../contexts/ui-context';
+import { ThemeToggle } from '../theme-toggle';
+import { useUI } from '../../contexts/ui-context';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -59,7 +59,7 @@ export function Navbar() {
       isProgrammaticScroll.current = true;
       // set active immediately so the UI reflects the user's intent
       setActiveSection(href);
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      window.scroll({ top: offsetPosition, behavior: 'smooth' });
       setMobileMenuOpen(false);
       // clear the programmatic flag after a short delay (allows smooth scroll to finish)
       if (programmaticTimer.current !== null) {
@@ -109,90 +109,118 @@ export function Navbar() {
   }, []);
 
   return (
-    <nav
-      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-ultra shadow-lg' : 'bg-[hsl(var(--card)/1)]'
-        }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="shrink-0">
-            <Link
-              href="#home"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('#home');
-              }}
-              className="text-2xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent"
-            >
-              Robert
-            </Link>
-          </div>
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-ultra' : 'bg-[hsl(var(--card)/1)]'} ${isMobileMenuOpen && 'rounded-b-3xl shadow-lg'}`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <div className="shrink-0">
+              <Link
+                href="#home"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('#home');
+                }}
+                className="text-2xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent"
+              >
+                Robert
+              </Link>
+            </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => {
-              const isActive = activeSection === item.href;
-              return (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.href);
-                  }}
-                  className={`cursor-pointer font-medium transition-colors ${isActive
-                    ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
-                    : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
-                    }`}
-                >
-                  {item.name}
-                </a>
-              );
-            })}
-            <a
-              href={personalInfo.resumeUrl}
-              download
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3 py-2 border rounded-md text-sm font-medium hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]"
-            >
-              <Download size={16} />
-              <span>Download CV</span>
-            </a>
-            <ThemeToggle />
-          </div>
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navItems.map((item) => {
+                const isActive = activeSection === item.href;
+                return (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.href);
+                    }}
+                    className={`cursor-pointer font-medium transition-colors ${isActive
+                      ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
+                      : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
+                      }`}
+                  >
+                    {item.name}
+                  </a>
+                );
+              })}
+              <a
+                href={personalInfo.resumeUrl}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-2 border rounded-md text-sm font-medium hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]"
+              >
+                <Download size={16} />
+                <span>Download CV</span>
+              </a>
+              <ThemeToggle />
+            </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-4">
-            <a
-              href={personalInfo.resumeUrl}
-              download
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3 py-2 border rounded-md text-sm font-medium hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]"
-            >
-              <Download size={16} />
-            </a>
-            <ThemeToggle />
-            <button
-              onClick={toggleMobileMenu}
-              className="text-foreground"
-              aria-label="Toggle menu"
-              aria-expanded={isMobileMenuOpen}
-              aria-controls="mobile-menu"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Mobile menu button */}
+            <div className="md:hidden flex items-center space-x-4">
+              <a
+                href={personalInfo.resumeUrl}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-2 border rounded-md text-sm font-medium hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]"
+              >
+                <Download size={16} />
+              </a>
+              <ThemeToggle />
+              <button
+                onClick={toggleMobileMenu}
+                className="text-foreground"
+                aria-label="Toggle menu"
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-menu"
+              >
+                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-
+        {isMobileMenuOpen && (
+          <div
+            id="mobile-menu"
+            className={`md:hidden top-16 left-0 right-0 z-50`}
+          >
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navItems.map((item) => {
+                const isActive = activeSection === item.href;
+                return (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.href);
+                    }}
+                    className={`block px-3 py-2 rounded-md cursor-pointer font-medium transition-colors ${isActive
+                      ? 'text-primary dark:text-primary-foreground'
+                      : 'text-foreground hover:text-primary dark:hover:text-primary-foreground hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]'
+                      }`}
+                  >
+                    {item.name}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </nav>
       {/* Mobile menu */}
-      {isMobileMenuOpen && (
+      {/* {isMobileMenuOpen && (
         <div
           id="mobile-menu"
-          className="md:hidden fixed top-16 left-0 right-0 z-50 glass-ultra border-b border-[hsl(var(--border)/1)]"
+          className={`md:hidden fixed top-16 left-0 right-0 z-50 border-b border-[hsl(var(--border)/1)] rounded-b-3xl ${isScrolled ? 'navbar-glass' : 'bg-[hsl(var(--card)/1)]'}`}
         >
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => {
@@ -216,7 +244,7 @@ export function Navbar() {
             })}
           </div>
         </div>
-      )}
-    </nav>
+      )} */}
+    </>
   );
 }
