@@ -104,7 +104,7 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <Heading variant="h2" className="flex gap-2 flex-wrap text-xl sm:text-2xl lg:text-4xl justify-start sm:justify-center">
+                <Heading variant="h2" className="flex gap-2 flex-wrap justify-center lg:justify-start">
                   {personalInfo.name.split(' ').slice(0, 2).join(' ')}
                   <span className="bg-linear-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
                     {personalInfo.name.split(' ').slice(2).join(' ')}
@@ -117,7 +117,7 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <Heading variant="h4" className="text-base sm:text-lg lg:text-xl">{personalInfo.title}</Heading>
+                <Heading variant="h4" className="flex justify-center lg:justify-start">{personalInfo.title}</Heading>
               </motion.div>
 
               <motion.div
@@ -125,7 +125,7 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <Text variant="lead">{personalInfo.subtitle}</Text>
+                <Text variant="lead" className='flex justify-center text-center lg:justify-start lg:text-start'>{personalInfo.subtitle}</Text>
               </motion.div>
 
               <motion.div
@@ -133,30 +133,30 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <Text variant="body" className="max-w-2xl">
+                <Text variant="body" className="max-w-2xl flex justify-center text-center lg:justify-start lg:text-start">
                   {personalInfo.bio}
                 </Text>
               </motion.div>
 
               {/* CTA Buttons */}
               <motion.div
-                className="flex flex-wrap gap-4"
+                className="flex flex-wrap gap-4 justify-center lg:justify-start"
                 initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
               >
-                <a href="#contact">
-                  <Button variant="primary" size="lg" leftIcon={<Mail size={20} />}>
+                <a href="#contact" className='flex w-full lg:w-auto'>
+                  <Button variant="primary" size="lg" className='flex w-full lg:w-auto' leftIcon={<Mail size={20} />}>
                     Get In Touch
                   </Button>
                 </a>
-                <a href="#projects">
-                  <Button variant="outline" size="lg">
+                <a href="#projects" className='flex w-full lg:w-auto'>
+                  <Button variant="outline" className='flex w-full lg:w-auto' size="lg">
                     View My Work →
                   </Button>
                 </a>
-                <a href={personalInfo.resumeUrl} download target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="lg" leftIcon={<Download size={18} />}>
+                <a href={personalInfo.resumeUrl} download target="_blank" rel="noopener noreferrer" className='flex w-full lg:w-auto'>
+                  <Button variant="outline" size="lg" className='flex w-full lg:w-auto' leftIcon={<Download size={18} />}>
                     Download CV
                   </Button>
                 </a>
@@ -164,12 +164,12 @@ export function HeroSection() {
 
               {/* Social Links */}
               <motion.div
-                className="flex items-center gap-4"
+                className="flex items-center gap-4 justify-center lg:justify-start"
                 initial={shouldReduceMotion ? {} : { opacity: 0 }}
                 animate={shouldReduceMotion ? {} : { opacity: 1 }}
                 transition={{ delay: 0.7 }}
               >
-                <span className="text-sm text-muted-foreground font-medium">Connect:</span>
+                <Text variant={'label'}>Connect:</Text>
                 {socialLinks.map((social, index) => {
                   const Icon = iconMap[social.icon as keyof typeof iconMap];
                   return (
@@ -202,7 +202,7 @@ export function HeroSection() {
           initial={shouldReduceMotion ? {} : { opacity: 0, y: 50 }}
           animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4"
+          className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4"
         >
           {infoItems.map((item, index) => (
             <Card
