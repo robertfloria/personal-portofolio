@@ -2,10 +2,27 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { EmailController } from './email.controller';
 import { EmailService } from './email.service';
 import { SendEmailDto } from './dto/send-email.dto';
+import { ApiKeyGuard } from './api-key.guard';
+import { ConfigService } from '@nestjs/config';
 
 const mockEmailService = {
   sendEmail: jest.fn(() => ({ message: 'Email sent successfully' })),
 };
+
+const mockConfigService = {
+  get: jest.fn((key: string) => {
+    if (key === 'EMAIL_API_SECRET') return 'test-secret';
+    if (key === 'EMAIL_USER') return 'test-user';
+    if (key === 'EMAIL_PASS') return 'test-pass';
+    return undefined;
+  }),
+};
+
+class MockApiKeyGuard {
+  canActivate() {
+    return true;
+  }
+}
 
 describe('EmailController', () => {
   let controller: EmailController;
@@ -18,8 +35,19 @@ describe('EmailController', () => {
           provide: EmailService,
           useValue: mockEmailService,
         },
+        {
+          provide: ConfigService,
+          useValue: mockConfigService,
+        },
+        {
+          provide: ApiKeyGuard,
+          useClass: MockApiKeyGuard,
+        },
       ],
-    }).compile();
+    })
+      .overrideGuard(ApiKeyGuard)
+      .useClass(MockApiKeyGuard)
+      .compile();
 
     controller = module.get<EmailController>(EmailController);
   });
