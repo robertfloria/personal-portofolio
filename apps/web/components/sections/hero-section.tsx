@@ -59,12 +59,12 @@ export function HeroSection() {
             transition={{ duration: 0.8, type: 'spring' }}
             className="relative order-1 lg:order-1"
           >
-            <div className="relative mx-auto w-40 h-40 sm:w-72 sm:h-72 lg:w-[450px] lg:h-[450px]">
+            <div className="relative mx-auto w-[calc(100vw-1rem)] h-[calc(100vw-1rem)] sm:w-100 sm:h-100 lg:w-110 lg:h-110">
               {/* Animated gradient rings */}
               {!shouldReduceMotion && (
                 <>
-                  <div className="absolute inset-0 rounded-full bg-linear-to-r from-primary via-primary to-accent animate-spin-slow opacity-75 blur-2xl" />
-                  <div className="absolute inset-4 rounded-full bg-linear-to-r from-secondary via-primary to-primary animate-pulse opacity-50" />
+                  <div className="absolute inset-0 rounded-full bg-linear-to-r from-primary via-primary to-accent animate-spin-slow opacity-75 blur-xl" />
+                  <div className="absolute inset-6 rounded-full bg-linear-to-r from-secondary via-primary to-primary animate-pulse opacity-10" />
                 </>
               )}
 
@@ -82,11 +82,11 @@ export function HeroSection() {
               {/* Floating badges */}
 
               <motion.div
-                className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 glass-zone text-foreground px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg font-semibold text-xs sm:text-sm border border-border"
+                className="absolute -bottom-2 sm:-bottom-4 sm:-left-4 glass-zone px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg font-semibold  border border-border flex justify-center lg:justify-start w-full lg:w-auto"
                 animate={shouldReduceMotion ? {} : { y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
               >
-                👋 Welcome to my portfolio
+                <Text variant="label" className="text-primary">👋 Welcome to my portfolio</Text>
               </motion.div>
             </div>
           </motion.div>

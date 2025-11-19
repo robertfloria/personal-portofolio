@@ -39,7 +39,7 @@ export function AboutSection() {
               animated={!shouldReduceMotion}
               animationDelay={index * 0.2}
             >
-              <Card.Content className="flex flex-col md:flex-row gap-3 md:gap-4">
+              <Card.Content className="flex flex-col md:flex-row gap-3 md:gap-4 justify-center items-center md:items-start">
                 <IconBadge
                   icon={Icon}
                   variant="gradient"
@@ -48,7 +48,7 @@ export function AboutSection() {
                   className="group-hover:scale-110 transition-transform shrink-0 mb-2 md:mb-0" //ss
                 />
 
-                <div>
+                <div className="text-center md:text-left">
                   <Card.Title className="text-lg md:text-2xl group-hover:text-primary dark:group-hover:text-primary-foreground transition-colors">
                     {service.title}
                   </Card.Title>
