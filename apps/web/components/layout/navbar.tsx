@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, Download } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
-import { ThemeToggle } from '../theme-toggle';
-import { useUI } from '../../contexts/ui-context';
+import { ThemeToggle } from './theme-toggle';
+import { useUI } from '../contexts/ui-context';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -141,10 +141,11 @@ export function Navbar() {
                       e.preventDefault();
                       scrollToSection(item.href);
                     }}
-                    className={`cursor-pointer font-medium transition-colors ${isActive
-                      ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
-                      : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
-                      }`}
+                    className={`cursor-pointer font-medium transition-colors ${
+                      isActive
+                        ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
+                        : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
+                    }`}
                   >
                     {item.name}
                   </a>
@@ -188,10 +189,7 @@ export function Navbar() {
           </div>
         </div>
         {isMobileMenuOpen && (
-          <div
-            id="mobile-menu"
-            className={`md:hidden top-16 left-0 right-0 z-50`}
-          >
+          <div id="mobile-menu" className={`md:hidden top-16 left-0 right-0 z-50`}>
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => {
                 const isActive = activeSection === item.href;
@@ -203,10 +201,11 @@ export function Navbar() {
                       e.preventDefault();
                       scrollToSection(item.href);
                     }}
-                    className={`block px-3 py-2 rounded-md cursor-pointer font-medium transition-colors ${isActive
-                      ? 'text-primary dark:text-primary-foreground'
-                      : 'text-foreground hover:text-primary dark:hover:text-primary-foreground hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]'
-                      }`}
+                    className={`block px-3 py-2 rounded-md cursor-pointer font-medium transition-colors ${
+                      isActive
+                        ? 'text-primary dark:text-primary-foreground'
+                        : 'text-foreground hover:text-primary dark:hover:text-primary-foreground hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]'
+                    }`}
                   >
                     {item.name}
                   </a>

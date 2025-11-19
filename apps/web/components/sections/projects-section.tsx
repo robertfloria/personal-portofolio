@@ -25,8 +25,8 @@ export function ProjectsSection() {
         <div className="text-center mx-auto">
           <Section.Title highlightText="Projects">Featured</Section.Title>
           <Section.Subtitle>
-            Built full-stack and mobile applications with a focus on performance, maintainability, and
-            AI integration.
+            Built full-stack and mobile applications with a focus on performance, maintainability,
+            and AI integration.
           </Section.Subtitle>
         </div>
       </Section.Header>

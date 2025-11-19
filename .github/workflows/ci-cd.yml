@@ -139,8 +139,6 @@ jobs:
 
       - name: Build ${{ matrix.app }}
         run: npm run build --workspace=${{ matrix.app }}
-        env:
-          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
 
       - name: Upload build artifacts - ${{ matrix.app }}
         uses: actions/upload-artifact@v4

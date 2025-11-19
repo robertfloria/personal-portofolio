@@ -41,7 +41,9 @@ export function SkillsSection() {
       <div className="flex flex-col gap-12">
         {Object.entries(groupedSkills).map(([category, categorySkills]) => (
           <div key={category} className="flex flex-col gap-6">
-            <Heading variant="h3" className='flex justify-center md:justify-start'>{categories[category as keyof typeof categories]}</Heading>
+            <Heading variant="h3" className="flex justify-center md:justify-start">
+              {categories[category as keyof typeof categories]}
+            </Heading>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
               {categorySkills.map((skill: Skill, index) => (
                 <Card
@@ -64,7 +66,10 @@ export function SkillsSection() {
                           </div>
                         )}
                         <div className="flex-1">
-                          <Heading variant="h4" className="text-base sm:text-lg md:text-xl text-foreground">
+                          <Heading
+                            variant="h4"
+                            className="text-base sm:text-lg md:text-xl text-foreground"
+                          >
                             {skill.name}
                           </Heading>
                           {skill.yearsOfExperience && (

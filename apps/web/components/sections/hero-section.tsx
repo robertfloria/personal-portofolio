@@ -38,16 +38,16 @@ export function HeroSection() {
   const imageVariants = shouldReduceMotion
     ? {}
     : {
-      initial: { opacity: 0, scale: 0.8 },
-      animate: { opacity: 1, scale: 1 },
-    };
+        initial: { opacity: 0, scale: 0.8 },
+        animate: { opacity: 1, scale: 1 },
+      };
 
   const textVariants = shouldReduceMotion
     ? {}
     : {
-      initial: { opacity: 0, x: 50 },
-      animate: { opacity: 1, x: 0 },
-    };
+        initial: { opacity: 0, x: 50 },
+        animate: { opacity: 1, x: 0 },
+      };
 
   return (
     <Section id="home" className="min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8">
@@ -86,7 +86,9 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
               >
-                <Text variant="label" className="text-primary">👋 Welcome to my portfolio</Text>
+                <Text variant="label" className="text-primary">
+                  👋 Welcome to my portfolio
+                </Text>
               </motion.div>
             </div>
           </motion.div>
@@ -104,7 +106,10 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <Heading variant="h2" className="flex gap-2 flex-wrap justify-center lg:justify-start">
+                <Heading
+                  variant="h2"
+                  className="flex gap-2 flex-wrap justify-center lg:justify-start"
+                >
                   {personalInfo.name.split(' ').slice(0, 2).join(' ')}
                   <span className="bg-linear-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
                     {personalInfo.name.split(' ').slice(2).join(' ')}
@@ -117,7 +122,9 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <Heading variant="h4" className="flex justify-center lg:justify-start">{personalInfo.title}</Heading>
+                <Heading variant="h4" className="flex justify-center lg:justify-start">
+                  {personalInfo.title}
+                </Heading>
               </motion.div>
 
               <motion.div
@@ -125,7 +132,12 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <Text variant="lead" className='flex justify-center text-center lg:justify-start lg:text-start'>{personalInfo.subtitle}</Text>
+                <Text
+                  variant="lead"
+                  className="flex justify-center text-center lg:justify-start lg:text-start"
+                >
+                  {personalInfo.subtitle}
+                </Text>
               </motion.div>
 
               <motion.div
@@ -133,7 +145,10 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <Text variant="body" className="max-w-2xl flex justify-center text-center lg:justify-start lg:text-start">
+                <Text
+                  variant="body"
+                  className="max-w-2xl flex justify-center text-center lg:justify-start lg:text-start"
+                >
                   {personalInfo.bio}
                 </Text>
               </motion.div>
@@ -145,18 +160,34 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
               >
-                <a href="#contact" className='flex w-full lg:w-auto'>
-                  <Button variant="primary" size="lg" className='flex w-full lg:w-auto' leftIcon={<Mail size={20} />}>
+                <a href="#contact" className="flex w-full lg:w-auto">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="flex w-full lg:w-auto"
+                    leftIcon={<Mail size={20} />}
+                  >
                     Get In Touch
                   </Button>
                 </a>
-                <a href="#projects" className='flex w-full lg:w-auto'>
-                  <Button variant="outline" className='flex w-full lg:w-auto' size="lg">
+                <a href="#projects" className="flex w-full lg:w-auto">
+                  <Button variant="outline" className="flex w-full lg:w-auto" size="lg">
                     View My Work →
                   </Button>
                 </a>
-                <a href={personalInfo.resumeUrl} download target="_blank" rel="noopener noreferrer" className='flex w-full lg:w-auto'>
-                  <Button variant="outline" size="lg" className='flex w-full lg:w-auto' leftIcon={<Download size={18} />}>
+                <a
+                  href={personalInfo.resumeUrl}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex w-full lg:w-auto"
+                >
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="flex w-full lg:w-auto"
+                    leftIcon={<Download size={18} />}
+                  >
                     Download CV
                   </Button>
                 </a>
