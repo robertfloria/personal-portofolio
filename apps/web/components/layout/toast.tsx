@@ -63,7 +63,7 @@ const Toast: React.FC<ToastProps> = ({ id, type, message, duration = 5000, onClo
       className={cn(
         'flex items-start gap-3 p-4 rounded-xl border',
         'animate-in fade-in-up duration-300',
-        'max-w-md w-full',
+        'max-w-md w-auto',
         config.bgClass,
       )}
       role="alert"
@@ -101,7 +101,7 @@ export const ToastContainer: React.FC = () => {
 
   return (
     <div
-      className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-3 pointer-events-none"
+      className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-3 pointer-events-none w-full"
       aria-live="polite"
       aria-atomic="true"
     >

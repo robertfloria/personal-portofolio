@@ -51,8 +51,12 @@ export function Navbar() {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
+      // Always close mobile menu before measuring offset
+      setMobileMenuOpen(false);
+      // Use fixed offset for mobile screens
+      const isMobile = window.innerWidth < 768;
       const navbar = document.querySelector('nav');
-      const navbarHeight = navbar ? navbar.offsetHeight : 0;
+      const navbarHeight = isMobile ? 64 : (navbar ? navbar.offsetHeight : 0);
       const elementTop = element.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementTop - navbarHeight;
       // mark that we're initiating a programmatic smooth scroll
@@ -60,7 +64,6 @@ export function Navbar() {
       // set active immediately so the UI reflects the user's intent
       setActiveSection(href);
       window.scroll({ top: offsetPosition, behavior: 'smooth' });
-      setMobileMenuOpen(false);
       // clear the programmatic flag after a short delay (allows smooth scroll to finish)
       if (programmaticTimer.current !== null) {
         clearTimeout(programmaticTimer.current);
