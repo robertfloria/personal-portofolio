@@ -43,7 +43,7 @@ export function HeroSection() {
   return (
     <Section id="home" className="min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto w-full relative z-10 flex flex-col gap-y-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Profile Image with Glassmorphism */}
           <motion.div
             {...imageVariants}
@@ -73,7 +73,7 @@ export function HeroSection() {
               {/* Floating badges */}
 
               <motion.div
-                className="absolute bottom-10 sm:-left-4 glass-zone px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg font-semibold  border border-border flex justify-center lg:justify-start w-full md:w-auto"
+                className="absolute bottom-2 sm:-left-4 glass-zone px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg font-semibold  border border-border flex justify-center lg:justify-start w-full md:w-auto"
                 animate={shouldReduceMotion ? {} : { y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
               >

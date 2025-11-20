@@ -44,7 +44,7 @@ export function SkillsSection() {
             <Heading variant="h3" className="flex justify-center md:justify-start">
               {categories[category as keyof typeof categories]}
             </Heading>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {categorySkills.map((skill: Skill, index) => (
                 <Card
                   key={skill.name}

@@ -63,7 +63,6 @@ export function TimelineSection() {
                       size={isMd ? 'lg' : 'md'}
                       variant="gradient"
                       iconSize={isMd ? 35 : 25}
-                      // className="w-10 h-10 md:w-15 md:h-15"
                     />
                   </div>
 

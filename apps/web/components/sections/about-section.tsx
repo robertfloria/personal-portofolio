@@ -13,13 +13,13 @@ export function AboutSection() {
     <Section id="about" className="bg-about-section text-primary-foreground">
       <SectionDivider variant="top" />
       <Section.Header animated={!shouldReduceMotion}>
-        <div className="text-center mx-auto">
+        <div className="text-center mx-auto px-4 md:px-6 lg:px-8">
           <Section.Title highlightText="Offer">What I</Section.Title>
           <Section.Subtitle>{personalInfo.about}</Section.Subtitle>
         </div>
       </Section.Header>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 px-4 md:px-6 lg:px-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-6 lg:px-8">
         {services.map((service, index) => {
           const iconKey = service.icon;
 
@@ -31,7 +31,7 @@ export function AboutSection() {
               animated={!shouldReduceMotion}
               animationDelay={index * 0.2}
             >
-              <Card.Content className="flex flex-col md:flex-row gap-3 md:gap-4 justify-center items-center md:items-start">
+              <Card.Content className="flex flex-col md:flex-row gap-4 justify-center items-center md:items-start">
                 <IconBadge
                   iconKey={iconKey}
                   variant="gradient"
