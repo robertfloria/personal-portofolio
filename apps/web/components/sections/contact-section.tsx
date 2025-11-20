@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Mail, User, MessageSquare, Send, Phone, MapPin } from 'lucide-react';
+import { Mail, User, MessageSquare, Send } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import { ContactFormData } from '@/types';
 import { useSendEmail } from '@/hooks/use-send-email';
 import { useReducedMotion } from '@/hooks';
 import { Section, Card, Input, Textarea, Button } from '@/components/common';
+import { IconBadge } from '@/components/common';
 
 export function ContactSection() {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -38,30 +39,27 @@ export function ContactSection() {
 
   const contactMethods = [
     {
-      icon: Mail,
+      iconKey: 'Mail',
       label: 'Email',
       value: personalInfo.email,
       href: `mailto:${personalInfo.email}`,
       gradient: 'from-primary to-accent dark:from-primary dark:to-accent',
       border: 'border-border',
-      iconGradient: 'from-primary to-accent',
     },
     {
-      icon: Phone,
+      iconKey: 'Phone',
       label: 'Phone',
       value: personalInfo.phone,
       href: `tel:${personalInfo.phone}`,
       gradient: 'from-secondary to-primary dark:from-secondary dark:to-primary',
       border: 'border-border',
-      iconGradient: 'from-secondary to-primary',
     },
     {
-      icon: MapPin,
+      iconKey: 'MapPin',
       label: 'Location',
       value: personalInfo.location,
       gradient: 'from-accent to-secondary dark:from-accent dark:to-secondary',
       border: 'border-border',
-      iconGradient: 'from-accent to-secondary',
     },
   ];
 
@@ -155,9 +153,15 @@ export function ContactSection() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {contactMethods.map((method) => {
-                const Icon = method.icon;
                 const isLink = !!method.href;
-
+                const iconBadge = (
+                  <IconBadge
+                    iconKey={method.iconKey}
+                    size="md"
+                    variant="gradient"
+                    className="group-hover:scale-110 transition-transform ring-1 ring-white/10"
+                  />
+                );
                 return isLink ? (
                   <a key={method.label} href={method.href} className="block">
                     <Card
@@ -166,11 +170,7 @@ export function ContactSection() {
                       className={`flex flex-col items-center text-center ${method.gradient} border ${method.border} group`}
                     >
                       <Card.Content className="flex flex-col items-center text-center p-0 gap-2">
-                        <div
-                          className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center group-hover:scale-110 transition-transform ring-1 ring-white/10`}
-                        >
-                          <Icon className="w-6 h-6 text-foreground dark:text-primary-foreground" />
-                        </div>
+                        {iconBadge}
                         <Card.Title className="text-sm font-medium text-foreground">
                           {method.label}
                         </Card.Title>
@@ -188,11 +188,7 @@ export function ContactSection() {
                     className={`flex flex-col items-center text-center ${method.gradient} border ${method.border} group`}
                   >
                     <Card.Content className="flex flex-col items-center text-center p-0 gap-2">
-                      <div
-                        className={`w-12 h-12 rounded-full bg-linear-to-r ${method.iconGradient} flex items-center justify-center ring-1 ring-white/10`}
-                      >
-                        <Icon className="w-6 h-6 text-foreground dark:text-primary-foreground" />
-                      </div>
+                      {iconBadge}
                       <Card.Title className="text-sm font-medium text-foreground">
                         {method.label}
                       </Card.Title>

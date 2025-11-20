@@ -1,19 +1,9 @@
 'use client';
 
 import React from 'react';
-import { Code2, Smartphone, Brain, Rocket, Server, Users } from 'lucide-react';
 import { services, personalInfo } from '@/lib/data';
 import { useReducedMotion } from '@/hooks';
 import { Section, Card, IconBadge } from '@/components/common';
-
-const iconMap = {
-  Code2,
-  Smartphone,
-  Brain,
-  Rocket,
-  Server,
-  Users,
-};
 
 export function AboutSection() {
   const shouldReduceMotion = useReducedMotion();

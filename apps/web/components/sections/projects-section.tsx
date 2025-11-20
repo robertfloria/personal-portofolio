@@ -7,6 +7,7 @@ import { projects } from '@/lib/data';
 import { Project } from '@/types';
 import { useReducedMotion } from '@/hooks';
 import { Section, Card, Badge, Modal } from '@/components/common';
+import { IconBadge } from '@/components/common';
 import { useRef } from 'react';
 import { useFocusTrap } from '@/hooks/use-focus-trap';
 
@@ -143,10 +144,8 @@ export function ProjectsSection() {
                   <h3 className="text-lg font-semibold mb-3 text-foreground">Key Features</h3>
                   <ul className="space-y-2">
                     {selectedProject.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-muted-foreground">
-                        <span className="shrink-0 w-6 h-6 rounded-full bg-linear-to-r from-primary to-accent flex items-center justify-center text-foreground dark:text-primary-foreground text-xs font-bold mt-0.5">
-                          ✓
-                        </span>
+                      <li key={idx} className="flex items-center gap-3 text-muted-foreground">
+                        <IconBadge iconKey="Check" size="sm" variant="gradient" className="mt-0.5" />
                         <span>{feature}</span>
                       </li>
                     ))}

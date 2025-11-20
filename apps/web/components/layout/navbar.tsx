@@ -112,7 +112,6 @@ export function Navbar() {
   }, []);
 
   return (
-    <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-ultra' : 'bg-[hsl(var(--card)/1)]'} ${isMobileMenuOpen && 'rounded-b-3xl shadow-lg'}`}
       >
@@ -218,35 +217,5 @@ export function Navbar() {
           </div>
         )}
       </nav>
-      {/* Mobile menu */}
-      {/* {isMobileMenuOpen && (
-        <div
-          id="mobile-menu"
-          className={`md:hidden fixed top-16 left-0 right-0 z-50 border-b border-[hsl(var(--border)/1)] rounded-b-3xl ${isScrolled ? 'navbar-glass' : 'bg-[hsl(var(--card)/1)]'}`}
-        >
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navItems.map((item) => {
-              const isActive = activeSection === item.href;
-              return (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.href);
-                  }}
-                  className={`block px-3 py-2 rounded-md cursor-pointer font-medium transition-colors ${isActive
-                    ? 'text-primary dark:text-primary-foreground'
-                    : 'text-foreground hover:text-primary dark:hover:text-primary-foreground hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]'
-                    }`}
-                >
-                  {item.name}
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      )} */}
-    </>
   );
 }
