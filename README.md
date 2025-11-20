@@ -1,6 +1,6 @@
 # Personal Portfolio - Professional Monorepo
 
-A modern personal portfolio built as a professional monorepo with Next.js 16 (frontend), NestJS (backend API), and shared packages. Features TypeScript, Tailwind CSS, clean architecture, and automated CI/CD.
+A modern personal portfolio built as a professional monorepo with Next.js 16 (frontend), NestJS (backend API), and shared packages. Features TypeScript, Tailwind CSS, clean architecture, and automated CI/CD. Includes a featured "Personal Portfolio" project entry and robust email API with fast-fail timeouts and improved error handling.
 
 ## 🚀 Features
 
@@ -16,6 +16,7 @@ A modern personal portfolio built as a professional monorepo with Next.js 16 (fr
   - About/Services
   - Skills with progress bars
   - Projects showcase with modals
+  - **Featured:** Personal Portfolio (this website) built with Next.js, NestJS, CI/CD, Docker, and Vercel
   - Professional timeline
   - Certificates gallery
   - Contact form
@@ -144,6 +145,41 @@ npm run start:prod --workspace=api
 npm run start --workspace=web
 ```
 
+## 🐳 Docker Usage
+
+Both web and API have Dockerfiles for containerized local development and deployment.
+
+- `Dockerfile.web` — Next.js frontend
+- `Dockerfile.api` — NestJS backend
+
+### Build and Run Locally
+
+```bash
+# Build web image
+docker build -f Dockerfile.web -t portfolio-web .
+# Build api image
+docker build -f Dockerfile.api -t portfolio-api .
+
+# Run containers (example)
+docker run -p 3000:3000 portfolio-web
+docker run -p 4000:4000 portfolio-api
+```
+
+## 🧩 Shared Packages
+
+- `packages/shared-types`: TypeScript type definitions shared between frontend and backend
+- `packages/shared-utils`: Utility functions, validation, and logging (dev-console)
+
+## 🧪 Testing
+
+- **Frontend (web)**: Jest with React Testing Library, plus custom mocks in `__mocks__` for next-themes, next-image, framer-motion
+- **Backend (api)**: Jest unit tests and e2e tests (see `test/app.e2e-spec.ts` and `test/jest-e2e.json`)
+
+## 🔄 CI/CD Workflows
+
+- `.github/workflows/ci-cd.yml`: Main deployment pipeline (build, test, deploy)
+- `.github/workflows/pr-checks.yml`: PR validation (lint, type-check, test)
+
 ## 🔧 Monorepo Commands
 
 All commands run from the root directory:
@@ -217,11 +253,11 @@ Place your images in `apps/web/public/images/`:
 - **nodemailer** - Email sending
 - **@nestjs/throttler** - Rate limiting
 
-## 📚 API Endpoints
+## 📚 API Endpoints & Email Implementation
 
 ### Email
 
-- `POST /api/email/send` - Send contact form email
+- `POST /api/email/send` — Send contact form email
   ```json
   {
     "name": "John Doe",
@@ -230,6 +266,29 @@ Place your images in `apps/web/public/images/`:
     "message": "Hello, I'd like to discuss..."
   }
   ```
+
+#### Implementation Notes
+
+- Uses Nodemailer with Gmail SMTP (app password required)
+- API is instrumented to fail fast (10s timeout) if SMTP is unreachable, so requests never hang indefinitely
+- Transporter is verified on startup (logs success/failure)
+- All errors are logged and returned with clear messages
+- For production, consider using SendGrid/Mailgun/Postmark HTTP APIs for more reliable delivery
+
+#### Troubleshooting Email Delivery
+
+- If requests hang or time out, check:
+  - Outbound SMTP connectivity (e.g., `Test-NetConnection -ComputerName smtp.gmail.com -Port 587`)
+  - Correct Gmail app password and 2FA
+  - Cloud provider firewall rules (many block SMTP ports)
+  - API logs for transporter verification and send errors
+- If you want to switch to SendGrid or another provider, update the API service (see code comments)
+
+## ✅ Quality & Status
+
+- All code is linted and passes tests across all workspaces
+- ESLint warnings remain for unused imports (safe to ignore or clean up)
+- Email API is robust and fails fast for unreachable SMTP
 
 ## 🚢 Deployment
 
