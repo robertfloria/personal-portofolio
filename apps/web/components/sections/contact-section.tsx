@@ -65,16 +65,15 @@ export function ContactSection() {
 
   return (
     <Section id="contact" className="p-4 md:p-6 lg:p-8">
+      <Section.Header animated={!shouldReduceMotion}>
+        <div className="text-center mx-auto">
+          <Section.Title highlightText="Touch">Get In</Section.Title>
+          <Section.Subtitle>
+            Have a project in mind or want to collaborate? Feel free to reach out!
+          </Section.Subtitle>
+        </div>
+      </Section.Header>
       <div className="max-w-4xl mx-auto">
-        <Section.Header animated={!shouldReduceMotion}>
-          <div className="text-center mx-auto">
-            <Section.Title highlightText="Touch">Get In</Section.Title>
-            <Section.Subtitle>
-              Have a project in mind or want to collaborate? Feel free to reach out!
-            </Section.Subtitle>
-          </div>
-        </Section.Header>
-
         <Card
           variant="default"
           className="p-3 sm:p-4 md:p-8"

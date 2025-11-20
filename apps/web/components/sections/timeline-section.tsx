@@ -24,17 +24,16 @@ export function TimelineSection() {
 
   return (
     <Section id="timeline" className="p-4 md:p-6 lg:p-8">
+      <Section.Header animated={!shouldReduceMotion}>
+        <div className="text-center mx-auto">
+          <Section.Title highlightText="Timeline">Professional</Section.Title>
+          <Section.Subtitle>
+            Career milestones and roles where I led frontend efforts, built backend services, and
+            promoted AI adoption.
+          </Section.Subtitle>
+        </div>
+      </Section.Header>
       <div className="max-w-4xl mx-auto">
-        <Section.Header animated={!shouldReduceMotion}>
-          <div className="text-center mx-auto">
-            <Section.Title highlightText="Timeline">Professional</Section.Title>
-            <Section.Subtitle>
-              Career milestones and roles where I led frontend efforts, built backend services, and
-              promoted AI adoption.
-            </Section.Subtitle>
-          </div>
-        </Section.Header>
-
         <div className="relative">
           {/* Timeline Line */}
           <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-primary via-primary to-accent" />

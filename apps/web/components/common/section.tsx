@@ -52,7 +52,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
             )}
           </Heading>
           {subtitle && (
-            <Text variant="lead" className="max-w-2xl mx-auto">
+            <Text variant="lead" className="max-w-2xl mx-auto mb-4">
               {subtitle}
             </Text>
           )}
@@ -77,7 +77,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
 
     // New compound component API
     const content = (
-      <div ref={ref} className={cn('text-center', className)} {...props}>
+      <div ref={ref} className={cn('text-center mb-4', className)} {...props}>
         {children}
       </div>
     );
