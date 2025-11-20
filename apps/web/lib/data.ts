@@ -11,7 +11,7 @@ import type {
 export const personalInfo: PersonalInfo = {
   name: 'Robert Nicolae Floria',
   title: 'Software Engineer',
-  subtitle: 'React.js, React Native (Expo), Node.js, TypeScript, AI Integration',
+  subtitle: 'React.js | React Native (Expo) | Next.js | NestJS | Node.js | TypeScript | AI Integration',
   bio: 'Innovative Software Engineer with 3+ years of experience in building scalable web and mobile applications using React.js, Next.js, React Native (Expo), TypeScript, Node.js, NestJS, ASP.NET Core, and AI-powered features. Skilled in CI/CD automation (GitHub Actions, Jenkins), cloud deployments (Firebase, Railway, AWS), and containerization (Docker). Passionate about delivering high-performance, user-centric solutions and driving AI adoption in modern development workflows.',
   email: 'robertfloria27@gmail.com',
   phone: '+40 745 174 991',

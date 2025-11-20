@@ -82,7 +82,7 @@ export function HeroSection() {
               {/* Floating badges */}
 
               <motion.div
-                className="absolute -bottom-2 sm:-bottom-4 sm:-left-4 glass-zone px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg font-semibold  border border-border flex justify-center lg:justify-start w-full lg:w-auto"
+                className="absolute bottom-10 sm:-left-4 glass-zone px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg font-semibold  border border-border flex justify-center lg:justify-start w-auto"
                 animate={shouldReduceMotion ? {} : { y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
               >
@@ -134,7 +134,7 @@ export function HeroSection() {
               >
                 <Text
                   variant="lead"
-                  className="flex justify-center text-center lg:justify-start lg:text-start"
+                  className="flex justify-center text-center lg:justify-start lg:text-start text-foreground"
                 >
                   {personalInfo.subtitle}
                 </Text>
@@ -147,7 +147,7 @@ export function HeroSection() {
               >
                 <Text
                   variant="body"
-                  className="max-w-2xl flex justify-center text-center lg:justify-start lg:text-start"
+                  className="max-w-2xl flex justify-start text-start"
                 >
                   {personalInfo.bio}
                 </Text>
@@ -200,7 +200,7 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1 }}
                 transition={{ delay: 0.7 }}
               >
-                <Text variant={'label'}>Connect:</Text>
+                <Text variant={'label'}>Connect</Text>
                 {socialLinks.map((social, index) => {
                   const Icon = iconMap[social.icon as keyof typeof iconMap];
                   return (
