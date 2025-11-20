@@ -20,8 +20,7 @@ export const personalInfo: PersonalInfo = {
   age: '26',
   education: 'Bachelor of Software Engineering',
   university: 'Technical University of Cluj-Napoca',
-  profileImage: '/images/profile/profile.png',
-  resumeUrl: '/files/CV - Robert Nicolae Floria.pdf',
+  profileImage: '/images/profile/profile.png'
 };
 
 export const skills: Skill[] = [
