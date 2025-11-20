@@ -55,7 +55,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, type: 'spring' }}
             className="relative order-1 lg:order-1"
           >
-            <div className="relative mx-auto w-[calc(100vw-2rem)] h-[calc(100vw-2rem)] sm:w-100 sm:h-100 lg:w-110 lg:h-110">
+            <div className="relative mx-auto w-[calc(80vw)] h-[calc(80vw)] sm:w-100 sm:h-100 lg:w-110 lg:h-110">
               {/* Animated gradient rings */}
               {!shouldReduceMotion && (
                 <>
