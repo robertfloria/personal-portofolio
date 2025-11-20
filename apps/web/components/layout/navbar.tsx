@@ -153,30 +153,11 @@ export function Navbar() {
                   </a>
                 );
               })}
-              <a
-                href={personalInfo.resumeUrl}
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-2 border rounded-md text-sm font-medium hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]"
-              >
-                <Download size={16} />
-                <span>Download CV</span>
-              </a>
               <ThemeToggle />
             </div>
 
             {/* Mobile menu button */}
             <div className="md:hidden flex items-center space-x-4">
-              <a
-                href={personalInfo.resumeUrl}
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-2 border rounded-md text-sm font-medium hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]"
-              >
-                <Download size={16} />
-              </a>
               <ThemeToggle />
               <button
                 onClick={toggleMobileMenu}

@@ -3,7 +3,7 @@
 import React from 'react';
 import { GraduationCap, Briefcase, Award } from 'lucide-react';
 import { timeline } from '@/lib/data';
-import { useReducedMotion } from '@/hooks';
+import { useBreakpoint, useReducedMotion } from '@/hooks';
 import { Section, Card, Text, Badge, IconBadge } from '@/components/common';
 
 const typeIcons = {
@@ -20,6 +20,8 @@ const typeColors = {
 
 export function TimelineSection() {
   const shouldReduceMotion = useReducedMotion();
+  const isMd = useBreakpoint('md');
+
 
   return (
     <Section id="timeline" className="p-4 md:p-6 lg:p-8">
@@ -43,22 +45,22 @@ export function TimelineSection() {
             {timeline.map((item, index) => {
               const iconKey = item.type === 'education' ? 'GraduationCap'
                 : item.type === 'work' ? 'Briefcase'
-                : item.type === 'certificate' ? 'Award'
-                : '';
+                  : item.type === 'certificate' ? 'Award'
+                    : '';
               const colorClass = typeColors[item.type];
 
               return (
                 <div key={item.id} className="relative">
                   {/* Icon (positioned relative to timeline container) */}
                   <div
-                    className={`absolute left-4 sm:left-8 top-4 -translate-x-1/2 w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-linear-to-br ${colorClass} flex items-center justify-center shadow-lg`}
+                    className={`absolute left-4 sm:left-8 top-4 -translate-x-1/2 rounded-full bg-linear-to-br ${colorClass} flex items-center justify-center shadow-lg`}
                   >
                     <IconBadge
                       iconKey={iconKey}
-                      size={item.type === 'certificate' ? 'md' : 'lg'}
+                      size={isMd ? 'lg' : 'md'}
                       variant="gradient"
-                      // iconSize={item.type === 'certificate' ? 24 : 32}
-                      className="text-foreground dark:text-primary-foreground w-6 h-6 sm:w-8 sm:h-8"
+                    iconSize={isMd ? 35 : 25}
+                    // className="w-10 h-10 md:w-15 md:h-15"
                     />
                   </div>
 
@@ -67,7 +69,7 @@ export function TimelineSection() {
                     animated={!shouldReduceMotion}
                     animationDelay={index * 0.1}
                     hover="glow"
-                    className="ml-12 sm:ml-20 border-2 group p-3 sm:p-4 md:p-6"
+                    className="ml-12 sm:ml-20 border-2 group p-3 sm:p-10 md:p-6"
                   >
                     {/* Content */}
                     <Card.Content>

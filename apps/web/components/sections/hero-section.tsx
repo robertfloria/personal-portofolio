@@ -171,22 +171,6 @@ export function HeroSection() {
                     View My Work →
                   </Button>
                 </a>
-                <a
-                  href={personalInfo.resumeUrl}
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex w-full lg:w-auto"
-                >
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="flex w-full lg:w-auto"
-                    leftIcon={<Download size={18} />}
-                  >
-                    Download CV
-                  </Button>
-                </a>
               </motion.div>
 
               {/* Social Links */}
