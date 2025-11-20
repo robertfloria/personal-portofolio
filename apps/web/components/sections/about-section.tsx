@@ -23,7 +23,7 @@ export function AboutSection() {
       <Section.Header animated={!shouldReduceMotion}>
         <div className="text-center mx-auto">
           <Section.Title highlightText="Offer">What I</Section.Title>
-          <Section.Subtitle>{personalInfo.bio}</Section.Subtitle>
+          <Section.Subtitle>{personalInfo.about}</Section.Subtitle>
         </div>
       </Section.Header>
 

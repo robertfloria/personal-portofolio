@@ -184,9 +184,9 @@ export function ContactSection() {
                 ) : (
                   <Card
                     key={method.label}
-                    variant={'glass'}
                     padding="lg"
                     hover="glow"
+                    variant={'glass'}
                     className={`flex flex-col items-center text-center ${method.gradient} border ${method.border} group`}
                   >
                     <Card.Content className="flex flex-col items-center text-center p-0 gap-2">

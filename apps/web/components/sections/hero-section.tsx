@@ -63,7 +63,7 @@ export function HeroSection() {
               {/* Animated gradient rings */}
               {!shouldReduceMotion && (
                 <>
-                  <div className="absolute inset-0 rounded-full bg-linear-to-r from-primary via-primary to-accent animate-spin-slow opacity-75 blur-xl" />
+                  <div className="absolute inset-2 rounded-full bg-linear-to-r from-primary via-primary to-accent animate-spin-slow opacity-60 blur-lg" />
                   <div className="absolute inset-6 rounded-full bg-linear-to-r from-secondary via-primary to-primary animate-pulse opacity-10" />
                 </>
               )}
