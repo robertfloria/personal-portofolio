@@ -113,8 +113,17 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <Heading variant="h4" className="flex items-center gap-2 justify-center lg:justify-start">
-                  <IconBadge iconKey="Briefcase" variant='outline' size="md" iconSize={25} className="shrink-0 text-primary" />
+                <Heading
+                  variant="h4"
+                  className="flex items-center gap-2 justify-center lg:justify-start"
+                >
+                  <IconBadge
+                    iconKey="Briefcase"
+                    variant="outline"
+                    size="md"
+                    iconSize={25}
+                    className="shrink-0 text-primary"
+                  />
                   {personalInfo.title}
                 </Heading>
               </motion.div>

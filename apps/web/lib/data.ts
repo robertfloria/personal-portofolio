@@ -339,6 +339,42 @@ export const projects: Project[] = [
     category: 'Web',
     featured: false,
   },
+  {
+    id: '5',
+    title: 'Personal Portfolio (This Website)',
+    description:
+      'Personal portfolio showcasing projects, blog, and contact built with Next.js for the frontend and NestJS for the API. Demonstrates learning and integration of Next.js and NestJS, CI/CD with GitHub Actions, and modern deployment workflows.',
+    technologies: [
+      'Next.js',
+      'NestJS',
+      'TypeScript',
+      'Tailwind CSS',
+      'GitHub Actions',
+      'Docker',
+      'Node.js',
+    ],
+    features: [
+      'Server-side rendering and static optimization with Next.js',
+      'Backend API built with NestJS for contact/email handling',
+      'CI/CD with GitHub Actions and Docker-based workflows',
+      'Responsive design with Tailwind CSS and accessibility improvements',
+      'Image optimization and performance tuning',
+    ],
+    imageUrl: '/images/projects/personal-portfolio/hero_section.png',
+    images: [
+      '/images/projects/personal-portfolio/hero_section.png',
+      '/images/projects/personal-portfolio/about_section.png',
+      '/images/projects/personal-portfolio/skills_section.png',
+      '/images/projects/personal-portfolio/projects_section.png',
+      '/images/projects/personal-portfolio/certificates_section.png',
+      '/images/projects/personal-portfolio/timeline_section.png',
+      '/images/projects/personal-portfolio/contact_section.png',
+    ],
+    githubUrl: 'https://github.com/robertfloria/personal-portofolio',
+    liveUrl: '',
+    category: 'Web',
+    featured: true,
+  },
 ];
 
 export const certificates: Certificate[] = [
