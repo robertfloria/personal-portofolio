@@ -52,14 +52,14 @@ export interface IconBadgeProps
 
 export const IconBadge = React.forwardRef<HTMLDivElement, IconBadgeProps>(
   ({ className, variant, size, hover, iconKey, iconSize = 20, ...props }, ref) => {
-    const Icon = getLucideIconComponent(iconKey);
+    const Icon = React.useMemo(() => getLucideIconComponent(iconKey), [iconKey]);
     return (
       <div
         className={cn(iconBadgeVariants({ variant, size, hover }), className)}
         ref={ref}
         {...props}
       >
-        <Icon size={iconSize} />
+        {React.createElement(Icon, { size: iconSize })}
       </div>
     );
   },
