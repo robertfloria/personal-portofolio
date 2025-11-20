@@ -4,7 +4,7 @@ import React from 'react';
 import { GraduationCap, Briefcase, Award } from 'lucide-react';
 import { timeline } from '@/lib/data';
 import { useReducedMotion } from '@/hooks';
-import { Section, Card, Text, Badge } from '@/components/common';
+import { Section, Card, Text, Badge, IconBadge } from '@/components/common';
 
 const typeIcons = {
   education: GraduationCap,
@@ -41,7 +41,10 @@ export function TimelineSection() {
           {/* Timeline Items */}
           <div className="space-y-6 sm:space-y-8">
             {timeline.map((item, index) => {
-              const Icon = typeIcons[item.type];
+              const iconKey = item.type === 'education' ? 'GraduationCap'
+                : item.type === 'work' ? 'Briefcase'
+                : item.type === 'certificate' ? 'Award'
+                : '';
               const colorClass = typeColors[item.type];
 
               return (
@@ -50,7 +53,13 @@ export function TimelineSection() {
                   <div
                     className={`absolute left-4 sm:left-8 top-4 -translate-x-1/2 w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-linear-to-br ${colorClass} flex items-center justify-center shadow-lg`}
                   >
-                    <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-foreground dark:text-primary-foreground" />
+                    <IconBadge
+                      iconKey={iconKey}
+                      size={item.type === 'certificate' ? 'md' : 'lg'}
+                      variant="gradient"
+                      // iconSize={item.type === 'certificate' ? 24 : 32}
+                      className="text-foreground dark:text-primary-foreground w-6 h-6 sm:w-8 sm:h-8"
+                    />
                   </div>
 
                   {/* Card shifted to the right of the line */}

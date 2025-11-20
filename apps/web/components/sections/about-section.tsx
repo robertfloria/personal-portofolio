@@ -29,7 +29,7 @@ export function AboutSection() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
         {services.map((service, index) => {
-          const Icon = iconMap[service.icon as keyof typeof iconMap];
+          const iconKey = service.icon;
 
           return (
             <Card
@@ -41,11 +41,11 @@ export function AboutSection() {
             >
               <Card.Content className="flex flex-col md:flex-row gap-3 md:gap-4 justify-center items-center md:items-start">
                 <IconBadge
-                  icon={Icon}
+                  iconKey={iconKey}
                   variant="gradient"
                   size="lg"
                   iconSize={32}
-                  className="group-hover:scale-110 transition-transform shrink-0 mb-2 md:mb-0" //ss
+                  className="group-hover:scale-110 transition-transform shrink-0 mb-2 md:mb-0"
                 />
 
                 <div className="text-center md:text-left">

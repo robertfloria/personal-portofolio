@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -6,11 +6,6 @@ import {
   Github,
   Linkedin,
   Mail,
-  MapPin,
-  Calendar,
-  Phone,
-  GraduationCap,
-  Briefcase,
   Download,
 } from 'lucide-react';
 import { personalInfo, socialLinks } from '@/lib/data';
@@ -24,12 +19,13 @@ const iconMap = {
   mail: Mail,
 };
 
+// Icon keys must match lucide-react PascalCase export names exactly
 const infoItems = [
-  { icon: Calendar, label: 'Age', value: personalInfo.age },
-  { icon: MapPin, label: 'Location', value: personalInfo.location },
-  { icon: Briefcase, label: 'Work', value: 'Full-Stack Developer' },
-  { icon: GraduationCap, label: 'Education', value: personalInfo.education },
-  { icon: Phone, label: 'Phone', value: personalInfo.phone },
+  { iconKey: 'Calendar', label: 'Age', value: personalInfo.age },
+  { iconKey: 'MapPin', label: 'Location', value: personalInfo.location },
+  { iconKey: 'Briefcase', label: 'Work', value: 'Full-Stack Developer' },
+  { iconKey: 'GraduationCap', label: 'Education', value: personalInfo.education },
+  { iconKey: 'Phone', label: 'Phone', value: personalInfo.phone },
 ];
 
 export function HeroSection() {
@@ -246,7 +242,7 @@ export function HeroSection() {
             >
               <Card.Content className="flex gap-4">
                 <IconBadge
-                  icon={item.icon}
+                  iconKey={item.iconKey}
                   variant="solid"
                   size="md"
                   className="group-hover:scale-110 transition-transform shrink-0"

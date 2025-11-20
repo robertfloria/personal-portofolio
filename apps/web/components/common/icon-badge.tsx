@@ -2,6 +2,16 @@ import React from 'react';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { LucideIcon } from 'lucide-react';
+import * as Icons from 'lucide-react';
+
+function getLucideIconComponent(key: string): LucideIcon {
+  const Icon = Icons[key as keyof typeof Icons];
+  if (Icon) {
+    return Icon as LucideIcon;
+  } else {
+    return Icons.Code as LucideIcon;
+  }
+}
 
 const iconBadgeVariants = cva('flex items-center justify-center rounded-full transition-all', {
   variants: {
@@ -36,12 +46,13 @@ const iconBadgeVariants = cva('flex items-center justify-center rounded-full tra
 export interface IconBadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof iconBadgeVariants> {
-  icon: LucideIcon;
+  iconKey: string;
   iconSize?: number;
 }
 
 export const IconBadge = React.forwardRef<HTMLDivElement, IconBadgeProps>(
-  ({ className, variant, size, hover, icon: Icon, iconSize = 20, ...props }, ref) => {
+  ({ className, variant, size, hover, iconKey, iconSize = 20, ...props }, ref) => {
+    const Icon = getLucideIconComponent(iconKey);
     return (
       <div
         className={cn(iconBadgeVariants({ variant, size, hover }), className)}

@@ -6,7 +6,7 @@ import { skills } from '@/lib/data';
 import { useReducedMotion } from '@/hooks';
 import { Section, Card, Heading, Text, Badge } from '@/components/common';
 import { motion } from 'framer-motion';
-import { getLucideIconComponent } from '@/lib/utils';
+import { IconBadge } from '@/components/common';
 
 const categories = {
   Frontend: 'Frontend Development',
@@ -58,12 +58,7 @@ export function SkillsSection() {
                     <div className="flex flex-col gap-4">
                       <div className="flex items-center gap-4">
                         {skill.iconKey && (
-                          <div className="relative w-12 h-12 rounded-lg bg-linear-to-br from-secondary to-primary dark:from-secondary dark:to-primary border border-border p-2 flex items-center justify-center group-hover:scale-110 transition-transform">
-                            {(() => {
-                              const IconComponent = getLucideIconComponent(skill.iconKey ?? '');
-                              return <IconComponent className="w-8 h-8 text-foreground" />;
-                            })()}
-                          </div>
+                          <IconBadge iconKey={skill.iconKey} className="w-12 h-12 group-hover:scale-110 transition-transform" />
                         )}
                         <div className="flex-1">
                           <Heading
