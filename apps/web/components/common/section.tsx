@@ -42,7 +42,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
     // If using legacy API (with title prop), render old structure
     if (title) {
       const legacyContent = (
-        <div ref={ref} className={cn('text-center mb-6', className)} {...props}>
+        <div ref={ref} className={cn('text-center', className)} {...props}>
           <Heading variant="h2" className="mb-4">
             {title}{' '}
             {highlightText && (
@@ -77,7 +77,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
 
     // New compound component API
     const content = (
-      <div ref={ref} className={cn('text-center mb-6', className)} {...props}>
+      <div ref={ref} className={cn('text-center', className)} {...props}>
         {children}
       </div>
     );
