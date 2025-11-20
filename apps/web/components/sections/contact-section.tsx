@@ -162,7 +162,6 @@ export function ContactSection() {
                   <a key={method.label} href={method.href} className="block">
                     <Card
                       padding="lg"
-                      variant={'glass'}
                       hover="glow"
                       className={`flex flex-col items-center text-center ${method.gradient} border ${method.border} group`}
                     >
@@ -186,7 +185,6 @@ export function ContactSection() {
                     key={method.label}
                     padding="lg"
                     hover="glow"
-                    variant={'glass'}
                     className={`flex flex-col items-center text-center ${method.gradient} border ${method.border} group`}
                   >
                     <Card.Content className="flex flex-col items-center text-center p-0 gap-2">

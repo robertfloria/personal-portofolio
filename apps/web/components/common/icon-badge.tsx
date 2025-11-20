@@ -7,13 +7,13 @@ const iconBadgeVariants = cva('flex items-center justify-center rounded-full tra
   variants: {
     variant: {
       gradient:
-        'bg-linear-to-br from-primary to-accent text-foreground dark:text-primary-foreground hover:brightness-105 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary-strong hover:shadow-accent-strong',
+        'bg-linear-to-br from-primary to-accent hover:brightness-105 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary-strong hover:shadow-accent-strong text-white',
       solid:
-        'bg-primary text-foreground dark:text-primary-foreground hover:brightness-105 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary-strong',
+        'bg-primary hover:brightness-105 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary-strong text-white',
       outline:
-        'border-2 border-[hsl(var(--border)/1)] text-[hsl(var(--muted-foreground)/1)] hover:bg-[hsl(var(--card)/0.05)] hover:-translate-y-0.5',
+        'border-2 border-[hsl(var(--border)/1)] hover:bg-[hsl(var(--card)/0.05)] hover:-translate-y-0.5 text-white',
       light:
-        'bg-[hsl(var(--card)/0.5)] dark:bg-[hsl(var(--card)/0.3)] text-[hsl(var(--muted-foreground)/1)] hover:brightness-105 hover:-translate-y-0.5',
+        'bg-[hsl(var(--card)/0.5)] dark:bg-[hsl(var(--card)/0.3)] hover:brightness-105 hover:-translate-y-0.5 text-white',
     },
     size: {
       sm: 'w-8 h-8',
