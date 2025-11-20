@@ -9,7 +9,7 @@ describe('ContactSection', () => {
   it('renders contact form fields', () => {
     render(
       <Providers>
-        <ContactSection />
+        <ContactSection /> //
       </Providers>,
     );
     expect(screen.getByLabelText(/Your Name/i)).toBeInTheDocument();
