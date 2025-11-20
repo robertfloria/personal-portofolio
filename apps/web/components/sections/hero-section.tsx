@@ -54,7 +54,7 @@ export function HeroSection() {
               {/* Animated gradient rings */}
               {!shouldReduceMotion && (
                 <>
-                  <div className="absolute inset-2 rounded-full bg-linear-to-r from-primary via-primary to-accent animate-spin-slow opacity-60 blur-lg" />
+                  <div className="absolute inset-4 rounded-full bg-linear-to-r from-primary via-primary to-accent animate-spin-slow opacity-60 blur-lg" />
                   <div className="absolute inset-6 rounded-full bg-linear-to-r from-secondary via-primary to-primary animate-pulse opacity-10" />
                 </>
               )}
@@ -73,7 +73,7 @@ export function HeroSection() {
               {/* Floating badges */}
 
               <motion.div
-                className="absolute bottom-10 sm:-left-4 glass-zone px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg font-semibold  border border-border flex justify-center lg:justify-start w-auto"
+                className="absolute bottom-10 sm:-left-4 glass-zone px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg font-semibold  border border-border flex justify-center lg:justify-start w-full md:w-auto"
                 animate={shouldReduceMotion ? {} : { y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
               >

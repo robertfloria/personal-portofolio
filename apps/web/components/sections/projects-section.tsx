@@ -145,12 +145,7 @@ export function ProjectsSection() {
                   <ul className="space-y-2">
                     {selectedProject.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center gap-3 text-muted-foreground">
-                        <IconBadge
-                          iconKey="Check"
-                          size="sm"
-                          variant="gradient"
-                          className="mt-0.5"
-                        />
+                        <IconBadge iconKey="Check" size="sm" variant="gradient" />
                         <span>{feature}</span>
                       </li>
                     ))}

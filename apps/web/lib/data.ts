@@ -352,6 +352,7 @@ export const projects: Project[] = [
       'GitHub Actions',
       'Docker',
       'Node.js',
+      'Jest Testing Library',
     ],
     features: [
       'Server-side rendering and static optimization with Next.js',

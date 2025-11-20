@@ -26,10 +26,10 @@ const iconBadgeVariants = cva('flex items-center justify-center rounded-full tra
         'bg-[hsl(var(--card)/0.5)] dark:bg-[hsl(var(--card)/0.3)] hover:brightness-105 hover:-translate-y-0.5 text-white',
     },
     size: {
-      sm: 'w-8 h-8',
-      md: 'w-12 h-12',
-      lg: 'w-16 h-16',
-      xl: 'w-20 h-20',
+      sm: 'w-8 h-8 min-w-8 min-h-8',
+      md: 'w-12 h-12 min-w-12 min-h-12',
+      lg: 'w-16 h-16 min-w-16 min-h-16',
+      xl: 'w-20 h-20 min-w-20 min-h-20',
     },
     hover: {
       scale: 'hover:scale-110',
