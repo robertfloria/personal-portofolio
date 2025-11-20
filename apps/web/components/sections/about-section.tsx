@@ -4,12 +4,14 @@ import React from 'react';
 import { services, personalInfo } from '@/lib/data';
 import { useReducedMotion } from '@/hooks';
 import { Section, Card, IconBadge } from '@/components/common';
+import { SectionDivider } from '../common/section-divider';
 
 export function AboutSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section id="about" className="p-4 md:p-6 lg:p-8">
+    <Section id="about" className="bg-about-section text-primary-foreground">
+      <SectionDivider variant="top" />
       <Section.Header animated={!shouldReduceMotion}>
         <div className="text-center mx-auto">
           <Section.Title highlightText="Offer">What I</Section.Title>
@@ -17,7 +19,7 @@ export function AboutSection() {
         </div>
       </Section.Header>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 px-4 md:px-6 lg:px-8">
         {services.map((service, index) => {
           const iconKey = service.icon;
 
@@ -52,6 +54,7 @@ export function AboutSection() {
           );
         })}
       </div>
+      <SectionDivider variant="bottom" />
     </Section>
   );
 }

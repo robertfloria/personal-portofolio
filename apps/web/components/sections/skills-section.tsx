@@ -58,7 +58,10 @@ export function SkillsSection() {
                     <div className="flex flex-col gap-4">
                       <div className="flex items-center gap-4">
                         {skill.iconKey && (
-                          <IconBadge iconKey={skill.iconKey} className="w-12 h-12 group-hover:scale-110 transition-transform" />
+                          <IconBadge
+                            iconKey={skill.iconKey}
+                            className="w-12 h-12 group-hover:scale-110 transition-transform"
+                          />
                         )}
                         <div className="flex-1">
                           <Heading

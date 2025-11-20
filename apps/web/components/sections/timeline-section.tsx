@@ -22,7 +22,6 @@ export function TimelineSection() {
   const shouldReduceMotion = useReducedMotion();
   const isMd = useBreakpoint('md');
 
-
   return (
     <Section id="timeline" className="p-4 md:p-6 lg:p-8">
       <div className="max-w-4xl mx-auto">
@@ -43,10 +42,14 @@ export function TimelineSection() {
           {/* Timeline Items */}
           <div className="space-y-6 sm:space-y-8">
             {timeline.map((item, index) => {
-              const iconKey = item.type === 'education' ? 'GraduationCap'
-                : item.type === 'work' ? 'Briefcase'
-                  : item.type === 'certificate' ? 'Award'
-                    : '';
+              const iconKey =
+                item.type === 'education'
+                  ? 'GraduationCap'
+                  : item.type === 'work'
+                    ? 'Briefcase'
+                    : item.type === 'certificate'
+                      ? 'Award'
+                      : '';
               const colorClass = typeColors[item.type];
 
               return (
@@ -59,8 +62,8 @@ export function TimelineSection() {
                       iconKey={iconKey}
                       size={isMd ? 'lg' : 'md'}
                       variant="gradient"
-                    iconSize={isMd ? 35 : 25}
-                    // className="w-10 h-10 md:w-15 md:h-15"
+                      iconSize={isMd ? 35 : 25}
+                      // className="w-10 h-10 md:w-15 md:h-15"
                     />
                   </div>
 

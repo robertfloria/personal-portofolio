@@ -13,11 +13,15 @@ const SectionRoot = React.forwardRef<HTMLElement, SectionRootProps>(
     return (
       <section
         id={id}
-        className={cn(fullHeight && 'min-h-screen flex items-center justify-center', className)}
+        className={cn(
+          fullHeight && 'min-h-screen flex items-center justify-center gap-5',
+          'flex flex-col gap-10',
+          className,
+        )}
         ref={ref}
         {...props}
       >
-        <div className="max-w-7xl mx-auto w-full">{children}</div>
+        {children}
       </section>
     );
   },

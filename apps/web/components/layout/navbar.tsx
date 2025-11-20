@@ -56,7 +56,7 @@ export function Navbar() {
       // Use fixed offset for mobile screens
       const isMobile = window.innerWidth < 768;
       const navbar = document.querySelector('nav');
-      const navbarHeight = isMobile ? 64 : (navbar ? navbar.offsetHeight : 0);
+      const navbarHeight = isMobile ? 64 : navbar ? navbar.offsetHeight : 0;
       const elementTop = element.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementTop - navbarHeight;
       // mark that we're initiating a programmatic smooth scroll
@@ -112,91 +112,91 @@ export function Navbar() {
   }, []);
 
   return (
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-ultra' : 'bg-[hsl(var(--card)/1)]'} ${isMobileMenuOpen && 'rounded-b-3xl shadow-lg'}`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <div className="shrink-0">
-              <Link
-                href="#home"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('#home');
-                }}
-                className="text-2xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent"
-              >
-                Robert
-              </Link>
-            </div>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-ultra' : 'bg-[hsl(var(--card)/1)]'} ${isMobileMenuOpen && 'rounded-b-3xl shadow-lg'}`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="shrink-0">
+            <Link
+              href="#home"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('#home');
+              }}
+              className="text-2xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent"
+            >
+              Robert
+            </Link>
+          </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              {navItems.map((item) => {
-                const isActive = activeSection === item.href;
-                return (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(item.href);
-                    }}
-                    className={`cursor-pointer font-medium transition-colors ${
-                      isActive
-                        ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
-                        : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
-                    }`}
-                  >
-                    {item.name}
-                  </a>
-                );
-              })}
-              <ThemeToggle />
-            </div>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href;
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.href);
+                  }}
+                  className={`cursor-pointer font-medium transition-colors ${
+                    isActive
+                      ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
+                      : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
+                  }`}
+                >
+                  {item.name}
+                </a>
+              );
+            })}
+            <ThemeToggle />
+          </div>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden flex items-center space-x-4">
-              <ThemeToggle />
-              <button
-                onClick={toggleMobileMenu}
-                className="text-foreground"
-                aria-label="Toggle menu"
-                aria-expanded={isMobileMenuOpen}
-                aria-controls="mobile-menu"
-              >
-                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center space-x-4">
+            <ThemeToggle />
+            <button
+              onClick={toggleMobileMenu}
+              className="text-foreground"
+              aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
-        {isMobileMenuOpen && (
-          <div id="mobile-menu" className={`md:hidden top-16 left-0 right-0 z-50`}>
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => {
-                const isActive = activeSection === item.href;
-                return (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(item.href);
-                    }}
-                    className={`block px-3 py-2 rounded-md cursor-pointer font-medium transition-colors ${
-                      isActive
-                        ? 'text-primary dark:text-primary-foreground'
-                        : 'text-foreground hover:text-primary dark:hover:text-primary-foreground hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]'
-                    }`}
-                  >
-                    {item.name}
-                  </a>
-                );
-              })}
-            </div>
+      </div>
+      {isMobileMenuOpen && (
+        <div id="mobile-menu" className={`md:hidden top-16 left-0 right-0 z-50`}>
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href;
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.href);
+                  }}
+                  className={`block px-3 py-2 rounded-md cursor-pointer font-medium transition-colors ${
+                    isActive
+                      ? 'text-primary dark:text-primary-foreground'
+                      : 'text-foreground hover:text-primary dark:hover:text-primary-foreground hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]'
+                  }`}
+                >
+                  {item.name}
+                </a>
+              );
+            })}
           </div>
-        )}
-      </nav>
+        </div>
+      )}
+    </nav>
   );
 }

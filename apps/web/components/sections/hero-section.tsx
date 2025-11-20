@@ -1,13 +1,8 @@
-"use client";
+'use client';
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import {
-  Github,
-  Linkedin,
-  Mail,
-  Download,
-} from 'lucide-react';
+import { Github, Linkedin, Mail, Download } from 'lucide-react';
 import { personalInfo, socialLinks } from '@/lib/data';
 import { Button, Card, Heading, Text, IconBadge, Section } from '@/components/common';
 import { SocialButton } from '@/components/common/social-button';
@@ -118,7 +113,8 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <Heading variant="h4" className="flex justify-center lg:justify-start">
+                <Heading variant="h4" className="flex items-center gap-2 justify-center lg:justify-start">
+                  <IconBadge iconKey="Briefcase" variant='outline' size="md" iconSize={25} className="shrink-0 text-primary" />
                   {personalInfo.title}
                 </Heading>
               </motion.div>
@@ -141,10 +137,7 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <Text
-                  variant="body"
-                  className="max-w-2xl flex justify-start text-start"
-                >
+                <Text variant="body" className="max-w-2xl flex justify-start text-start">
                   {personalInfo.bio}
                 </Text>
               </motion.div>
