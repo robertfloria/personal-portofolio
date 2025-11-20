@@ -66,7 +66,7 @@ export function HeroSection() {
                   alt={personalInfo.name}
                   fill
                   sizes="(max-width: 768px) 24rem, (max-width: 1024px) 24rem, 28rem"
-                  className="object-cover"
+                  className="object-cover opacity-90"
                 />
               </div>
 
@@ -137,7 +137,10 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <Text variant="body" className="max-w-2xl flex justify-start text-start">
+                <Text
+                  variant="body"
+                  className="max-w-prose mx-auto flex justify-center text-center lg:justify-start lg:text-start text-card-foreground tracking-normal leading-relaxed"
+                >
                   {personalInfo.bio}
                 </Text>
               </motion.div>
