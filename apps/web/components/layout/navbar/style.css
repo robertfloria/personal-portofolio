@@ -1,8 +1,8 @@
 .navbar-glass-ultra {
-  background-color: hsl(var(--card) / 0.68);
-  backdrop-filter: blur(14px) saturate(110%);
-  border-bottom: 1px solid hsl(var(--border) / 0.44);
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.04));
+  background-color: hsl(var(--card) / 0.58);
+  backdrop-filter: blur(7px) saturate(90%);
+  border-bottom: 1px solid hsl(var(--border) / 0.38);
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.03));
   transition:
     background-color 220ms ease,
     backdrop-filter 220ms ease;

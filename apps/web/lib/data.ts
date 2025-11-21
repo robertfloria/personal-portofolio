@@ -31,7 +31,7 @@ export const skills: Skill[] = [
     category: 'Frontend',
     proficiency: 95,
     iconKey: 'Fullscreen',
-    yearsOfExperience: 3,
+    yearsOfExperience: 3.5,
   },
   {
     name: 'Next.js',
@@ -45,7 +45,7 @@ export const skills: Skill[] = [
     category: 'Frontend',
     proficiency: 90,
     iconKey: 'Smartphone',
-    yearsOfExperience: 2,
+    yearsOfExperience: 1.5,
   },
   {
     name: 'TypeScript',
@@ -80,7 +80,7 @@ export const skills: Skill[] = [
     category: 'Backend',
     proficiency: 85,
     iconKey: 'Server',
-    yearsOfExperience: 2,
+    yearsOfExperience: 1,
   },
   {
     name: 'ASP.NET Core',
@@ -108,14 +108,14 @@ export const skills: Skill[] = [
     category: 'DevOps',
     proficiency: 85,
     iconKey: 'Box',
-    yearsOfExperience: 2,
+    yearsOfExperience: 1,
   },
   {
     name: 'GitHub Actions',
     category: 'DevOps',
     proficiency: 90,
     iconKey: 'GitBranch',
-    yearsOfExperience: 2,
+    yearsOfExperience: 1,
   },
   {
     name: 'Jenkins',
@@ -137,7 +137,7 @@ export const skills: Skill[] = [
     category: 'Tools',
     proficiency: 90,
     iconKey: 'Github',
-    yearsOfExperience: 2,
+    yearsOfExperience: 1,
   },
   {
     name: 'MCP Servers',
