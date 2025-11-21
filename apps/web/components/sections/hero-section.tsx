@@ -43,7 +43,7 @@ export function HeroSection() {
   return (
     <Section id="home" className="min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto w-full relative z-10 flex flex-col gap-y-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
           {/* Left Column - Profile Image with Glassmorphism */}
           <motion.div
             {...imageVariants}
