@@ -3,11 +3,23 @@ import { ConfigService } from '@nestjs/config';
 import { EmailService } from './email.service';
 import { SendEmailDto } from './dto/send-email.dto';
 
+// Mock nodemailer (legacy, not used in EmailService anymore, but safe to keep)
 jest.mock('nodemailer', () => ({
   createTransport: jest.fn(() => ({
     sendMail: jest.fn(() => undefined),
   })),
 }));
+
+// Mock Brevo SDK
+jest.mock('sib-api-v3-sdk', () => {
+  return {
+    ApiClient: { instance: { authentications: { 'api-key': {} } } },
+    TransactionalEmailsApi: jest.fn().mockImplementation(() => ({
+      sendTransacEmail: jest.fn().mockResolvedValue({ messageId: 'dummy-id' }),
+    })),
+    SendSmtpEmail: jest.fn(),
+  };
+});
 
 describe('EmailService', () => {
   let service: EmailService;
@@ -23,6 +35,7 @@ describe('EmailService', () => {
               if (key === 'EMAIL_USER') return 'testuser@gmail.com';
               if (key === 'EMAIL_PASS') return 'testpass';
               if (key === 'RECIPIENT_EMAIL') return 'recipient@gmail.com';
+              if (key === 'BREVO_API_KEY') return 'dummy-brevo-key';
               return null;
             }),
           },
@@ -44,6 +57,6 @@ describe('EmailService', () => {
       subject: 'Test Subject',
       message: 'Test message content',
     };
-    await expect(service.sendEmail(dto)).resolves.toEqual({ message: 'Email sent successfully' });
+    await expect(service.sendEmail(dto)).resolves.toEqual({ message: 'Email sent successfully.' });
   });
 });

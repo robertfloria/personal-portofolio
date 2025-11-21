@@ -73,10 +73,10 @@ export function ContactSection() {
           </Section.Subtitle>
         </div>
       </Section.Header>
-      <div>
+      <div className="flex justify-center">
         <Card
           variant="default"
-          className="p-3 sm:p-4 md:p-8"
+          className="p-3 sm:p-4 md:p-8  w-full md:w-[70vw]"
           hover="none"
           animated={!shouldReduceMotion}
           animationDelay={0.2}
