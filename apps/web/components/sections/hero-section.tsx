@@ -29,28 +29,28 @@ export function HeroSection() {
   const imageVariants = shouldReduceMotion
     ? {}
     : {
-      initial: { opacity: 0, scale: 0.8 },
-      animate: { opacity: 1, scale: 1 },
-    };
+        initial: { opacity: 0, scale: 0.8 },
+        animate: { opacity: 1, scale: 1 },
+      };
 
   const textVariants = shouldReduceMotion
     ? {}
     : {
-      initial: { opacity: 0, x: 50 },
-      animate: { opacity: 1, x: 0 },
-    };
+        initial: { opacity: 0, x: 50 },
+        animate: { opacity: 1, x: 0 },
+      };
 
   return (
     <Section id="home" className="min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto w-full relative z-10 flex flex-col gap-y-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Column - Profile Image with Glassmorphism */}
           <motion.div
             {...imageVariants}
             transition={{ duration: 0.8, type: 'spring' }}
             className="relative order-1 lg:order-1"
           >
-            <div className="relative mx-auto w-[calc(70vw)] h-[calc(70vw)] sm:w-100 sm:h-100 lg:w-110 lg:h-110">
+            <div className="relative mx-auto w-[calc(80vw)] h-[calc(80vw)] sm:w-100 sm:h-100 lg:w-110 lg:h-110">
               {/* Animated gradient rings */}
               {!shouldReduceMotion && (
                 <>
@@ -60,26 +60,46 @@ export function HeroSection() {
               )}
 
               {/* Profile image container with glassmorphism */}
-              <div className="absolute inset-8 rounded-full overflow-hidden shadow-2xl backdrop-blur-xl bg-white/20 dark:bg-black/20  ring-white/30 dark:ring-black/30"
-              >
+              <div className="absolute inset-8 rounded-full overflow-hidden shadow-2xl backdrop-blur-xl bg-white/20 dark:bg-black/20  ring-white/30 dark:ring-black/30">
                 <Image
                   src={personalInfo.profileImage}
                   alt={personalInfo.name}
                   fill
                   sizes="(max-width: 768px) 24rem, (max-width: 1024px) 24rem, 28rem"
-                  className="object-cover"
+                  className="object-cover z-10"
                 />
               </div>
-
-              {/* Floating badges */}
+              {/* Social Buttons at bottom center inside profile image */}
+              <div
+                className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-5 justify-center items-center z-20"
+                aria-label="Profile Social Links"
+              >
+                {socialLinks.map((social, index) => {
+                  const Icon = iconMap[social.icon as keyof typeof iconMap];
+                  return (
+                    <SocialButton
+                      href={social.url}
+                      key={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.platform}
+                      icon={Icon}
+                      size={25}
+                      variant="default"
+                      className="glass-strong"
+                    />
+                  );
+                })}
+              </div>
+              {/* Floating badge */}
 
               <motion.div
-                className="absolute bottom-4 sm:-left-4 glass-zone px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg font-semibold  border border-border flex justify-center lg:justify-start w-full md:w-auto"
+                className="absolute top-2 lg:top-5 -right-4 glass-zone px-6 py-3 rounded-full shadow-lg font-semibold  border border-border flex justify-start w-auto"
                 animate={shouldReduceMotion ? {} : { y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
               >
                 <Text variant="label" className="text-primary">
-                  👋 Welcome to my portfolio
+                  👋 Welcome
                 </Text>
               </motion.div>
             </div>
@@ -114,18 +134,9 @@ export function HeroSection() {
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <Card
-                  hover="glow"
-                  padding="md"
-                  animated={!shouldReduceMotion}
-                >
+                <Card hover="glow" padding="md" animated={!shouldReduceMotion}>
                   <Card.Content className="flex flex-row gap-4 justify-center items-start">
-                    <IconBadge
-                      iconKey="Briefcase"
-                      variant="solid"
-                      size="md"
-                      className="shrink-0"
-                    />
+                    <IconBadge iconKey="Briefcase" variant="solid" size="md" className="shrink-0" />
                     <div>
                       <Card.Header>{personalInfo.title}</Card.Header>
                       <Card.Description>{personalInfo.subtitle}</Card.Description>
@@ -195,7 +206,6 @@ export function HeroSection() {
                         aria-label={social.platform}
                         icon={Icon}
                         size={20}
-                        className="w-12 h-12"
                         variant="outline"
                       />
                     </motion.div>

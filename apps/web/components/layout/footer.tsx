@@ -57,7 +57,6 @@ export function Footer() {
                     icon={Icon}
                     size={20}
                     variant="outline"
-                    className="w-10 h-10"
                   />
                 );
               })}

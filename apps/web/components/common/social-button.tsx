@@ -13,7 +13,7 @@ export function SocialButton({
   className = '',
   ...props
 }: SocialButtonProps) {
-  const base = 'inline-flex items-center justify-center rounded-full transition-colors';
+  const base = 'inline-flex items-center justify-center rounded-full transition-colors p-4';
 
   const variants: Record<string, string> = {
     default:
