@@ -229,7 +229,7 @@ export function HeroSection() {
               hover="glow"
               padding="md"
               animated={!shouldReduceMotion}
-              animationDelay={1 + index * 0.1}
+              animationDelay={index * 0.05}
               className="group"
             >
               <Card.Content className="flex gap-4">

@@ -68,7 +68,7 @@ export function TimelineSection() {
                   {/* Card shifted to the right of the line */}
                   <Card
                     animated={!shouldReduceMotion}
-                    animationDelay={index * 0.1}
+                    animationDelay={index * 0.05}
                     hover="glow"
                     className="ml-12 sm:ml-20 border-2 group p-3 sm:p-10 md:p-6"
                   >

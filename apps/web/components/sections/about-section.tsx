@@ -29,7 +29,7 @@ export function AboutSection() {
               hover="glow"
               className="group p-4 md:p-6 lg:p-8"
               animated={!shouldReduceMotion}
-              animationDelay={index * 0.2}
+              animationDelay={index * 0.05}
             >
               <Card.Content className="flex flex-row gap-4 justify-center items-start">
                 <IconBadge

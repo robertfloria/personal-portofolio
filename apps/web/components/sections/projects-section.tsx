@@ -37,7 +37,7 @@ export function ProjectsSection() {
           <Card
             key={project.id}
             animated={!shouldReduceMotion}
-            animationDelay={index * 0.1}
+            animationDelay={index * 0.05}
             hover="lift"
             padding="none"
             className="overflow-hidden cursor-pointer group"
