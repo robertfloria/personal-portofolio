@@ -29,28 +29,28 @@ export function HeroSection() {
   const imageVariants = shouldReduceMotion
     ? {}
     : {
-        initial: { opacity: 0, scale: 0.8 },
-        animate: { opacity: 1, scale: 1 },
-      };
+      initial: { opacity: 0, scale: 0.8 },
+      animate: { opacity: 1, scale: 1 },
+    };
 
   const textVariants = shouldReduceMotion
     ? {}
     : {
-        initial: { opacity: 0, x: 50 },
-        animate: { opacity: 1, x: 0 },
-      };
+      initial: { opacity: 0, x: 50 },
+      animate: { opacity: 1, x: 0 },
+    };
 
   return (
     <Section id="home" className="min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto w-full relative z-10 flex flex-col gap-y-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-16 items-center">
           {/* Left Column - Profile Image with Glassmorphism */}
           <motion.div
             {...imageVariants}
             transition={{ duration: 0.8, type: 'spring' }}
             className="relative order-1 lg:order-1"
           >
-            <div className="relative mx-auto w-[calc(80vw)] h-[calc(80vw)] sm:w-100 sm:h-100 lg:w-110 lg:h-110">
+            <div className="relative mx-auto w-[calc(70vw)] h-[calc(70vw)] sm:w-100 sm:h-100 lg:w-110 lg:h-110">
               {/* Animated gradient rings */}
               {!shouldReduceMotion && (
                 <>
@@ -66,7 +66,7 @@ export function HeroSection() {
                   alt={personalInfo.name}
                   fill
                   sizes="(max-width: 768px) 24rem, (max-width: 1024px) 24rem, 28rem"
-                  className="object-cover opacity-90"
+                  className="object-cover"
                 />
               </div>
 
@@ -99,10 +99,10 @@ export function HeroSection() {
               >
                 <Heading
                   variant="h2"
-                  className="flex gap-2 flex-wrap justify-center lg:justify-start"
+                  className="flex gap-1.5 flex-wrap justify-center text-center lg:justify-start lg:text-start"
                 >
                   {personalInfo.name.split(' ').slice(0, 2).join(' ')}
-                  <span className="bg-linear-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
+                  <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
                     {personalInfo.name.split(' ').slice(2).join(' ')}
                   </span>
                 </Heading>
@@ -115,13 +115,13 @@ export function HeroSection() {
               >
                 <Heading
                   variant="h4"
-                  className="flex items-center gap-2 justify-center lg:justify-start"
+                  className="flex items-center gap-2 justify-start"
                 >
                   <IconBadge
                     iconKey="Briefcase"
                     variant="outline"
-                    size="md"
-                    iconSize={25}
+                    size="sm"
+                    iconSize={15}
                     className="shrink-0 text-primary"
                   />
                   {personalInfo.title}
@@ -135,7 +135,7 @@ export function HeroSection() {
               >
                 <Text
                   variant="lead"
-                  className="flex justify-center text-center lg:justify-start lg:text-start text-foreground"
+                  className="flex justify-start text-start text-foreground"
                 >
                   {personalInfo.subtitle}
                 </Text>
@@ -148,7 +148,7 @@ export function HeroSection() {
               >
                 <Text
                   variant="body"
-                  className="max-w-prose mx-auto flex justify-center text-center lg:justify-start lg:text-start text-card-foreground tracking-normal leading-relaxed"
+                  className="max-w-prose mx-auto flex justify-start text-start text-card-foreground tracking-normal leading-relaxed"
                 >
                   {personalInfo.bio}
                 </Text>
@@ -156,7 +156,7 @@ export function HeroSection() {
 
               {/* CTA Buttons */}
               <motion.div
-                className="flex flex-wrap gap-4 justify-center lg:justify-start"
+                className="flex flex-wrap gap-4 justify-start"
                 initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
                 animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
