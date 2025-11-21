@@ -1,11 +1,10 @@
 'use client';
-
+import './style.css';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Download } from 'lucide-react';
-import { personalInfo } from '@/lib/data';
-import { ThemeToggle } from './theme-toggle';
-import { useUI } from '../contexts/ui-context';
+import { Menu, X } from 'lucide-react';
+import { ThemeToggle } from '../theme-toggle';
+import { useUI } from '../../contexts/ui-context';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -17,7 +16,7 @@ const navItems = [
   { name: 'Contact', href: '#contact' },
 ];
 
-export function Navbar() {
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('#home');
   const { mobileMenuOpen: isMobileMenuOpen, setMobileMenuOpen, toggleMobileMenu } = useUI();
@@ -113,7 +112,7 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-ultra' : 'bg-[hsl(var(--background)/1)]'} ${isMobileMenuOpen && 'rounded-b-3xl shadow-lg'}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'navbar-glass-ultra' : 'bg-[hsl(var(--background)/1)]'} ${isMobileMenuOpen && 'rounded-b-3xl shadow-lg'}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
