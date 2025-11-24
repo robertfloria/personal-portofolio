@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { Award, ExternalLink } from 'lucide-react';
 import { Modal } from '@/components/common';
 import { Certificate } from '../types/certificate';
-
 interface CertificateModalProps {
   certificate: Certificate | null;
   isOpen: boolean;

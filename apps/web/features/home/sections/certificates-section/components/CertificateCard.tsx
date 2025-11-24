@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { Award } from 'lucide-react';
 import { Card } from '@/components/common';
 import { Certificate } from '../types/certificate';
-
 interface CertificateCardProps {
   certificate: Certificate;
   animated?: boolean;
