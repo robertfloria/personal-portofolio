@@ -9,7 +9,7 @@ import { useReducedMotion } from '@/hooks';
 import { Section, Card, Input, Textarea, Button } from '@/components/common';
 import { IconBadge } from '@/components/common';
 
-export function ContactSection() {
+export default function ContactSection() {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     from: '',

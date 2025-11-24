@@ -16,7 +16,7 @@ const categories = {
   Tools: 'Tools & Productivity',
 };
 
-export function SkillsSection() {
+export default function SkillsSection() {
   const shouldReduceMotion = useReducedMotion();
 
   const groupedSkills = {

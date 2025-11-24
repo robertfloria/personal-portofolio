@@ -1,16 +1,9 @@
 'use client';
 
 import React from 'react';
-import { GraduationCap, Briefcase, Award } from 'lucide-react';
 import { timeline } from '@/lib/data';
 import { useBreakpoint, useReducedMotion } from '@/hooks';
 import { Section, Card, Text, Badge, IconBadge } from '@/components/common';
-
-const typeIcons = {
-  education: GraduationCap,
-  work: Briefcase,
-  certificate: Award,
-};
 
 const typeColors = {
   education: 'from-primary to-accent',
@@ -18,7 +11,7 @@ const typeColors = {
   certificate: 'from-accent to-primary',
 };
 
-export function TimelineSection() {
+export default function TimelineSection() {
   const shouldReduceMotion = useReducedMotion();
   const isMd = useBreakpoint('md');
 

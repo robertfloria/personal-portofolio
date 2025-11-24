@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { HeroSection } from './hero-section';
-import { Providers } from '../../../components/layout/providers';
+import { Providers } from '../../../../components/layout/providers';
+import HeroSection from '.';
 
 // window.matchMedia is provided globally by jest.setup.ts
 

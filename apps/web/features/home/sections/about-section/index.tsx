@@ -4,9 +4,9 @@ import React from 'react';
 import { services, personalInfo } from '@/lib/data';
 import { useReducedMotion } from '@/hooks';
 import { Section, Card, IconBadge } from '@/components/common';
-import { SectionDivider } from '../../../components/common/section-divider';
+import { SectionDivider } from '../../../../components/common/section-divider';
 
-export function AboutSection() {
+export default function AboutSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (

@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { TimelineSection } from './timeline-section';
+import TimelineSection from '.';
 
 describe('TimelineSection', () => {
   it('renders without crashing', () => {

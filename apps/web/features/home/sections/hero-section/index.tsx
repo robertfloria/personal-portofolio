@@ -23,7 +23,7 @@ const infoItems = [
   { iconKey: 'Phone', label: 'Phone', value: personalInfo.phone },
 ];
 
-export function HeroSection() {
+export default function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
 
   const imageVariants = shouldReduceMotion

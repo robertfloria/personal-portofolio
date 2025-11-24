@@ -9,7 +9,7 @@ import { Certificate } from '@/types';
 import { useReducedMotion } from '@/hooks';
 import { Section, Card, Modal } from '@/components/common';
 
-export function CertificatesSection() {
+export default function CertificatesSection() {
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
   const shouldReduceMotion = useReducedMotion();
   const modalRef = React.useRef<HTMLDivElement | null>(null);

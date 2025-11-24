@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { ProjectsSection } from './projects-section';
+import ProjectsSection from '.';
 
 describe('ProjectsSection', () => {
   it('renders without crashing', () => {

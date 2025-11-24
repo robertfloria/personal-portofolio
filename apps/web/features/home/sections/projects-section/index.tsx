@@ -11,7 +11,7 @@ import { IconBadge } from '@/components/common';
 import { useRef } from 'react';
 import { useFocusTrap } from '@/hooks/use-focus-trap';
 
-export function ProjectsSection() {
+export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const shouldReduceMotion = useReducedMotion();
