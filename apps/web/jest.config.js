@@ -12,5 +12,6 @@ module.exports = {
     '^next/image$': '<rootDir>/__mocks__/next-image.tsx',
     '^framer-motion$': '<rootDir>/__mocks__/framer-motion.tsx',
     '^next-themes$': '<rootDir>/__mocks__/next-themes.tsx',
+    '\\.(css|less|scss|sass)$': '<rootDir>/__mocks__/styleMock.js',
   },
 };

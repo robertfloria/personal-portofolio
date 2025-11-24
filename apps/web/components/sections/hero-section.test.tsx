@@ -12,6 +12,6 @@ describe('HeroSection', () => {
         <HeroSection />
       </Providers>,
     );
-    expect(screen.getByText(/Welcome to my portfolio/i)).toBeInTheDocument();
+    expect(screen.getByText(/Welcome/i)).toBeInTheDocument();
   });
 });

@@ -1,31 +1,18 @@
+import { AxiosHeaders } from 'axios';
 import { Test, TestingModule } from '@nestjs/testing';
 import { ConfigService } from '@nestjs/config';
 import { EmailService } from './email.service';
 import { SendEmailDto } from './dto/send-email.dto';
-
-// Mock nodemailer (legacy, not used in EmailService anymore, but safe to keep)
-jest.mock('nodemailer', () => ({
-  createTransport: jest.fn(() => ({
-    sendMail: jest.fn(() => undefined),
-  })),
-}));
-
-// Mock Brevo SDK
-jest.mock('sib-api-v3-sdk', () => {
-  return {
-    ApiClient: { instance: { authentications: { 'api-key': {} } } },
-    TransactionalEmailsApi: jest.fn().mockImplementation(() => ({
-      sendTransacEmail: jest.fn().mockResolvedValue({ messageId: 'dummy-id' }),
-    })),
-    SendSmtpEmail: jest.fn(),
-  };
-});
+import { HttpModule, HttpService } from '@nestjs/axios';
+import { of } from 'rxjs';
 
 describe('EmailService', () => {
   let service: EmailService;
+  let httpService: HttpService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      imports: [HttpModule],
       providers: [
         EmailService,
         {
@@ -44,6 +31,16 @@ describe('EmailService', () => {
     }).compile();
 
     service = module.get<EmailService>(EmailService);
+    httpService = module.get<HttpService>(HttpService);
+    jest.spyOn(httpService, 'post').mockReturnValue(
+      of({
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config: { headers: new AxiosHeaders() },
+        data: { messageId: 'dummy-id' },
+      }),
+    );
   });
 
   it('should be defined', () => {
