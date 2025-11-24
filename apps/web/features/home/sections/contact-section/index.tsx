@@ -1,42 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Mail, User, MessageSquare, Send } from 'lucide-react';
-import { useSendEmail } from '@/hooks/use-send-email';
+import React from 'react';
 import { useReducedMotion } from '@/hooks';
-import { Section, Card, Input, Textarea, Button } from '@/components/common';
-import { IconBadge } from '@/components/common';
+import { Section, Card } from '@/components/common';
 import { contactMethods } from './lib/data';
-import { SendEmailDto } from '@portfolio/shared-types';
+import { ContactForm, ContactMethodCard } from './components';
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState<SendEmailDto>({
-    name: '',
-    from: '',
-    subject: '',
-    message: '',
-  });
-
-  const { mutate: sendEmail, isPending } = useSendEmail();
   const shouldReduceMotion = useReducedMotion();
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    sendEmail(formData, {
-      onSuccess: () => {
-        setFormData({ name: '', from: '', subject: '', message: '' });
-      },
-    });
-  };
-
   return (
     <Section id="contact" className="p-4 md:p-6 lg:p-8">
       <Section.Header animated={!shouldReduceMotion}>
@@ -50,128 +21,20 @@ export default function ContactSection() {
       <div className="flex justify-center">
         <Card
           variant="default"
-          className="p-3 sm:p-4 md:p-8  w-full md:w-[70vw]"
+          className="p-3 sm:p-4 md:p-8  w-full md:w-[70vw] md:max-w-[900px]"
           hover="none"
           animated={!shouldReduceMotion}
           animationDelay={0.2}
         >
-          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-            <Input
-              label="Your Name"
-              name="name"
-              type="text"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              minLength={3}
-              maxLength={50}
-              placeholder="John Doe"
-              leftIcon={<User size={20} />}
-              className="h-12 min-w-12"
-            />
-
-            <Input
-              label="Your Email"
-              name="from"
-              type="email"
-              value={formData.from}
-              onChange={handleChange}
-              required
-              placeholder="john@example.com"
-              leftIcon={<Mail size={20} />}
-              className="h-12 min-w-12"
-            />
-
-            <Input
-              label="Subject"
-              name="subject"
-              type="text"
-              value={formData.subject}
-              onChange={handleChange}
-              required
-              minLength={3}
-              maxLength={100}
-              placeholder="Project Inquiry"
-              leftIcon={<MessageSquare size={20} />}
-              className="h-12 min-w-12"
-            />
-
-            <Textarea
-              label="Message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              minLength={10}
-              maxLength={1000}
-              rows={6}
-              placeholder="Tell me about your project..."
-            />
-
-            <Button
-              type="submit"
-              variant="primary"
-              size="lg"
-              className="w-full"
-              isLoading={isPending}
-              leftIcon={!isPending && <Send size={20} />}
-            >
-              {isPending ? 'Sending...' : 'Send Message'}
-            </Button>
-          </form>
-
+          <ContactForm />
           <div className="mt-12 pt-8 border-t border-border dark:border-card">
             <h3 className="text-lg font-semibold mb-6 text-foreground text-center">
               Other Ways to Reach Me
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {contactMethods.map((method) => {
-                const isLink = !!method.href;
-                const iconBadge = (
-                  <IconBadge
-                    iconKey={method.iconKey}
-                    size="md"
-                    variant="gradient"
-                    className="group-hover:scale-110 transition-transform ring-1 ring-white/10"
-                  />
-                );
-                return isLink ? (
-                  <a key={method.label} href={method.href} className="block">
-                    <Card
-                      padding="lg"
-                      hover="glow"
-                      className={`flex flex-col items-center text-center ${method.gradient} border ${method.border} group`}
-                    >
-                      <Card.Content className="flex flex-col items-center text-center p-0 gap-2">
-                        {iconBadge}
-                        <Card.Title className="text-sm font-medium text-foreground">
-                          {method.label}
-                        </Card.Title>
-                        <Card.Description className="text-sm font-semibold text-muted-foreground text-center break-all">
-                          {method.value}
-                        </Card.Description>
-                      </Card.Content>
-                    </Card>
-                  </a>
-                ) : (
-                  <Card
-                    key={method.label}
-                    padding="lg"
-                    hover="glow"
-                    className={`flex flex-col items-center text-center ${method.gradient} border ${method.border} group`}
-                  >
-                    <Card.Content className="flex flex-col items-center text-center p-0 gap-2">
-                      {iconBadge}
-                      <Card.Title className="text-sm font-medium text-foreground">
-                        {method.label}
-                      </Card.Title>
-                      <Card.Description className="text-sm font-semibold text-muted-foreground text-center break-all">
-                        {method.value}
-                      </Card.Description>
-                    </Card.Content>
-                  </Card>
-                );
-              })}
+              {contactMethods.map((method) => (
+                <ContactMethodCard key={method.label} method={method} />
+              ))}
             </div>
           </div>
         </Card>
