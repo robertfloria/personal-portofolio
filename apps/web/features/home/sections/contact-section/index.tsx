@@ -2,15 +2,15 @@
 
 import React, { useState } from 'react';
 import { Mail, User, MessageSquare, Send } from 'lucide-react';
-import { personalInfo } from '@/lib/data';
-import { ContactFormData } from '@/types';
 import { useSendEmail } from '@/hooks/use-send-email';
 import { useReducedMotion } from '@/hooks';
 import { Section, Card, Input, Textarea, Button } from '@/components/common';
 import { IconBadge } from '@/components/common';
+import { contactMethods } from './lib/data';
+import { SendEmailDto } from '@portfolio/shared-types';
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState<ContactFormData>({
+  const [formData, setFormData] = useState<SendEmailDto>({
     name: '',
     from: '',
     subject: '',
@@ -36,32 +36,6 @@ export default function ContactSection() {
       },
     });
   };
-
-  const contactMethods = [
-    {
-      iconKey: 'Mail',
-      label: 'Email',
-      value: personalInfo.email,
-      href: `mailto:${personalInfo.email}`,
-      gradient: 'from-primary to-accent dark:from-primary dark:to-accent',
-      border: 'border-border',
-    },
-    {
-      iconKey: 'Phone',
-      label: 'Phone',
-      value: personalInfo.phone,
-      href: `tel:${personalInfo.phone}`,
-      gradient: 'from-secondary to-primary dark:from-secondary dark:to-primary',
-      border: 'border-border',
-    },
-    {
-      iconKey: 'MapPin',
-      label: 'Location',
-      value: personalInfo.location,
-      gradient: 'from-accent to-secondary dark:from-accent dark:to-secondary',
-      border: 'border-border',
-    },
-  ];
 
   return (
     <Section id="contact" className="p-4 md:p-6 lg:p-8">

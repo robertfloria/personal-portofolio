@@ -3,18 +3,20 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { ExternalLink, Github } from 'lucide-react';
-import { projects } from '@/lib/data';
-import { Project } from '@/types';
 import { useReducedMotion } from '@/hooks';
 import { Section, Card, Badge, Modal } from '@/components/common';
 import { IconBadge } from '@/components/common';
 import { useRef } from 'react';
 import { useFocusTrap } from '@/hooks/use-focus-trap';
+import { Project } from './types/Project';
+import { projects } from './lib/data';
 
 export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   const shouldReduceMotion = useReducedMotion();
+
   const modalRef = useRef<HTMLDivElement | null>(null);
   useFocusTrap(modalRef as React.RefObject<HTMLElement>, Boolean(selectedProject), () =>
     setSelectedProject(null),

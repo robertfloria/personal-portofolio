@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import { timeline } from '@/lib/data';
 import { useBreakpoint, useReducedMotion } from '@/hooks';
 import { Section, Card, Text, Badge, IconBadge } from '@/components/common';
+import { timeline } from './lib/data';
 
 const typeColors = {
   education: 'from-primary to-accent',

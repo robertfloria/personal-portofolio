@@ -2,26 +2,12 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { personalInfo, socialLinks } from '@/lib/data';
 import { Button, Card, Heading, Text, IconBadge, Section } from '@/components/common';
 import { SocialButton } from '@/components/common/social-button';
 import { useReducedMotion } from '@/hooks';
-
-const iconMap = {
-  github: Github,
-  linkedin: Linkedin,
-  mail: Mail,
-};
-
-// Icon keys must match lucide-react PascalCase export names exactly
-const infoItems = [
-  { iconKey: 'Calendar', label: 'Age', value: personalInfo.age },
-  { iconKey: 'MapPin', label: 'Location', value: personalInfo.location },
-  { iconKey: 'Briefcase', label: 'Work', value: 'Full-Stack Developer' },
-  { iconKey: 'GraduationCap', label: 'Education', value: personalInfo.education },
-  { iconKey: 'Phone', label: 'Phone', value: personalInfo.phone },
-];
+import { iconMap, infoItems } from './lib/data';
 
 export default function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
@@ -29,16 +15,16 @@ export default function HeroSection() {
   const imageVariants = shouldReduceMotion
     ? {}
     : {
-        initial: { opacity: 0, scale: 0.8 },
-        animate: { opacity: 1, scale: 1 },
-      };
+      initial: { opacity: 0, scale: 0.8 },
+      animate: { opacity: 1, scale: 1 },
+    };
 
   const textVariants = shouldReduceMotion
     ? {}
     : {
-        initial: { opacity: 0, x: 50 },
-        animate: { opacity: 1, x: 0 },
-      };
+      initial: { opacity: 0, x: 50 },
+      animate: { opacity: 1, x: 0 },
+    };
 
   return (
     <Section id="home" className="min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8">

@@ -1,31 +1,17 @@
 'use client';
 
 import React from 'react';
-import type { Skill } from '@/types';
-import { skills } from '@/lib/data';
 import { useReducedMotion } from '@/hooks';
+import { useGroupBy } from '@/hooks/use-group-by';
 import { Section, Card, Heading, Text, Badge } from '@/components/common';
 import { motion } from 'framer-motion';
 import { IconBadge } from '@/components/common';
-
-const categories = {
-  Frontend: 'Frontend Development',
-  Backend: 'Backend Development',
-  DevOps: 'DevOps & Cloud',
-  AI: 'AI & Integration',
-  Tools: 'Tools & Productivity',
-};
+import { categories, skills } from './lib/data';
+import { Skill } from './types/skill';
 
 export default function SkillsSection() {
   const shouldReduceMotion = useReducedMotion();
-
-  const groupedSkills = {
-    Frontend: skills.filter((s) => s.category === 'Frontend'),
-    Backend: skills.filter((s) => s.category === 'Backend'),
-    DevOps: skills.filter((s) => s.category === 'DevOps'),
-    AI: skills.filter((s) => s.category === 'AI'),
-    Tools: skills.filter((s) => s.category === 'Tools'),
-  };
+  const groupedSkills = useGroupBy<Skill, 'category'>(skills, 'category');
 
   return (
     <Section id="skills" className="p-4 md:p-6 lg:p-8">
