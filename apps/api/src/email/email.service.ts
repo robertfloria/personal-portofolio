@@ -56,7 +56,7 @@ export class EmailService {
             'Content-Type': 'application/json',
             'api-key': apiKey,
           },
-          timeout: 10000, // 10 seconds
+          timeout: 30000, // 10 seconds
         }),
       );
 
@@ -81,7 +81,7 @@ export class EmailService {
 
   private extractErrorMessage(error: unknown): string {
     if (error instanceof AxiosError) {
-      return error.response ? `)}` : error.message;
+      return `HTTP ${error.response.status}: ${JSON.stringify(error.response.data)}`;
     }
     if (error instanceof Error) return error.message;
     return String(error);
