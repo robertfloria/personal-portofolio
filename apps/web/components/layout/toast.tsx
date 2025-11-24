@@ -3,10 +3,7 @@
 import React, { useEffect } from 'react';
 import { CheckCircle, XCircle, AlertCircle, Info, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import {
-  useNotifications,
-  type NotificationItem,
-} from '@/store/contexts/notification-context';
+import { useNotifications, type NotificationItem } from '@/store/contexts/notification-context';
 import { type NotificationType } from '@/store/contexts/notification-context';
 
 const toastConfig = {

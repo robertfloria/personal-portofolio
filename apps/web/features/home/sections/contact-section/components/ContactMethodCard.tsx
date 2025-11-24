@@ -27,9 +27,7 @@ export const ContactMethodCard: React.FC<ContactMethodCardProps> = ({ method }) 
   const cardContent = (
     <Card.Content className="flex flex-col items-center text-center p-0 gap-2">
       {iconBadge}
-      <Card.Title className="text-sm font-medium text-foreground">
-        {method.label}
-      </Card.Title>
+      <Card.Title className="text-sm font-medium text-foreground">{method.label}</Card.Title>
       <Card.Description className="text-sm font-semibold text-muted-foreground text-center break-all">
         {method.value}
       </Card.Description>

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Section } from '@/components/common';
 import { useReducedMotion } from '@/hooks';
-import {  infoItems } from './lib/data';
+import { infoItems } from './lib/data';
 import { HeroText, InfoCard, ProfileImage } from './components';
 
 export default function HeroSection() {
@@ -13,12 +13,8 @@ export default function HeroSection() {
     <Section id="home" className="min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto w-full relative z-10 flex flex-col gap-y-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <ProfileImage
-            shouldReduceMotion={shouldReduceMotion}
-          />
-          <HeroText
-            shouldReduceMotion={shouldReduceMotion}
-          />
+          <ProfileImage shouldReduceMotion={shouldReduceMotion} />
+          <HeroText shouldReduceMotion={shouldReduceMotion} />
         </div>
         <motion.div
           initial={shouldReduceMotion ? {} : { opacity: 0, y: 50 }}

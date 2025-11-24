@@ -8,7 +8,11 @@ interface TimelineListProps {
   shouldReduceMotion: boolean;
 }
 
-export const TimelineList: React.FC<TimelineListProps> = ({ timeline, isMd, shouldReduceMotion }) => (
+export const TimelineList: React.FC<TimelineListProps> = ({
+  timeline,
+  isMd,
+  shouldReduceMotion,
+}) => (
   <div className="relative w-full md:w-[70vw] md:max-w-[900px]">
     {/* Timeline Line */}
     <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-primary via-primary to-accent" />

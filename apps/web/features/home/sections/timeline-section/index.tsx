@@ -22,11 +22,7 @@ export default function TimelineSection() {
         </div>
       </Section.Header>
       <div className="flex justify-center">
-        <TimelineList
-          timeline={timeline}
-          isMd={isMd}
-          shouldReduceMotion={shouldReduceMotion}
-        />
+        <TimelineList timeline={timeline} isMd={isMd} shouldReduceMotion={shouldReduceMotion} />
       </div>
     </Section>
   );

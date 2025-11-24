@@ -13,7 +13,12 @@ interface ProjectModalProps {
   onImageClick: (img: string) => void;
 }
 
-export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose, onImageClick }) => {
+export const ProjectModal: React.FC<ProjectModalProps> = ({
+  project,
+  isOpen,
+  onClose,
+  onImageClick,
+}) => {
   const modalRef = useRef<HTMLDivElement | null>(null);
   useFocusTrap(modalRef as React.RefObject<HTMLElement>, Boolean(project), onClose);
 

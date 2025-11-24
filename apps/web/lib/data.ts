@@ -12,12 +12,12 @@ interface PersonalInfo {
   university?: string;
   profileImage: string;
   resumeUrl?: string;
-};
+}
 interface SocialLink {
   platform: string;
   url: string;
   icon: string;
-};
+}
 
 export const personalInfo: PersonalInfo = {
   name: 'Robert Nicolae Floria',

@@ -5,4 +5,4 @@ export interface Skill {
   icon?: string;
   iconKey?: string;
   yearsOfExperience?: number;
-};
+}

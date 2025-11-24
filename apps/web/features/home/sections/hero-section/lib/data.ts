@@ -1,5 +1,5 @@
-import { personalInfo } from "@/lib/data";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { personalInfo } from '@/lib/data';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 export const iconMap = {
   github: Github,

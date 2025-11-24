@@ -11,7 +11,12 @@ interface SkillCardProps {
   shouldReduceMotion?: boolean;
 }
 
-export const SkillCard: React.FC<SkillCardProps> = ({ skill, animated, animationDelay, shouldReduceMotion }) => (
+export const SkillCard: React.FC<SkillCardProps> = ({
+  skill,
+  animated,
+  animationDelay,
+  shouldReduceMotion,
+}) => (
   <Card
     key={skill.name}
     animated={animated}
@@ -30,10 +35,7 @@ export const SkillCard: React.FC<SkillCardProps> = ({ skill, animated, animation
             />
           )}
           <div className="flex-1">
-            <Heading
-              variant="h4"
-              className="text-base sm:text-lg md:text-xl text-foreground"
-            >
+            <Heading variant="h4" className="text-base sm:text-lg md:text-xl text-foreground">
               {skill.name}
             </Heading>
             {skill.yearsOfExperience && (

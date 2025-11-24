@@ -9,7 +9,13 @@ interface InfoCardProps {
   animationDelay?: number;
 }
 
-export const InfoCard: React.FC<InfoCardProps> = ({ label, value, iconKey, animated, animationDelay }) => (
+export const InfoCard: React.FC<InfoCardProps> = ({
+  label,
+  value,
+  iconKey,
+  animated,
+  animationDelay,
+}) => (
   <Card
     hover="glow"
     padding="md"

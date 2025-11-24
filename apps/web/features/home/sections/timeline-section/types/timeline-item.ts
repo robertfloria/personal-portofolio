@@ -8,4 +8,4 @@ export interface TimelineItem {
   type: 'education' | 'work' | 'certificate';
   location?: string;
   current?: boolean;
-};
+}

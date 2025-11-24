@@ -11,7 +11,12 @@ interface CertificateCardProps {
   onClick?: () => void;
 }
 
-export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, animated, animationDelay, onClick }) => (
+export const CertificateCard: React.FC<CertificateCardProps> = ({
+  certificate,
+  animated,
+  animationDelay,
+  onClick,
+}) => (
   <Card
     key={certificate.id}
     animated={animated}

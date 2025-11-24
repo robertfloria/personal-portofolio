@@ -10,7 +10,12 @@ interface ProjectCardProps {
   onClick: () => void;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, animated, animationDelay, onClick }) => (
+export const ProjectCard: React.FC<ProjectCardProps> = ({
+  project,
+  animated,
+  animationDelay,
+  onClick,
+}) => (
   <Card
     key={project.id}
     animated={animated}

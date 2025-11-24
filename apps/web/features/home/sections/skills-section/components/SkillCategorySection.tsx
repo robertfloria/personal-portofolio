@@ -10,7 +10,12 @@ interface SkillCategorySectionProps {
   shouldReduceMotion: boolean;
 }
 
-export const SkillCategorySection: React.FC<SkillCategorySectionProps> = ({ category, categorySkills, categories, shouldReduceMotion }) => (
+export const SkillCategorySection: React.FC<SkillCategorySectionProps> = ({
+  category,
+  categorySkills,
+  categories,
+  shouldReduceMotion,
+}) => (
   <div key={category} className="flex flex-col gap-6">
     <Heading variant="h3" className="flex justify-center md:justify-start">
       {categories[category as keyof typeof categories]}

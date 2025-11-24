@@ -10,7 +10,11 @@ interface CertificateModalProps {
   onClose: () => void;
 }
 
-export const CertificateModal: React.FC<CertificateModalProps> = ({ certificate, isOpen, onClose }) => (
+export const CertificateModal: React.FC<CertificateModalProps> = ({
+  certificate,
+  isOpen,
+  onClose,
+}) => (
   <Modal isOpen={isOpen} onClose={onClose}>
     {certificate && (
       <Modal.Content>
