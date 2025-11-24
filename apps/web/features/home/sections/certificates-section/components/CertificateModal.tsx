@@ -2,9 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import { Award, ExternalLink } from 'lucide-react';
 import { Modal } from '@/components/common';
-import { Certificate } from '../types/certificate';
+import { CertificateItem } from '../types/certificate-item';
 interface CertificateModalProps {
-  certificate: Certificate | null;
+  certificate: CertificateItem | null;
   isOpen: boolean;
   onClose: () => void;
 }

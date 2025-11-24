@@ -2,9 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import { Award } from 'lucide-react';
 import { Card } from '@/components/common';
-import { Certificate } from '../types/certificate';
+import { CertificateItem } from '../types/certificate-item';
 interface CertificateCardProps {
-  certificate: Certificate;
+  certificate: CertificateItem;
   animated?: boolean;
   animationDelay?: number;
   onClick?: () => void;

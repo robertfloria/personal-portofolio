@@ -1,6 +1,6 @@
-import { Certificate } from '../types/certificate';
+import { CertificateItem } from '../types/certificate-item';
 
-export const certificates: Certificate[] = [
+export const certificates: CertificateItem[] = [
   {
     id: '1',
     title: 'Meta React Native Certification',
