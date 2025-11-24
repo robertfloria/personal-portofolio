@@ -8,8 +8,8 @@ import { Section, Card, Badge, Modal } from '@/components/common';
 import { IconBadge } from '@/components/common';
 import { useRef } from 'react';
 import { useFocusTrap } from '@/hooks/use-focus-trap';
-import { Project } from './types/Project';
 import { projects } from './lib/data';
+import { Project } from './types/project';
 
 export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);

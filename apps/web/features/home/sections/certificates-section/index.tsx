@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { ExternalLink, Award } from 'lucide-react';
 import { useReducedMotion } from '@/hooks';
 import { Section, Card, Modal } from '@/components/common';
-import { Certificate } from './types/Certificate';
 import { certificates } from './lib/data';
+import { Certificate } from './types/certificate';
 
 export default function CertificatesSection() {
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
