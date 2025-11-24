@@ -2,17 +2,17 @@ import { useMutation, UseMutationResult } from '@tanstack/react-query';
 import { emailService, SendEmailResponse } from '@/services';
 import { AxiosError } from 'axios';
 import { useNotifications } from '@/store/contexts/notification-context';
-import { ContactFormData } from '@/types';
+import { SendEmailDto } from '@portfolio/shared-types';
 
 /**
  * React Query hook for sending contact emails
  * Automatically dispatches success/error notifications to Redux store
  */
-export function useSendEmail(): UseMutationResult<SendEmailResponse, AxiosError, ContactFormData> {
+export function useSendEmail(): UseMutationResult<SendEmailResponse, AxiosError, SendEmailDto> {
   const { addNotification } = useNotifications();
 
   return useMutation({
-    mutationFn: (data: ContactFormData) => emailService.sendEmail(data),
+    mutationFn: (data: SendEmailDto) => emailService.sendEmail(data),
     onSuccess: (data) => {
       addNotification({
         type: 'success',
