@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { UIProvider } from '../../contexts/ui-context';
+import { UIProvider } from '../../../store/contexts/ui-context';
 import Navbar from '.';
 
 describe('Navbar', () => {

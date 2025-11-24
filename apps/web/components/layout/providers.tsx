@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { UIProvider } from '../contexts/ui-context';
-import { NotificationProvider } from '../contexts/notification-context';
+import { UIProvider } from '../../store/contexts/ui-context';
+import { NotificationProvider } from '../../store/contexts/notification-context';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 

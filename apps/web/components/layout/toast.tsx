@@ -6,8 +6,8 @@ import { cn } from '@/lib/utils';
 import {
   useNotifications,
   type NotificationItem,
-} from '@/components/contexts/notification-context';
-import { type NotificationType } from '@/components/contexts/notification-context';
+} from '@/store/contexts/notification-context';
+import { type NotificationType } from '@/store/contexts/notification-context';
 
 const toastConfig = {
   success: {

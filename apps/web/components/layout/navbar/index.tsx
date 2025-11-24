@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from '../theme-toggle';
-import { useUI } from '../../contexts/ui-context';
+import { useUI } from '../../../store/contexts/ui-context';
 
 const navItems = [
   { name: 'Home', href: '#home' },

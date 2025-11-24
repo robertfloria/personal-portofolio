@@ -1,7 +1,7 @@
 import { useMutation, UseMutationResult } from '@tanstack/react-query';
 import { emailService, SendEmailResponse } from '@/services';
 import { AxiosError } from 'axios';
-import { useNotifications } from '@/components/contexts/notification-context';
+import { useNotifications } from '@/store/contexts/notification-context';
 import { ContactFormData } from '@/types';
 
 /**
