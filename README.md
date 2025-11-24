@@ -345,7 +345,8 @@ Remember to update `NEXT_PUBLIC_API_URL` and `CORS_ORIGIN` in production!
 ---
 
 Built with ❤️ using Next.js, React Native, and NestJS
-  - Contact form
+
+- Contact form
 
 ## 📁 Monorepo Structure
 
