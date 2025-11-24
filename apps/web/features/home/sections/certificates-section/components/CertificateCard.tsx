@@ -9,7 +9,7 @@ interface CertificateCardProps {
   animationDelay?: number;
   onClick?: () => void;
 }
-
+// s
 export const CertificateCard: React.FC<CertificateCardProps> = ({
   certificate,
   animated,
