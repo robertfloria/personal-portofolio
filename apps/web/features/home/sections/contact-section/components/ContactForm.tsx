@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { Mail, User, MessageSquare, Send } from 'lucide-react';
-import { useSendEmail } from '@/hooks/use-send-email';
-import { useReducedMotion } from '@/hooks';
-import { Input, Textarea, Button } from '@/components/common';
 import { SendEmailDto } from '@portfolio/shared-types';
+import { useSendEmail } from '@/hooks/use-send-email';
+import { Input, Textarea } from '@/components/common/input';
+import { Button } from '@/components/common/button';
 
-interface ContactFormProps {}
-
-export const ContactForm: React.FC<ContactFormProps> = () => {
+export const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState<SendEmailDto>({
     name: '',
     from: '',
@@ -15,7 +13,6 @@ export const ContactForm: React.FC<ContactFormProps> = () => {
     message: '',
   });
   const { mutate: sendEmail, isPending } = useSendEmail();
-  const shouldReduceMotion = useReducedMotion();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({

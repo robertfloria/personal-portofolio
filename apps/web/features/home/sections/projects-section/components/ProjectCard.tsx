@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { Card, Badge } from '@/components/common';
-import { IconBadge } from '@/components/common';
 import { Project } from '../types/project';
 
 interface ProjectCardProps {

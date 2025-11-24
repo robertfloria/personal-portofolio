@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { ExternalLink, Github } from 'lucide-react';
-import { Modal, Badge } from '@/components/common';
+import { Modal } from '@/components/common';
 import { IconBadge } from '@/components/common';
 import { useFocusTrap } from '@/hooks/use-focus-trap';
 import { Project } from '../types/project';
