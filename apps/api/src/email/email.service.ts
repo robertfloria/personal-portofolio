@@ -80,10 +80,10 @@ export class EmailService {
   }
 
   private extractErrorMessage(error: unknown): string {
-    if (error instanceof AxiosError) {
-      return `HTTP ${error.response.status}: ${JSON.stringify(error.response.data)}`;
-    }
-    if (error instanceof Error) return error.message;
+    //if (error instanceof AxiosError) {
+      //return `HTTP ${error.response.status}: ${JSON.stringify(error.response.data)}`;
+    //}
+    //if (error instanceof Error) return error.message;
     return String(error);
   }
 }
