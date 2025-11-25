@@ -1,6 +1,5 @@
 import { useMutation, UseMutationResult } from '@tanstack/react-query';
 import { emailService } from '@/services';
-import { AxiosError } from 'axios';
 import { useNotifications } from '@/store/contexts/notification-context';
 import { EmailResponse, SendEmailDto } from '@portfolio/shared-types';
 import { ANIMATION_DURATIONS } from '@/lib/constants';
@@ -9,7 +8,7 @@ import { ANIMATION_DURATIONS } from '@/lib/constants';
  * React Query hook for sending contact emails
  * Automatically dispatches success/error notifications to Redux store
  */
-export function useSendEmail(): UseMutationResult<EmailResponse, AxiosError, SendEmailDto> {
+export function useSendEmail(): UseMutationResult<EmailResponse, Error, SendEmailDto> {
   const { addNotification } = useNotifications();
 
   return useMutation({
@@ -21,11 +20,12 @@ export function useSendEmail(): UseMutationResult<EmailResponse, AxiosError, Sen
         duration: ANIMATION_DURATIONS.NOTIFICATION,
       });
     },
-    onError: (error: AxiosError) => {
-      const errorMessage =
-        typeof error.response?.data === 'object' && error.response?.data !== null
-          ? (error.response?.data as { message?: string }).message || error.message
-          : error.message || 'Failed to send message. Please try again later.';
+    onError: (error: Error) => {
+      // Try to extract a message from the error object
+      let errorMessage = error.message || 'Failed to send message. Please try again later.';
+
+      // If the error is a custom error with a response (e.g., thrown manually with extra info)
+      // You can extend this logic if you throw custom errors from emailService.sendEmail
 
       addNotification({
         type: 'error',
