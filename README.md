@@ -105,7 +105,7 @@ personal-portofolio/
    **For the Web** (`apps/web/.env.local`):
 
    ```env
-   NEXT_PUBLIC_API_URL=http://localhost:4000/api
+   NEST_API_URL=http://localhost:4000/api
    ```
 
 5. **Setup Gmail App Password** (for contact form):
@@ -332,7 +332,7 @@ Place your images in `apps/web/public/images/`:
 - **Heroku** - Classic PaaS
 - **DigitalOcean** - VPS option
 
-Remember to update `NEXT_PUBLIC_API_URL` and `CORS_ORIGIN` in production!
+Remember to update `NEST_API_URL` and `CORS_ORIGIN` in production!
 
 ## 📝 Author & Contact
 
@@ -427,7 +427,7 @@ personal-portfolio-monorepo/
    **For the Web** (`apps/web/.env.local`):
 
    ```env
-   NEXT_PUBLIC_API_URL=http://localhost:4000/api
+   NEST_API_URL=http://localhost:4000/api
    ```
 
 5. **Setup Gmail App Password** (for contact form):
@@ -634,7 +634,7 @@ Place your images in `apps/web/public/images/`:
 - **Heroku** - Classic PaaS
 - **DigitalOcean** - VPS option
 
-Remember to update `NEXT_PUBLIC_API_URL` and `CORS_ORIGIN` in production!
+Remember to update `NEST_API_URL` and `CORS_ORIGIN` in production!
 
 ## 📄 License
 

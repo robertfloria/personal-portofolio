@@ -21,7 +21,7 @@ export class EmailController {
   @UseGuards(ApiKeyGuard)
   async sendEmail(@Body() sendEmailDto: SendEmailDto) {
     try {
-      return await this.emailService.sendEmail(sendEmailDto); //s
+      return await this.emailService.sendEmail(sendEmailDto);
     } catch (error: unknown) {
       if (error instanceof BadRequestException) {
         throw error;

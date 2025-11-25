@@ -138,7 +138,7 @@ sendEmail(formData, {
 Create a `.env.local` file:
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:4000/api
+NEST_API_URL=http://localhost:4000/api
 ```
 
 ## 🚢 Deployment

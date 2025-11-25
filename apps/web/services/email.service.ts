@@ -1,25 +1,19 @@
-import { api } from '@/lib/http-client';
-import { SendEmailDto } from '@portfolio/shared-types';
+import { EmailResponse, SendEmailDto } from '@portfolio/shared-types';
 
-export interface SendEmailResponse {
-  success: boolean;
-  message: string;
-}
+const EMAIL_API_ROUTE = '/api/email';
 
-/**
- * Email service for contact form
- */
 export const emailService = {
-  /**
-   * Send contact email
-   */
-  sendEmail: async (data: SendEmailDto): Promise<SendEmailResponse> => {
-    const apiKey = process.env.NEXT_PUBLIC_EMAIL_API_SECRET;
-    const response = await api.post<SendEmailResponse>('/email/send', data, {
-      headers: {
-        'x-api-key': apiKey,
-      },
+  sendEmail: async (data: SendEmailDto): Promise<EmailResponse> => {
+    const response = await fetch(EMAIL_API_ROUTE, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
     });
-    return response.data;
+
+    if (!response.ok) {
+      throw new Error('Failed to send email');
+    }
+
+    return response.json() as Promise<EmailResponse>;
   },
 };

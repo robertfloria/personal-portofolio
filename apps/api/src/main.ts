@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
-import { devConsole } from '../../../packages/shared-utils/src/dev-console';
+import { Express } from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -11,7 +11,6 @@ async function bootstrap() {
     credentials: true,
   });
 
-  // Enable Global validation
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -20,17 +19,21 @@ async function bootstrap() {
     }),
   );
 
-  // Global prefix
   app.setGlobalPrefix('api');
+
+  // ✅ Cast to Express to avoid unsafe access
+  const expressApp = app.getHttpAdapter().getInstance() as Express;
+  expressApp.set('trust proxy', 1);
 
   const port = process.env.PORT || 4000;
   await app.listen(port);
-  devConsole.log(`🚀 API is running on: http://localhost:${port}/api`);
+  console.log(`🚀 API is running on: http://localhost:${port}/api`);
 }
+
 bootstrap().catch((err: unknown) => {
   if (err instanceof Error) {
-    devConsole.error('API failed to start:', err.message, err.stack);
+    console.error('API failed to start:', err.message, err.stack);
   } else {
-    devConsole.error('API failed to start:', err);
+    console.error('API failed to start:', err);
   }
 });

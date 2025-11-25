@@ -1,107 +1,25 @@
-import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
+import axios from 'axios';
 import { devConsole } from '../../../packages/shared-utils/src/dev-console';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+const NEST_API_URL = process.env.NEST_API_URL || 'http://localhost:4000/api';
 
-// Create axios instance
 export const httpClient = axios.create({
-  baseURL: API_BASE_URL,
-  timeout: 30000,
+  baseURL: NEST_API_URL,
+  timeout: 30_000,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-// Manage auth token centrally (client-only)
-export function setAuthToken(token: string | null) {
-  if (token) {
-    httpClient.defaults.headers.common.Authorization = `Bearer ${token}`;
-  } else {
-    delete httpClient.defaults.headers.common.Authorization;
-  }
-}
-
-// Request interceptor
-httpClient.interceptors.request.use(
-  (config: InternalAxiosRequestConfig) => {
-    // Authentication header should be set via `setAuthToken` on the client.
-    // Log request in development
-    devConsole.log(`[HTTP Request] ${config.method?.toUpperCase()} ${config.url}`, {
-      data: config.data,
-      params: config.params,
-    });
-
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  },
-);
-
-// Response interceptor
+// Optional: minimal error logging
 httpClient.interceptors.response.use(
-  (response) => {
-    // Log response in development
-    devConsole.log(`[HTTP Response] ${response.config.url}`, response.data);
-    return response;
-  },
-  (error: AxiosError) => {
-    // Handle errors globally
-    if (error.response) {
-      // Server responded with error
-      const status = error.response.status;
-      const message =
-        typeof error.response.data === 'object' && error.response.data !== null
-          ? (error.response.data as { message?: string }).message || error.message
-          : error.message;
-
-      if (status === 401) {
-        // Unauthorized - clear auth. Use central helper to remove Authorization header.
-        try {
-          // safe to call on client only
-          if (typeof window !== 'undefined') {
-            setAuthToken(null);
-          }
-        } catch {
-          // noop
-        }
-      } else if (status === 403) {
-        devConsole.error('[HTTP Error] Forbidden:', message);
-      } else if (status >= 500) {
-        devConsole.error('[HTTP Error] Server error:', message);
-      }
-
-      devConsole.error(`[HTTP Error] ${error.config?.method?.toUpperCase()} ${error.config?.url}`, {
-        status,
-        message,
-        data: error.response.data,
-      });
-    } else if (error.request) {
-      // Request was made but no response received
-      devConsole.error('[HTTP Error] No response received:', error.message);
-    } else {
-      // Something else happened
-      devConsole.error('[HTTP Error]:', error.message);
-    }
-
+  (response) => response,
+  (error) => {
+    devConsole.error('[Server HTTP Error]', {
+      url: error.config?.url,
+      status: error.response?.status,
+      message: error.message,
+    });
     return Promise.reject(error);
   },
 );
-
-// API service helpers
-export const api = {
-  get: <T = unknown>(url: string, config = {}) => httpClient.get<T>(url, config),
-
-  post: <T = unknown>(url: string, data?: unknown, config = {}) =>
-    httpClient.post<T>(url, data, config),
-
-  put: <T = unknown>(url: string, data?: unknown, config = {}) =>
-    httpClient.put<T>(url, data, config),
-
-  patch: <T = unknown>(url: string, data?: unknown, config = {}) =>
-    httpClient.patch<T>(url, data, config),
-
-  delete: <T = unknown>(url: string, config = {}) => httpClient.delete<T>(url, config),
-};
-
-export default httpClient;
