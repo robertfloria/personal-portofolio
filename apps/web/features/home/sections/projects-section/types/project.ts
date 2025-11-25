@@ -1,8 +1,8 @@
+import { PROJECT_CATEGORIES } from "../lib/constants";
 interface Technology {
   name: string;
   icon: string;
 }
-
 export interface Project {
   id: string;
   title: string;
@@ -13,6 +13,6 @@ export interface Project {
   features?: string[];
   githubUrl?: string;
   liveUrl?: string;
-  category?: string;
+  category?: PROJECT_CATEGORIES;
   featured?: boolean;
 }

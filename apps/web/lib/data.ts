@@ -19,6 +19,12 @@ interface SocialLink {
   icon: string;
 }
 
+const SOCIAL_LINKS = {
+  GITHUB: 'https://github.com/robertfloria',
+  LINKEDIN: 'https://www.linkedin.com/in/robert-nicolae-floria-51981920b/',
+  EMAIL: 'mailto:robertfloria27@gmail.com',
+} as const;
+
 export const personalInfo: PersonalInfo = {
   name: 'Robert Nicolae Floria',
   title: 'Software Engineer',
@@ -39,17 +45,17 @@ export const personalInfo: PersonalInfo = {
 export const socialLinks: SocialLink[] = [
   {
     platform: 'GitHub',
-    url: 'https://github.com/robertfloria',
+    url: SOCIAL_LINKS.GITHUB,
     icon: 'github',
   },
   {
     platform: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/robert-nicolae-floria-51981920b/',
+    url: SOCIAL_LINKS.LINKEDIN,
     icon: 'linkedin',
   },
   {
     platform: 'Email',
-    url: 'mailto:robertfloria27@gmail.com',
+    url: SOCIAL_LINKS.EMAIL,
     icon: 'mail',
   },
 ];

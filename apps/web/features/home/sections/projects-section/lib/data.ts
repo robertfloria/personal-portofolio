@@ -1,4 +1,5 @@
 import { Project } from '../types/project';
+import { PROJECT_CATEGORIES } from './constants';
 
 export const projects: Project[] = [
   {
@@ -44,7 +45,7 @@ export const projects: Project[] = [
     ],
     githubUrl: '',
     liveUrl: '',
-    category: 'Mobile',
+    category: PROJECT_CATEGORIES.MOBILE,
     featured: true,
   },
   {
@@ -76,7 +77,7 @@ export const projects: Project[] = [
     ],
     githubUrl: '',
     liveUrl: '',
-    category: 'Web',
+    category: PROJECT_CATEGORIES.WEB,
     featured: true,
   },
   {
@@ -108,7 +109,7 @@ export const projects: Project[] = [
     ],
     githubUrl: '',
     liveUrl: '',
-    category: 'AI',
+    category: PROJECT_CATEGORIES.AI,
     featured: true,
   },
   {
@@ -133,7 +134,7 @@ export const projects: Project[] = [
     ],
     githubUrl: '',
     liveUrl: '',
-    category: 'Web',
+    category: PROJECT_CATEGORIES.WEB,
     featured: false,
   },
   {
@@ -170,7 +171,7 @@ export const projects: Project[] = [
     ],
     githubUrl: 'https://github.com/robertfloria/personal-portofolio',
     liveUrl: '',
-    category: 'Web',
+    category: PROJECT_CATEGORIES.WEB,
     featured: true,
   },
 ];

@@ -1,6 +1,8 @@
+import { SKILLS_CATEGORIES } from "../lib/constants";
+
 export interface Skill {
   name: string;
-  category: 'Frontend' | 'Backend' | 'DevOps' | 'AI' | 'Tools';
+  category: SKILLS_CATEGORIES;
   proficiency: number;
   icon?: string;
   iconKey?: string;
