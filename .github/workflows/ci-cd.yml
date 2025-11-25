@@ -202,14 +202,15 @@ jobs:
         run: npm install -g @railway/cli@4.11.1
 
 
+
       - name: Deploy API to Railway
-        run: railway up --service=${{ secrets.RAILWAY_API_SERVICE_ID }}
+        run: railway up --service=${{ secrets.RAILWAY_API_SERVICE_ID }} --dockerfile=apps/api/Dockerfile
         working-directory: ./apps/api
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 
       - name: Deploy Web to Railway
-        run: railway up --service=${{ secrets.RAILWAY_WEB_SERVICE_ID }}
+        run: railway up --service=${{ secrets.RAILWAY_WEB_SERVICE_ID }} --dockerfile=apps/web/Dockerfile
         working-directory: ./apps/web
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
