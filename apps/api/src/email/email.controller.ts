@@ -12,6 +12,7 @@ import { ApiKeyGuard } from './api-key.guard';
 import { EmailService } from './email.service';
 import { SendEmailDto } from './dto/send-email.dto';
 
+//controller to handle email sending requests
 @Controller('email')
 export class EmailController {
   constructor(private readonly emailService: EmailService) {}
