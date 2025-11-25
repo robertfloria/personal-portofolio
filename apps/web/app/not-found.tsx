@@ -1,7 +1,7 @@
 import { Heading, Text } from '@/components/common';
 import { Section } from '@/components/common/section';
 import Link from 'next/link';
-
+//s
 export default function NotFound() {
   return (
     <Section className="flex flex-col items-center justify-center min-h-screen p-4 md:p-6 lg:p-8">
