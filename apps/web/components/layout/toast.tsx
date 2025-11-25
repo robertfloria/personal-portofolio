@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import { CheckCircle, XCircle, AlertCircle, Info, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { ANIMATION_DURATIONS } from '@/lib/constants';
 import { useNotifications, type NotificationItem } from '@/store/contexts/notification-context';
 import { type NotificationType } from '@/store/contexts/notification-context';
 
@@ -41,7 +42,13 @@ interface ToastProps {
   onClose: (id: string) => void;
 }
 
-const Toast: React.FC<ToastProps> = ({ id, type, message, duration = 5000, onClose }) => {
+const Toast: React.FC<ToastProps> = ({
+  id,
+  type,
+  message,
+  duration = ANIMATION_DURATIONS.TOAST,
+  onClose,
+}) => {
   const config = toastConfig[type];
   const Icon = config.icon;
 

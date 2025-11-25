@@ -1,4 +1,4 @@
-import { SKILLS_CATEGORIES } from "../lib/constants";
+import { SKILLS_CATEGORIES } from '../lib/constants';
 
 export interface Skill {
   name: string;

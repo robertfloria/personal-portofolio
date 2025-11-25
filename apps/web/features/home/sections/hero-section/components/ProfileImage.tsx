@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { ANIMATION_DURATIONS } from '@/lib/constants';
 import { SocialButton } from '@/components/common/social-button';
 import { Text } from '@/components/common';
 import { personalInfo, socialLinks } from '@/lib/data';
@@ -20,7 +21,7 @@ export const ProfileImage: React.FC<ProfileImageProps> = ({ shouldReduceMotion }
   return (
     <motion.div
       {...imageVariants}
-      transition={{ duration: 0.8, type: 'spring' }}
+      transition={{ duration: ANIMATION_DURATIONS.SLOW, type: 'spring' }}
       className="relative order-1 lg:order-1"
     >
       <div className="relative mx-auto w-[calc(80vw)] h-[calc(80vw)] sm:w-100 sm:h-100 lg:w-110 lg:h-110">
@@ -63,7 +64,7 @@ export const ProfileImage: React.FC<ProfileImageProps> = ({ shouldReduceMotion }
         <motion.div
           className="absolute top-2 lg:top-5 -right-4 glass-zone px-6 py-3 rounded-full shadow-lg font-semibold  border border-border flex justify-start w-auto"
           animate={shouldReduceMotion ? {} : { y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
+          transition={{ repeat: Infinity, duration: ANIMATION_DURATIONS.LOOP, delay: 1.5 }}
         >
           <Text variant="label" className="text-primary">
             👋 Welcome

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Heading, Text, Badge } from '@/components/common';
 import { motion } from 'framer-motion';
+import { ANIMATION_DURATIONS } from '@/lib/constants';
 import { IconBadge } from '@/components/common';
 import { Skill } from '../types/skill';
 
@@ -53,7 +54,7 @@ export const SkillCard: React.FC<SkillCardProps> = ({
             whileInView={{ width: `${skill.proficiency}%` }}
             viewport={{ once: true }}
             transition={{
-              duration: shouldReduceMotion ? 0 : 1.2,
+              duration: shouldReduceMotion ? 0 : ANIMATION_DURATIONS.SLOW,
               delay: animationDelay,
               ease: 'easeOut',
             }}

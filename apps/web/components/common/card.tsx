@@ -2,6 +2,7 @@ import React from 'react';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { motion, type HTMLMotionProps } from 'framer-motion';
+import { ANIMATION_DURATIONS } from '@/lib/constants';
 
 const cardVariants = cva(
   'rounded-xl border transition-transform transition-shadow duration-300 ease-out',
@@ -63,7 +64,7 @@ const CardRoot = React.forwardRef<HTMLDivElement, CardRootProps>(
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: animationDelay, duration: 0.6 }}
+          transition={{ delay: animationDelay, duration: ANIMATION_DURATIONS.SLOW }}
           {...(props as HTMLMotionProps<'div'>)}
         >
           {children as React.ReactNode}

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { ANIMATION_DURATIONS } from '@/lib/constants';
 
 export type NotificationType = 'success' | 'error' | 'warning' | 'info';
 
@@ -29,7 +30,11 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({ 
         ? (crypto as Crypto).randomUUID()
         : Date.now().toString();
 
-    const item: NotificationItem = { id, ...n, duration: n.duration ?? 5000 };
+    const item: NotificationItem = {
+      id,
+      ...n,
+      duration: n.duration ?? ANIMATION_DURATIONS.NOTIFICATION,
+    };
     setNotifications((prev) => [...prev, item]);
   }, []);
 

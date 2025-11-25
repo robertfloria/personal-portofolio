@@ -1,4 +1,4 @@
-import { PROJECT_CATEGORIES } from "../lib/constants";
+import { PROJECT_CATEGORIES } from '../lib/constants';
 interface Technology {
   name: string;
   icon: string;

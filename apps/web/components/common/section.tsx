@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { ANIMATION_DURATIONS } from '@/lib/constants';
 import { Heading, Text } from './typography';
 
 interface SectionRootProps extends React.HTMLAttributes<HTMLElement> {
@@ -65,7 +66,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: ANIMATION_DURATIONS.NORMAL }}
           >
             {legacyContent}
           </motion.div>
@@ -88,7 +89,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: ANIMATION_DURATIONS.NORMAL }}
         >
           {content}
         </motion.div>

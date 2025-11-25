@@ -10,4 +10,8 @@ export const ANIMATION_DURATIONS = {
   FAST: 0.2,
   NORMAL: 0.3,
   SLOW: 0.6,
+  TOAST: 5000, // ms
+  NOTIFICATION: 5000, // ms
+  ERROR_NOTIFICATION: 7000, // ms
+  LOOP: 3, // seconds
 } as const;

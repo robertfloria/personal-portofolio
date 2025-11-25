@@ -3,6 +3,7 @@ import { emailService } from '@/services';
 import { AxiosError } from 'axios';
 import { useNotifications } from '@/store/contexts/notification-context';
 import { EmailResponse, SendEmailDto } from '@portfolio/shared-types';
+import { ANIMATION_DURATIONS } from '@/lib/constants';
 
 /**
  * React Query hook for sending contact emails
@@ -17,7 +18,7 @@ export function useSendEmail(): UseMutationResult<EmailResponse, AxiosError, Sen
       addNotification({
         type: 'success',
         message: data.message || "Message sent successfully! I'll get back to you soon.",
-        duration: 5000,
+        duration: ANIMATION_DURATIONS.NOTIFICATION,
       });
     },
     onError: (error: AxiosError) => {
@@ -29,7 +30,7 @@ export function useSendEmail(): UseMutationResult<EmailResponse, AxiosError, Sen
       addNotification({
         type: 'error',
         message: errorMessage,
-        duration: 7000,
+        duration: ANIMATION_DURATIONS.ERROR_NOTIFICATION,
       });
     },
   });

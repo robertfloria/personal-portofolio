@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { APP_NAME, APP_DESCRIPTION } from '@/lib/constants';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Providers } from '@/components/layout/providers';
@@ -12,9 +13,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Robert Nicolae Floria | Full-Stack Developer',
-  description:
-    'Full-Stack Software Developer specializing in React, Next.js, NestJS, and .NET. Building modern, scalable web applications.',
+  title: APP_NAME,
+  description: APP_DESCRIPTION,
   keywords: [
     'Full-Stack Developer',
     'React',
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Robert Nicolae Floria' }],
   openGraph: {
-    title: 'Robert Nicolae Floria | Full-Stack Developer',
-    description: 'Full-Stack Software Developer specializing in modern web technologies',
+    title: APP_NAME,
+    description: APP_DESCRIPTION,
     type: 'website',
   },
 };
