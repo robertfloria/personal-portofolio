@@ -55,6 +55,11 @@ export class EmailService {
     const fromEmail = this.configService.get<string>('EMAIL_USER')?.trim();
     const toEmail = this.configService.get<string>('RECIPIENT_EMAIL')?.trim() || fromEmail;
 
+    // Log environment variable values for debugging
+    console.log('BREVO_API_KEY:', apiKey);
+    console.log('EMAIL_USER:', fromEmail);
+    console.log('RECIPIENT_EMAIL:', toEmail);
+
     if (!apiKey || !fromEmail) {
       this.logger.error('Missing Brevo configuration.');
       throw new Error('Email service misconfigured.');
