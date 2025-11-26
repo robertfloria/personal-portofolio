@@ -6,9 +6,6 @@ import { devConsole } from '@portfolio/shared-utils/src/dev-console';
 const SEND_EMAIL_API_ROUTE = '/email/send';
 
 export async function POST(req: Request) {
-  // Debug: log environment variables
-  console.log('EMAIL_API_SECRET:', process.env.EMAIL_API_SECRET);
-  console.log('NEST_API_URL:', process.env.NEST_API_URL);
   try {
     const data: SendEmailDto = await req.json();
 
