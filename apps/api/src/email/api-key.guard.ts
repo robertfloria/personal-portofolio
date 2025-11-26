@@ -13,8 +13,6 @@ export class ApiKeyGuard implements CanActivate {
     const apiKey = Array.isArray(headerValue) ? headerValue[0] : headerValue;
 
     const secret = this.configService.get<string>('EMAIL_API_SECRET');
-    // Log EMAIL_API_SECRET for debugging
-    console.log('EMAIL_API_SECRET (guard):', secret);
 
     if (!apiKey || !secret) {
       throw new UnauthorizedException('Invalid or missing API key');
