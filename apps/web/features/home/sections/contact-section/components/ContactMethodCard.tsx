@@ -33,9 +33,9 @@ export const ContactMethodCard: React.FC<ContactMethodCardProps> = ({ method }) 
       </Card.Description>
     </Card.Content>
   );
-  const cardClass = `flex flex-col items-center text-center ${method.gradient} border ${method.border} group`;
+  const cardClass = `flex flex-col h-full items-center text-center ${method.gradient} border ${method.border} group`;
   return isLink ? (
-    <a key={method.label} href={method.href} className="block">
+    <a key={method.label} href={method.href}>
       <Card padding="lg" hover="glow" className={cardClass}>
         {cardContent}
       </Card>

@@ -4,6 +4,7 @@ const EMAIL_API_ROUTE = '/api/email';
 
 export const emailService = {
   sendEmail: async (data: SendEmailDto): Promise<EmailResponse> => {
+    console.log('Sending email with data:', process.env.NEST_API_URL);
     const response = await fetch(EMAIL_API_ROUTE, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
