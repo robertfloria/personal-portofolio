@@ -31,7 +31,7 @@ export const ProfileImage: React.FC<ProfileImageProps> = ({ shouldReduceMotion }
             <div className="absolute inset-6 rounded-full bg-linear-to-r from-secondary via-primary to-primary animate-pulse opacity-10" />
           </>
         )}
-        <div className="absolute inset-8 rounded-full overflow-hidden shadow-2xl backdrop-blur-xl bg-white/20 dark:bg-black/20  ring-white/30 dark:ring-black/30">
+        <div className="absolute inset-8 rounded-full overflow-hidden shadow-2xl ">
           <Image
             src={personalInfo.profileImage}
             alt={personalInfo.name}

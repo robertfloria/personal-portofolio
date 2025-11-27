@@ -164,7 +164,7 @@ export function ModalHeader({
   return (
     <div
       className={cn(
-        'sticky top-0 bg-[hsl(var(--card)/1)] border-b border-[hsl(var(--border)/1)] p-6 flex items-center justify-between z-10',
+        'sticky top-0 bg-[hsl(var(--card)/1)] border-b border-[hsl(var(--border)/1)] p-4 flex items-center justify-between z-10',
         className,
       )}
       {...props}

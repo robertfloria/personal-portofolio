@@ -1,15 +1,7 @@
 import React from 'react';
-import Player from 'lottie-react';
+import Player, { LottieComponentProps } from 'lottie-react';
 
-export interface LottieAnimationProps {
-  animationData: object;
-  loop?: boolean;
-  autoplay?: boolean;
-  style?: React.CSSProperties;
-  className?: string;
-}
-
-const LottieAnimation: React.FC<LottieAnimationProps> = ({
+const LottieAnimation: React.FC<LottieComponentProps> = ({
   animationData,
   loop = true,
   autoplay = true,
