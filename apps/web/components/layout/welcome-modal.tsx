@@ -3,12 +3,14 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Heading, Text, Modal } from '@/components/common';
 
+const SESSION_STORAGE_KEY = 'welcomeModalDismissed';
+
 export const WelcomeModal = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     // Only show if not dismissed before
-    const dismissed = localStorage.getItem('welcomeModalDismissed');
+    const dismissed = sessionStorage.getItem(SESSION_STORAGE_KEY);
     if (!dismissed) {
       setTimeout(() => setOpen(true), 0);
     }
@@ -16,7 +18,7 @@ export const WelcomeModal = () => {
 
   const handleClose = () => {
     setOpen(false);
-    localStorage.setItem('welcomeModalDismissed', 'true');
+    sessionStorage.setItem(SESSION_STORAGE_KEY, 'true');
   };
 
   return (

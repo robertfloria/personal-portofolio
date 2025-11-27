@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Providers } from '@/components/layout/providers';
 import { Footer } from '@/components/layout/footer';
-import { WelcomeModal } from '@/components/common/welcome-modal';
+import { WelcomeModal } from '@/components/layout/welcome-modal';
 import { ToastContainer } from '@/components/layout/toast';
 import Navbar from '@/components/layout/navbar';
 

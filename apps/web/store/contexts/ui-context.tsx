@@ -17,7 +17,7 @@ interface UIContextValue {
 const UIContext = React.createContext<UIContextValue | undefined>(undefined);
 
 export const UIProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = React.useState<ThemeMode>('light');
+  const [theme, setTheme] = React.useState<ThemeMode>('dark');
   const [sidebarOpen, setSidebarOpen] = React.useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
