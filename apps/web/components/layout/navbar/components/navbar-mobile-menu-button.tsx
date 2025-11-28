@@ -15,7 +15,7 @@ export function NavbarMobileMenuButton({
   return (
     <div className="md:hidden flex items-center space-x-4">
       <ThemeToggle />
-      <DownloadCvButton size="sm" textVariant='short'/>
+      <DownloadCvButton size="sm" textVariant="short" />
       <button
         onClick={toggleMobileMenu}
         className="text-foreground"

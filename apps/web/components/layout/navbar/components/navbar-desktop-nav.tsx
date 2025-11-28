@@ -25,16 +25,17 @@ export function NavbarDesktopNav({
               e.preventDefault();
               scrollToSection(item.href);
             }}
-            className={`cursor-pointer font-medium transition-colors ${isActive
-              ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
-              : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
-              }`}
+            className={`cursor-pointer font-medium transition-colors ${
+              isActive
+                ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
+                : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
+            }`}
           >
             {item.name}
           </a>
         );
       })}
-      <DownloadCvButton size='sm' textVariant='short' />
+      <DownloadCvButton size="sm" textVariant="short" />
       <ThemeToggle />
     </div>
   );

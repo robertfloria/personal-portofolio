@@ -22,6 +22,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ANIMATION_DURATIONS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import React from 'react';
+import { useLockBodyScroll } from '@/hooks';
 type ModalContextType = {
   onClose: () => void;
 };
@@ -36,16 +37,7 @@ export interface ModalProps {
 }
 
 function ModalBase({ isOpen, onClose, children, className }: ModalProps) {
-  React.useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
+  useLockBodyScroll(isOpen);
   const containerRef = React.useRef<HTMLDivElement | null>(null);
 
   React.useEffect(() => {

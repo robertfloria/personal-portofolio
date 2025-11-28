@@ -31,11 +31,7 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({ item, index }) => {
       <div
         className={`absolute left-4 sm:left-8 top-4 -translate-x-1/2 rounded-full bg-linear-to-br ${colorClass} flex items-center justify-center shadow-lg`}
       >
-        <IconBadge
-          iconKey={iconKey}
-          size="md"
-          variant="gradient"
-        />
+        <IconBadge iconKey={iconKey} size="md" variant="gradient" />
       </div>
 
       {/* Card shifted to the right of the line */}

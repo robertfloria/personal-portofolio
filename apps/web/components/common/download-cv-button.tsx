@@ -18,10 +18,14 @@ import { DownloadIcon } from 'lucide-react';
 export interface DownloadCvButtonProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg';
-  textVariant?: 'default' | 'short'
+  textVariant?: 'default' | 'short';
 }
 
-export const DownloadCvButton: React.FC<DownloadCvButtonProps> = ({ className, size = 'lg', textVariant = 'default' }) => {
+export const DownloadCvButton: React.FC<DownloadCvButtonProps> = ({
+  className,
+  size = 'lg',
+  textVariant = 'default',
+}) => {
   const { mutate, isPending } = useCvDownload();
 
   const handleDownload = () => {
@@ -37,7 +41,7 @@ export const DownloadCvButton: React.FC<DownloadCvButtonProps> = ({ className, s
       onClick={handleDownload}
       disabled={isPending}
       className={className}
-      variant='outline'
+      variant="outline"
       size={size}
       leftIcon={textVariant === 'default' ? <DownloadIcon size={20} /> : undefined}
     >

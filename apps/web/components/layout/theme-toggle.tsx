@@ -10,7 +10,6 @@ export function ThemeToggle() {
   const { setTheme: setUITheme } = useUI();
   const [mounted, setMounted] = React.useState(false);
 
-
   React.useEffect(() => {
     setMounted(true);
     // Populează localStorage cu tema default dacă nu există
