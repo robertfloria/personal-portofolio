@@ -10,9 +10,14 @@ export function ThemeToggle() {
   const { setTheme: setUITheme } = useUI();
   const [mounted, setMounted] = React.useState(false);
 
+
   React.useEffect(() => {
     setMounted(true);
-  }, []);
+    // Populează localStorage cu tema default dacă nu există
+    if (typeof window !== 'undefined' && !localStorage.getItem('theme')) {
+      localStorage.setItem('theme', theme || 'dark');
+    }
+  }, [theme]);
 
   const handleThemeToggle = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
