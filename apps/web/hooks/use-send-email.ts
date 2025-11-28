@@ -10,4 +10,4 @@ export function useSendEmail() {
   return useMutationWithNotification<EmailResponse, Error, SendEmailDto>({
     mutationFn: (data: SendEmailDto) => emailService.sendEmail(data),
   });
-};
+}

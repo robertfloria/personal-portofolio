@@ -1,4 +1,10 @@
-import { Injectable, CanActivate, ExecutionContext, UnauthorizedException, Inject } from '@nestjs/common';
+import {
+  Injectable,
+  CanActivate,
+  ExecutionContext,
+  UnauthorizedException,
+  Inject,
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import type { Request } from 'express';
 import { timingSafeEqual } from 'crypto';
@@ -36,4 +42,4 @@ export class ApiKeyGuard implements CanActivate {
 
     return true;
   }
-};
+}

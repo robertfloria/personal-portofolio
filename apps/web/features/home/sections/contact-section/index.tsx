@@ -6,6 +6,7 @@ import { Section, Card } from '@/components/common';
 import { contactMethods } from './lib/data';
 import { ContactForm, ContactMethodCard } from './components';
 import LottieAnimation from '@/components/common/lottie-animation';
+import globeAnimation from '../../../../public/lottie/globe.json';
 
 export default function ContactSection() {
   const shouldReduceMotion = useReducedMotion();
@@ -28,10 +29,7 @@ export default function ContactSection() {
           animationDelay={0.2}
         >
           <div className="flex items-center justify-center">
-            <LottieAnimation
-              animationData={require('../../../../public/lottie/globe.json')}
-              style={{ width: 150, height: 150 }}
-            />
+            <LottieAnimation animationData={globeAnimation} style={{ width: 150, height: 150 }} />
           </div>
           <ContactForm />
           <div className="mt-12 pt-8 border-t border-border dark:border-card">

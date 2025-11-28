@@ -17,7 +17,7 @@ export class CvController {
         'Content-Disposition': 'attachment; filename="cv.pdf"',
       });
       stream.pipe(res);
-    } catch (err) {
+    } catch {
       throw new InternalServerErrorException('Could not retrieve CV PDF');
     }
   }

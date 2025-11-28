@@ -1,4 +1,3 @@
-// /lib/apiClient.ts
 import { devConsole } from '@portfolio/shared-utils/src/dev-console';
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
@@ -24,22 +23,24 @@ apiClientInstance.interceptors.response.use(
       data: error.response?.data,
     });
     return Promise.reject(error);
-  }
+  },
 );
 
 export const apiClient = {
-  get: <R = any>(url: string, config?: AxiosRequestConfig): Promise<R> =>
+  get: <R = unknown>(url: string, config?: AxiosRequestConfig): Promise<R> =>
     apiClientInstance.get<R>(url, config).then((res) => res.data),
 
-  post: <T, R = any>(url: string, data: T, config?: AxiosRequestConfig): Promise<R> =>
+  post: <T, R = unknown>(url: string, data: T, config?: AxiosRequestConfig): Promise<R> =>
     apiClientInstance.post<R>(url, data, config).then((res) => res.data),
 
-  put: <T, R = any>(url: string, data: T, config?: AxiosRequestConfig): Promise<R> =>
+  put: <T, R = unknown>(url: string, data: T, config?: AxiosRequestConfig): Promise<R> =>
     apiClientInstance.put<R>(url, data, config).then((res) => res.data),
 
-  delete: <R = any>(url: string, config?: AxiosRequestConfig): Promise<R> =>
+  delete: <R = unknown>(url: string, config?: AxiosRequestConfig): Promise<R> =>
     apiClientInstance.delete<R>(url, config).then((res) => res.data),
 
-  getArrayBuffer: <R = any>(url: string, config?: AxiosRequestConfig): Promise<R> =>
-    apiClientInstance.get<R>(url, { ...config, responseType: 'arraybuffer' }).then((res) => res.data),
+  getArrayBuffer: <R = unknown>(url: string, config?: AxiosRequestConfig): Promise<R> =>
+    apiClientInstance
+      .get<R>(url, { ...config, responseType: 'arraybuffer' })
+      .then((res) => res.data),
 };

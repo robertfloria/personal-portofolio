@@ -6,4 +6,4 @@ export async function downloadCv(): Promise<Blob> {
   });
   if (!res.ok) throw new Error('Failed to download CV');
   return await res.blob();
-};
+}

@@ -2,7 +2,6 @@ import React from 'react';
 import { Heading } from '@/components/common';
 import { Skill } from '../types/skill';
 import { SkillCard } from './SkillCard';
-import { ANIMATION_DURATIONS } from '@/lib/constants';
 
 interface SkillCategorySectionProps {
   category: string;

@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Heading, Text, Modal } from '@/components/common';
 import LottieAnimation from '../common/lottie-animation';
+import handshakeAnimation from '../../public/lottie/handshake.json';
 
 const SESSION_STORAGE_KEY = 'welcomeModalDismissed';
 
@@ -30,10 +31,7 @@ export const WelcomeModal = () => {
             <Heading variant="h2" gradient className="font-extrabold tracking-tight">
               Welcome!
             </Heading>
-            <LottieAnimation
-              animationData={require('../../public/lottie/handshake.json')}
-              style={{ width: 250 }}
-            />
+            <LottieAnimation animationData={handshakeAnimation} style={{ width: 250 }} />
             <Text variant="body" className="text-muted-foreground text-center">
               Thanks for visiting my portfolio.
               <br />

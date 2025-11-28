@@ -28,7 +28,7 @@ describe('CvController', () => {
       set: jest.fn(),
       pipe: jest.fn(),
     } as unknown as Response;
-    await controller.getCvPdf(res);
+    await controller.getCvPdf.call(undefined, res);
     expect(res.set).toHaveBeenCalledWith({
       'Content-Type': 'application/pdf',
       'Content-Disposition': 'attachment; filename="cv.pdf"',

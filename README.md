@@ -6,6 +6,16 @@ A modern personal portfolio built as a professional monorepo with Next.js 16 (fr
 
 A modern, professional portfolio built as a monorepo with Next.js 16 (frontend), NestJS (backend API), and shared packages. Features TypeScript, Tailwind CSS, clean architecture, robust email API, and automated CI/CD. Includes a featured "Personal Portfolio" project entry, AI-powered integrations, and mobile app showcase.
 
+## 🚀 Recent Improvements
+
+- **Unified API Key Guard**: All API endpoints (CV, email, etc.) now use a single, reusable guard for security.
+- **Secure Endpoints**: Sensitive API keys are never exposed to the client; all secrets are handled server-side.
+- **CV Download**: Download your CV securely via a protected API route, with binary response handling and a reusable download utility.
+- **Lottie Animations**: Integrated with `lottie-react` for beautiful UI animations; tests use a custom mock to avoid JSDOM/canvas errors.
+- **React Query + NotificationProvider**: All mutation hooks use a reusable notification wrapper for consistent UX and less boilerplate.
+- **Clean Architecture**: Service and hook layers are fully typed, extensible, and easy to maintain.
+- **Testing**: Jest tests use custom mocks for Lottie, next-themes, framer-motion, and more. All suites pass.
+
 ## 🚀 Features
 
 - **Monorepo Architecture**: Professional workspace with shared types and utilities
@@ -26,7 +36,63 @@ A modern, professional portfolio built as a monorepo with Next.js 16 (frontend),
   - Certificates gallery
   - Contact form
 
-## 📁 Monorepo Structure
+
+## 📁 Monorepo Structure & CV Download Flow
+
+### Key Folders & Modules
+
+```
+personal-portofolio/
+├── apps/
+│   ├── api/
+│   │   ├── src/
+│   │   │   ├── email/      # Email module (API, DTO, guards)
+│   │   │   ├── cv/         # CV module (S3 integration, controller, service, guard)
+│   │   │   └── common/     # Shared guards (ApiKeyGuard)
+│   │   └── test/           # e2e tests
+│   └── web/
+│       ├── app/            # Next.js app directory
+│       ├── components/     # React components (common, layout)
+│       ├── features/
+│       │   └── home/sections/ # Hero, About, Skills, Projects, Timeline, Certificates, Contact
+│       ├── hooks/          # Custom React hooks (use-cv-download, use-send-email)
+│       ├── lib/            # Data, constants, utils (downloadFile)
+│       ├── services/       # API services (email, cv)
+│       ├── store/          # Contexts
+│       └── types/          # Local types
+├── packages/
+│   ├── shared-types/       # TypeScript definitions
+│   └── shared-utils/       # Validation, helpers
+└── ...
+```
+
+### CV Download Flow (AWS S3 Integration)
+
+- **Storage**: Your CV PDF is stored securely in AWS S3.
+- **Backend (NestJS)**:
+   - `cv.service.ts`: Connects to S3, retrieves the PDF as a stream.
+   - `cv.controller.ts`: Exposes a `/cv/pdf` endpoint, protected by `ApiKeyGuard`.
+   - Environment variables in `apps/api/.env`:
+      ```env
+      AWS_REGION=your-region
+      AWS_ACCESS_KEY_ID=your-access-key-id
+      AWS_SECRET_ACCESS_KEY=your-secret-access-key
+      AWS_S3_BUCKET=your-bucket-name
+      AWS_S3_CV_KEY=cv.pdf
+      API_SECRET=your-api-key
+      ```
+- **Frontend (Next.js)**:
+   - `app/api/cv/route.ts`: Proxies requests to the backend, returns the PDF as a binary response.
+   - `download-cv-button.tsx`: Uses a custom hook and utility to trigger the download and save the file.
+   - No secrets are exposed to the client; all security is handled server-side.
+
+### Example Usage
+
+1. User clicks "Download CV" button in the UI.
+2. Next.js API route (`/api/cv`) calls the backend (`/cv/pdf`) with the API key (server-side only).
+3. Backend retrieves the PDF from S3 and streams it back.
+4. Frontend receives the binary response and saves the file using a reusable utility.
+
 
 ```
 personal-portofolio/
@@ -177,8 +243,18 @@ docker run -p 4000:4000 portfolio-api
 
 ## 🧪 Testing
 
-- **Frontend (web)**: Jest with React Testing Library, plus custom mocks in `__mocks__` for next-themes, next-image, framer-motion
+- **Frontend (web)**: Jest with React Testing Library. Custom mocks in `__mocks__` for:
+   - `lottie-react` (prevents JSDOM/canvas errors)
+   - `next-themes`, `next-image`, `framer-motion`
 - **Backend (api)**: Jest unit tests and e2e tests (see `test/app.e2e-spec.ts` and `test/jest-e2e.json`)
+
+### Running Tests
+
+```bash
+npm test
+```
+
+If you add new animation components, create a mock in `__mocks__` to keep tests passing.
 
 ## 🔄 CI/CD Workflows
 

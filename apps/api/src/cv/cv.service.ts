@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { S3Client, GetObjectCommand } from '@aws-sdk/client-s3';
+import { Readable } from 'stream';
 
 @Injectable()
 export class CvService {
@@ -25,7 +26,7 @@ export class CvService {
       Key: this.key,
     });
     const response = await this.s3.send(command);
-    if (!response.Body || !(response.Body instanceof require('stream').Readable)) {
+    if (!response.Body || !(response.Body instanceof Readable)) {
       throw new Error('CV file not found or not readable');
     }
     return response.Body as NodeJS.ReadableStream;
