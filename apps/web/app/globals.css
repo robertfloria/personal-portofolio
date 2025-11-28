@@ -46,7 +46,7 @@ html::-webkit-scrollbar-thumb:hover {
   :root {
     --background: 0 0% 98%;
     /* Light background */
-    --about-section-bg: 210 50% 96%;
+    --divider-background-section: 210 50% 96%;
     --foreground: 220 15% 12%;
     /* Dark text */
     --primary: 200 90% 45%;
@@ -77,7 +77,7 @@ html::-webkit-scrollbar-thumb:hover {
   .dark {
     --background: 220 16% 8%;
     /* Dark background */
-    --about-section-bg: 220 16% 12%;
+    --divider-background-section: 220 16% 12%;
     --foreground: 0 0% 98%;
     /* Light text */
     --primary: 200 95% 55%;
@@ -131,8 +131,8 @@ html::-webkit-scrollbar-thumb:hover {
     background-color: hsl(var(--card) / 1);
   }
 
-  .bg-about-section {
-    background-color: hsl(var(--about-section-bg) / 1);
+  .bg-divider-section {
+    background-color: hsl(var(--divider-background-section) / 1);
   }
 
   .text-card-foreground {

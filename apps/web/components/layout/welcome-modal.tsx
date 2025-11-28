@@ -27,10 +27,12 @@ export const WelcomeModal = () => {
       <Modal.Content>
         <Modal.Body className="relative">
           <div className="flex flex-col gap-4 items-center justify-center py-6 px-2 sm:px-8">
+            <div className='rounded-full relative overflow-hidden glass-ultra'>
+              <LottieAnimation animationData={handshakeAnimation} style={{ width: 250 }} />
+            </div>
             <Heading variant="h2" gradient className="font-extrabold tracking-tight">
               Welcome!
             </Heading>
-            <LottieAnimation animationData={handshakeAnimation} style={{ width: 250 }} />
             <Text variant="body" className="text-muted-foreground text-center">
               Thanks for visiting my portfolio.
               <br />

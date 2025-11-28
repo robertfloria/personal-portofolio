@@ -8,7 +8,7 @@ import { services } from './lib/data';
 
 export function AboutSection() {
   return (
-    <Section id="about" className="bg-about-section text-primary-foreground">
+    <Section id="about" className="bg-divider-section">
       <SectionDivider variant="top" />
       <Section.Header>
         <div className="text-center mx-auto px-4 md:px-6 lg:px-8">

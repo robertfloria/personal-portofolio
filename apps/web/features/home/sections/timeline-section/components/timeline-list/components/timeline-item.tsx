@@ -25,8 +25,6 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({ item, index }) => {
 
   const colorClass = typeColors[item.type as TimelineItemType['type']];
 
-  const isMd = false;
-
   return (
     <div key={item.id} className="relative">
       {/* Icon (positioned relative to timeline container) */}
@@ -35,9 +33,8 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({ item, index }) => {
       >
         <IconBadge
           iconKey={iconKey}
-          size={isMd ? 'lg' : 'md'}
+          size="md"
           variant="gradient"
-          iconSize={isMd ? 35 : 25}
         />
       </div>
 
