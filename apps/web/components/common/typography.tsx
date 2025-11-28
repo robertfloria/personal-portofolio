@@ -29,6 +29,14 @@ export interface HeadingProps
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
+/**
+ * Heading component
+ *
+ * Renders semantic headings (h1-h6) with style variants and optional gradient text.
+ *
+ * @example
+ * <Heading variant="h1" gradient>Title</Heading>
+ */
 export const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
   ({ className, variant, gradient, as, children, ...props }, ref) => {
     const Component = as || variant || 'h2';
@@ -66,6 +74,14 @@ export interface TextProps
   extends React.HTMLAttributes<HTMLParagraphElement>,
     VariantProps<typeof textVariants> {}
 
+/**
+ * Text component
+ *
+ * Renders styled paragraph text with body, lead, small, muted, and label variants.
+ *
+ * @example
+ * <Text variant="lead">Lead paragraph</Text>
+ */
 export const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
   ({ className, variant, children, ...props }, ref) => {
     return (
@@ -83,6 +99,14 @@ export interface GradientTextProps extends React.HTMLAttributes<HTMLSpanElement>
   to?: string;
 }
 
+/**
+ * GradientText component
+ *
+ * Renders text with a customizable linear gradient.
+ *
+ * @example
+ * <GradientText from="from-primary" to="to-accent">Gradient</GradientText>
+ */
 export const GradientText = React.forwardRef<HTMLSpanElement, GradientTextProps>(
   ({ className, from = 'from-primary', to = 'to-accent', children, ...props }, ref) => {
     return (

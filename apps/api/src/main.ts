@@ -1,8 +1,22 @@
+/**
+ * Main entry point for the NestJS API application.
+ *
+ * - Bootstraps the NestJS app with AppModule.
+ * - Configures CORS, global validation, and API prefix.
+ * - Sets Express trust proxy for deployment compatibility.
+ * - Handles startup errors gracefully.
+ *
+ * Environment variables:
+ *   CORS_ORIGIN, PORT
+ */
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
 import { Express } from 'express';
 
+/**
+ * Bootstraps the NestJS application with global configuration.
+ */
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
@@ -23,7 +37,6 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api');
 
-  // ✅ Cast to Express to avoid unsafe access
   const expressApp = app.getHttpAdapter().getInstance() as Express;
   expressApp.set('trust proxy', 1);
 

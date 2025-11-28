@@ -1,3 +1,14 @@
+/**
+ * SectionDivider component
+ *
+ * Renders a decorative SVG divider for sections.
+ * - Supports 'top' and 'bottom' variants for different shapes.
+ * - Accepts custom className for styling.
+ * - Non-interactive, aria-hidden for accessibility.
+ *
+ * @example
+ * <SectionDivider variant="bottom" />
+ */
 import React from 'react';
 
 export type SectionDividerProps = {

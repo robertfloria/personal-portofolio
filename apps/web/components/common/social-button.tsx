@@ -1,6 +1,17 @@
+/**
+ * SocialButton component
+ *
+ * Renders a stylized anchor button for social links with an icon.
+ * - Supports default, ghost, brand, and outline variants.
+ * - Accepts icon component, size, and custom className.
+ * - Inherits anchor props for href, target, etc.
+ *
+ * @example
+ * <SocialButton icon={FaGithub} href="https://github.com" variant="brand" />
+ */
 import React from 'react';
 
-type SocialButtonProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+export type SocialButtonProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   icon: React.ElementType;
   size?: number;
   variant?: 'default' | 'ghost' | 'brand' | 'outline';
@@ -31,5 +42,3 @@ export function SocialButton({
     </a>
   );
 }
-
-export default SocialButton;

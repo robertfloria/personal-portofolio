@@ -1,3 +1,15 @@
+/**
+ * EmailService
+ *
+ * Service for sending emails via Brevo API.
+ * - Validates and formats email data.
+ * - Escapes HTML in user input to prevent injection.
+ * - Handles API requests and error extraction.
+ * - Logs operations and errors for monitoring.
+ *
+ * Environment variables required:
+ *   BREVO_API_KEY, EMAIL_USER, RECIPIENT_EMAIL
+ */
 import { Injectable, Logger, BadRequestException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { HttpService } from '@nestjs/axios';
@@ -6,32 +18,19 @@ import { isAxiosError } from 'axios';
 import { SendEmailDto } from './dto/send-email.dto';
 import { EmailResponse } from '@portfolio/shared-types';
 
-// --- Types for Brevo API ---
-
-/**
- * Brevo successful send response.
- * Docs: https://developers.brevo.com/reference/sendtransacemail
- * Usually { messageId: <string> } or may include nested message.
- */
 interface BrevoSendEmailResponse {
   messageId?: string | number;
   message?: { id?: string | number };
 }
 
-/**
- * Brevo error payload (shape varies).
- * Often { message: string } or { error: string, code?: number }.
- */
 interface BrevoErrorData {
   message?: string;
   error?: string;
   code?: number | string;
-  // Keep index signature to avoid unsafe member access warnings when logging.
   [key: string]: unknown;
 }
 
 function isBrevoErrorData(value: unknown): value is BrevoErrorData {
-  // Narrowing guard: ensure it's a non-null object
   return !!value && typeof value === 'object';
 }
 
@@ -39,11 +38,21 @@ function isBrevoErrorData(value: unknown): value is BrevoErrorData {
 export class EmailService {
   private readonly logger = new Logger(EmailService.name);
 
+  /**
+   * Injects ConfigService and HttpService for configuration and HTTP requests.
+   */
   constructor(
     private readonly configService: ConfigService,
     private readonly httpService: HttpService,
   ) {}
 
+  /**
+   * Sends an email using the Brevo API.
+   * @param sendEmailDto Data for the email to send
+   * @returns EmailResponse indicating success
+   * @throws BadRequestException for missing subject/message
+   * @throws Error for misconfiguration or failed requests
+   */
   async sendEmail(sendEmailDto: SendEmailDto): Promise<EmailResponse> {
     const { name, from, subject, message } = sendEmailDto;
 
@@ -85,7 +94,6 @@ export class EmailService {
     try {
       this.logger.log(`Sending email to ${toEmail} via Brevo...`);
 
-      // Type the Axios response data using generics → no implicit any
       const response = await firstValueFrom(
         this.httpService.post<BrevoSendEmailResponse>(
           'https://api.brevo.com/v3/smtp/email',
@@ -100,7 +108,6 @@ export class EmailService {
         ),
       );
 
-      // response.data is now typed
       const data: BrevoSendEmailResponse = response.data ?? {};
       const messageId = data.messageId ?? data.message?.id;
 
@@ -113,6 +120,11 @@ export class EmailService {
     }
   }
 
+  /**
+   * Escapes HTML special characters in input to prevent injection.
+   * @param input String to escape
+   * @returns Escaped string
+   */
   private escapeHtml(input?: string): string {
     if (!input) return '';
     return input
@@ -123,23 +135,25 @@ export class EmailService {
       .replace(/'/g, '&#39;');
   }
 
+  /**
+   * Extracts a readable error message from an error object.
+   * @param error Error object
+   * @returns String error message
+   */
   private extractErrorMessage(error: unknown): string {
     if (isAxiosError(error)) {
       const status: number | undefined = error.response?.status;
 
-      // Safely narrow error.response?.data
       const rawData: unknown = error.response?.data;
       let brevoMsg: string | undefined;
 
       if (isBrevoErrorData(rawData)) {
-        // Safely read known keys. No unsafe member access.
         brevoMsg = rawData.message ?? rawData.error;
-        // If message still unknown, serialize the error data (stringify is safe here).
+
         if (!brevoMsg) {
           try {
             brevoMsg = JSON.stringify(rawData);
           } catch {
-            // ignore stringify failure, fall back to undefined
           }
         }
       }
@@ -149,7 +163,6 @@ export class EmailService {
 
     if (error instanceof Error) return error.message;
 
-    // Fallback: stringify unknown without unsafe access
     try {
       return JSON.stringify(error);
     } catch {

@@ -25,6 +25,19 @@ const inputVariants = cva(
   },
 );
 
+/**
+ * Input component
+ *
+ * Renders a stylized input field with optional label, error message, and icons.
+ * - Uses class-variance-authority for style variants.
+ * - Variants: default, error.
+ * - Sizes: sm, md, lg.
+ * - Supports left/right icons, custom className, and error display.
+ *
+ * @example
+ * <Input label="Email" leftIcon={<MailIcon />} error="Invalid email" />
+ */
+
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
     VariantProps<typeof inputVariants> {
@@ -79,6 +92,16 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 );
 
 Input.displayName = 'Input';
+
+/**
+ * Textarea component
+ *
+ * Renders a stylized textarea field with optional label and error message.
+ * - Supports custom className and error display.
+ *
+ * @example
+ * <Textarea label="Message" error="Required" />
+ */
 
 export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;

@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import Toast from './toast';
+import Toast from '.';
 
 describe('Toast', () => {
   it('renders without crashing', () => {

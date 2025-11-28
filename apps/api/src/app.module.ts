@@ -1,3 +1,13 @@
+/**
+ * AppModule
+ *
+ * The root module of the API application.
+ * - Loads global configuration from .env file.
+ * - Sets up request throttling (5 requests/minute).
+ * - Imports Email and CV feature modules.
+ * - Registers AppController and AppService.
+ * - Applies ThrottlerGuard globally for rate limiting.
+ */
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';

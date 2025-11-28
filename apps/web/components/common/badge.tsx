@@ -1,3 +1,15 @@
+/**
+ * Badge component
+ *
+ * Renders a stylized badge with configurable variant and size.
+ * - Uses class-variance-authority for style variants.
+ * - Supports primary, secondary, success, warning, danger, gradient, and outline variants.
+ * - Sizes: sm, md, lg.
+ * - Accepts custom className and HTML span props.
+ *
+ * @example
+ * <Badge variant="success" size="lg">Success</Badge>
+ */
 import React from 'react';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';

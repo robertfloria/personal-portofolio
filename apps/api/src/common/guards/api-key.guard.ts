@@ -1,3 +1,19 @@
+/**
+ * ApiKeyGuard
+ *
+ * A reusable NestJS guard for protecting API endpoints with an API key.
+ * - Reads the API key from the 'x-api-key' header.
+ * - Compares it (timing-safe) to the configured secret from environment/config.
+ * - Supports custom config keys via DI (default: 'API_SECRET').
+ * - Throws UnauthorizedException if the key is missing or invalid.
+ *
+ * Usage:
+ *   @UseGuards(ApiKeyGuard)
+ *   class SomeController { ... }
+ *
+ * Environment:
+ *   Set the secret in your .env (e.g., API_SECRET=your-key)
+ */
 import {
   Injectable,
   CanActivate,
@@ -9,17 +25,22 @@ import { ConfigService } from '@nestjs/config';
 import type { Request } from 'express';
 import { timingSafeEqual } from 'crypto';
 
-/**
- * Reusable API key guard for any controller
- * Pass the config key for the secret via constructor
- */
 @Injectable()
 export class ApiKeyGuard implements CanActivate {
+  /**
+   * @param configService - Injected NestJS ConfigService
+   * @param configKey - The config key to use for the API secret (default: 'API_SECRET')
+   */
   constructor(
     private readonly configService: ConfigService,
     @Inject('API_KEY_CONFIG_KEY') private readonly configKey: string = 'API_SECRET',
   ) {}
 
+  /**
+   * Checks if the request contains a valid API key in the 'x-api-key' header.
+   * @param context - NestJS execution context
+   * @returns true if authorized, throws otherwise
+   */
   canActivate(context: ExecutionContext): boolean {
     const request = context.switchToHttp().getRequest<Request>();
     const headerValue = request.headers['x-api-key'];

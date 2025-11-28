@@ -2,8 +2,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { EmailController } from './email.controller';
 import { EmailService } from './email.service';
 import { SendEmailDto } from './dto/send-email.dto';
-import { ApiKeyGuard } from './api-key.guard';
 import { ConfigService } from '@nestjs/config';
+import { ApiKeyGuard } from 'src/common/guards/api-key.guard';
 
 const mockEmailService = {
   sendEmail: jest.fn(() => ({ message: 'Email sent successfully' })),

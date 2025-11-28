@@ -1,3 +1,17 @@
+/**
+ * IconBadge component
+ *
+ * Renders a stylized badge containing a Lucide icon.
+ * - Uses class-variance-authority for style variants.
+ * - Supports gradient, solid, outline, and light variants.
+ * - Sizes: sm, md, lg, xl.
+ * - Hover effects: scale, none.
+ * - Accepts iconKey to select Lucide icon, and iconSize for sizing.
+ * - Falls back to Code icon if key is invalid.
+ *
+ * @example
+ * <IconBadge iconKey="Check" variant="solid" size="lg" />
+ */
 import React from 'react';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';

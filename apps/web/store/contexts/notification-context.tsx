@@ -1,5 +1,21 @@
 'use client';
 
+/**
+ * NotificationContext & NotificationProvider
+ *
+ * Provides global notification state and actions via React context.
+ * - Supports success, error, warning, and info notifications.
+ * - addNotification: Adds a notification with auto-generated ID and duration.
+ * - removeNotification: Removes notification by ID.
+ * - clearAll: Clears all notifications.
+ * - useNotifications: Custom hook to access notification context.
+ * - Must be used within NotificationProvider.
+ *
+ * @example
+ * const { addNotification } = useNotifications();
+ * addNotification({ type: 'success', message: 'Saved!' });
+ */
+
 import React from 'react';
 import { ANIMATION_DURATIONS } from '@/lib/constants';
 
@@ -52,6 +68,15 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({ 
   return <NotificationContext.Provider value={value}>{children}</NotificationContext.Provider>;
 };
 
+/**
+ * useNotifications
+ *
+ * Custom hook to access notification context.
+ * Must be used within NotificationProvider.
+ *
+ * @throws {Error} If used outside of NotificationProvider.
+ * @returns {NotificationContextValue} Notification context value.
+ */
 export function useNotifications() {
   const ctx = React.useContext(NotificationContext);
   if (!ctx) throw new Error('useNotifications must be used within NotificationProvider');

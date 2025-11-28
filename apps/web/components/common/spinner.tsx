@@ -1,3 +1,14 @@
+/**
+ * Spinner component
+ *
+ * Renders a loading spinner animation.
+ * - Accepts size and custom className for styling.
+ * - Uses border and spin animation for visual feedback.
+ * - Accessible with role="status" and aria-label.
+ *
+ * @example
+ * <Spinner size={32} />
+ */
 import React from 'react';
 
 export interface SpinnerProps {

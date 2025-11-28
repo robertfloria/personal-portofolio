@@ -1,3 +1,16 @@
+/**
+ * Button component
+ *
+ * Renders a stylized button with configurable variant, size, loading state, and icons.
+ * - Uses class-variance-authority for style variants.
+ * - Supports primary, secondary, outline, ghost, and link variants.
+ * - Sizes: sm, md, lg, icon.
+ * - Accepts left and right icons, loading spinner, and custom className.
+ * - Disables button when loading or disabled.
+ *
+ * @example
+ * <Button variant="primary" size="md" isLoading>Submit</Button>
+ */
 import React from 'react';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';

@@ -1,3 +1,14 @@
+/**
+ * DownloadCvButton component
+ *
+ * Renders a button to download the CV PDF from the API.
+ * - Uses useCvDownload hook for mutation and loading state.
+ * - Handles file download and error notification.
+ * - Accepts custom className and children.
+ *
+ * @example
+ * <DownloadCvButton>Download CV</DownloadCvButton>
+ */
 import React from 'react';
 import { Button } from '@/components/common';
 import { useCvDownload } from '@/hooks/use-cv-download';

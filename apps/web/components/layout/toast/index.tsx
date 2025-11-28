@@ -1,0 +1,38 @@
+'use client';
+
+import React from 'react';
+import { useNotifications, type NotificationItem } from '@/store/contexts/notification-context';
+import { ToastItem } from './components';
+
+export const Toast: React.FC = () => {
+  const { notifications, removeNotification } = useNotifications();
+
+  const handleClose = (id: string) => {
+    removeNotification(id);
+  };
+
+  if (notifications.length === 0) {
+    return null;
+  }
+
+  return (
+    <div
+      className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-3 pointer-events-none w-full"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <div className="flex flex-col gap-3 pointer-events-auto">
+        {notifications.map((notification: NotificationItem) => (
+          <ToastItem
+            key={notification.id}
+            id={notification.id}
+            type={notification.type}
+            message={notification.message}
+            duration={notification.duration}
+            onClose={handleClose}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};

@@ -20,6 +20,22 @@ interface ProvidersProps {
   children: React.ReactNode;
 }
 
+/**
+ * Providers component
+ *
+ * Wraps the application with global context providers.
+ * - QueryClientProvider: React Query for data fetching and caching.
+ * - UIProvider: UI state management.
+ * - NotificationProvider: Global notification context.
+ * - NextThemesProvider: Theme switching and persistence.
+ * - Accepts children to be rendered within all providers.
+ *
+ * @example
+ * <Providers>
+ *   <App />
+ * </Providers>
+ */
+
 export function Providers({ children }: ProvidersProps) {
   return (
     <QueryClientProvider client={queryClient}>

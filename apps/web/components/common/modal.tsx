@@ -1,3 +1,22 @@
+/**
+ * Modal component (Compound)
+ *
+ * Renders an accessible modal dialog with focus trap, scroll blocking, and animation.
+ * - Uses framer-motion for entrance/exit animations.
+ * - Blocks background scroll when open.
+ * - Traps focus within modal and restores on close.
+ * - Closes on overlay click or Escape key.
+ * - Compound pattern: Modal.Content, Modal.Header, Modal.Body, Modal.Footer.
+ *
+ * @example
+ * <Modal isOpen={open} onClose={close}>
+ *   <Modal.Content>
+ *     <Modal.Header showClose>Title</Modal.Header>
+ *     <Modal.Body>Body</Modal.Body>
+ *     <Modal.Footer>Footer</Modal.Footer>
+ *   </Modal.Content>
+ * </Modal>
+ */
 'use client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ANIMATION_DURATIONS } from '@/lib/constants';
@@ -9,7 +28,6 @@ type ModalContextType = {
 
 const ModalContext = React.createContext<ModalContextType | null>(null);
 
-// ...existing code...
 export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -18,7 +36,6 @@ export interface ModalProps {
 }
 
 function ModalBase({ isOpen, onClose, children, className }: ModalProps) {
-  // Block scroll under modal
   React.useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -31,14 +48,13 @@ function ModalBase({ isOpen, onClose, children, className }: ModalProps) {
   }, [isOpen]);
   const containerRef = React.useRef<HTMLDivElement | null>(null);
 
-  // focus management and escape handler
   React.useEffect(() => {
     if (!isOpen) return;
 
     const previouslyFocused = document.activeElement as HTMLElement | null;
 
     const container = containerRef.current;
-    // find focusable elements inside the modal
+
     const getFocusable = () => {
       if (!container) return [] as HTMLElement[];
       const nodes = container.querySelectorAll<HTMLElement>(
@@ -47,7 +63,6 @@ function ModalBase({ isOpen, onClose, children, className }: ModalProps) {
       return Array.from(nodes).filter((n) => n.offsetParent !== null);
     };
 
-    // focus the first focusable element or the container
     const focusable = getFocusable();
     if (focusable.length > 0) {
       focusable[0].focus();
@@ -70,13 +85,11 @@ function ModalBase({ isOpen, onClose, children, className }: ModalProps) {
         }
         const idx = focusable.indexOf(document.activeElement as HTMLElement);
         if (e.shiftKey) {
-          // move backwards
           if (idx === 0 || document.activeElement === container) {
             focusable[focusable.length - 1].focus();
             e.preventDefault();
           }
         } else {
-          // move forwards
           if (idx === focusable.length - 1) {
             focusable[0].focus();
             e.preventDefault();
@@ -89,7 +102,6 @@ function ModalBase({ isOpen, onClose, children, className }: ModalProps) {
 
     return () => {
       document.removeEventListener('keydown', onKey);
-      // restore previous focus
       if (previouslyFocused && typeof previouslyFocused.focus === 'function') {
         previouslyFocused.focus();
       }
@@ -122,7 +134,7 @@ function ModalBase({ isOpen, onClose, children, className }: ModalProps) {
   );
 }
 
-export const ModalContent = React.forwardRef<
+const ModalContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<typeof motion.div>
 >(({ children, className, ...props }, ref) => {
@@ -147,12 +159,12 @@ export const ModalContent = React.forwardRef<
 
 ModalContent.displayName = 'Modal.Content';
 
-export interface ModalHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+interface ModalHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   showClose?: boolean;
   onClose?: () => void;
 }
 
-export function ModalHeader({
+function ModalHeader({
   children,
   className = '',
   showClose = false,
@@ -176,7 +188,6 @@ export function ModalHeader({
           className="w-8 h-8 rounded-full bg-[hsl(var(--card)/0.9)] text-foreground flex items-center justify-center hover:bg-[hsl(var(--card)/0.8)] hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-primary focus:ring-2 transform transition duration-200"
           aria-label="Close modal"
         >
-          {/* Use Lucide X icon if available in this file, otherwise user must pass it in children */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -197,7 +208,7 @@ export function ModalHeader({
   );
 }
 
-export function ModalBody({
+function ModalBody({
   children,
   className = '',
   ...props
@@ -209,7 +220,7 @@ export function ModalBody({
   );
 }
 
-export function ModalFooter({
+function ModalFooter({
   children,
   className = '',
   ...props
@@ -227,5 +238,3 @@ export const Modal = Object.assign(ModalBase, {
   Body: ModalBody,
   Footer: ModalFooter,
 });
-
-export default Modal;

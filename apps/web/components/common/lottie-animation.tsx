@@ -1,7 +1,17 @@
+/**
+ * LottieAnimation component
+ *
+ * Renders a Lottie animation using lottie-react Player.
+ * - Accepts animationData, loop, autoplay, style, and className props.
+ * - Defaults to looping and autoplay enabled.
+ *
+ * @example
+ * <LottieAnimation animationData={data} style={{ width: 200 }} />
+ */
 import React from 'react';
 import Player, { LottieComponentProps } from 'lottie-react';
 
-const LottieAnimation: React.FC<LottieComponentProps> = ({
+export const LottieAnimation: React.FC<LottieComponentProps> = ({
   animationData,
   loop = true,
   autoplay = true,
@@ -19,4 +29,3 @@ const LottieAnimation: React.FC<LottieComponentProps> = ({
   );
 };
 
-export default LottieAnimation;

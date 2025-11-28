@@ -2,12 +2,7 @@ import type { Metadata } from 'next';
 import { APP_NAME, APP_DESCRIPTION } from '@/lib/constants';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Providers } from '@/components/layout/providers';
-import { Footer } from '@/components/layout/footer';
-import { WelcomeModal } from '@/components/layout/welcome-modal';
-import { ToastContainer } from '@/components/layout/toast';
-import Navbar from '@/components/layout/navbar';
-
+import { Footer, Navbar, Providers, Toast, WelcomeModal } from '@/components/layout';
 const inter = Inter({
   subsets: ['latin'],
 });
@@ -44,7 +39,7 @@ export default function RootLayout({
           <WelcomeModal />
           <main className="min-h-screen gap-8 flex flex-col pt-16">{children}</main>
           <Footer />
-          <ToastContainer />
+          <Toast />
         </Providers>
       </body>
     </html>

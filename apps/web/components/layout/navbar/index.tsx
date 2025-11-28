@@ -1,11 +1,8 @@
 'use client';
 import './style.css';
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
-import { ThemeToggle } from '../theme-toggle';
 import { useUI } from '../../../store/contexts/ui-context';
-import { DownloadCvButton } from '@/components/common';
+import { NavbarDesktopNav, NavbarLogo, NavbarMobileMenu, NavbarMobileMenuButton } from './components';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -17,20 +14,11 @@ const navItems = [
   { name: 'Contact', href: '#contact' },
 ];
 
-export default function Navbar() {
+export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('#home');
   const { mobileMenuOpen: isMobileMenuOpen, setMobileMenuOpen, toggleMobileMenu } = useUI();
 
-  // focus first link when mobile menu opens
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      const firstLink = document.querySelector('#mobile-menu a');
-      if (firstLink instanceof HTMLElement) firstLink.focus();
-    }
-  }, [isMobileMenuOpen]);
-
-  // close on Escape
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isMobileMenuOpen) setMobileMenuOpen(false);
@@ -117,87 +105,13 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="shrink-0">
-            <Link
-              href="#home"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('#home');
-              }}
-              className="text-2xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent"
-            >
-              Robert
-            </Link>
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => {
-              const isActive = activeSection === item.href;
-              return (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.href);
-                  }}
-                  className={`cursor-pointer font-medium transition-colors ${
-                    isActive
-                      ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
-                      : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
-                  }`}
-                >
-                  {item.name}
-                </a>
-              );
-            })}
-            <DownloadCvButton className="ml-2" />
-            <ThemeToggle />
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-4">
-            <ThemeToggle />
-            <DownloadCvButton className="ml-2" />
-            <button
-              onClick={toggleMobileMenu}
-              className="text-foreground"
-              aria-label="Toggle menu"
-              aria-expanded={isMobileMenuOpen}
-              aria-controls="mobile-menu"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          <NavbarLogo scrollToSection={scrollToSection} />
+          <NavbarDesktopNav navItems={navItems} activeSection={activeSection} scrollToSection={scrollToSection} />
+          <NavbarMobileMenuButton isMobileMenuOpen={isMobileMenuOpen} toggleMobileMenu={toggleMobileMenu} />
         </div>
       </div>
       {isMobileMenuOpen && (
-        <div id="mobile-menu" className={`md:hidden top-16 left-0 right-0 z-50`}>
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navItems.map((item) => {
-              const isActive = activeSection === item.href;
-              return (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.href);
-                  }}
-                  className={`block px-3 py-2 rounded-md cursor-pointer font-medium transition-colors ${
-                    isActive
-                      ? 'text-primary dark:text-primary-foreground'
-                      : 'text-foreground hover:text-primary dark:hover:text-primary-foreground hover:bg-[hsl(var(--card)/0.9)] dark:hover:bg-[hsl(var(--card)/0.8)]'
-                  }`}
-                >
-                  {item.name}
-                </a>
-              );
-            })}
-          </div>
-        </div>
+        <NavbarMobileMenu navItems={navItems} activeSection={activeSection} scrollToSection={scrollToSection} />
       )}
     </nav>
   );

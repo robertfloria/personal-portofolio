@@ -1,3 +1,24 @@
+/**
+ * Card component (Compound)
+ *
+ * Renders a stylized card with configurable variant, hover effect, padding, and optional animation.
+ * - Uses class-variance-authority for style variants.
+ * - Variants: default, glass.
+ * - Hover effects: lift, glow, scale, none.
+ * - Padding: none, sm, md, lg.
+ * - Supports animated entrance using framer-motion.
+ * - Compound pattern: Card.Root, Card.Header, Card.Title, Card.Description, Card.Content, Card.Footer.
+ *
+ * @example
+ * <Card.Root variant="glass" hover="glow" animated>
+ *   <Card.Header>
+ *     <Card.Title>Title</Card.Title>
+ *     <Card.Description>Description</Card.Description>
+ *   </Card.Header>
+ *   <Card.Content>Content</Card.Content>
+ *   <Card.Footer>Footer</Card.Footer>
+ * </Card.Root>
+ */
 import React from 'react';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
@@ -34,9 +55,9 @@ const cardVariants = cva(
   },
 );
 
-interface CardRootProps
+export interface CardRootProps
   extends Omit<HTMLMotionProps<'div'>, 'children'>,
-    VariantProps<typeof cardVariants> {
+  VariantProps<typeof cardVariants> {
   animated?: boolean;
   animationDelay?: number;
   children?: React.ReactNode;
@@ -120,7 +141,6 @@ const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
 );
 CardFooter.displayName = 'Card.Footer';
 
-// Compound Component Pattern
 export const Card = Object.assign(CardRoot, {
   Root: CardRoot,
   Header: CardHeader,
@@ -129,6 +149,3 @@ export const Card = Object.assign(CardRoot, {
   Content: CardContent,
   Footer: CardFooter,
 });
-
-// Export individual components for flexibility
-export { CardHeader, CardTitle, CardDescription, CardContent, CardFooter };

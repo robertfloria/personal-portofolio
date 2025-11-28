@@ -4,6 +4,21 @@ import { cn } from '@/lib/utils';
 import { ANIMATION_DURATIONS } from '@/lib/constants';
 import { Heading, Text } from './typography';
 
+/**
+ * Section component (Compound)
+ *
+ * Renders a layout section with optional header, title, subtitle, and content.
+ * - Supports fullHeight layout, legacy and compound API for headers.
+ * - Animated entrance for header/title/subtitle using framer-motion.
+ * - Compound pattern: Section.Root, Section.Header, Section.Title, Section.Subtitle, Section.Content.
+ *
+ * @example
+ * <Section.Root id="about">
+ *   <Section.Header title="About Me" subtitle="Subtitle" highlightText="Highlight" />
+ *   <Section.Content>Content</Section.Content>
+ * </Section.Root>
+ */
+
 interface SectionRootProps extends React.HTMLAttributes<HTMLElement> {
   id?: string;
   fullHeight?: boolean;
@@ -30,9 +45,8 @@ const SectionRoot = React.forwardRef<HTMLElement, SectionRootProps>(
 
 SectionRoot.displayName = 'Section.Root';
 
-interface SectionHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SectionHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   animated?: boolean;
-  // Legacy API support
   title?: string;
   subtitle?: string;
   highlightText?: string;
@@ -40,7 +54,6 @@ interface SectionHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
   ({ className, animated = true, title, subtitle, highlightText, children, ...props }, ref) => {
-    // If using legacy API (with title prop), render old structure
     if (title) {
       const legacyContent = (
         <div ref={ref} className={cn('text-center', className)} {...props}>
@@ -76,7 +89,6 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
       return legacyContent;
     }
 
-    // New compound component API
     const content = (
       <div ref={ref} className={cn('text-center mb-4', className)} {...props}>
         {children}
@@ -102,7 +114,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
 
 SectionHeader.displayName = 'Section.Header';
 
-interface SectionTitleProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SectionTitleProps extends React.HTMLAttributes<HTMLDivElement> {
   highlightText?: string;
 }
 
@@ -140,7 +152,6 @@ const SectionContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTM
 
 SectionContent.displayName = 'Section.Content';
 
-// Compound Component Pattern
 export const Section = Object.assign(SectionRoot, {
   Root: SectionRoot,
   Header: SectionHeader,
@@ -148,6 +159,3 @@ export const Section = Object.assign(SectionRoot, {
   Subtitle: SectionSubtitle,
   Content: SectionContent,
 });
-
-// Export individual components
-export { SectionHeader, SectionTitle, SectionSubtitle, SectionContent };
