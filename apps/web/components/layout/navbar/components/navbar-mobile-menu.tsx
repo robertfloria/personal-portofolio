@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 interface NavbarMobileMenuProps {
@@ -17,7 +18,7 @@ export function NavbarMobileMenu({
         {navItems.map((item) => {
           const isActive = activeSection === item.href;
           return (
-            <a
+            <Link
               key={item.name}
               href={item.href}
               onClick={(e) => {
@@ -31,7 +32,7 @@ export function NavbarMobileMenu({
               }`}
             >
               {item.name}
-            </a>
+            </Link>
           );
         })}
       </div>

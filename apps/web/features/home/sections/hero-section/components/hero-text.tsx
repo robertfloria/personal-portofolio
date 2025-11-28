@@ -5,6 +5,7 @@ import { Button, Card, Heading, Text, IconBadge, DownloadCvButton } from '@/comp
 import { SocialButton } from '@/components/common/social-button';
 import { personalInfo, socialLinks } from '@/lib/data';
 import { iconMap } from '../lib/data';
+import Link from 'next/link';
 
 export const HeroText: React.FC = () => {
   return (
@@ -66,7 +67,7 @@ export const HeroText: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
         >
-          <a href="#contact" className="flex w-full lg:w-auto">
+          <Link href="#contact" className="flex w-full lg:w-auto">
             <Button
               variant="primary"
               size="lg"
@@ -75,13 +76,13 @@ export const HeroText: React.FC = () => {
             >
               Get In Touch
             </Button>
-          </a>
+          </Link>
           <DownloadCvButton className="flex w-full lg:w-auto" />
-          <a href="#projects" className="flex w-full lg:w-auto">
+          <Link href="#projects" className="flex w-full lg:w-auto">
             <Button variant="outline" className="flex w-full lg:w-auto" size="lg">
               View My Work →
             </Button>
-          </a>
+          </Link>
         </motion.div>
 
         <motion.div

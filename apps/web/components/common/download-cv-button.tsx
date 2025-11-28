@@ -13,22 +13,21 @@ import React from 'react';
 import { Button } from '@/components/common';
 import { useCvDownload } from '@/hooks/use-cv-download';
 import { downloadFile } from '@/lib/utils';
+import { DownloadIcon } from 'lucide-react';
 
 export interface DownloadCvButtonProps {
   className?: string;
-  children?: React.ReactNode;
+  size?: 'sm' | 'md' | 'lg';
+  textVariant?: 'default' | 'short'
 }
 
-export const DownloadCvButton: React.FC<DownloadCvButtonProps> = ({ className, children }) => {
+export const DownloadCvButton: React.FC<DownloadCvButtonProps> = ({ className, size = 'lg', textVariant = 'default' }) => {
   const { mutate, isPending } = useCvDownload();
 
   const handleDownload = () => {
     mutate(undefined, {
       onSuccess: (blob) => {
         downloadFile(blob, 'cv.pdf');
-      },
-      onError: () => {
-        alert('Could not download CV. Please try again later.');
       },
     });
   };
@@ -38,10 +37,11 @@ export const DownloadCvButton: React.FC<DownloadCvButtonProps> = ({ className, c
       onClick={handleDownload}
       disabled={isPending}
       className={className}
-      variant="primary"
-      size="lg"
+      variant='outline'
+      size={size}
+      leftIcon={textVariant === 'default' ? <DownloadIcon size={20} /> : undefined}
     >
-      {isPending ? 'Downloading...' : children || 'Download CV'}
+      {isPending ? 'Downloading...' : 'Download CV'}
     </Button>
   );
 };
