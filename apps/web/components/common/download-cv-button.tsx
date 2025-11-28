@@ -45,7 +45,7 @@ export const DownloadCvButton: React.FC<DownloadCvButtonProps> = ({
       size={size}
       leftIcon={<DownloadIcon size={textVariant === 'default ? 20 : 15} />}
     >
-      {isPending ? 'Downloading...' : textVariant === 'default' ? 'Download CV' : 'CV'}
+      {isPending ? 'Downloading...' : (textVariant === 'default' ? 'Download CV' : 'CV')}
     </Button>
   );
 };
