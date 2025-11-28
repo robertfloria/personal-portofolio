@@ -59,7 +59,7 @@ export const timeline: TimelineItem[] = [
   },
   {
     id: '6',
-    title: 'Founder & Software Engineer, MentolIQ App (Self-Employed)',
+    title: 'Founder & Software Engineer, MentoIQ App (Self-Employed)',
     organization: 'Self-Employed',
     startDate: 'October 2025',
     endDate: 'Present',
