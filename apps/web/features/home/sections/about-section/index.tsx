@@ -2,18 +2,16 @@
 
 import React from 'react';
 import { personalInfo } from '@/lib/data';
-import { useReducedMotion } from '@/hooks';
 import { Section, Card, IconBadge } from '@/components/common';
 import { SectionDivider } from '../../../../components/common/section-divider';
 import { services } from './lib/data';
 
 export function AboutSection() {
-  const shouldReduceMotion = useReducedMotion();
 
   return (
     <Section id="about" className="bg-about-section text-primary-foreground">
       <SectionDivider variant="top" />
-      <Section.Header animated={!shouldReduceMotion}>
+      <Section.Header>
         <div className="text-center mx-auto px-4 md:px-6 lg:px-8">
           <Section.Title highlightText="Offer">What I</Section.Title>
           <Section.Subtitle>{personalInfo.about}</Section.Subtitle>
@@ -29,7 +27,6 @@ export function AboutSection() {
               key={service.id}
               hover="glow"
               className="group p-4 md:p-6 lg:p-8"
-              animated={!shouldReduceMotion}
               animationDelay={index * 0.05}
             >
               <Card.Content className="flex flex-row gap-4 justify-center items-start">

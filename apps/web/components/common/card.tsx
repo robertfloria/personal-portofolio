@@ -70,7 +70,7 @@ const CardRoot = React.forwardRef<HTMLDivElement, CardRootProps>(
       variant,
       hover,
       padding,
-      animated = false,
+      animated = true,
       animationDelay = 0,
       children,
       ...props

@@ -1,3 +1,19 @@
+/**
+ * useIntersectionObserver hook
+ *
+ * Observă dacă un element este vizibil în viewport folosind Intersection Observer API.
+ * - Returnează un ref pentru elementul observat și un boolean pentru vizibilitate.
+ * - Poate fi configurat cu threshold, root, rootMargin și freezeOnceVisible.
+ * - freezeOnceVisible oprește observarea după ce elementul devine vizibil.
+ *
+ * @param options Opțiuni pentru Intersection Observer
+ * @returns [elementRef, isIntersecting]
+ *
+ * @example
+ * const [ref, visible] = useIntersectionObserver({ threshold: 0.5 });
+ * <div ref={ref}>...</div>
+ */
+
 import { useEffect, useRef, useState } from 'react';
 
 export interface UseIntersectionObserverOptions {
@@ -7,10 +23,6 @@ export interface UseIntersectionObserverOptions {
   freezeOnceVisible?: boolean;
 }
 
-/**
- * Hook to detect when an element enters the viewport
- * Useful for lazy loading and scroll animations
- */
 export function useIntersectionObserver(
   options: UseIntersectionObserverOptions = {},
 ): [React.RefObject<HTMLDivElement | null>, boolean] {
@@ -22,15 +34,13 @@ export function useIntersectionObserver(
   useEffect(() => {
     const element = elementRef.current;
     if (!element) return;
-
-    // If already intersected and should freeze, don't observe again
+    
     if (freezeOnceVisible && isIntersecting) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsIntersecting(entry.isIntersecting);
 
-        // Stop observing if element is visible and freezeOnceVisible is true
         if (entry.isIntersecting && freezeOnceVisible) {
           observer.unobserve(element);
         }

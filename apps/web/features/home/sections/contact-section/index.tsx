@@ -1,17 +1,15 @@
 'use client';
 
 import React from 'react';
-import { useReducedMotion } from '@/hooks';
 import { Section, Card, LottieAnimation } from '@/components/common';
 import { contactMethods } from './lib/data';
 import { ContactForm, ContactMethodCard } from './components';
 import globeAnimation from '../../../../public/lottie/globe.json';
 
 export  function ContactSection() {
-  const shouldReduceMotion = useReducedMotion();
   return (
     <Section id="contact" className="p-4 md:p-6 lg:p-8">
-      <Section.Header animated={!shouldReduceMotion}>
+      <Section.Header >
         <div className="text-center mx-auto">
           <Section.Title highlightText="Touch">Get In</Section.Title>
           <Section.Subtitle>
@@ -24,7 +22,6 @@ export  function ContactSection() {
           variant="default"
           className="p-3 sm:p-4 md:p-8 w-full md:w-[70vw] md:max-w-[900px]"
           hover="none"
-          animated={!shouldReduceMotion}
           animationDelay={0.2}
         >
           <div className="flex items-center justify-center">

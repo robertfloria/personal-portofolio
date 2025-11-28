@@ -5,7 +5,6 @@ interface InfoCardProps {
   label: string;
   value: string;
   iconKey: string;
-  animated?: boolean;
   animationDelay?: number;
 }
 
@@ -13,13 +12,11 @@ export const InfoCard: React.FC<InfoCardProps> = ({
   label,
   value,
   iconKey,
-  animated,
   animationDelay,
 }) => (
   <Card
     hover="glow"
     padding="md"
-    animated={animated}
     animationDelay={animationDelay}
     className="group"
   >

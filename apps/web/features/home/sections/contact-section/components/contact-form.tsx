@@ -1,87 +1,84 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Mail, User, MessageSquare, Send } from 'lucide-react';
-import { SendEmailDto } from '@portfolio/shared-types';
 import { useSendEmail } from '@/hooks/use-send-email';
 import { Input, Textarea } from '@/components/common/input';
 import { Button } from '@/components/common/button';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+const contactSchema = z.object({
+  name: z.string().min(3, 'Name must be at least 3 characters').max(50, 'Name must be at most 50 characters'),
+  from: z.string().email('Invalid email address'),
+  subject: z.string().min(3, 'Subject must be at least 3 characters').max(100, 'Subject must be at most 100 characters'),
+  message: z.string().min(10, 'Message must be at least 10 characters').max(1000, 'Message must be at most 1000 characters'),
+});
+
+type ContactFormValues = z.infer<typeof contactSchema>;
 
 export const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState<SendEmailDto>({
-    name: '',
-    from: '',
-    subject: '',
-    message: '',
-  });
   const { mutate: sendEmail, isPending } = useSendEmail();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormValues>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: '',
+      from: '',
+      subject: '',
+      message: '',
+    },
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    sendEmail(formData, {
+  const onSubmit = (data: ContactFormValues) => {
+    sendEmail(data, {
       onSuccess: () => {
-        setFormData({ name: '', from: '', subject: '', message: '' });
+        reset();
       },
     });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
       <Input
         label="Your Name"
-        name="name"
+        {...register('name')}
         type="text"
-        value={formData.name}
-        onChange={handleChange}
-        required
-        minLength={3}
-        maxLength={50}
         placeholder="John Doe"
         leftIcon={<User size={20} />}
         className="h-12 min-w-12"
+        error={errors.name?.message}
       />
 
       <Input
         label="Your Email"
-        name="from"
+        {...register('from')}
         type="email"
-        value={formData.from}
-        onChange={handleChange}
-        required
         placeholder="john@example.com"
         leftIcon={<Mail size={20} />}
         className="h-12 min-w-12"
+        error={errors.from?.message}
       />
 
       <Input
         label="Subject"
-        name="subject"
+        {...register('subject')}
         type="text"
-        value={formData.subject}
-        onChange={handleChange}
-        required
-        minLength={3}
-        maxLength={100}
         placeholder="Project Inquiry"
         leftIcon={<MessageSquare size={20} />}
         className="h-12 min-w-12"
+        error={errors.subject?.message}
       />
 
       <Textarea
         label="Message"
-        name="message"
-        value={formData.message}
-        onChange={handleChange}
-        required
-        minLength={10}
-        maxLength={1000}
+        {...register('message')}
         rows={6}
         placeholder="Tell me about your project..."
+        error={errors.message?.message}
       />
 
       <Button

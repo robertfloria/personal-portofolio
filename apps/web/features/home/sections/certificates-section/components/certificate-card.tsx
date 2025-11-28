@@ -5,20 +5,17 @@ import { Card } from '@/components/common';
 import { CertificateItem } from '../types/certificate-item';
 interface CertificateCardProps {
   certificate: CertificateItem;
-  animated?: boolean;
   animationDelay?: number;
   onClick?: () => void;
 }
 // s
 export const CertificateCard: React.FC<CertificateCardProps> = ({
   certificate,
-  animated,
   animationDelay,
   onClick,
 }) => (
   <Card
     key={certificate.id}
-    animated={animated}
     animationDelay={animationDelay}
     hover="lift"
     padding="none"

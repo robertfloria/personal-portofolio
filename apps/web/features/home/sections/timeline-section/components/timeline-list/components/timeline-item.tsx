@@ -11,15 +11,11 @@ const typeColors: Record<TimelineItemType['type'], string> = {
 interface TimelineItemProps {
   item: TimelineItemType;
   index: number;
-  isMd: boolean;
-  shouldReduceMotion: boolean;
 }
 
 export const TimelineItem: React.FC<TimelineItemProps> = ({
   item,
   index,
-  isMd,
-  shouldReduceMotion,
 }) => {
   const iconKey =
     item.type === 'education'
@@ -29,7 +25,10 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
         : item.type === 'certificate'
           ? 'Award'
           : '';
+
   const colorClass = typeColors[item.type as TimelineItemType['type']];
+
+  const isMd=false;
 
   return (
     <div key={item.id} className="relative">
@@ -47,7 +46,6 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
 
       {/* Card shifted to the right of the line */}
       <Card
-        animated={!shouldReduceMotion}
         animationDelay={index * 0.05}
         hover="glow"
         className="ml-12 sm:ml-20 border-2 group p-3 sm:p-10 md:p-6"

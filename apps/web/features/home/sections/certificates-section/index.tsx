@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useReducedMotion } from '@/hooks';
 import { Section } from '@/components/common';
 import { certificates } from './lib/data';
 import { CertificateItem } from './types/certificate-item';
@@ -9,11 +8,10 @@ import { CertificateCard, CertificateModal } from './components';
 
 export function CertificatesSection() {
   const [selectedCertificate, setSelectedCertificate] = useState<CertificateItem | null>(null);
-  const shouldReduceMotion = useReducedMotion();
 
   return (
     <Section id="certificates" className="p-4 md:p-6 lg:p-8">
-      <Section.Header animated={!shouldReduceMotion}>
+      <Section.Header>
         <div className="text-center mx-auto">
           <Section.Title highlightText="Achievements">Certificates &</Section.Title>
           <Section.Subtitle>
@@ -27,7 +25,6 @@ export function CertificatesSection() {
           <CertificateCard
             key={certificate.id}
             certificate={certificate}
-            animated={!shouldReduceMotion}
             animationDelay={index * 0.05}
             onClick={() => setSelectedCertificate(certificate)}
           />

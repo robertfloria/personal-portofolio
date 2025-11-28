@@ -5,20 +5,17 @@ import { Project } from '../types/project';
 
 interface ProjectCardProps {
   project: Project;
-  animated?: boolean;
   animationDelay?: number;
   onClick: () => void;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   project,
-  animated,
   animationDelay,
   onClick,
 }) => (
   <Card
     key={project.id}
-    animated={animated}
     animationDelay={animationDelay}
     hover="lift"
     padding="none"

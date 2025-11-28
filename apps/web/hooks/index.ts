@@ -1,4 +1,3 @@
-export * from './use-reduced-motion';
 export * from './use-intersection-observer';
 export * from './use-send-email';
 export * from './use-cv-download';

@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useReducedMotion } from '@/hooks';
 import { Section } from '@/components/common';
 import { projects } from './lib/data';
 import { Project } from './types/project';
@@ -11,11 +10,9 @@ export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const shouldReduceMotion = useReducedMotion();
-
   return (
     <Section id="projects" className="p-4 md:p-6 lg:p-8">
-      <Section.Header animated={!shouldReduceMotion}>
+      <Section.Header>
         <div className="text-center mx-auto">
           <Section.Title highlightText="Projects">Featured</Section.Title>
           <Section.Subtitle>
@@ -30,7 +27,6 @@ export function ProjectsSection() {
           <ProjectCard
             key={project.id}
             project={project}
-            animated={!shouldReduceMotion}
             animationDelay={index * 0.05}
             onClick={() => setSelectedProject(project)}
           />

@@ -9,18 +9,14 @@ interface SkillCardProps {
   skill: Skill;
   animated?: boolean;
   animationDelay?: number;
-  shouldReduceMotion?: boolean;
 }
 
 export const SkillCard: React.FC<SkillCardProps> = ({
   skill,
-  animated,
   animationDelay,
-  shouldReduceMotion,
 }) => (
   <Card
     key={skill.name}
-    animated={animated}
     animationDelay={animationDelay}
     hover="glow"
     className="group p-3 sm:p-4 md:p-6"
@@ -54,7 +50,7 @@ export const SkillCard: React.FC<SkillCardProps> = ({
             whileInView={{ width: `${skill.proficiency}%` }}
             viewport={{ once: true }}
             transition={{
-              duration: shouldReduceMotion ? 0 : ANIMATION_DURATIONS.SLOW,
+              duration: ANIMATION_DURATIONS.SLOW,
               delay: animationDelay,
               ease: 'easeOut',
             }}

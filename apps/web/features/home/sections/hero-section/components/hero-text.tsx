@@ -6,27 +6,18 @@ import { SocialButton } from '@/components/common/social-button';
 import { personalInfo, socialLinks } from '@/lib/data';
 import { iconMap } from '../lib/data';
 
-interface HeroTextProps {
-  shouldReduceMotion: boolean;
-}
-
-export const HeroText: React.FC<HeroTextProps> = ({ shouldReduceMotion }) => {
-  const textVariants = shouldReduceMotion
-    ? {}
-    : {
-        initial: { opacity: 0, x: 50 },
-        animate: { opacity: 1, x: 0 },
-      };
+export const HeroText: React.FC = () => {
   return (
     <motion.div
-      {...textVariants}
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6 }}
       className="order-2 lg:order-2 justify-center items-center flex"
     >
       <div className="flex flex-col gap-4">
         <motion.div
-          initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-          animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
           <Heading
@@ -41,11 +32,11 @@ export const HeroText: React.FC<HeroTextProps> = ({ shouldReduceMotion }) => {
         </motion.div>
 
         <motion.div
-          initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-          animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
         >
-          <Card hover="glow" padding="md" animated={!shouldReduceMotion}>
+          <Card hover="glow" padding="md">
             <Card.Content className="flex flex-row gap-4 justify-center items-start">
               <IconBadge iconKey="Briefcase" variant="solid" size="md" className="shrink-0" />
               <div>
@@ -57,8 +48,8 @@ export const HeroText: React.FC<HeroTextProps> = ({ shouldReduceMotion }) => {
         </motion.div>
 
         <motion.div
-          initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-          animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
         >
           <Text
@@ -71,8 +62,8 @@ export const HeroText: React.FC<HeroTextProps> = ({ shouldReduceMotion }) => {
 
         <motion.div
           className="flex flex-wrap gap-4 justify-start"
-          initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-          animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
         >
           <a href="#contact" className="flex w-full lg:w-auto">
@@ -95,8 +86,8 @@ export const HeroText: React.FC<HeroTextProps> = ({ shouldReduceMotion }) => {
 
         <motion.div
           className="flex items-center gap-4 justify-center lg:justify-start"
-          initial={shouldReduceMotion ? {} : { opacity: 0 }}
-          animate={shouldReduceMotion ? {} : { opacity: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
         >
           <Text variant={'label'}>Connect</Text>
@@ -105,8 +96,8 @@ export const HeroText: React.FC<HeroTextProps> = ({ shouldReduceMotion }) => {
             return (
               <motion.div
                 key={social.platform}
-                initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0 }}
-                animate={shouldReduceMotion ? {} : { opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.8 + index * 0.1 }}
               >
                 <SocialButton

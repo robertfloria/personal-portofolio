@@ -1,11 +1,22 @@
+/**
+ * useMutationWithNotification hook
+ *
+ * Wrapper peste useMutation din React Query care adaugă notificări automate la succes și eroare.
+ * - La succes, afișează mesajul din răspuns sau "Operation successful.".
+ * - La eroare, afișează mesajul din eroare sau "Operation failed. Please try again later.".
+ * - Permite suprascrierea onSuccess/onError din options.
+ * - Folosește contextul global de notificări.
+ *
+ * @param options Opțiuni pentru useMutation (React Query)
+ * @returns UseMutationResult cu notificări automate
+ *
+ * @example
+ * const mutation = useMutationWithNotification({ mutationFn: myFn });
+ */
 import { useMutation, UseMutationOptions, UseMutationResult } from '@tanstack/react-query';
 import { useNotifications } from '@/store/contexts/notification-context';
 import { ANIMATION_DURATIONS } from '@/lib/constants';
 
-/**
- * Reusable React Query mutation hook with notification support
- * Handles success/error notifications automatically
- */
 export function useMutationWithNotification<
   TData = unknown,
   TError = Error,

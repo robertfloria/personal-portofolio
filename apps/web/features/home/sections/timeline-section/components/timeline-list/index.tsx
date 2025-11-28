@@ -4,14 +4,10 @@ import { TimelineItem } from './components';
 
 interface TimelineListProps {
   timeline: TimelineItemType[];
-  isMd: boolean;
-  shouldReduceMotion: boolean;
 }
 
 export const TimelineList: React.FC<TimelineListProps> = ({
   timeline,
-  isMd,
-  shouldReduceMotion,
 }) => (
   <div className="relative w-full md:w-[70vw] md:max-w-[900px]">
     {/* Timeline Line */}
@@ -24,8 +20,6 @@ export const TimelineList: React.FC<TimelineListProps> = ({
           key={item.id}
           item={item}
           index={index}
-          isMd={isMd}
-          shouldReduceMotion={shouldReduceMotion}
         />
       ))}
     </div>
