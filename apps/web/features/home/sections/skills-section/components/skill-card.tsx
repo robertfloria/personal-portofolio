@@ -11,10 +11,7 @@ interface SkillCardProps {
   animationDelay?: number;
 }
 
-export const SkillCard: React.FC<SkillCardProps> = ({
-  skill,
-  animationDelay,
-}) => (
+export const SkillCard: React.FC<SkillCardProps> = ({ skill, animationDelay }) => (
   <Card
     key={skill.name}
     animationDelay={animationDelay}

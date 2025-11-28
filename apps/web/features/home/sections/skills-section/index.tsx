@@ -7,7 +7,7 @@ import { categories, skills } from './lib/data';
 import { Skill } from './types/skill';
 import { SkillCategorySection } from './components';
 
-export  function SkillsSection() {
+export function SkillsSection() {
   const groupedSkills = useGroupBy<Skill, 'category'>(skills, 'category');
 
   return (

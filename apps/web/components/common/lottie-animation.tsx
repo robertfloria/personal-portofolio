@@ -28,4 +28,3 @@ export const LottieAnimation: React.FC<LottieComponentProps> = ({
     />
   );
 };
-

@@ -20,11 +20,7 @@ export const SkillCategorySection: React.FC<SkillCategorySectionProps> = ({
     </Heading>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {categorySkills.map((skill, index) => (
-        <SkillCard
-          key={skill.name}
-          skill={skill}
-          animationDelay={index * 0.05}
-        />
+        <SkillCard key={skill.name} skill={skill} animationDelay={index * 0.05} />
       ))}
     </div>
   </div>

@@ -8,7 +8,10 @@ interface NavbarMobileMenuButtonProps {
   toggleMobileMenu: () => void;
 }
 
-export function NavbarMobileMenuButton({ isMobileMenuOpen, toggleMobileMenu }: NavbarMobileMenuButtonProps) {
+export function NavbarMobileMenuButton({
+  isMobileMenuOpen,
+  toggleMobileMenu,
+}: NavbarMobileMenuButtonProps) {
   return (
     <div className="md:hidden flex items-center space-x-4">
       <ThemeToggle />

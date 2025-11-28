@@ -36,7 +36,6 @@ A modern, professional portfolio built as a monorepo with Next.js 16 (frontend),
   - Certificates gallery
   - Contact form
 
-
 ## 📁 Monorepo Structure & CV Download Flow
 
 ### Key Folders & Modules
@@ -70,21 +69,21 @@ personal-portofolio/
 
 - **Storage**: Your CV PDF is stored securely in AWS S3.
 - **Backend (NestJS)**:
-   - `cv.service.ts`: Connects to S3, retrieves the PDF as a stream.
-   - `cv.controller.ts`: Exposes a `/cv/pdf` endpoint, protected by `ApiKeyGuard`.
-   - Environment variables in `apps/api/.env`:
-      ```env
-      AWS_REGION=your-region
-      AWS_ACCESS_KEY_ID=your-access-key-id
-      AWS_SECRET_ACCESS_KEY=your-secret-access-key
-      AWS_S3_BUCKET=your-bucket-name
-      AWS_S3_CV_KEY=cv.pdf
-      API_SECRET=your-api-key
-      ```
+  - `cv.service.ts`: Connects to S3, retrieves the PDF as a stream.
+  - `cv.controller.ts`: Exposes a `/cv/pdf` endpoint, protected by `ApiKeyGuard`.
+  - Environment variables in `apps/api/.env`:
+    ```env
+    AWS_REGION=your-region
+    AWS_ACCESS_KEY_ID=your-access-key-id
+    AWS_SECRET_ACCESS_KEY=your-secret-access-key
+    AWS_S3_BUCKET=your-bucket-name
+    AWS_S3_CV_KEY=cv.pdf
+    API_SECRET=your-api-key
+    ```
 - **Frontend (Next.js)**:
-   - `app/api/cv/route.ts`: Proxies requests to the backend, returns the PDF as a binary response.
-   - `download-cv-button.tsx`: Uses a custom hook and utility to trigger the download and save the file.
-   - No secrets are exposed to the client; all security is handled server-side.
+  - `app/api/cv/route.ts`: Proxies requests to the backend, returns the PDF as a binary response.
+  - `download-cv-button.tsx`: Uses a custom hook and utility to trigger the download and save the file.
+  - No secrets are exposed to the client; all security is handled server-side.
 
 ### Example Usage
 
@@ -92,7 +91,6 @@ personal-portofolio/
 2. Next.js API route (`/api/cv`) calls the backend (`/cv/pdf`) with the API key (server-side only).
 3. Backend retrieves the PDF from S3 and streams it back.
 4. Frontend receives the binary response and saves the file using a reusable utility.
-
 
 ```
 personal-portofolio/
@@ -244,8 +242,8 @@ docker run -p 4000:4000 portfolio-api
 ## 🧪 Testing
 
 - **Frontend (web)**: Jest with React Testing Library. Custom mocks in `__mocks__` for:
-   - `lottie-react` (prevents JSDOM/canvas errors)
-   - `next-themes`, `next-image`, `framer-motion`
+  - `lottie-react` (prevents JSDOM/canvas errors)
+  - `next-themes`, `next-image`, `framer-motion`
 - **Backend (api)**: Jest unit tests and e2e tests (see `test/app.e2e-spec.ts` and `test/jest-e2e.json`)
 
 ### Running Tests

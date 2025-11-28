@@ -26,6 +26,19 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * RootLayout component
+ *
+ * Layout global pentru aplicația Next.js. Include providers, navbar, footer, toast și modal de bun venit.
+ * Wrapping pentru toate paginile și rutele aplicației.
+ *
+ * @component
+ * @param {Readonly<{ children: React.ReactNode }>} props - Conținutul paginii/rutei
+ * @example
+ * <RootLayout>
+ *   <PageComponent />
+ * </RootLayout>
+ */
 export default function RootLayout({
   children,
 }: Readonly<{

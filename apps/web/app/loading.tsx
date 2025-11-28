@@ -1,3 +1,13 @@
+/**
+ * Loading component
+ *
+ * Displays a centered loading spinner and message while content is loading.
+ * Utilizat pentru fallback UI în Next.js (loading state la route sau la SSR).
+ *
+ * @component
+ * @example
+ * <Loading />
+ */
 import { Section } from '@/components/common/section';
 import { Spinner } from '@/components/common/spinner';
 import { Heading, Text } from '@/components/common/typography';

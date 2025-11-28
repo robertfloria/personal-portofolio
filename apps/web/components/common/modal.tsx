@@ -134,28 +134,27 @@ function ModalBase({ isOpen, onClose, children, className }: ModalProps) {
   );
 }
 
-const ModalContent = React.forwardRef<
-  HTMLDivElement,
-  React.ComponentProps<typeof motion.div>
->(({ children, className, ...props }, ref) => {
-  return (
-    <motion.div
-      initial={{ scale: 0.95, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      exit={{ scale: 0.95, opacity: 0 }}
-      transition={{ duration: ANIMATION_DURATIONS.FAST }}
-      ref={ref}
-      onClick={(e) => e.stopPropagation()}
-      className={cn(
-        'bg-[hsl(var(--card)/1)] rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-[hsl(var(--border)/1)]',
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </motion.div>
-  );
-});
+const ModalContent = React.forwardRef<HTMLDivElement, React.ComponentProps<typeof motion.div>>(
+  ({ children, className, ...props }, ref) => {
+    return (
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.95, opacity: 0 }}
+        transition={{ duration: ANIMATION_DURATIONS.FAST }}
+        ref={ref}
+        onClick={(e) => e.stopPropagation()}
+        className={cn(
+          'bg-[hsl(var(--card)/1)] rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-[hsl(var(--border)/1)]',
+          className,
+        )}
+        {...props}
+      >
+        {children}
+      </motion.div>
+    );
+  },
+);
 
 ModalContent.displayName = 'Modal.Content';
 
@@ -208,11 +207,7 @@ function ModalHeader({
   );
 }
 
-function ModalBody({
-  children,
-  className = '',
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+function ModalBody({ children, className = '', ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div className={cn('p-6 space-y-6', className)} {...props}>
       {children}
@@ -220,11 +215,7 @@ function ModalBody({
   );
 }
 
-function ModalFooter({
-  children,
-  className = '',
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+function ModalFooter({ children, className = '', ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div className={cn('p-6 border-t border-border text-right', className)} {...props}>
       {children}

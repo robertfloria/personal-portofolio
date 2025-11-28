@@ -2,7 +2,12 @@
 import './style.css';
 import React, { useState, useEffect } from 'react';
 import { useUI } from '../../../store/contexts/ui-context';
-import { NavbarDesktopNav, NavbarLogo, NavbarMobileMenu, NavbarMobileMenuButton } from './components';
+import {
+  NavbarDesktopNav,
+  NavbarLogo,
+  NavbarMobileMenu,
+  NavbarMobileMenuButton,
+} from './components';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -106,12 +111,23 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <NavbarLogo scrollToSection={scrollToSection} />
-          <NavbarDesktopNav navItems={navItems} activeSection={activeSection} scrollToSection={scrollToSection} />
-          <NavbarMobileMenuButton isMobileMenuOpen={isMobileMenuOpen} toggleMobileMenu={toggleMobileMenu} />
+          <NavbarDesktopNav
+            navItems={navItems}
+            activeSection={activeSection}
+            scrollToSection={scrollToSection}
+          />
+          <NavbarMobileMenuButton
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={toggleMobileMenu}
+          />
         </div>
       </div>
       {isMobileMenuOpen && (
-        <NavbarMobileMenu navItems={navItems} activeSection={activeSection} scrollToSection={scrollToSection} />
+        <NavbarMobileMenu
+          navItems={navItems}
+          activeSection={activeSection}
+          scrollToSection={scrollToSection}
+        />
       )}
     </nav>
   );

@@ -7,7 +7,6 @@ import { SectionDivider } from '../../../../components/common/section-divider';
 import { services } from './lib/data';
 
 export function AboutSection() {
-
   return (
     <Section id="about" className="bg-about-section text-primary-foreground">
       <SectionDivider variant="top" />

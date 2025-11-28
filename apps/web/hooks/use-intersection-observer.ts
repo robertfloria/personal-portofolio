@@ -34,7 +34,7 @@ export function useIntersectionObserver(
   useEffect(() => {
     const element = elementRef.current;
     if (!element) return;
-    
+
     if (freezeOnceVisible && isIntersecting) return;
 
     const observer = new IntersectionObserver(

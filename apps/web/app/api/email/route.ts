@@ -5,6 +5,15 @@ import { devConsole } from '@portfolio/shared-utils/src/dev-console';
 
 const SEND_EMAIL_API_ROUTE = '/email/send';
 
+/**
+ * API Route: POST /api/email
+ *
+ * Primește un payload JSON cu datele emailului (SendEmailDto) și îl trimite către backend.
+ * Returnează răspunsul backend-ului ca JSON sau mesaj de eroare la eșec.
+ *
+ * @param {Request} req - Request-ul HTTP cu payload-ul emailului
+ * @returns {NextResponse} - Răspuns JSON cu status 200 sau 500
+ */
 export async function POST(req: Request) {
   try {
     const data: SendEmailDto = await req.json();

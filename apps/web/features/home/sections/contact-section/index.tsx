@@ -6,10 +6,10 @@ import { contactMethods } from './lib/data';
 import { ContactForm, ContactMethodCard } from './components';
 import globeAnimation from '../../../../public/lottie/globe.json';
 
-export  function ContactSection() {
+export function ContactSection() {
   return (
     <Section id="contact" className="p-4 md:p-6 lg:p-8">
-      <Section.Header >
+      <Section.Header>
         <div className="text-center mx-auto">
           <Section.Title highlightText="Touch">Get In</Section.Title>
           <Section.Subtitle>

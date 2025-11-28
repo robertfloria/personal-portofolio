@@ -15,14 +15,14 @@ import { devConsole } from '@portfolio/shared-utils/src/dev-console';
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 const NEST_API_URL = process.env.NEST_API_URL || 'http://localhost:4000/api';
-const API_SECRET = process.env.API_SECRET || ''; 
+const API_SECRET = process.env.API_SECRET || '';
 
 const apiClientInstance: AxiosInstance = axios.create({
   baseURL: NEST_API_URL,
   timeout: 30_000,
   headers: {
     'Content-Type': 'application/json',
-    'x-api-key': API_SECRET, 
+    'x-api-key': API_SECRET,
   },
 });
 

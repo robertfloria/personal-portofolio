@@ -1,5 +1,3 @@
-
-
 import { render } from '@testing-library/react';
 import { Toast } from './index';
 import { NotificationProvider } from '@/store/contexts/notification-context';
@@ -9,7 +7,7 @@ describe('Toast', () => {
     render(
       <NotificationProvider>
         <Toast />
-      </NotificationProvider>
+      </NotificationProvider>,
     );
   });
 });

@@ -8,18 +8,8 @@ interface InfoCardProps {
   animationDelay?: number;
 }
 
-export const InfoCard: React.FC<InfoCardProps> = ({
-  label,
-  value,
-  iconKey,
-  animationDelay,
-}) => (
-  <Card
-    hover="glow"
-    padding="md"
-    animationDelay={animationDelay}
-    className="group"
-  >
+export const InfoCard: React.FC<InfoCardProps> = ({ label, value, iconKey, animationDelay }) => (
+  <Card hover="glow" padding="md" animationDelay={animationDelay} className="group">
     <Card.Content className="flex gap-4">
       <IconBadge
         iconKey={iconKey}

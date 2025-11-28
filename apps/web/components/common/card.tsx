@@ -57,7 +57,7 @@ const cardVariants = cva(
 
 export interface CardRootProps
   extends Omit<HTMLMotionProps<'div'>, 'children'>,
-  VariantProps<typeof cardVariants> {
+    VariantProps<typeof cardVariants> {
   animated?: boolean;
   animationDelay?: number;
   children?: React.ReactNode;
@@ -65,16 +65,7 @@ export interface CardRootProps
 
 const CardRoot = React.forwardRef<HTMLDivElement, CardRootProps>(
   (
-    {
-      className,
-      variant,
-      hover,
-      padding,
-      animated = true,
-      animationDelay = 0,
-      children,
-      ...props
-    },
+    { className, variant, hover, padding, animated = true, animationDelay = 0, children, ...props },
     ref,
   ) => {
     if (animated) {

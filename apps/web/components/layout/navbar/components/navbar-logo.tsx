@@ -9,7 +9,7 @@ export function NavbarLogo({ scrollToSection }: NavbarLogoProps) {
     <div className="shrink-0">
       <Link
         href="#home"
-        onClick={e => {
+        onClick={(e) => {
           e.preventDefault();
           scrollToSection('#home');
         }}

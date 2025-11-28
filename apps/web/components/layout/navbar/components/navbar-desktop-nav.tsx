@@ -8,22 +8,27 @@ interface NavbarDesktopNavProps {
   scrollToSection: (href: string) => void;
 }
 
-export function NavbarDesktopNav({ navItems, activeSection, scrollToSection }: NavbarDesktopNavProps) {
+export function NavbarDesktopNav({
+  navItems,
+  activeSection,
+  scrollToSection,
+}: NavbarDesktopNavProps) {
   return (
     <div className="hidden md:flex items-center space-x-8">
-      {navItems.map(item => {
+      {navItems.map((item) => {
         const isActive = activeSection === item.href;
         return (
           <a
             key={item.name}
             href={item.href}
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault();
               scrollToSection(item.href);
             }}
-            className={`cursor-pointer font-medium transition-colors ${isActive
-              ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
-              : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
+            className={`cursor-pointer font-medium transition-colors ${
+              isActive
+                ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
+                : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
             }`}
           >
             {item.name}

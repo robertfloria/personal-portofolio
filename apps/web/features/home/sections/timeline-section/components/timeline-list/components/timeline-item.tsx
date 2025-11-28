@@ -13,10 +13,7 @@ interface TimelineItemProps {
   index: number;
 }
 
-export const TimelineItem: React.FC<TimelineItemProps> = ({
-  item,
-  index,
-}) => {
+export const TimelineItem: React.FC<TimelineItemProps> = ({ item, index }) => {
   const iconKey =
     item.type === 'education'
       ? 'GraduationCap'
@@ -28,7 +25,7 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
 
   const colorClass = typeColors[item.type as TimelineItemType['type']];
 
-  const isMd=false;
+  const isMd = false;
 
   return (
     <div key={item.id} className="relative">

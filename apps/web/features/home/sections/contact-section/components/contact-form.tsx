@@ -8,10 +8,19 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 const contactSchema = z.object({
-  name: z.string().min(3, 'Name must be at least 3 characters').max(50, 'Name must be at most 50 characters'),
+  name: z
+    .string()
+    .min(3, 'Name must be at least 3 characters')
+    .max(50, 'Name must be at most 50 characters'),
   from: z.string().email('Invalid email address'),
-  subject: z.string().min(3, 'Subject must be at least 3 characters').max(100, 'Subject must be at most 100 characters'),
-  message: z.string().min(10, 'Message must be at least 10 characters').max(1000, 'Message must be at most 1000 characters'),
+  subject: z
+    .string()
+    .min(3, 'Subject must be at least 3 characters')
+    .max(100, 'Subject must be at most 100 characters'),
+  message: z
+    .string()
+    .min(10, 'Message must be at least 10 characters')
+    .max(1000, 'Message must be at most 1000 characters'),
 });
 
 type ContactFormValues = z.infer<typeof contactSchema>;

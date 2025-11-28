@@ -1,3 +1,15 @@
+/**
+ * Error component
+ *
+ * Afișează un mesaj de eroare și un buton pentru retry/reset.
+ * Folosit ca error boundary în Next.js pentru a gestiona erorile runtime la nivel de pagină sau layout.
+ *
+ * @component
+ * @param {Object} props
+ * @param {() => void} props.reset - Funcție pentru resetarea boundary-ului de eroare (retry).
+ * @example
+ * <Error reset={resetFunction} />
+ */
 'use client';
 import { Button } from '@/components/common';
 import { Section } from '@/components/common/section';

@@ -4,6 +4,15 @@ import { devConsole } from '@portfolio/shared-utils/src/dev-console';
 
 const CV_PDF_API_ROUTE = '/cv/pdf';
 
+/**
+ * API Route: GET /api/cv
+ *
+ * Returnează fișierul PDF al CV-ului ca răspuns binar (application/pdf).
+ * Folosește apiClient pentru a prelua fișierul de la endpoint-ul backend.
+ * În caz de eroare, returnează un răspuns JSON cu status 500.
+ *
+ * @returns {NextResponse} - PDF ca attachment sau eroare JSON
+ */
 export async function GET() {
   try {
     const pdfBuffer = await apiClient.getArrayBuffer<ArrayBuffer>(CV_PDF_API_ROUTE);
