@@ -4,6 +4,7 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EmailModule } from './email/email.module';
+import { CvModule } from './cv/cv.module';
 import { APP_GUARD } from '@nestjs/core';
 
 @Module({
@@ -19,6 +20,7 @@ import { APP_GUARD } from '@nestjs/core';
       },
     ]),
     EmailModule,
+    CvModule,
   ],
   controllers: [AppController],
   providers: [
