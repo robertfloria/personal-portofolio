@@ -33,7 +33,7 @@ export class ApiKeyGuard implements CanActivate {
    */
   constructor(
     private readonly configService: ConfigService,
-    @Inject('API_KEY_CONFIG_KEY') private readonly configKey: string = 'API_SECRET',
+    @Inject('API_SECRET') private readonly configKey: string = 'API_SECRET',
   ) {}
 
   /**
