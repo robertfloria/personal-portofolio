@@ -154,6 +154,7 @@ export class EmailService {
           try {
             brevoMsg = JSON.stringify(rawData);
           } catch {
+            // intentionally empty: fallback to String(error) below
           }
         }
       }

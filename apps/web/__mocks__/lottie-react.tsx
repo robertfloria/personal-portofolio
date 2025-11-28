@@ -1,6 +1,9 @@
 import React from 'react';
 // Simple mock for LottieAnimation component
-const LottieAnimation = ({ animationData, ...props }: any) => (
+interface LottieAnimationProps {
+  [key: string]: unknown;
+}
+const LottieAnimation = (props: LottieAnimationProps) => (
   <div data-testid="mock-lottie-animation" {...props} />
 );
 export default LottieAnimation;

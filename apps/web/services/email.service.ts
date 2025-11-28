@@ -1,3 +1,17 @@
+/**
+ * emailService
+ *
+ * Trimite email-uri prin endpoint-ul API /api/email.
+ * - Metoda sendEmail face un request POST cu datele formularului.
+ * - Returnează răspunsul ca EmailResponse.
+ * - Aruncă eroare dacă trimiterea eșuează.
+ *
+ * @param data - datele emailului (SendEmailDto)
+ * @returns Promise<EmailResponse>
+ *
+ * @example
+ * await emailService.sendEmail({ name, from, subject, message });
+ */
 import { EmailResponse, SendEmailDto } from '@portfolio/shared-types';
 
 const EMAIL_API_ROUTE = '/api/email';

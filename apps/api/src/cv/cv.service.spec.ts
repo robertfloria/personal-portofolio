@@ -1,11 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CvService } from './cv.service';
 
+import { Readable } from 'stream';
+
 jest.mock('@aws-sdk/client-s3', () => {
   return {
     S3Client: jest.fn().mockImplementation(() => ({
       send: jest.fn().mockResolvedValue({
-        Body: { pipe: jest.fn() },
+        Body: new Readable({
+          read() {},
+        }),
       }),
     })),
     GetObjectCommand: jest.fn(),
