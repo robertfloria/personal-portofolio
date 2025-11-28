@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
-import { Button, Card, Heading, Text, IconBadge } from '@/components/common';
+import { Button, Card, Heading, Text, IconBadge, DownloadCvButton } from '@/components/common';
 import { SocialButton } from '@/components/common/social-button';
 import { personalInfo, socialLinks } from '@/lib/data';
 import { iconMap } from '../lib/data';
@@ -85,6 +85,7 @@ export const HeroText: React.FC<HeroTextProps> = ({ shouldReduceMotion }) => {
               Get In Touch
             </Button>
           </a>
+          <DownloadCvButton className="flex w-full lg:w-auto" />
           <a href="#projects" className="flex w-full lg:w-auto">
             <Button variant="outline" className="flex w-full lg:w-auto" size="lg">
               View My Work →

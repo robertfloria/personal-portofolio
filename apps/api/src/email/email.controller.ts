@@ -8,18 +8,18 @@ import {
   InternalServerErrorException,
   UseGuards,
 } from '@nestjs/common';
-import { ApiKeyGuard } from './api-key.guard';
+import { ApiKeyGuard } from '../common/guards/api-key.guard';
 import { EmailService } from './email.service';
 import { SendEmailDto } from './dto/send-email.dto';
 
 //controller to handle email sending requests
+@UseGuards(ApiKeyGuard)
 @Controller('email')
 export class EmailController {
   constructor(private readonly emailService: EmailService) {}
 
   @Post('send')
   @HttpCode(HttpStatus.OK)
-  @UseGuards(ApiKeyGuard)
   async sendEmail(@Body() sendEmailDto: SendEmailDto) {
     try {
       return await this.emailService.sendEmail(sendEmailDto);

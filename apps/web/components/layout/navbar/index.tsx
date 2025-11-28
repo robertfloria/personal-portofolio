@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from '../theme-toggle';
 import { useUI } from '../../../store/contexts/ui-context';
+import { DownloadCvButton } from '@/components/common';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -152,12 +153,14 @@ export default function Navbar() {
                 </a>
               );
             })}
+            <DownloadCvButton className="ml-2" />
             <ThemeToggle />
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-4">
             <ThemeToggle />
+            <DownloadCvButton className="ml-2" />
             <button
               onClick={toggleMobileMenu}
               className="text-foreground"
