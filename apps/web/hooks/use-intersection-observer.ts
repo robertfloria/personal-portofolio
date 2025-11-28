@@ -15,13 +15,7 @@
  */
 
 import { useEffect, useRef, useState } from 'react';
-
-export interface UseIntersectionObserverOptions {
-  threshold?: number | number[];
-  root?: Element | null;
-  rootMargin?: string;
-  freezeOnceVisible?: boolean;
-}
+import type { UseIntersectionObserverOptions } from '@/types';
 
 export function useIntersectionObserver(
   options: UseIntersectionObserverOptions = {},

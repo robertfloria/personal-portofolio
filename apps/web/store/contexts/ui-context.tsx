@@ -17,18 +17,7 @@
  */
 
 import React from 'react';
-
-type ThemeMode = 'light' | 'dark';
-
-interface UIContextValue {
-  theme: ThemeMode;
-  setTheme: (t: ThemeMode) => void;
-  sidebarOpen: boolean;
-  setSidebarOpen: (v: boolean) => void;
-  mobileMenuOpen: boolean;
-  setMobileMenuOpen: (v: boolean) => void;
-  toggleMobileMenu: () => void;
-}
+import type { ThemeMode, UIContextValue } from '@/types';
 
 const UIContext = React.createContext<UIContextValue | undefined>(undefined);
 

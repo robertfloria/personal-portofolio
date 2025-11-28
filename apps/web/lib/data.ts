@@ -1,23 +1,4 @@
-interface PersonalInfo {
-  name: string;
-  title: string;
-  subtitle?: string;
-  bio?: string;
-  about?: string;
-  email: string;
-  phone: string;
-  location: string;
-  age: string;
-  education: string;
-  university?: string;
-  profileImage: string;
-  resumeUrl?: string;
-}
-interface SocialLink {
-  platform: string;
-  url: string;
-  icon: string;
-}
+import type { PersonalInfo, SocialLink } from '@/types';
 
 const SOCIAL_LINKS = {
   GITHUB: 'https://github.com/robertfloria',

@@ -18,15 +18,7 @@
 
 import React from 'react';
 import { ANIMATION_DURATIONS } from '@/lib/constants';
-
-export type NotificationType = 'success' | 'error' | 'warning' | 'info';
-
-export interface NotificationItem {
-  id: string;
-  type: NotificationType;
-  message: string;
-  duration?: number;
-}
+import type { NotificationType, NotificationItem } from '@/types';
 
 interface NotificationContextValue {
   notifications: NotificationItem[];
