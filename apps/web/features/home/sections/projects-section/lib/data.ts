@@ -6,7 +6,7 @@ export const projects: Project[] = [
     id: '1',
     title: 'Mental Health Mobile App – AI Assistant',
     description:
-      'Cross-platform mobile application (Expo) featuring an AI-powered chatbot for personalized mental health guidance, secure OAuth authentication, and in-app purchases. Published to Google Play and Apple App Store.',
+      'Built a cross-platform app with React Native (Expo), deployed on Google Play & App Store. Integrated AI chatbot (OpenAI API) for personalized guidance, improving engagement and reducing manual support by 40%. Implemented secure authentication (OAuth for Google & Apple) and payment systems (Google Pay, Apple Pay, IAP). Deployed backend on Railway with Docker, integrated AWS S3 for media storage and Firebase for notifications. Achieved 99.9% uptime and optimized app performance for fast load times.',
     technologies: [
       'React Native (Expo)',
       'TypeScript',
@@ -24,12 +24,11 @@ export const projects: Project[] = [
       'CI-CD: GitHub Actions & Google Play Console & Apple App Store Connect',
     ],
     features: [
-      'AI chatbot using OpenAI API for personalized mental health guidance',
-      'Secure OAuth authentication (Google & Apple) with Firebase integration',
-      'In-App Purchases and subscription flows using Google Pay and Apple Pay',
-      'Backend containerized with Docker and deployed on Railway',
-      'AWS S3 for media storage and Firebase Cloud Messaging for notifications',
-      'Published to Google Play and Apple App Store',
+      'Built a cross-platform app with React Native (Expo), deployed on Google Play & App Store',
+      'Integrated AI chatbot (OpenAI API) for personalized guidance, improving engagement and reducing manual support by 40%',
+      'Implemented secure authentication (OAuth for Google & Apple) and payment systems (Google Pay, Apple Pay, IAP)',
+      'Deployed backend on Railway with Docker, integrated AWS S3 for media storage and Firebase for notifications',
+      'Achieved 99.9% uptime and optimized app performance for fast load times',
     ],
     imageUrl: '/images/projects/mobile-app/mento_recommendation.png',
     images: [
@@ -52,7 +51,7 @@ export const projects: Project[] = [
     id: '2',
     title: 'Guaranteed Loan Management System',
     description:
-      'Microservices platform for secured loan management with compliance, automated origination, and risk scoring; focused on reliability and maintainability for financial environments.',
+      'Designed and implemented a microservices-based platform for managing secured loans, ensuring compliance and operational efficiency. Automated loan origination, risk scoring, and repayment tracking, reducing manual workload by 40%. Built CI/CD pipelines using Jenkins, enabling fast and reliable deployments. Impact: Delivered a robust financial system used in production, strengthening expertise in regulated environments and scalable architectures.',
     technologies: [
       'React.js',
       'TypeScript',
@@ -62,11 +61,10 @@ export const projects: Project[] = [
       'CI-CD: Jenkins',
     ],
     features: [
-      'Automated loan origination and risk scoring',
-      'Repayment tracking reducing manual workload by 40%',
-      'CI/CD pipelines using Jenkins',
-      'Microservices architecture for scalability',
-      'Production-ready financial system with compliance',
+      'Designed and implemented a microservices-based platform for managing secured loans',
+      'Automated loan origination, risk scoring, and repayment tracking, reducing manual workload by 40%',
+      'Built CI/CD pipelines using Jenkins for fast and reliable deployments',
+      'Impact: Delivered a robust financial system used in production, strengthening expertise in regulated environments and scalable architectures',
     ],
     imageUrl: '/images/projects/loan-portfolio/HomePage.png',
     images: [
@@ -84,7 +82,7 @@ export const projects: Project[] = [
     id: '3',
     title: 'AI Adoption Initiative for Frontend Teams',
     description:
-      'Company-wide program to integrate AI tooling and workflows (Copilot, OpenAI) into frontend teams, including demos, automation and workshops to accelerate development.',
+      'Led AI integration across React.js frontend teams, improving productivity and reducing repetitive coding tasks by 30%, positioning the company as an early adopter of AI-driven development. Developed a custom demo app and presentation showcasing Copilot-assisted coding, Figma-to-code automation, and interactive AI use cases for React developers. Conducted technical workshops and presentations to accelerate adoption and improve code quality across multiple teams. Impact: Faster development cycles, improved maintainability, and enhanced team efficiency.',
     technologies: [
       'React.js',
       'TypeScript',
@@ -94,11 +92,10 @@ export const projects: Project[] = [
       'Figma',
     ],
     features: [
-      'Demo applications showcasing Copilot-assisted coding and AI-driven patterns',
-      'Figma-to-code automation prototypes to speed UI development',
-      'Hands-on workshops and presentations for frontend teams',
-      'Practical AI use-cases integrated into developer workflows',
-      'Improved productivity and code quality through tooling adoption',
+      'Led AI integration across React.js frontend teams, improving productivity and reducing repetitive coding tasks by 30%',
+      'Developed a custom demo app and presentation showcasing Copilot-assisted coding, Figma-to-code automation, and interactive AI use cases',
+      'Conducted technical workshops and presentations to accelerate adoption and improve code quality',
+      'Impact: Faster development cycles, improved maintainability, and enhanced team efficiency',
     ],
     imageUrl: '/images/projects/ai-learning/HomePage.png',
     images: [
@@ -141,7 +138,7 @@ export const projects: Project[] = [
     id: '5',
     title: 'Personal Portfolio (This Website)',
     description:
-      'Personal portfolio showcasing projects, blog, and contact built with Next.js for the frontend and NestJS for the API. Demonstrates learning and integration of Next.js and NestJS, CI/CD with GitHub Actions, and modern deployment workflows.',
+      'Server-side rendering and static optimization with Next.js. Backend API built with NestJS for contact/email handling. CI/CD with GitHub Actions and Docker-based workflows. Responsive design with Tailwind CSS and accessibility improvements. Image optimization and performance tuning.',
     technologies: [
       'Next.js',
       'NestJS',
@@ -154,7 +151,7 @@ export const projects: Project[] = [
     ],
     features: [
       'Server-side rendering and static optimization with Next.js',
-      'Backend API built with NestJS for contact/email handling',
+      'Backend API built with NestJS for email/download cv handling',
       'CI/CD with GitHub Actions and Docker-based workflows',
       'Responsive design with Tailwind CSS and accessibility improvements',
       'Image optimization and performance tuning',

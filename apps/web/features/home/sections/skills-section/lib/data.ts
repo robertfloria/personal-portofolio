@@ -53,6 +53,13 @@ export const skills: Skill[] = [
     yearsOfExperience: 4,
   },
   {
+    name: 'Tailwind CSS',
+    category: SKILLS_CATEGORIES.FRONTEND,
+    proficiency: 90,
+    iconKey: 'Code2',
+    yearsOfExperience: 1.5,
+  },
+  {
     name: 'Node.js',
     category: SKILLS_CATEGORIES.BACKEND,
     proficiency: 90,

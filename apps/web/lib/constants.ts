@@ -2,9 +2,9 @@
  * Application-wide constants
  */
 
-export const APP_NAME = 'Robert Nicolae Floria | Full-Stack Developer';
+export const APP_NAME = 'Robert Nicolae Floria | Software Engineer';
 export const APP_DESCRIPTION =
-  'Full-Stack Software Engineer specializing in React.js, Next.js, React Native, Node.js, NestJS and AI Integration';
+  'A modern portfolio web application showcasing projects, skills, timeline, certificates, and contact information. Built with Next.js, React, and NestJS, featuring interactive UI, responsive design, and seamless user experience.';
 
 export const ANIMATION_DURATIONS = {
   FAST: 0.2,
