@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { useNotifications, type NotificationItem } from '@/store/contexts/notification-context';
+import { useNotifications } from '@/store/contexts/notification-context';
+import type { NotificationItem } from '@/types/notification';
 import { ToastItem } from './components';
 
 export const Toast: React.FC = () => {

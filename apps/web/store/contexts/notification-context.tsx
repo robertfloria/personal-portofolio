@@ -18,7 +18,7 @@
 
 import React from 'react';
 import { ANIMATION_DURATIONS } from '@/lib/constants';
-import type { NotificationType, NotificationItem } from '@/types';
+import type { NotificationItem } from '@/types';
 
 interface NotificationContextValue {
   notifications: NotificationItem[];

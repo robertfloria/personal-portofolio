@@ -1,6 +1,6 @@
 import { ANIMATION_DURATIONS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
-import { NotificationType } from '@/store/contexts/notification-context';
+import { NotificationType } from '@/types/notification';
 import { CheckCircle, XCircle, AlertCircle, Info, X } from 'lucide-react';
 import { useEffect } from 'react';
 
