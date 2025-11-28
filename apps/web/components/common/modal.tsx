@@ -137,7 +137,7 @@ const ModalContent = React.forwardRef<HTMLDivElement, React.ComponentProps<typeo
         ref={ref}
         onClick={(e) => e.stopPropagation()}
         className={cn(
-          'bg-[hsl(var(--card)/1)] rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-[hsl(var(--border)/1)]',
+          'glass-ultra rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-[hsl(var(--border)/1)]',
           className,
         )}
         {...props}
@@ -167,7 +167,7 @@ function ModalHeader({
   return (
     <div
       className={cn(
-        'sticky top-0 bg-[hsl(var(--card)/1)] border-b border-[hsl(var(--border)/1)] p-4 flex items-center justify-between z-10',
+        'sticky top-0 border-b border-[hsl(var(--border)/1)] p-4 flex items-center justify-between z-10',
         className,
       )}
       {...props}
