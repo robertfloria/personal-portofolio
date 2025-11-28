@@ -2,13 +2,12 @@
 
 import React from 'react';
 import { useReducedMotion } from '@/hooks';
-import { Section, Card } from '@/components/common';
+import { Section, Card, LottieAnimation } from '@/components/common';
 import { contactMethods } from './lib/data';
 import { ContactForm, ContactMethodCard } from './components';
-import LottieAnimation from '@/components/common/lottie-animation';
 import globeAnimation from '../../../../public/lottie/globe.json';
 
-export default function ContactSection() {
+export  function ContactSection() {
   const shouldReduceMotion = useReducedMotion();
   return (
     <Section id="contact" className="p-4 md:p-6 lg:p-8">

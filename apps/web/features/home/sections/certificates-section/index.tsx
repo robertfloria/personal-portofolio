@@ -1,20 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useFocusTrap } from '@/hooks/use-focus-trap';
 import { useReducedMotion } from '@/hooks';
 import { Section } from '@/components/common';
 import { certificates } from './lib/data';
 import { CertificateItem } from './types/certificate-item';
 import { CertificateCard, CertificateModal } from './components';
 
-export default function CertificatesSection() {
+export function CertificatesSection() {
   const [selectedCertificate, setSelectedCertificate] = useState<CertificateItem | null>(null);
   const shouldReduceMotion = useReducedMotion();
-  const modalRef = React.useRef<HTMLDivElement | null>(null);
-  useFocusTrap(modalRef as React.RefObject<HTMLDivElement>, Boolean(selectedCertificate), () =>
-    setSelectedCertificate(null),
-  );
 
   return (
     <Section id="certificates" className="p-4 md:p-6 lg:p-8">

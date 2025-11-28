@@ -4,9 +4,9 @@ import React from 'react';
 import { useBreakpoint, useReducedMotion } from '@/hooks';
 import { Section } from '@/components/common';
 import { timeline } from './lib/data';
-import { TimelineList } from './components/timeline-list';
+import { TimelineList } from './components';
 
-export default function TimelineSection() {
+export function TimelineSection() {
   const shouldReduceMotion = useReducedMotion();
   const isMd = useBreakpoint('md');
 

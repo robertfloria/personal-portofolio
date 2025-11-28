@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heading } from '@/components/common';
 import { Skill } from '../types/skill';
-import { SkillCard } from './SkillCard';
+import { SkillCard } from './skill-card';
 
 interface SkillCategorySectionProps {
   category: string;

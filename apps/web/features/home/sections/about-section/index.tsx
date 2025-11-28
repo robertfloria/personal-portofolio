@@ -7,7 +7,7 @@ import { Section, Card, IconBadge } from '@/components/common';
 import { SectionDivider } from '../../../../components/common/section-divider';
 import { services } from './lib/data';
 
-export default function AboutSection() {
+export function AboutSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (

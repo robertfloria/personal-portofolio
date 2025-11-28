@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { Providers } from '../../../../components/layout/providers';
-import ContactSection from '.';
+import { ContactSection } from '.';
 
 describe('ContactSection', () => {
   it('renders contact form fields', () => {

@@ -5,11 +5,9 @@ import { useReducedMotion } from '@/hooks';
 import { Section } from '@/components/common';
 import { projects } from './lib/data';
 import { Project } from './types/project';
-import { ProjectCard } from './components/ProjectCard';
-import { ProjectModal } from './components/ProjectModal';
-import { ProjectImageModal } from './components/ProjectImageModal';
+import { ProjectCard, ProjectImageModal, ProjectModal } from './components';
 
-export default function ProjectsSection() {
+export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 

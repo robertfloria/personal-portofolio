@@ -1,9 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { Providers } from '../../../../components/layout/providers';
-import HeroSection from '.';
-
-// window.matchMedia is provided globally by jest.setup.ts
+import { HeroSection } from '.';
 
 describe('HeroSection', () => {
   it('renders welcome badge', () => {

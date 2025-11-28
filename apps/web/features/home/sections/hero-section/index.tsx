@@ -6,7 +6,7 @@ import { useReducedMotion } from '@/hooks';
 import { infoItems } from './lib/data';
 import { HeroText, InfoCard, ProfileImage } from './components';
 
-export default function HeroSection() {
+export function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (

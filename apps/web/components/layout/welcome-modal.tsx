@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Button, Heading, Text, Modal } from '@/components/common';
-import LottieAnimation from '../common/lottie-animation';
+import { Button, Heading, Text, Modal, LottieAnimation } from '@/components/common';
 import handshakeAnimation from '../../public/lottie/handshake.json';
 
 const SESSION_STORAGE_KEY = 'welcomeModalDismissed';

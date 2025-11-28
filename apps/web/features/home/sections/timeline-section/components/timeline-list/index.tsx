@@ -1,6 +1,6 @@
 import React from 'react';
-import { TimelineItem } from './components/TimelineItem';
 import { TimelineItem as TimelineItemType } from '../../types/timeline-item';
+import { TimelineItem } from './components';
 
 interface TimelineListProps {
   timeline: TimelineItemType[];

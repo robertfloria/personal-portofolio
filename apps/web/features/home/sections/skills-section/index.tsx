@@ -1,14 +1,13 @@
 'use client';
 
 import React from 'react';
-import { useReducedMotion } from '@/hooks';
-import { useGroupBy } from '@/hooks/use-group-by';
+import { useGroupBy, useReducedMotion } from '@/hooks';
 import { Section } from '@/components/common';
 import { categories, skills } from './lib/data';
 import { Skill } from './types/skill';
-import { SkillCategorySection } from './components/SkillCategorySection';
+import { SkillCategorySection } from './components';
 
-export default function SkillsSection() {
+export  function SkillsSection() {
   const shouldReduceMotion = useReducedMotion();
   const groupedSkills = useGroupBy<Skill, 'category'>(skills, 'category');
 

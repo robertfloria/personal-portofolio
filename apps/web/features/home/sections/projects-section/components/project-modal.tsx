@@ -1,9 +1,8 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { ExternalLink, Github } from 'lucide-react';
 import { Modal } from '@/components/common';
 import { IconBadge } from '@/components/common';
-import { useFocusTrap } from '@/hooks/use-focus-trap';
 import { Project } from '../types/project';
 
 interface ProjectModalProps {
@@ -19,14 +18,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   onClose,
   onImageClick,
 }) => {
-  const modalRef = useRef<HTMLDivElement | null>(null);
-  useFocusTrap(modalRef as React.RefObject<HTMLElement>, Boolean(project), onClose);
-
   if (!project) return null;
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <Modal.Content ref={modalRef as React.RefObject<HTMLDivElement>} tabIndex={-1}>
+      <Modal.Content tabIndex={-1}>
         <Modal.Header showClose onClose={onClose}>
           <h2 className="text-2xl font-bold text-foreground">{project.title}</h2>
         </Modal.Header>
