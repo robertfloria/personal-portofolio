@@ -63,7 +63,7 @@ export function Navbar() {
         }, 700);
       }
     },
-    [setMobileMenuOpen, setActiveSection]
+    [setMobileMenuOpen, setActiveSection],
   );
 
   // observe sections and update active nav link

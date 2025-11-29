@@ -13,7 +13,6 @@ interface TimelineItemProps {
   index: number;
 }
 
-
 const TimelineItemComponent: React.FC<TimelineItemProps> = ({ item, index }) => {
   const iconKey =
     item.type === 'education'

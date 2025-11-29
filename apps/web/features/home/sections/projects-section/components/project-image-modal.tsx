@@ -8,7 +8,11 @@ interface ProjectImageModalProps {
   onClose: () => void;
 }
 
-const ProjectImageModalComponent: React.FC<ProjectImageModalProps> = ({ image, isOpen, onClose }) => (
+const ProjectImageModalComponent: React.FC<ProjectImageModalProps> = ({
+  image,
+  isOpen,
+  onClose,
+}) => (
   <Modal isOpen={isOpen} onClose={onClose}>
     {image && (
       <Modal.Content>

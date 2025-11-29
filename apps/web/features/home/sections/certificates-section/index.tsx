@@ -10,12 +10,9 @@ import { SectionDivider } from '@/components/common/section-divider';
 export function CertificatesSection() {
   const [selectedCertificate, setSelectedCertificate] = useState<CertificateItem | null>(null);
 
-  const handleSelectCertificate = useCallback(
-    (certificate: CertificateItem) => {
-      setSelectedCertificate(certificate);
-    },
-    []
-  );
+  const handleSelectCertificate = useCallback((certificate: CertificateItem) => {
+    setSelectedCertificate(certificate);
+  }, []);
 
   const handleCloseModal = useCallback(() => {
     setSelectedCertificate(null);

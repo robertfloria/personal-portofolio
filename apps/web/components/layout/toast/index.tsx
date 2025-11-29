@@ -8,9 +8,12 @@ import { ToastItem } from './components';
 export const Toast: React.FC = () => {
   const { notifications, removeNotification } = useNotifications();
 
-  const handleClose = useCallback((id: string) => {
-    removeNotification(id);
-  }, [removeNotification]);
+  const handleClose = useCallback(
+    (id: string) => {
+      removeNotification(id);
+    },
+    [removeNotification],
+  );
 
   if (notifications.length === 0) {
     return null;
