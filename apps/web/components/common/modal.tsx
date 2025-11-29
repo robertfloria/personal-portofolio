@@ -176,7 +176,7 @@ function ModalHeader({
       {showClose && (
         <button
           onClick={handleClose}
-          className="w-8 h-8 rounded-full bg-[hsl(var(--card)/0.9)] text-foreground flex items-center justify-center hover:bg-[hsl(var(--card)/0.8)] hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-primary focus:ring-2 transform transition duration-200"
+          className="w-8 h-8 rounded-full text-foreground flex items-center justify-center hover:bg-[hsl(var(--card)/0.8)] hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-primary focus:ring-2 transform transition duration-200"
           aria-label="Close modal"
         >
           <svg
