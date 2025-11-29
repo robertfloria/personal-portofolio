@@ -13,6 +13,7 @@
  * @example
  * const query = useQueryWithNotification({ queryKey: ['cv'], queryFn: getCvJson });
  */
+'use client';
 import { useQuery, QueryKey, UseQueryOptions, UseQueryResult } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { useNotifications } from '@/store/contexts/notification-context';
