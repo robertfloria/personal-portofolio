@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Section } from '@/components/common';
 import { certificates } from './lib/data';
 import { CertificateItem } from './types/certificate-item';
@@ -9,6 +9,17 @@ import { SectionDivider } from '@/components/common/section-divider';
 
 export function CertificatesSection() {
   const [selectedCertificate, setSelectedCertificate] = useState<CertificateItem | null>(null);
+
+  const handleSelectCertificate = useCallback(
+    (certificate: CertificateItem) => {
+      setSelectedCertificate(certificate);
+    },
+    []
+  );
+
+  const handleCloseModal = useCallback(() => {
+    setSelectedCertificate(null);
+  }, []);
 
   return (
     <Section id="certificates" className="bg-divider-section">
@@ -28,7 +39,7 @@ export function CertificatesSection() {
             key={certificate.id}
             certificate={certificate}
             animationDelay={index * 0.05}
-            onClick={() => setSelectedCertificate(certificate)}
+            onClick={() => handleSelectCertificate(certificate)}
           />
         ))}
       </div>
@@ -36,7 +47,7 @@ export function CertificatesSection() {
       <CertificateModal
         certificate={selectedCertificate}
         isOpen={Boolean(selectedCertificate)}
-        onClose={() => setSelectedCertificate(null)}
+        onClose={handleCloseModal}
       />
       <SectionDivider variant="bottom" />
     </Section>

@@ -9,7 +9,7 @@ interface CertificateModalProps {
   onClose: () => void;
 }
 
-export const CertificateModal: React.FC<CertificateModalProps> = ({
+const CertificateModalComponent: React.FC<CertificateModalProps> = ({
   certificate,
   isOpen,
   onClose,
@@ -67,3 +67,5 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({
     )}
   </Modal>
 );
+
+export const CertificateModal = React.memo(CertificateModalComponent);

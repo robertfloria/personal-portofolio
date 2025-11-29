@@ -9,7 +9,7 @@ interface CertificateCardProps {
   onClick?: () => void;
 }
 // s
-export const CertificateCard: React.FC<CertificateCardProps> = ({
+const CertificateCardComponent: React.FC<CertificateCardProps> = ({
   certificate,
   animationDelay,
   onClick,
@@ -61,3 +61,5 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({
     </Card.Footer>
   </Card>
 );
+
+export const CertificateCard = React.memo(CertificateCardComponent);
