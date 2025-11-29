@@ -27,13 +27,14 @@ export function useQueryWithNotification<
   options: UseQueryOptions<TQueryFnData, TError, TData, TQueryKey> & {
     successMessage?: string;
     errorMessage?: string;
+    showSuccessNotification?: boolean;
   },
 ): UseQueryResult<TData, TError> {
   const { addNotification } = useNotifications();
   const query = useQuery(options);
 
   useEffect(() => {
-    if (query.isSuccess && query.data) {
+    if (query.isSuccess && query.data && options.showSuccessNotification) {
       const message =
         options.successMessage ||
         (query.data && typeof query.data === 'object' && 'message' in query.data
@@ -46,7 +47,7 @@ export function useQueryWithNotification<
         duration: ANIMATION_DURATIONS.NOTIFICATION,
       });
     }
-  }, [query.isSuccess]);
+  }, [query.isSuccess, options.showSuccessNotification]);
 
   useEffect(() => {
     if (query.isError && query.error) {

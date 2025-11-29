@@ -26,26 +26,25 @@ export const DownloadCvButton: React.FC<DownloadCvButtonProps> = ({
   size = 'lg',
   textVariant = 'default',
 }) => {
-  const { mutate, isPending } = useCvDownload();
+  const { refetch: downloadCV, isLoading } = useCvDownload();
 
-  const handleDownload = () => {
-    mutate(undefined, {
-      onSuccess: (blob) => {
-        downloadFile(blob, 'cv.pdf');
-      },
-    });
+  const handleDownload = async() => {
+    const data=await downloadCV();
+    if (data.isSuccess && data.data) {
+      downloadFile(data.data, 'cv.pdf');
+    }
   };
 
   return (
     <Button
       onClick={handleDownload}
-      disabled={isPending}
+      disabled={isLoading}
       className={className}
       variant="outline"
       size={size}
       leftIcon={<DownloadIcon size={textVariant === 'default' ? 20 : 15} />}
     >
-      {isPending ? 'Downloading...' : (textVariant === 'default' ? 'Download CV' : 'CV')}
+      {isLoading ? (textVariant === 'default' ? 'Downloading...' : '...') : (textVariant === 'default' ? 'Download CV' : 'CV')}
     </Button>
   );
 };

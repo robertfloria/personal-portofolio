@@ -1,33 +1,34 @@
 /**
- * useCvDownload hook
- *
- * Provides a React Query mutation for downloading the CV PDF.
- * - Uses useMutationWithNotification for notification handling.
- * - Calls downloadCv service function.
- * - Returns mutation object with status and handlers.
- *
+ * Custom hook for downloading CV with built-in caching and notification handling.
+ * 
+ * This hook uses React Query to manage the CV download operation with the following features:
+ * - Caching for 1 hour to prevent redundant downloads
+ * - Manual triggering (enabled: false)
+ * - No automatic retries on failure
+ * - Integrated notification system for success/error states
+ * 
+ * @returns A React Query result object with methods to trigger the CV download
+ * 
  * @example
- * const { mutate, isPending } = useCvDownload();
- * mutate();
+ * ```tsx
+ * const { refetch: downloadCV, isLoading } = useCvDownload();
+ * 
+ * const handleDownload = () => {
+ *   downloadCV();
+ * };
+ * ```
  */
-
-import { useMutationWithNotification } from './use-mutation-with-notification';
 import { downloadCv } from '@/services/cv.service';
-
-// Module-level cache for the CV Blob
-let cachedCvBlob: Blob | null = null;
+import { useQueryWithNotification } from './use-query-with-notification';
 
 export function useCvDownload() {
-  return useMutationWithNotification({
-    mutationFn: async () => {
-      if (cachedCvBlob) {
-        // Return cached blob if available
-        return cachedCvBlob;
-      }
-      // Otherwise, fetch and cache
-      const blob = await downloadCv();
-      cachedCvBlob = blob;
-      return blob;
-    },
+  return useQueryWithNotification({
+    queryKey: ['cvDownload'],
+    queryFn: downloadCv,
+    staleTime: 1000 * 60 * 60, // Cache for 1 hour
+    gcTime: 1000 * 60 * 60, // Cache for 1 hour
+    retry: false,
+    enabled: false,
+    showSuccessNotification: false,
   });
-}
+};
