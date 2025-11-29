@@ -8,7 +8,7 @@ interface ProjectImageModalProps {
   onClose: () => void;
 }
 
-export const ProjectImageModal: React.FC<ProjectImageModalProps> = ({ image, isOpen, onClose }) => (
+const ProjectImageModalComponent: React.FC<ProjectImageModalProps> = ({ image, isOpen, onClose }) => (
   <Modal isOpen={isOpen} onClose={onClose}>
     {image && (
       <Modal.Content>
@@ -29,3 +29,5 @@ export const ProjectImageModal: React.FC<ProjectImageModalProps> = ({ image, isO
     )}
   </Modal>
 );
+
+export const ProjectImageModal = React.memo(ProjectImageModalComponent);

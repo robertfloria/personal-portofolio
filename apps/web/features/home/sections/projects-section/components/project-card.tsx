@@ -9,7 +9,7 @@ interface ProjectCardProps {
   onClick: () => void;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, animationDelay, onClick }) => (
+const ProjectCardComponent: React.FC<ProjectCardProps> = ({ project, animationDelay, onClick }) => (
   <Card
     key={project.id}
     animationDelay={animationDelay}
@@ -73,3 +73,5 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, animationDela
     </Card.Footer>
   </Card>
 );
+
+export const ProjectCard = React.memo(ProjectCardComponent);

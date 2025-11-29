@@ -12,7 +12,7 @@ interface ProjectModalProps {
   onImageClick: (img: string) => void;
 }
 
-export const ProjectModal: React.FC<ProjectModalProps> = ({
+const ProjectModalComponent: React.FC<ProjectModalProps> = ({
   project,
   isOpen,
   onClose,
@@ -110,3 +110,5 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     </Modal>
   );
 };
+
+export const ProjectModal = React.memo(ProjectModalComponent);
