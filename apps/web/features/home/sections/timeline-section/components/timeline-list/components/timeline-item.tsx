@@ -13,7 +13,8 @@ interface TimelineItemProps {
   index: number;
 }
 
-export const TimelineItem: React.FC<TimelineItemProps> = ({ item, index }) => {
+
+const TimelineItemComponent: React.FC<TimelineItemProps> = ({ item, index }) => {
   const iconKey =
     item.type === 'education'
       ? 'GraduationCap'
@@ -69,3 +70,5 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({ item, index }) => {
     </div>
   );
 };
+
+export const TimelineItem = React.memo(TimelineItemComponent);
