@@ -1,6 +1,6 @@
 'use client';
 import './style.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useUI } from '../../../store/contexts/ui-context';
 import {
   NavbarDesktopNav,
@@ -41,32 +41,30 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      // Always close mobile menu before measuring offset
-      setMobileMenuOpen(false);
-      // Use fixed offset for mobile screens
-      const isMobile = window.innerWidth < 768;
-      const navbar = document.querySelector('nav');
-      const navbarHeight = isMobile ? 64 : navbar ? navbar.offsetHeight : 0;
-      const elementTop = element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementTop - navbarHeight;
-      // mark that we're initiating a programmatic smooth scroll
-      isProgrammaticScroll.current = true;
-      // set active immediately so the UI reflects the user's intent
-      setActiveSection(href);
-      window.scroll({ top: offsetPosition, behavior: 'smooth' });
-      // clear the programmatic flag after a short delay (allows smooth scroll to finish)
-      if (programmaticTimer.current !== null) {
-        clearTimeout(programmaticTimer.current);
+  const scrollToSection = useCallback(
+    (href: string) => {
+      const element = document.querySelector(href);
+      if (element) {
+        setMobileMenuOpen(false);
+        const isMobile = window.innerWidth < 768;
+        const navbar = document.querySelector('nav');
+        const navbarHeight = isMobile ? 64 : navbar ? navbar.offsetHeight : 0;
+        const elementTop = element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementTop - navbarHeight;
+        isProgrammaticScroll.current = true;
+        setActiveSection(href);
+        window.scroll({ top: offsetPosition, behavior: 'smooth' });
+        if (programmaticTimer.current !== null) {
+          clearTimeout(programmaticTimer.current);
+        }
+        programmaticTimer.current = window.setTimeout(() => {
+          isProgrammaticScroll.current = false;
+          programmaticTimer.current = null;
+        }, 700);
       }
-      programmaticTimer.current = window.setTimeout(() => {
-        isProgrammaticScroll.current = false;
-        programmaticTimer.current = null;
-      }, 700);
-    }
-  };
+    },
+    [setMobileMenuOpen, setActiveSection]
+  );
 
   // observe sections and update active nav link
   // refs to manage programmatic scroll state

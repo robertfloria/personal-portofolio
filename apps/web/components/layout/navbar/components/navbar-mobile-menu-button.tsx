@@ -8,23 +8,23 @@ interface NavbarMobileMenuButtonProps {
   toggleMobileMenu: () => void;
 }
 
-export function NavbarMobileMenuButton({
+const NavbarMobileMenuButtonComponent = ({
   isMobileMenuOpen,
   toggleMobileMenu,
-}: NavbarMobileMenuButtonProps) {
-  return (
-    <div className="md:hidden flex items-center space-x-4">
-      <ThemeToggle />
-      <DownloadCvButton size="sm" textVariant="short" />
-      <button
-        onClick={toggleMobileMenu}
-        className="text-foreground"
-        aria-label="Toggle menu"
-        aria-expanded={isMobileMenuOpen}
-        aria-controls="mobile-menu"
-      >
-        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
-    </div>
-  );
-}
+}: NavbarMobileMenuButtonProps) => (
+  <div className="md:hidden flex items-center space-x-4">
+    <ThemeToggle />
+    <DownloadCvButton size="sm" textVariant="short" />
+    <button
+      onClick={toggleMobileMenu}
+      className="text-foreground"
+      aria-label="Toggle menu"
+      aria-expanded={isMobileMenuOpen}
+      aria-controls="mobile-menu"
+    >
+      {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+    </button>
+  </div>
+);
+
+export const NavbarMobileMenuButton = React.memo(NavbarMobileMenuButtonComponent);

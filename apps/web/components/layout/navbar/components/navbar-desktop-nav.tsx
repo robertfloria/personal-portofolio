@@ -8,35 +8,35 @@ interface NavbarDesktopNavProps {
   scrollToSection: (href: string) => void;
 }
 
-export function NavbarDesktopNav({
+const NavbarDesktopNavComponent = ({
   navItems,
   activeSection,
   scrollToSection,
-}: NavbarDesktopNavProps) {
-  return (
-    <div className="hidden md:flex items-center gap-8">
-      {navItems.map((item) => {
-        const isActive = activeSection === item.href;
-        return (
-          <a
-            key={item.name}
-            href={item.href}
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection(item.href);
-            }}
-            className={`cursor-pointer font-medium transition-colors ${
-              isActive
-                ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
-                : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
-            }`}
-          >
-            {item.name}
-          </a>
-        );
-      })}
-      <DownloadCvButton size="sm" textVariant="short" />
-      <ThemeToggle />
-    </div>
-  );
-}
+}: NavbarDesktopNavProps) => (
+  <div className="hidden md:flex items-center gap-8">
+    {navItems.map((item) => {
+      const isActive = activeSection === item.href;
+      return (
+        <a
+          key={item.name}
+          href={item.href}
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection(item.href);
+          }}
+          className={`cursor-pointer font-medium transition-colors ${
+            isActive
+              ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
+              : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
+          }`}
+        >
+          {item.name}
+        </a>
+      );
+    })}
+    <DownloadCvButton size="sm" textVariant="short" />
+    <ThemeToggle />
+  </div>
+);
+
+export const NavbarDesktopNav = React.memo(NavbarDesktopNavComponent);
