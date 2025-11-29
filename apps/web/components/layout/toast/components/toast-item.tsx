@@ -1,3 +1,4 @@
+import React from 'react';
 import { ANIMATION_DURATIONS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { NotificationType } from '@/types/notification';
@@ -38,7 +39,7 @@ const toastConfig = {
   },
 };
 
-export const ToastItem: React.FC<ToastProps> = ({
+const ToastItemComponent: React.FC<ToastProps> = ({
   id,
   type,
   message,
@@ -83,5 +84,7 @@ export const ToastItem: React.FC<ToastProps> = ({
     </div>
   );
 };
+
+export const ToastItem = React.memo(ToastItemComponent);
 
 ToastItem.displayName = 'ToastItem';

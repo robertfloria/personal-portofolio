@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useNotifications } from '@/store/contexts/notification-context';
 import type { NotificationItem } from '@/types/notification';
 import { ToastItem } from './components';
@@ -8,9 +8,9 @@ import { ToastItem } from './components';
 export const Toast: React.FC = () => {
   const { notifications, removeNotification } = useNotifications();
 
-  const handleClose = (id: string) => {
+  const handleClose = useCallback((id: string) => {
     removeNotification(id);
-  };
+  }, [removeNotification]);
 
   if (notifications.length === 0) {
     return null;
