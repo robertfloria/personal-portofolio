@@ -11,7 +11,7 @@ interface SkillCardProps {
   animationDelay?: number;
 }
 
-export const SkillCard: React.FC<SkillCardProps> = ({ skill, animationDelay }) => (
+const SkillCardComponent: React.FC<SkillCardProps> = ({ skill, animationDelay }) => (
   <Card
     key={skill.name}
     animationDelay={animationDelay}
@@ -57,3 +57,5 @@ export const SkillCard: React.FC<SkillCardProps> = ({ skill, animationDelay }) =
     </Card.Content>
   </Card>
 );
+
+export const SkillCard = React.memo(SkillCardComponent);

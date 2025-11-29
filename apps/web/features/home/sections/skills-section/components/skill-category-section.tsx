@@ -9,7 +9,7 @@ interface SkillCategorySectionProps {
   categories: Record<string, string>;
 }
 
-export const SkillCategorySection: React.FC<SkillCategorySectionProps> = ({
+const SkillCategorySectionComponent: React.FC<SkillCategorySectionProps> = ({
   category,
   categorySkills,
   categories,
@@ -25,3 +25,5 @@ export const SkillCategorySection: React.FC<SkillCategorySectionProps> = ({
     </div>
   </div>
 );
+
+export const SkillCategorySection = React.memo(SkillCategorySectionComponent);
