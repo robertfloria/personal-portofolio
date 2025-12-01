@@ -4,7 +4,7 @@ import { PROJECT_CATEGORIES } from './constants';
 export const projects: Project[] = [
   {
     id: '1',
-    title: 'Mental Health Mobile App – AI Assistant',
+    title: 'MentoIQ - Mental Health Mobile App – AI Assistant',
     description:
       'Built a cross-platform app with React Native (Expo), deployed on Google Play & App Store. Integrated AI chatbot (OpenAI API) for personalized guidance, improving engagement and reducing manual support by 40%. Implemented secure authentication (OAuth for Google & Apple) and payment systems (Google Pay, Apple Pay, IAP). Deployed backend on Railway with Docker, integrated AWS S3 for media storage and Firebase for notifications. Achieved 99.9% uptime and optimized app performance for fast load times.',
     technologies: [

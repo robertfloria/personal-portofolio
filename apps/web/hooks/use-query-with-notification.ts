@@ -75,7 +75,12 @@ export function useQueryWithNotification<
 
   // Handle success notification
   useEffect(() => {
-    if (query.isSuccess && query.data && options.showSuccessNotification && !hasShownSuccess.current) {
+    if (
+      query.isSuccess &&
+      query.data &&
+      options.showSuccessNotification &&
+      !hasShownSuccess.current
+    ) {
       hasShownSuccess.current = true;
       showSuccessNotification(query.data);
     }
@@ -83,7 +88,13 @@ export function useQueryWithNotification<
     if (query.isFetching) {
       hasShownSuccess.current = false;
     }
-  }, [query.isSuccess, query.data, query.isFetching, options.showSuccessNotification, showSuccessNotification]);
+  }, [
+    query.isSuccess,
+    query.data,
+    query.isFetching,
+    options.showSuccessNotification,
+    showSuccessNotification,
+  ]);
 
   // Handle error notification
   useEffect(() => {

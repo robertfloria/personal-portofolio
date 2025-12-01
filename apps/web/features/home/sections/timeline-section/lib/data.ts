@@ -47,24 +47,12 @@ export const timeline: TimelineItem[] = [
   },
   {
     id: '5',
-    title: 'Software Developer, Self-employed (Contract)',
-    organization: 'Self-Employed',
+    title: 'Software Developer, Freelance',
+    organization: 'B2B, Contract',
     startDate: 'August 2025',
     endDate: 'Present',
     description:
-      'Delivered full-stack web applications (React.js, Next.js, Node.js/NestJS) and cross-platform mobile apps (React Native), published on Google Play & App Store. Implemented AI-powered features and automated workflows, accelerating delivery and enhancing user experience. Built secure authentication and payment systems (OAuth 2.0, Google/Apple Pay, IAP) for subscription models. Designed and optimized relational databases (MySQL, Transact-SQL) for scalability and security. Automated deployments using GitHub Actions, Firebase Hosting, Railway, and Docker for containerized backends.',
-    type: 'work',
-    location: 'Remote',
-    current: true,
-  },
-  {
-    id: '6',
-    title: 'Founder & Software Engineer, MentoIQ App (Self-Employed)',
-    organization: 'Self-Employed',
-    startDate: 'October 2025',
-    endDate: 'Present',
-    description:
-      'Designed and developed a cross-platform mobile application using React Native (Expo), deployed on Google Play and Apple App Store. Integrated AI chatbot (OpenAI API) for personalized mental health guidance. Implemented secure authentication (OAuth for Google & Apple) and payment systems (Google Pay, Apple Pay, IAP). Managed end-to-end lifecycle: architecture, coding, testing, CI/CD, and cloud deployment (Railway, Docker, AWS S3).',
+      'Delivered full-stack web applications (React.js/Next.js, Node.js/NestJS) and cross-platform mobile apps (React Native). Implemented AI-powered features and automated workflows, accelerating delivery and enhancing user experience. Built secure authentication and payment systems (OAuth 2.0, Google/Apple Pay, IAP) for subscription models. Designed and optimized relational databases (MySQL, Transact-SQL) for scalability and security. CI/CD Automated deployments using GitHub Actions, Firebase Hosting, Railway, and Docker for containerized backends. Enhanced delivery speed by up to 30% through the use of AI-powered development tools.',
     type: 'work',
     location: 'Remote',
     current: true,
