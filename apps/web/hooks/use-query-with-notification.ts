@@ -15,7 +15,7 @@
  */
 'use client';
 import { useQuery, QueryKey, UseQueryOptions, UseQueryResult } from '@tanstack/react-query';
-import { useEffect } from 'react';
+import { useEffect, useCallback, useRef } from 'react';
 import { useNotifications } from '@/store/contexts/notification-context';
 import { ANIMATION_DURATIONS } from '@/lib/constants';
 
@@ -34,12 +34,17 @@ export function useQueryWithNotification<
   const { addNotification } = useNotifications();
   const query = useQuery(options);
 
-  useEffect(() => {
-    if (query.isSuccess && query.data && options.showSuccessNotification) {
+  // Use refs to track if notifications have been shown to avoid duplicates
+  const hasShownSuccess = useRef(false);
+  const hasShownError = useRef(false);
+
+  // Memoized notification handlers
+  const showSuccessNotification = useCallback(
+    (data: TData) => {
       const message =
         options.successMessage ||
-        (query.data && typeof query.data === 'object' && 'message' in query.data
-          ? (query.data as { message?: string }).message
+        (data && typeof data === 'object' && 'message' in data
+          ? (data as { message?: string }).message
           : undefined) ||
         'Loaded successfully.';
       addNotification({
@@ -47,15 +52,16 @@ export function useQueryWithNotification<
         message,
         duration: ANIMATION_DURATIONS.NOTIFICATION,
       });
-    }
-  }, [query.isSuccess, options.showSuccessNotification]);
+    },
+    [addNotification, options.successMessage],
+  );
 
-  useEffect(() => {
-    if (query.isError && query.error) {
+  const showErrorNotification = useCallback(
+    (error: TError) => {
       const errorMessage =
         options.errorMessage ||
-        (query.error && typeof query.error === 'object' && 'message' in query.error
-          ? (query.error as { message?: string }).message
+        (error && typeof error === 'object' && 'message' in error
+          ? (error as { message?: string }).message
           : undefined) ||
         'Failed to load data.';
       addNotification({
@@ -63,8 +69,33 @@ export function useQueryWithNotification<
         message: errorMessage,
         duration: ANIMATION_DURATIONS.ERROR_NOTIFICATION,
       });
+    },
+    [addNotification, options.errorMessage],
+  );
+
+  // Handle success notification
+  useEffect(() => {
+    if (query.isSuccess && query.data && options.showSuccessNotification && !hasShownSuccess.current) {
+      hasShownSuccess.current = true;
+      showSuccessNotification(query.data);
     }
-  }, [query.isError]);
+    // Reset when query is refetching
+    if (query.isFetching) {
+      hasShownSuccess.current = false;
+    }
+  }, [query.isSuccess, query.data, query.isFetching, options.showSuccessNotification, showSuccessNotification]);
+
+  // Handle error notification
+  useEffect(() => {
+    if (query.isError && query.error && !hasShownError.current) {
+      hasShownError.current = true;
+      showErrorNotification(query.error);
+    }
+    // Reset when query is refetching
+    if (query.isFetching) {
+      hasShownError.current = false;
+    }
+  }, [query.isError, query.error, query.isFetching, showErrorNotification]);
 
   return query;
 }
