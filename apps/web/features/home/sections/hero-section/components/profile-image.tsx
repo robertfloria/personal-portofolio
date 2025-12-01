@@ -51,12 +51,13 @@ export const ProfileImage: React.FC = () => {
           })}
         </div>
         <motion.div
-          className="absolute top-2 lg:top-5 -right-4 glass-zone px-6 py-3 rounded-full shadow-lg font-semibold  border border-border flex justify-start w-auto"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: ANIMATION_DURATIONS.LOOP, delay: 1.5 }}
+          className="absolute top-2 lg:top-5 -right-4 glass-zone px-6 py-3 rounded-full shadow-lg font-semibold border border-border flex justify-start w-auto"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, type: 'spring' }}
         >
           <Text variant="label" className="text-primary">
-            👋 Welcome
+            Available for work
           </Text>
         </motion.div>
       </div>

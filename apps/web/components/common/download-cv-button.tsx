@@ -26,25 +26,33 @@ export const DownloadCvButton: React.FC<DownloadCvButtonProps> = ({
   size = 'lg',
   textVariant = 'default',
 }) => {
-  const { refetch: downloadCV, isLoading } = useCvDownload();
+  const { data: cachedData, refetch, isLoading, isFetching } = useCvDownload();
 
   const handleDownload = async () => {
-    const data = await downloadCV();
-    if (data.isSuccess && data.data) {
-      downloadFile(data.data, 'cv.pdf');
+    // Use cached data if available, otherwise fetch
+    if (cachedData) {
+      downloadFile(cachedData, 'cv.pdf');
+      return;
+    }
+
+    const result = await refetch();
+    if (result.isSuccess && result.data) {
+      downloadFile(result.data, 'cv.pdf');
     }
   };
+
+  const loading = isLoading || isFetching;
 
   return (
     <Button
       onClick={handleDownload}
-      disabled={isLoading}
+      disabled={loading}
       className={className}
       variant="outline"
       size={size}
       leftIcon={<DownloadIcon size={textVariant === 'default' ? 20 : 15} />}
     >
-      {isLoading
+      {loading
         ? textVariant === 'default'
           ? 'Downloading...'
           : '...'

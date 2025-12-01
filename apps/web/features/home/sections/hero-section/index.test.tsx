@@ -4,12 +4,12 @@ import { Providers } from '../../../../components/layout/providers';
 import { HeroSection } from '.';
 
 describe('HeroSection', () => {
-  it('renders welcome badge', () => {
+  it('renders availability badge', () => {
     render(
       <Providers>
         <HeroSection />
       </Providers>,
     );
-    expect(screen.getByText(/Welcome/i)).toBeInTheDocument();
+    expect(screen.getByText(/Available for work/i)).toBeInTheDocument();
   });
 });

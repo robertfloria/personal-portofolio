@@ -61,9 +61,13 @@ function filterMotionProps(props: any): Record<string, unknown> {
   return filtered;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const createMotionComponent = (tag: string) => (props: any) =>
-  React.createElement(tag, filterMotionProps(props), props.children);
+function createMotionComponent(tag: string) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const MotionComponent = (props: any) =>
+    React.createElement(tag, filterMotionProps(props), props.children);
+  MotionComponent.displayName = `motion.${tag}`;
+  return MotionComponent;
+}
 
 const motionObj = {
   div: createMotionComponent('div'),

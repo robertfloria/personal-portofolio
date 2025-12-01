@@ -2,9 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 import { Button, Card, Heading, Text, IconBadge, DownloadCvButton } from '@/components/common';
-import { SocialButton } from '@/components/common/social-button';
-import { personalInfo, socialLinks } from '@/lib/data';
-import { iconMap } from '../lib/data';
+import { personalInfo } from '@/lib/data';
 import Link from 'next/link';
 
 export const HeroText: React.FC = () => {
@@ -62,57 +60,22 @@ export const HeroText: React.FC = () => {
         </motion.div>
 
         <motion.div
-          className="flex flex-wrap gap-4 justify-start"
+          className="flex flex-wrap gap-4 justify-center lg:justify-start"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
         >
-          <Link href="#contact" className="flex w-full lg:w-auto">
+          <Link href="#contact" className="flex w-full sm:w-auto">
             <Button
               variant="primary"
               size="lg"
-              className="flex w-full lg:w-auto"
+              className="flex w-full sm:w-auto"
               leftIcon={<Mail size={20} />}
             >
               Get In Touch
             </Button>
           </Link>
-          <DownloadCvButton className="flex w-full lg:w-auto" />
-          <Link href="#projects" className="flex w-full lg:w-auto">
-            <Button variant="outline" className="flex w-full lg:w-auto" size="lg">
-              View My Work →
-            </Button>
-          </Link>
-        </motion.div>
-
-        <motion.div
-          className="flex items-center gap-4 justify-center lg:justify-start"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-        >
-          <Text variant={'label'}>Connect</Text>
-          {socialLinks.map((social, index) => {
-            const Icon = iconMap[social.icon as keyof typeof iconMap];
-            return (
-              <motion.div
-                key={social.platform}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.8 + index * 0.1 }}
-              >
-                <SocialButton
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.platform}
-                  icon={Icon}
-                  size={20}
-                  variant="outline"
-                />
-              </motion.div>
-            );
-          })}
+          <DownloadCvButton className="flex w-full sm:w-auto" />
         </motion.div>
       </div>
     </motion.div>
