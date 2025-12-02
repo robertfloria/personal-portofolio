@@ -24,7 +24,7 @@ export const WelcomeModal = () => {
 
   return (
     <Modal isOpen={open} onClose={handleClose}>
-      <Modal.Content>
+      <Modal.Content className="max-w-md">
         <Modal.Body className="relative">
           <div className="flex flex-col gap-4 items-center justify-center py-6 px-2 sm:px-8">
             <div className="rounded-full relative overflow-hidden glass-zone">
