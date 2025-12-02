@@ -7,7 +7,10 @@ import { HeroText, InfoCard, ProfileImage, FloatingShapes } from './components';
 
 export function HeroSection() {
   return (
-    <Section id="home" className="min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8 overflow-hidden">
+    <Section
+      id="home"
+      className="min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8 overflow-hidden"
+    >
       {/* Subtle animated background particles */}
       <FloatingShapes />
 
@@ -16,7 +19,7 @@ export function HeroSection() {
           <ProfileImage />
           <HeroText />
         </div>
-        
+
         {/* Info Cards with staggered animation */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}

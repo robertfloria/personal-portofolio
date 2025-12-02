@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// Subtle floating particles - very minimal to not interfere with section transitions
+// Subtle floating particles
 const particles = [
   { size: 4, x: '15%', y: '25%', delay: 0, duration: 15 },
   { size: 3, x: '75%', y: '15%', delay: 1, duration: 18 },
@@ -26,11 +26,11 @@ export const FloatingShapes: React.FC = () => {
             left: particle.x,
             top: particle.y,
             background: 'hsl(var(--primary))',
-            opacity: 0.15,
+            opacity: 0.5,
           }}
           animate={{
             y: [0, -20, 0],
-            opacity: [0.1, 0.25, 0.1],
+            opacity: [0.3, 0.5, 0.3],
           }}
           transition={{
             duration: particle.duration,
@@ -40,6 +40,41 @@ export const FloatingShapes: React.FC = () => {
           }}
         />
       ))}
+
+      {/* Animated grid pattern */}
+      <svg
+        className="absolute inset-0 w-full h-full opacity-[0.02] dark:opacity-[0.15]"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <pattern id="hero-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path
+              d="M 60 0 L 0 0 0 60"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1"
+              className="text-primary"
+            />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#hero-grid)" />
+      </svg>
+
+      {/* Top fade gradient - blends into background */}
+      <div
+        className="absolute top-0 left-0 right-0 h-32 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to bottom, hsl(var(--background)) 0%, transparent 100%)',
+        }}
+      />
+
+      {/* Bottom fade gradient - blends into background */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to top, hsl(var(--background)) 0%, transparent 100%)',
+        }}
+      />
     </div>
   );
 };

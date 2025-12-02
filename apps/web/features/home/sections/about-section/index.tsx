@@ -28,7 +28,7 @@ export function AboutSection() {
               className="group p-4 md:p-6 lg:p-8"
               animationDelay={index * 0.05}
             >
-              <Card.Content className="flex flex-row gap-4 justify-center items-start">
+              <Card.Content className="flex flex-row gap-4 items-start">
                 <IconBadge
                   iconKey={iconKey}
                   variant="gradient"
