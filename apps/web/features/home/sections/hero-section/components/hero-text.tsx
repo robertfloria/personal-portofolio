@@ -13,7 +13,7 @@ export const HeroText: React.FC = () => {
       transition={{ duration: 0.6 }}
       className="order-2 lg:order-2 justify-center items-center flex"
     >
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-component">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export const HeroText: React.FC = () => {
           transition={{ delay: 0.4 }}
         >
           <Card hover="glow" padding="md">
-            <Card.Content className="flex flex-row gap-4 justify-center items-start">
+            <Card.Content className="flex flex-row gap-content justify-center items-start">
               <IconBadge iconKey="Briefcase" variant="solid" size="md" className="shrink-0" />
               <div>
                 <Card.Header>{personalInfo.title}</Card.Header>
@@ -60,7 +60,7 @@ export const HeroText: React.FC = () => {
         </motion.div>
 
         <motion.div
-          className="flex flex-wrap gap-4 justify-center lg:justify-start"
+          className="flex flex-wrap gap-content justify-center lg:justify-start"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}

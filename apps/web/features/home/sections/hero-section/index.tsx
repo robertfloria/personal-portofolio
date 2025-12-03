@@ -9,13 +9,13 @@ export function HeroSection() {
   return (
     <Section
       id="home"
-      className="min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8 overflow-hidden relative"
+      className="min-h-screen flex items-center justify-center p-section md:p-section-md lg:p-section-lg overflow-hidden relative"
     >
       {/* Subtle animated background particles */}
       <FloatingShapes />
 
-      <div className="max-w-7xl mx-auto w-full relative z-10 flex flex-col gap-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <div className="max-w-7xl mx-auto w-full relative z-10 flex flex-col gap-section">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-grid items-center">
           <ProfileImage />
           <HeroText />
         </div>
@@ -25,7 +25,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8"
+          className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-grid"
         >
           {infoItems.map((item, index) => (
             <InfoCard

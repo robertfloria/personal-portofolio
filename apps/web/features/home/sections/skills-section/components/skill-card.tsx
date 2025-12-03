@@ -16,12 +16,12 @@ const SkillCardComponent: React.FC<SkillCardProps> = ({ skill, animationDelay })
     key={skill.name}
     animationDelay={animationDelay}
     hover="glow"
-    className="group p-3 sm:p-4 md:p-6"
+    className="group p-card sm:p-card-md md:p-card-lg"
     variant={'glass'}
   >
     <Card.Content>
-      <div className="flex flex-col gap-4">
-        <div className="flex items-center gap-4">
+      <div className="flex flex-col gap-content">
+        <div className="flex items-center gap-content">
           {skill.iconKey && (
             <IconBadge
               iconKey={skill.iconKey}

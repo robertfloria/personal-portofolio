@@ -28,7 +28,7 @@ const ProjectModalComponent: React.FC<ProjectModalProps> = ({
         </Modal.Header>
         <Modal.Body>
           {project.images && project.images.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-content">
               {project.images.map((img, idx) => (
                 <div
                   key={idx}
@@ -80,7 +80,7 @@ const ProjectModalComponent: React.FC<ProjectModalProps> = ({
             </div>
           </div>
           {(project.githubUrl || project.liveUrl) && (
-            <div className="flex flex-wrap gap-4 pt-4 border-t border-border dark:border-card">
+            <div className="flex flex-wrap gap-content pt-4 border-t border-border dark:border-card">
               {project.githubUrl && (
                 <a
                   href={project.githubUrl}

@@ -63,7 +63,7 @@ export const ProfileImage: React.FC = () => {
 
           {/* Social buttons with improved styling */}
           <motion.div
-            className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-4 justify-center items-center z-20"
+            className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-content justify-center items-center z-20"
             aria-label="Profile Social Links"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

@@ -25,7 +25,7 @@ export const Toast: React.FC = () => {
       aria-live="polite"
       aria-atomic="true"
     >
-      <div className="flex flex-col gap-6 pointer-events-auto">
+      <div className="flex flex-col gap-component pointer-events-auto">
         {notifications.map((notification: NotificationItem) => (
           <ToastItem
             key={notification.id}

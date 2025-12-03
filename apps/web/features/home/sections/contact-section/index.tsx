@@ -8,7 +8,7 @@ import globeAnimation from '../../../../public/lottie/globe.json';
 
 export function ContactSection() {
   return (
-    <Section id="contact" className="p-4 md:p-6 lg:p-8">
+    <Section id="contact" className="p-section md:p-section-md lg:p-section-lg">
       <Section.Header>
         <div className="text-center mx-auto">
           <Section.Title highlightText="Touch">Get In</Section.Title>
@@ -20,7 +20,7 @@ export function ContactSection() {
       <div className="flex justify-center">
         <Card
           variant="default"
-          className="p-3 sm:p-4 md:p-8 w-full md:w-[70vw] md:max-w-[900px]"
+          className="p-card sm:p-card-md md:p-card-lg w-full md:w-[70vw] md:max-w-[900px]"
           hover="none"
           animationDelay={0.2}
         >
@@ -32,7 +32,7 @@ export function ContactSection() {
             <h3 className="text-lg font-semibold mb-6 text-foreground text-center">
               Other Ways to Reach Me
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-component">
               {contactMethods.map((method) => (
                 <ContactMethodCard key={method.label} method={method} />
               ))}

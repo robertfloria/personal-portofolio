@@ -46,7 +46,7 @@ const ProjectCardComponent: React.FC<ProjectCardProps> = ({ project, animationDe
         </Badge>
       )}
     </div>
-    <Card.Footer className="flex flex-col gap-3 items-start p-3 sm:p-4 md:p-6">
+    <Card.Footer className="flex flex-col gap-3 items-start p-card sm:p-card-md md:p-card-lg">
       <Card.Title className="text-base sm:text-lg md:text-xl group-hover:text-primary transition-colors">
         {project.title}
       </Card.Title>

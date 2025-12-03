@@ -110,7 +110,7 @@ function ModalBase({ isOpen, onClose, children, className }: ModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className={cn(
-              'fixed inset-0 z-50 flex items-center justify-center bg-[hsl(var(--card)/0.72)] dark:bg-[rgba(20,22,34,0.72)] p-4',
+              'fixed inset-0 z-50 flex items-center justify-center bg-[hsl(var(--card)/0.72)] dark:bg-[rgba(20,22,34,0.72)] p-section',
               className,
             )}
             onClick={onClose}
@@ -167,7 +167,7 @@ function ModalHeader({
   return (
     <div
       className={cn(
-        'glass-strong sticky top-0 border-b border-[hsl(var(--border)/1)] p-4 flex items-center justify-between z-10',
+        'glass-strong sticky top-0 border-b border-[hsl(var(--border)/1)] p-card-md flex items-center justify-between z-10',
         className,
       )}
       {...props}
@@ -201,7 +201,7 @@ function ModalHeader({
 
 function ModalBody({ children, className = '', ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn('p-6 space-y-6', className)} {...props}>
+    <div className={cn('p-card-lg space-y-6', className)} {...props}>
       {children}
     </div>
   );
@@ -209,7 +209,7 @@ function ModalBody({ children, className = '', ...props }: React.HTMLAttributes<
 
 function ModalFooter({ children, className = '', ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn('p-6 border-t border-border text-right', className)} {...props}>
+    <div className={cn('p-card-lg border-t border-border text-right', className)} {...props}>
       {children}
     </div>
   );

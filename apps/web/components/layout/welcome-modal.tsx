@@ -26,7 +26,7 @@ export const WelcomeModal = () => {
     <Modal isOpen={open} onClose={handleClose}>
       <Modal.Content className="max-w-md">
         <Modal.Body className="relative">
-          <div className="flex flex-col gap-6 items-center justify-center py-6 px-2 sm:px-8">
+          <div className="flex flex-col gap-component items-center justify-center py-section px-2 sm:px-section-lg">
             <div className="rounded-full relative overflow-hidden ">
               <Heading
                 variant="h1"

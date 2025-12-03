@@ -10,7 +10,7 @@ interface InfoCardProps {
 
 export const InfoCard: React.FC<InfoCardProps> = ({ label, value, iconKey, animationDelay }) => (
   <Card hover="glow" padding="md" animationDelay={animationDelay} className="group">
-    <Card.Content className="flex gap-4">
+    <Card.Content className="flex gap-content">
       <IconBadge
         iconKey={iconKey}
         variant="solid"

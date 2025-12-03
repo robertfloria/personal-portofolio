@@ -14,8 +14,8 @@ export function Footer() {
 
   return (
     <footer className="bg-[hsl(var(--card)/0.7)] border-t border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+      <div className="max-w-7xl mx-auto px-section sm:px-section-md lg:px-section-lg py-section-md lg:py-section-lg">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-grid text-center md:text-left">
           <div className="w-auto flex flex-col gap-2">
             <h3 className="text-lg font-bold text-foreground">Robert Nicolae Floria</h3>
             <p className="text-muted-foreground">
@@ -44,7 +44,7 @@ export function Footer() {
           {/* Social Links */}
           <div className="w-auto flex flex-col gap-2">
             <h3 className="text-lg font-bold text-foreground">Connect With Me</h3>
-            <div className="flex gap-4 justify-center md:justify-start">
+            <div className="flex gap-content justify-center md:justify-start">
               {socialLinks.map((social, index) => {
                 const Icon = iconMap[social.icon as keyof typeof iconMap];
                 return (

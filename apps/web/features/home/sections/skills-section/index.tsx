@@ -11,7 +11,7 @@ export function SkillsSection() {
   const groupedSkills = useGroupBy<Skill, 'category'>(skills, 'category');
 
   return (
-    <Section id="skills" className="p-4 md:p-6 lg:p-8">
+    <Section id="skills" className="p-section md:p-section-md lg:p-section-lg">
       <Section.Header>
         <div className="text-center mx-auto">
           <Section.Title highlightText="Expertise">Skills &</Section.Title>
@@ -21,7 +21,7 @@ export function SkillsSection() {
         </div>
       </Section.Header>
 
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-section">
         {Object.entries(groupedSkills).map(([category, categorySkills]) => (
           <SkillCategorySection
             key={category}
