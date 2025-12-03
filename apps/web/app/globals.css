@@ -77,26 +77,26 @@ html::-webkit-scrollbar-thumb:hover {
        SPACING SYSTEM
        Consistent spacing values for the app
        ======================================== */
-    
+
     /* Gap values (for flex/grid gaps) */
-    --gap-xs: 0.375rem;    /* 6px  - gap-1.5 - micro spacing (text words) */
-    --gap-sm: 0.5rem;      /* 8px  - gap-2   - icons, badges, tiny items */
-    --gap-md: 1rem;        /* 16px - gap-4   - card content, icon+text */
-    --gap-lg: 1.5rem;      /* 24px - gap-6   - component stacks, sections */
-    --gap-xl: 2rem;        /* 32px - gap-8   - grid cards, section content */
-    --gap-2xl: 3rem;       /* 48px - gap-12  - major section divisions */
+    --gap-xs: 0.375rem; /* 6px  - gap-1.5 - micro spacing (text words) */
+    --gap-sm: 0.5rem; /* 8px  - gap-2   - icons, badges, tiny items */
+    --gap-md: 1rem; /* 16px - gap-4   - card content, icon+text */
+    --gap-lg: 1.5rem; /* 24px - gap-6   - component stacks, sections */
+    --gap-xl: 2rem; /* 32px - gap-8   - grid cards, section content */
+    --gap-2xl: 3rem; /* 48px - gap-12  - major section divisions */
 
     /* Padding values (for containers) */
-    --padding-xs: 0.5rem;  /* 8px  - p-2  - tight padding */
+    --padding-xs: 0.5rem; /* 8px  - p-2  - tight padding */
     --padding-sm: 0.75rem; /* 12px - p-3  - small cards mobile */
-    --padding-md: 1rem;    /* 16px - p-4  - default card padding */
-    --padding-lg: 1.5rem;  /* 24px - p-6  - comfortable padding */
-    --padding-xl: 2rem;    /* 32px - p-8  - spacious padding */
+    --padding-md: 1rem; /* 16px - p-4  - default card padding */
+    --padding-lg: 1.5rem; /* 24px - p-6  - comfortable padding */
+    --padding-xl: 2rem; /* 32px - p-8  - spacious padding */
 
     /* Section padding (responsive) */
-    --section-padding-mobile: 1rem;    /* p-4 */
-    --section-padding-tablet: 1.5rem;  /* p-6 */
-    --section-padding-desktop: 2rem;   /* p-8 */
+    --section-padding-mobile: 1rem; /* p-4 */
+    --section-padding-tablet: 1.5rem; /* p-6 */
+    --section-padding-desktop: 2rem; /* p-8 */
   }
 
   .dark {
@@ -149,33 +149,71 @@ html::-webkit-scrollbar-thumb:hover {
      Semantic classes for consistent spacing
      Use with Tailwind breakpoints: class md:class-md lg:class-lg
      ======================================== */
-  
+
   /* === GAP UTILITIES === */
-  .gap-content { gap: var(--gap-md); }         /* 16px - gap-4 - card content */
-  .gap-component { gap: var(--gap-lg); }       /* 24px - gap-6 - component stacks */
-  .gap-grid { gap: var(--gap-xl); }            /* 32px - gap-8 - grid cards */
-  .gap-section { gap: var(--gap-2xl); }        /* 48px - gap-12 - major sections */
+  .gap-content {
+    gap: var(--gap-md);
+  } /* 16px - gap-4 - card content */
+  .gap-component {
+    gap: var(--gap-lg);
+  } /* 24px - gap-6 - component stacks */
+  .gap-grid {
+    gap: var(--gap-xl);
+  } /* 32px - gap-8 - grid cards */
+  .gap-section {
+    gap: var(--gap-2xl);
+  } /* 48px - gap-12 - major sections */
 
   /* === PADDING UTILITIES === */
   /* Section padding (all sides) */
-  .p-section { padding: var(--padding-md); }           /* 16px - mobile */
-  .p-section-md { padding: var(--padding-lg); }        /* 24px - tablet */
-  .p-section-lg { padding: var(--padding-xl); }        /* 32px - desktop */
+  .p-section {
+    padding: var(--padding-md);
+  } /* 16px - mobile */
+  .p-section-md {
+    padding: var(--padding-lg);
+  } /* 24px - tablet */
+  .p-section-lg {
+    padding: var(--padding-xl);
+  } /* 32px - desktop */
 
   /* Section padding Y (vertical) */
-  .py-section { padding-top: var(--padding-xl); padding-bottom: var(--padding-xl); }           /* 32px */
-  .py-section-md { padding-top: var(--gap-2xl); padding-bottom: var(--gap-2xl); }              /* 48px */
-  .py-section-lg { padding-top: 4rem; padding-bottom: 4rem; }                                   /* 64px */
+  .py-section {
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-xl);
+  } /* 32px */
+  .py-section-md {
+    padding-top: var(--gap-2xl);
+    padding-bottom: var(--gap-2xl);
+  } /* 48px */
+  .py-section-lg {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  } /* 64px */
 
   /* Section padding X (horizontal) */
-  .px-section { padding-left: var(--padding-md); padding-right: var(--padding-md); }           /* 16px */
-  .px-section-md { padding-left: var(--padding-lg); padding-right: var(--padding-lg); }        /* 24px */
-  .px-section-lg { padding-left: var(--padding-xl); padding-right: var(--padding-xl); }        /* 32px */
+  .px-section {
+    padding-left: var(--padding-md);
+    padding-right: var(--padding-md);
+  } /* 16px */
+  .px-section-md {
+    padding-left: var(--padding-lg);
+    padding-right: var(--padding-lg);
+  } /* 24px */
+  .px-section-lg {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+  } /* 32px */
 
   /* Card padding */
-  .p-card { padding: var(--padding-sm); }              /* 12px - mobile */
-  .p-card-md { padding: var(--padding-md); }           /* 16px - tablet */
-  .p-card-lg { padding: var(--padding-lg); }           /* 24px - desktop */
+  .p-card {
+    padding: var(--padding-sm);
+  } /* 12px - mobile */
+  .p-card-md {
+    padding: var(--padding-md);
+  } /* 16px - tablet */
+  .p-card-lg {
+    padding: var(--padding-lg);
+  } /* 24px - desktop */
 
   .text-foreground {
     color: hsl(var(--foreground) / 1);

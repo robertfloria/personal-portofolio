@@ -1,725 +1,279 @@
-# Personal Portfolio - Professional Monorepo
+# Personal Portfolio Monorepo
 
-A modern personal portfolio built as a professional monorepo with Next.js 16 (frontend), NestJS (backend API), and shared packages. Features TypeScript, Tailwind CSS, clean architecture, and automated CI/CD. Includes a featured "Personal Portfolio" project entry and robust email API with fast-fail timeouts and improved error handling.
+A modern, professional portfolio built as a **monorepo** with Next.js 16 (frontend), NestJS (backend API), and shared packages.
 
-# Robert Nicolae Floria - Personal Portfolio Monorepo
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
+![NestJS](https://img.shields.io/badge/NestJS-11-red?logo=nestjs)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?logo=tailwindcss)
 
-A modern, professional portfolio built as a monorepo with Next.js 16 (frontend), NestJS (backend API), and shared packages. Features TypeScript, Tailwind CSS, clean architecture, robust email API, and automated CI/CD. Includes a featured "Personal Portfolio" project entry, AI-powered integrations, and mobile app showcase.
+## ✨ Features
 
-## 🚀 Recent Improvements
+- **Monorepo Architecture** — Shared types and utilities across frontend/backend
+- **Modern Stack** — Next.js 16 (App Router), NestJS 11, TypeScript 5.7, Tailwind CSS v4
+- **Design System** — Semantic spacing utilities, glassmorphism effects, dark/light themes
+- **Responsive Design** — Mobile-first with Framer Motion animations
+- **Contact Form** — Email with validation and rate limiting (Gmail SMTP)
+- **CV Download** — Secure AWS S3 integration with API key protection
+- **CI/CD** — GitHub Actions for testing and deployment
+- **Docker Ready** — Containerized web and API apps
 
-- **Unified API Key Guard**: All API endpoints (CV, email, etc.) now use a single, reusable guard for security.
-- **Secure Endpoints**: Sensitive API keys are never exposed to the client; all secrets are handled server-side.
-- **CV Download**: Download your CV securely via a protected API route, with binary response handling and a reusable download utility.
-- **Lottie Animations**: Integrated with `lottie-react` for beautiful UI animations; tests use a custom mock to avoid JSDOM/canvas errors.
-- **React Query + NotificationProvider**: All mutation hooks use a reusable notification wrapper for consistent UX and less boilerplate.
-- **Clean Architecture**: Service and hook layers are fully typed, extensible, and easy to maintain.
-- **Testing**: Jest tests use custom mocks for Lottie, next-themes, framer-motion, and more. All suites pass.
+### Portfolio Sections
 
-## 🚀 Features
+| Section          | Description                                                      |
+| ---------------- | ---------------------------------------------------------------- |
+| **Hero**         | Animated profile image, social links, "Available for work" badge |
+| **About**        | Services showcase with icons                                     |
+| **Skills**       | Progress bars grouped by category                                |
+| **Projects**     | Card gallery with detail modals                                  |
+| **Timeline**     | Professional experience & education                              |
+| **Certificates** | Certification gallery with modals                                |
+| **Contact**      | Form with validation                                             |
 
-- **Monorepo Architecture**: Professional workspace with shared types and utilities
-- **Modern Stack**: Next.js 16, NestJS, React Native (Expo), TypeScript, Tailwind CSS
-- **AI Integration**: OpenAI-powered features, MCP servers, prompt engineering
-- **Mobile App**: Expo-based cross-platform app published to Google Play & App Store
-- **Shared Code**: Type-safe shared types and utilities between frontend/backend
-- **CI/CD Pipeline**: Automated testing, building, and deployment via GitHub Actions & Jenkins
-- **Dark Mode**: System-aware theme switching with persistent preferences
-- **Responsive Design**: Mobile-first approach with smooth animations
-- **Contact Form**: Email functionality with validation and rate limiting
-- **Featured Sections**:
-  - Hero with personal info
-  - About/Services
-  - Skills with progress bars
-  - Projects showcase (web, mobile, AI)
-  - Professional timeline
-  - Certificates gallery
-  - Contact form
-
-## 📁 Monorepo Structure & CV Download Flow
-
-### Key Folders & Modules
+## 📁 Project Structure
 
 ```
 personal-portofolio/
-├── apps/
-│   ├── api/
-│   │   ├── src/
-│   │   │   ├── email/      # Email module (API, DTO, guards)
-│   │   │   ├── cv/         # CV module (S3 integration, controller, service, guard)
-│   │   │   └── common/     # Shared guards (ApiKeyGuard)
-│   │   └── test/           # e2e tests
-│   └── web/
-│       ├── app/            # Next.js app directory
-│       ├── components/     # React components (common, layout)
-│       ├── features/
-│       │   └── home/sections/ # Hero, About, Skills, Projects, Timeline, Certificates, Contact
-│       ├── hooks/          # Custom React hooks (use-cv-download, use-send-email)
-│       ├── lib/            # Data, constants, utils (downloadFile)
-│       ├── services/       # API services (email, cv)
-│       ├── store/          # Contexts
-│       └── types/          # Local types
-├── packages/
-│   ├── shared-types/       # TypeScript definitions
-│   └── shared-utils/       # Validation, helpers
-└── ...
-```
-
-### CV Download Flow (AWS S3 Integration)
-
-- **Storage**: Your CV PDF is stored securely in AWS S3.
-- **Backend (NestJS)**:
-  - `cv.service.ts`: Connects to S3, retrieves the PDF as a stream.
-  - `cv.controller.ts`: Exposes a `/cv/pdf` endpoint, protected by `ApiKeyGuard`.
-  - Environment variables in `apps/api/.env`:
-    ```env
-    AWS_REGION=your-region
-    AWS_ACCESS_KEY_ID=your-access-key-id
-    AWS_SECRET_ACCESS_KEY=your-secret-access-key
-    AWS_S3_BUCKET=your-bucket-name
-    AWS_S3_CV_KEY=cv.pdf
-    API_SECRET=your-api-key
-    ```
-- **Frontend (Next.js)**:
-  - `app/api/cv/route.ts`: Proxies requests to the backend, returns the PDF as a binary response.
-  - `download-cv-button.tsx`: Uses a custom hook and utility to trigger the download and save the file.
-  - No secrets are exposed to the client; all security is handled server-side.
-
-### Example Usage
-
-1. User clicks "Download CV" button in the UI.
-2. Next.js API route (`/api/cv`) calls the backend (`/cv/pdf`) with the API key (server-side only).
-3. Backend retrieves the PDF from S3 and streams it back.
-4. Frontend receives the binary response and saves the file using a reusable utility.
-
-```
-personal-portofolio/
-├── .github/
-│   └── workflows/           # CI/CD pipelines
+├── .github/workflows/       # CI/CD pipelines
+│   ├── ci-cd.yml           # Main deployment
+│   └── pr-checks.yml       # PR validation
 ├── apps/
 │   ├── api/                # NestJS backend
-│   │   ├── src/
-│   │   │   ├── email/      # Email module (API, DTO, guards)
-│   │   │   └── ...         # Controllers, services
-│   │   └── test/           # e2e tests
+│   │   └── src/
+│   │       ├── common/     # Shared guards (ApiKeyGuard)
+│   │       ├── cv/         # CV module (S3 integration)
+│   │       └── email/      # Email module (nodemailer)
 │   └── web/                # Next.js frontend
-│       ├── app/            # Next.js app directory
-│       ├── components/     # React components (common, layout)
-│       ├── features/
-│       │   └── home/sections/ # Hero, About, Skills, Projects, Timeline, Certificates, Contact
+│       ├── app/            # App Router pages & API routes
+│       ├── components/     # UI components
+│       │   ├── common/     # Button, Card, Modal, Input, etc.
+│       │   └── layout/     # Navbar, Footer, Toast, WelcomeModal
+│       ├── features/home/  # Page sections
 │       ├── hooks/          # Custom React hooks
-│       ├── lib/            # Data, constants, utils
-│       ├── public/images/  # Images (certificates, profile, projects)
-│       ├── services/       # Email service
-│       ├── store/          # Contexts
-│       └── types/          # Local types
+│       ├── lib/            # Utils, constants, data
+│       ├── services/       # API service layer
+│       └── store/          # React contexts
 ├── packages/
 │   ├── shared-types/       # TypeScript definitions
-│   └── shared-utils/       # Validation, helpers
-├── Dockerfile.api          # API Docker config
-├── Dockerfile.web          # Web Docker config
-├── package.json            # Workspace configuration
-└── README.md
+│   └── shared-utils/       # Shared utilities
+├── Dockerfile.api
+├── Dockerfile.web
+└── package.json            # Workspace config
 ```
 
-## 🛠️ Setup Instructions
+## 🎨 Design System
+
+### Semantic Spacing Classes
+
+Defined in `globals.css` for consistent layout across the app:
+
+```css
+/* Gap utilities */
+.gap-content    { gap: 1rem; }    /* 16px - card content */
+.gap-component  { gap: 1.5rem; }  /* 24px - component stacks */
+.gap-grid       { gap: 2rem; }    /* 32px - grid cards */
+.gap-section    { gap: 3rem; }    /* 48px - major sections */
+
+/* Responsive padding */
+.p-section      /* 16px mobile → 24px tablet → 32px desktop */
+.p-card         /* 12px mobile → 16px tablet → 24px desktop */
+```
+
+**Usage:**
+
+```tsx
+<Section className="p-section md:p-section-md lg:p-section-lg">
+<div className="grid gap-grid">
+<Card className="p-card sm:p-card-md md:p-card-lg">
+```
+
+### Theme
+
+- **Primary**: Blue-teal `hsl(200 90% 45%)`
+- **Accent**: Purple `hsl(270 85% 60%)`
+- **Glassmorphism**: `.glass-zone`, `.glass-strong`, `.glass-ultra`
+- **Tailwind v4 syntax**: `[hsl(var(--color)/0.8)]` for opacity
+
+## 🛠️ Setup
 
 ### Prerequisites
 
-- Node.js 20.x or higher
-- npm or yarn
+- Node.js 20+
+- npm 10+
 
 ### Installation
 
-1. **Clone the repository**
+```bash
+# Clone
+git clone https://github.com/robertfloria/personal-portofolio.git
+cd personal-portofolio
 
-   ```bash
-   git clone <your-repo-url>
-   cd personal-portofolio
-   ```
+# Install all dependencies
+npm install
 
-2. **Install all dependencies (monorepo)**
+# Build shared packages
+npm run build --workspace=@portfolio/shared-types
+npm run build --workspace=@portfolio/shared-utils
+```
 
-   ```bash
-   npm install
-   ```
+### Environment Variables
 
-3. **Build shared packages**
+**API** (`apps/api/.env`):
 
-   ```bash
-   npm run build --workspace=@portfolio/shared-types
-   npm run build --workspace=@portfolio/shared-utils
-   ```
+```env
+PORT=4000
+NODE_ENV=development
+CORS_ORIGIN=http://localhost:3000
+API_SECRET=your-api-key
 
-4. **Configure environment variables**
+# Gmail SMTP
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-app-password
+RECIPIENT_EMAIL=your-email@gmail.com
 
-   **For the API** (`apps/api/.env`):
+# AWS S3 (CV)
+AWS_REGION=your-region
+AWS_ACCESS_KEY_ID=your-key
+AWS_SECRET_ACCESS_KEY=your-secret
+AWS_S3_BUCKET=your-bucket
+AWS_S3_CV_KEY=cv.pdf
+```
 
-   ```env
-   PORT=4000
-   NODE_ENV=development
-   CORS_ORIGIN=http://localhost:3000
+**Web** (`apps/web/.env.local`):
 
-   # Gmail Configuration
-   EMAIL_USER=your-email@gmail.com
-   EMAIL_PASS=your-app-password
-   RECIPIENT_EMAIL=your-email@gmail.com
-   ```
+```env
+NEST_API_URL=http://localhost:4000/api
+API_SECRET=your-api-key
+```
 
-   **For the Web** (`apps/web/.env.local`):
-
-   ```env
-   NEST_API_URL=http://localhost:4000/api
-   ```
-
-5. **Setup Gmail App Password** (for contact form):
-   - Go to your Google Account settings
-   - Enable 2-Step Verification
-   - Generate an App Password for "Mail"
-   - Use this password in `EMAIL_PASS`
-
-### Running the Applications
-
-#### Development Mode (from root)
-
-**Option 1: Run both apps concurrently**
+### Development
 
 ```bash
+# Run both apps concurrently
 npm run dev
+
+# Or separately
+npm run dev:api   # http://localhost:4000
+npm run dev:web   # http://localhost:3000
 ```
 
-**Option 2: Run separately**
+### Production
 
 ```bash
-# Terminal 1 - API
-npm run dev:api
-
-# Terminal 2 - Web
-npm run dev:web
-```
-
-- API: http://localhost:4000
-- Web: http://localhost:3000
-
-#### Production Mode
-
-```bash
-# Build everything
 npm run build
-
-# Start API
 npm run start:prod --workspace=api
-
-# Start Web
 npm run start --workspace=web
 ```
 
-## 🐳 Docker Usage
-
-Both web and API have Dockerfiles for containerized local development and deployment.
-
-- `Dockerfile.web` — Next.js frontend
-- `Dockerfile.api` — NestJS backend
-
-### Build and Run Locally
+## 🐳 Docker
 
 ```bash
-# Build web image
+# Build
 docker build -f Dockerfile.web -t portfolio-web .
-# Build api image
 docker build -f Dockerfile.api -t portfolio-api .
 
-# Run containers (example)
+# Run
 docker run -p 3000:3000 portfolio-web
 docker run -p 4000:4000 portfolio-api
 ```
 
-## 🧩 Shared Packages
-
-- `packages/shared-types`: TypeScript type definitions shared between frontend and backend
-- `packages/shared-utils`: Utility functions, validation, and logging (dev-console)
-
 ## 🧪 Testing
 
-- **Frontend (web)**: Jest with React Testing Library. Custom mocks in `__mocks__` for:
-  - `lottie-react` (prevents JSDOM/canvas errors)
-  - `next-themes`, `next-image`, `framer-motion`
-- **Backend (api)**: Jest unit tests and e2e tests (see `test/app.e2e-spec.ts` and `test/jest-e2e.json`)
-
-### Running Tests
-
 ```bash
-npm test
+npm run test      # All workspaces
+npm run test --workspace=web
+npm run test --workspace=api
 ```
 
-If you add new animation components, create a mock in `__mocks__` to keep tests passing.
+Custom mocks in `apps/web/__mocks__/` for: `lottie-react`, `framer-motion`, `next-themes`, `next-image`
 
-## 🔄 CI/CD Workflows
+## 📜 Available Scripts
 
-- `.github/workflows/ci-cd.yml`: Main deployment pipeline (build, test, deploy)
-- `.github/workflows/pr-checks.yml`: PR validation (lint, type-check, test)
-
-## 🔧 Monorepo Commands
-
-All commands run from the root directory:
-
-```bash
-# Development
-npm run dev              # Start both web and api
-npm run dev:web         # Start only web
-npm run dev:api         # Start only api
-
-# Building
-npm run build           # Build all workspaces
-npm run build:web       # Build web only
-npm run build:api       # Build api only
-
-# Quality
-npm run lint            # Lint all workspaces
-npm run lint:fix        # Lint and fix all
-npm run type-check      # Type check all
-npm run format          # Format all code
-
-# Testing
-npm run test            # Run all tests
-npm run clean           # Clean all build artifacts
-```
+| Command              | Description           |
+| -------------------- | --------------------- |
+| `npm run dev`        | Start web + api       |
+| `npm run dev:web`    | Start web only        |
+| `npm run dev:api`    | Start api only        |
+| `npm run build`      | Build all workspaces  |
+| `npm run lint`       | Lint all              |
+| `npm run lint:fix`   | Lint and fix          |
+| `npm run type-check` | TypeScript check      |
+| `npm run format`     | Prettier format       |
+| `npm run test`       | Run all tests         |
+| `npm run clean`      | Clean build artifacts |
 
 ## 📝 Customization
 
-### Personal Information
+| Data          | Location                                                           |
+| ------------- | ------------------------------------------------------------------ |
+| Personal info | `apps/web/lib/data.ts`                                             |
+| Skills        | `apps/web/features/home/sections/skills-section/lib/data.ts`       |
+| Projects      | `apps/web/features/home/sections/projects-section/lib/data.ts`     |
+| Timeline      | `apps/web/features/home/sections/timeline-section/lib/data.ts`     |
+| Certificates  | `apps/web/features/home/sections/certificates-section/lib/data.ts` |
+| Services      | `apps/web/features/home/sections/about-section/lib/data.ts`        |
+| Theme/Styling | `apps/web/app/globals.css`                                         |
+| Images        | `apps/web/public/images/`                                          |
 
-Update your personal details in `apps/web/lib/data.ts`:
-
-- `name`, `title`, `bio`, `about`, `email`, `phone`, `location`, `education`, `university`, `profileImage`
-- Social links: GitHub, LinkedIn, Email
-
-### Skills
-
-Edit your skills in `apps/web/features/home/sections/skills-section/lib/data.ts`:
-
-- Add or update skills, categories, proficiency, years of experience
-
-### Projects
-
-Showcase your projects in `apps/web/features/home/sections/projects-section/lib/data.ts`:
-
-- Add new projects, update details, images, technologies, features
-
-### Timeline
-
-Edit your education and work experience in `apps/web/features/home/sections/timeline-section/lib/data.ts`
-
-### Certificates
-
-Add certificates in `apps/web/features/home/sections/certificates-section/lib/data.ts`
-
-### Services
-
-Edit offered services in `apps/web/features/home/sections/about-section/lib/data.ts`
-
-### Images
-
-Place your images in `apps/web/public/images/`:
-
-- `certificates/` - Certificate images
-- `profile/` - Profile photo
-- `projects/` - Project screenshots
-
-## 🔧 Technologies Used
-
-### Frontend
-
-- **Next.js 16** - React framework with App Router
-- **React Native (Expo)** - Mobile app development
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Utility-first styling
-- **Framer Motion** - Animations
-- **Lucide React** - Icons
-- **next-themes** - Dark mode
-
-### Backend
-
-- **NestJS** - Node.js framework
-- **TypeScript** - Type safety
-- **class-validator** - DTO validation
-- **nodemailer** - Email sending
-- **@nestjs/throttler** - Rate limiting
-
-### AI & DevOps
-
-- **OpenAI API** - AI-powered features
-- **GitHub Copilot** - AI coding assistant
-- **MCP Servers** - Model Context Protocol
-- **Jenkins** - CI/CD pipelines
-- **Docker** - Containerization
-
-## 📚 API Endpoints & Email Implementation
+## 📚 API Endpoints
 
 ### Email
 
-- `POST /api/email/send` — Send contact form email
-  ```json
-  {
-    "name": "John Doe",
-    "from": "john@example.com",
-    "subject": "Project Inquiry",
-    "message": "Hello, I'd like to discuss..."
-  }
-  ```
+```http
+POST /api/email/send
+Content-Type: application/json
 
-#### Implementation Notes
-
-- Uses Nodemailer with Gmail SMTP (app password required)
-- API fails fast (10s timeout) if SMTP is unreachable
-- Transporter verified on startup (logs success/failure)
-- All errors logged and returned with clear messages
-- For production, consider SendGrid/Mailgun/Postmark HTTP APIs for more reliable delivery
-
-#### Troubleshooting Email Delivery
-
-- Check outbound SMTP connectivity (e.g., `Test-NetConnection -ComputerName smtp.gmail.com -Port 587`)
-- Correct Gmail app password and 2FA
-- Cloud provider firewall rules (many block SMTP ports)
-- API logs for transporter verification and send errors
-
-## ✅ Quality & Status
-
-- All code is linted and passes tests across all workspaces
-- ESLint warnings remain for unused imports (safe to ignore or clean up)
-- Email API is robust and fails fast for unreachable SMTP
-
-## 🚢 Deployment
-
-### Vercel (Recommended for Next.js)
-
-1. Push code to GitHub
-2. Import project in Vercel
-3. Set root directory to `apps/web`
-4. Add environment variables
-5. Deploy
-
-### Backend Deployment Options
-
-- **Railway** - Easy deployment with auto-scaling
-- **Render** - Free tier available
-- **Heroku** - Classic PaaS
-- **DigitalOcean** - VPS option
-
-Remember to update `NEST_API_URL` and `CORS_ORIGIN` in production!
-
-## 📝 Author & Contact
-
-**Robert Nicolae Floria**
-
-- LinkedIn: [robert-nicolae-floria](https://www.linkedin.com/in/robert-nicolae-floria-51981920b/)
-- GitHub: [@robertfloria](https://github.com/robertfloria)
-- Email: robertfloria27@gmail.com
-
----
-
-Built with ❤️ using Next.js, React Native, and NestJS
-
-- Contact form
-
-## 📁 Monorepo Structure
-
-```
-personal-portfolio-monorepo/
-├── .github/
-│   └── workflows/           # CI/CD pipelines
-│       ├── ci-cd.yml       # Main deployment
-│       └── pr-checks.yml   # PR validation
-├── apps/
-│   ├── web/                # Next.js frontend
-│   │   ├── app/           # Next.js app directory
-│   │   ├── components/    # React components
-│   │   ├── data/          # Static data
-│   │   ├── lib/           # Utilities
-│   │   └── types/         # Local types
-│   └── api/               # NestJS backend
-│       └── src/
-│           ├── email/     # Email module
-│           └── main.ts    # Entry point
-├── packages/              # Shared code
-│   ├── shared-types/     # TypeScript definitions
-│   └── shared-utils/     # Validation, helpers
-├── package.json          # Workspace configuration
-└── README.md
-│
-└── api/              # NestJS backend
-    └── src/
-        └── email/    # Email module
+{ "name": "John", "from": "john@example.com", "subject": "Hello", "message": "..." }
 ```
 
-## 🛠️ Setup Instructions
+### CV Download
 
-### Prerequisites
-
-- Node.js 20.x or higher
-- npm or yarn
-
-### Installation
-
-1. **Clone the repository**
-
-   ```bash
-   git clone <your-repo-url>
-   cd personal-portofolio
-   ```
-
-2. **Install all dependencies (monorepo)**
-
-   ```bash
-   npm install
-   ```
-
-   This installs dependencies for all workspaces (web, api, and shared packages).
-
-3. **Build shared packages**
-
-   ```bash
-   npm run build --workspace=@portfolio/shared-types
-   npm run build --workspace=@portfolio/shared-utils
-   ```
-
-4. **Configure environment variables**
-
-   **For the API** (`apps/api/.env`):
-
-   ```env
-   PORT=4000
-   NODE_ENV=development
-   CORS_ORIGIN=http://localhost:3000
-
-   # Gmail Configuration
-   EMAIL_USER=your-email@gmail.com
-   EMAIL_PASS=your-app-password
-   RECIPIENT_EMAIL=your-email@gmail.com
-   ```
-
-   **For the Web** (`apps/web/.env.local`):
-
-   ```env
-   NEST_API_URL=http://localhost:4000/api
-   ```
-
-5. **Setup Gmail App Password** (for contact form):
-   - Go to your Google Account settings
-   - Enable 2-Step Verification
-   - Generate an App Password for "Mail"
-   - Use this password in `EMAIL_PASS`
-
-### Running the Applications
-
-#### Development Mode (from root)
-
-**Option 1: Run both apps concurrently**
-
-```bash
-npm run dev
+```http
+GET /api/cv/pdf
+X-API-Key: your-api-key
 ```
 
-**Option 2: Run separately**
-
-```bash
-# Terminal 1 - API
-npm run dev:api
-
-# Terminal 2 - Web
-npm run dev:web
-```
-
-- API: http://localhost:4000
-- Web: http://localhost:3000
-
-#### Production Mode
-
-```bash
-# Build everything
-npm run build
-
-# Start API
-npm run start:prod --workspace=api
-
-# Start Web
-npm run start --workspace=web
-```
-
-## 🐳 Docker Usage
-
-Both web and API have Dockerfiles for containerized local development and deployment.
-
-- `Dockerfile.web` — Next.js frontend
-- `Dockerfile.api` — NestJS backend
-
-### Build and Run Locally
-
-```bash
-# Build web image
-docker build -f Dockerfile.web -t portfolio-web .
-# Build api image
-docker build -f Dockerfile.api -t portfolio-api .
-
-# Run containers (example)
-docker run -p 3000:3000 portfolio-web
-docker run -p 4000:4000 portfolio-api
-```
-
-## 🧩 Shared Packages
-
-- `packages/shared-types`: TypeScript type definitions shared between frontend and backend
-- `packages/shared-utils`: Utility functions, validation, and logging (dev-console)
-
-## 🧪 Testing
-
-- **Frontend (web)**: Jest with React Testing Library, plus custom mocks in `__mocks__` for next-themes, next-image, framer-motion
-- **Backend (api)**: Jest unit tests and e2e tests (see `test/app.e2e-spec.ts` and `test/jest-e2e.json`)
-
-## 🔄 CI/CD Workflows
-
-- `.github/workflows/ci-cd.yml`: Main deployment pipeline (build, test, deploy)
-- `.github/workflows/pr-checks.yml`: PR validation (lint, type-check, test)
-
-## 🔧 Monorepo Commands
-
-All commands run from the root directory:
-
-```bash
-# Development
-npm run dev              # Start both web and api
-npm run dev:web         # Start only web
-npm run dev:api         # Start only api
-
-# Building
-npm run build           # Build all workspaces
-npm run build:web       # Build web only
-npm run build:api       # Build api only
-
-# Quality
-npm run lint            # Lint all workspaces
-npm run lint:fix        # Lint and fix all
-npm run type-check      # Type check all
-npm run format          # Format all code
-
-# Testing
-npm run test            # Run all tests
-npm run clean           # Clean all build artifacts
-```
-
-## 📝 Customization
-
-### Personal Information
-
-Update your personal details in `apps/web/data/`:
-
-- `personal-info.ts` - Name, title, location, etc.
-- `skills.ts` - Your technical skills
-- `projects.ts` - Your projects
-- `timeline.ts` - Education and work experience
-- `certificates.ts` - Your certifications
-- `social-links.ts` - Social media profiles
-- `services.ts` - Services you offer
-
-### Styling
-
-- Colors and theme: `apps/web/app/globals.css`
-- Tailwind config: `apps/web/tailwind.config.ts`
-- Component styles: Inline Tailwind classes
-
-### Images
-
-Place your images in `apps/web/public/images/`:
-
-- `icons/` - Technology and social media icons
-- `projects/` - Project screenshots
-- `certificates/` - Certificate images
-
-## 🔧 Technologies Used
+## 🔧 Tech Stack
 
 ### Frontend
 
-- **Next.js 16** - React framework with App Router
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Utility-first styling
-- **Framer Motion** - Animations
-- **Lucide React** - Icons
-- **next-themes** - Dark mode
+- Next.js 16 (App Router, React 19)
+- TypeScript 5.7
+- Tailwind CSS v4
+- Framer Motion
+- React Query
+- React Hook Form + Zod
+- Lucide Icons
 
 ### Backend
 
-- **NestJS** - Node.js framework
-- **TypeScript** - Type safety
-- **class-validator** - DTO validation
-- **nodemailer** - Email sending
-- **@nestjs/throttler** - Rate limiting
+- NestJS 11
+- TypeScript
+- AWS S3 SDK
+- Nodemailer
+- class-validator
+- @nestjs/throttler
 
-## 📚 API Endpoints & Email Implementation
+## 🚀 Deployment
 
-### Email
+Both **web** and **api** are deployed on **Railway**.
 
-- `POST /api/email/send` — Send contact form email
-  ```json
-  {
-    "name": "John Doe",
-    "from": "john@example.com",
-    "subject": "Project Inquiry",
-    "message": "Hello, I'd like to discuss..."
-  }
-  ```
+### Railway Setup
 
-#### Implementation Notes
+1. Create two services: `web` and `api`
+2. Set root directory for each (`apps/web`, `apps/api`)
+3. Add environment variables
+4. Deploy
 
-- Uses Nodemailer with Gmail SMTP (app password required)
-- API is instrumented to fail fast (10s timeout) if SMTP is unreachable, so requests never hang indefinitely
-- Transporter is verified on startup (logs success/failure)
-- All errors are logged and returned with clear messages
-- For production, consider using SendGrid/Mailgun/Postmark HTTP APIs for more reliable delivery
-
-#### Troubleshooting Email Delivery
-
-- If requests hang or time out, check:
-  - Outbound SMTP connectivity (e.g., `Test-NetConnection -ComputerName smtp.gmail.com -Port 587`)
-  - Correct Gmail app password and 2FA
-  - Cloud provider firewall rules (many block SMTP ports)
-  - API logs for transporter verification and send errors
-- If you want to switch to SendGrid or another provider, update the API service (see code comments)
-
-## ✅ Quality & Status
-
-- All code is linted and passes tests across all workspaces
-- ESLint warnings remain for unused imports (safe to ignore or clean up)
-- Email API is robust and fails fast for unreachable SMTP
-
-## 🚢 Deployment
-
-### Vercel (Recommended for Next.js)
-
-1. Push code to GitHub
-2. Import project in Vercel
-3. Set root directory to `apps/web`
-4. Add environment variables
-5. Deploy
-
-### Backend Deployment Options
-
-- **Railway** - Easy deployment with auto-scaling
-- **Render** - Free tier available
-- **Heroku** - Classic PaaS
-- **DigitalOcean** - VPS option
-
-Remember to update `NEST_API_URL` and `CORS_ORIGIN` in production!
-
-## 📄 License
-
-MIT License - feel free to use this for your own portfolio!
+> Remember to update `NEST_API_URL` and `CORS_ORIGIN` for production!
 
 ## 👤 Author
 
 **Robert Nicolae Floria**
 
-- LinkedIn: [robert-nicolae-floria](https://www.linkedin.com/in/robert-nicolae-floria-51981920b/)
-- GitHub: [@robertfloria](https://github.com/robertfloria)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://www.linkedin.com/in/robert-nicolae-floria-51981920b/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?logo=github)](https://github.com/robertfloria)
+[![Email](https://img.shields.io/badge/Email-Contact-red?logo=gmail)](mailto:robertfloria27@gmail.com)
 
 ---
 

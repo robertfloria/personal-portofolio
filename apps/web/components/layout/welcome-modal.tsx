@@ -27,14 +27,10 @@ export const WelcomeModal = () => {
       <Modal.Content className="max-w-md">
         <Modal.Body className="relative overflow-hidden">
           <div className="flex flex-col gap-component items-center justify-center overflow-hidden">
-            <div className='absolute flex justify-center items-center pointer-events-none'>
+            <div className="absolute flex justify-center items-center pointer-events-none">
               <LottieAnimation animationData={handshakeAnimation} loop={false} />
             </div>
-            <Heading
-              variant="h1"
-              gradient
-              className='z-1'
-            >
+            <Heading variant="h1" gradient className="z-1">
               Welcome!
             </Heading>
             <Text variant="body" className="text-foreground text-center">
@@ -42,13 +38,7 @@ export const WelcomeModal = () => {
               <br />
               Explore my projects, skills, and feel free to get in touch!
             </Text>
-            <Button
-              onClick={handleClose}
-              variant="primary"
-              size="md"
-              className="w-full"
-              autoFocus
-            >
+            <Button onClick={handleClose} variant="primary" size="md" className="w-full" autoFocus>
               Get Started
             </Button>
             <Text variant="muted" className="text-center">
