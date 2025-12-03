@@ -14,7 +14,7 @@ const particles = [
 
 export const FloatingShapes: React.FC = () => {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 h-full">
       {/* Subtle floating particles */}
       {particles.map((particle, index) => (
         <motion.div

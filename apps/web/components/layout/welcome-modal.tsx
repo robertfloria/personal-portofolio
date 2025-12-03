@@ -27,13 +27,17 @@ export const WelcomeModal = () => {
       <Modal.Content className="max-w-md">
         <Modal.Body className="relative">
           <div className="flex flex-col gap-4 items-center justify-center py-6 px-2 sm:px-8">
-            <div className="rounded-full relative overflow-hidden glass-zone">
-              <LottieAnimation animationData={handshakeAnimation} style={{ width: 250 }} />
+            <div className="rounded-full relative overflow-hidden ">
+              <Heading
+                variant="h1"
+                gradient
+                className="absolute w-full h-full flex items-center justify-center z-20 drop-shadow-lg"
+              >
+                Welcome!
+              </Heading>
+              <LottieAnimation animationData={handshakeAnimation} className="w-60 opacity-90" />
             </div>
-            <Heading variant="h2" gradient className="font-extrabold tracking-tight">
-              Welcome!
-            </Heading>
-            <Text variant="body" className="text-muted-foreground text-center">
+            <Text variant="body" className="text-foreground text-center">
               Thanks for visiting my portfolio.
               <br />
               Explore my projects, skills, and feel free to get in touch!
@@ -42,11 +46,14 @@ export const WelcomeModal = () => {
               onClick={handleClose}
               variant="primary"
               size="md"
-              className="shadow-lg hover:scale-105 transition-transform"
+              className="shadow-lg w-full hover:scale-105 transition-transform"
               autoFocus
             >
               Get Started
             </Button>
+            <Text variant="muted" className="text-center">
+              This message will not appear again during this session.
+            </Text>
           </div>
         </Modal.Body>
       </Modal.Content>

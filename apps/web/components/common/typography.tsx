@@ -55,14 +55,21 @@ export const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
 
 Heading.displayName = 'Heading';
 
-const textVariants = cva('', {
+const textVariants = cva('leading-relaxed', {
   variants: {
     variant: {
-      body: 'text-base text-muted-foreground',
-      lead: 'text-lg text-muted-foreground',
-      small: 'text-sm text-muted-foreground',
+      // Primary text - for main content
+      body: 'text-base text-foreground',
+      // Larger introductory text
+      lead: 'text-lg md:text-xl text-muted-foreground font-light',
+      // Smaller body text
+      small: 'text-sm text-foreground',
+      // De-emphasized/secondary text
       muted: 'text-sm text-muted-foreground',
-      label: 'text-sm font-medium text-muted-foreground',
+      // Form labels and UI labels
+      label: 'text-sm font-medium text-foreground',
+      // Very small annotations
+      caption: 'text-xs text-muted-foreground',
     },
   },
   defaultVariants: {

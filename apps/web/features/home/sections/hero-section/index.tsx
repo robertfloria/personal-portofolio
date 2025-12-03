@@ -9,7 +9,7 @@ export function HeroSection() {
   return (
     <Section
       id="home"
-      className="min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8 overflow-hidden"
+      className="min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8 overflow-hidden relative"
     >
       {/* Subtle animated background particles */}
       <FloatingShapes />

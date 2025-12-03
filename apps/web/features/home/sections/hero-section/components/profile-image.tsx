@@ -54,7 +54,7 @@ export const ProfileImage: React.FC = () => {
               alt={personalInfo.name}
               fill
               sizes="(max-width: 768px) 24rem, (max-width: 1024px) 24rem, 28rem"
-              className="object-cover z-10 transition-transform duration-500 group-hover:scale-105"
+              className="object-cover z-10 transition-transform duration-500 group-hover:scale-105 opacity-90"
               priority
             />
             {/* Subtle overlay on hover */}
