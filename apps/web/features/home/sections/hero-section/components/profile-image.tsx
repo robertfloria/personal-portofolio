@@ -16,12 +16,12 @@ export const ProfileImage: React.FC = () => {
       className="relative order-1 lg:order-1 group"
     >
       {/* Container cu padding pentru glow */}
-      <div className="relative mx-auto w-[calc(80vw+2rem)] h-[calc(80vw+2rem)] sm:w-108 sm:h-108 lg:w-120 lg:h-120 p-4">
+      <div className="relative mx-auto w-[calc(80vw)] h-[calc(80vw)] sm:w-108 sm:h-108 lg:w-120 lg:h-120 p-6">
         {/* Inner container pentru imagine și efecte */}
         <div className="relative w-full h-full">
           {/* Animated ring gradient - outer glow */}
           <motion.div
-            className="absolute inset-0 rounded-full opacity-60 blur-xl"
+            className="absolute inset-0 rounded-full opacity-60 blur-md"
             style={{
               background:
                 'conic-gradient(from 0deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)))',
