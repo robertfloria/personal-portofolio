@@ -104,7 +104,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           <WelcomeModal />
-          <main className="min-h-screen gap-10 flex flex-col pt-16">{children}</main>
+          <main className="min-h-screen gap-section flex flex-col pt-16">{children}</main>
           <Footer />
           <Toast />
         </Providers>

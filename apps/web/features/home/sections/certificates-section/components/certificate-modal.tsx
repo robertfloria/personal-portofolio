@@ -22,7 +22,7 @@ const CertificateModalComponent: React.FC<CertificateModalProps> = ({
         </Modal.Header>
 
         <Modal.Body>
-          <div className="flex items-center space-x-4 p-4 bg-linear-to-r from-secondary to-primary rounded-xl">
+          <div className="flex items-center space-x-4 p-card-md bg-linear-to-r from-secondary to-primary rounded-xl">
             <div className="w-16 h-16 rounded-full bg-linear-to-br from-secondary to-primary flex items-center justify-center">
               <Award className="w-8 h-8 text-foreground" />
             </div>

@@ -7,7 +7,7 @@ import { TimelineList } from './components';
 
 export function TimelineSection() {
   return (
-    <Section id="timeline" className="p-4 md:p-6 lg:p-8">
+    <Section id="timeline" className="p-section md:p-section-md lg:p-section-lg">
       <Section.Header>
         <div className="text-center mx-auto">
           <Section.Title highlightText="Timeline">Professional</Section.Title>

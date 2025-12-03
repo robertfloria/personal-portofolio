@@ -25,18 +25,18 @@ export const WelcomeModal = () => {
   return (
     <Modal isOpen={open} onClose={handleClose}>
       <Modal.Content className="max-w-md">
-        <Modal.Body className="relative">
-          <div className="flex flex-col gap-component items-center justify-center py-section px-2 sm:px-section-lg">
-            <div className="rounded-full relative overflow-hidden ">
-              <Heading
-                variant="h1"
-                gradient
-                className="absolute w-full h-full flex items-center justify-center drop-shadow-lg z-20"
-              >
-                Welcome!
-              </Heading>
-              <LottieAnimation animationData={handshakeAnimation} className="w-60 opacity-25" />
+        <Modal.Body className="relative overflow-hidden">
+          <div className="flex flex-col gap-component items-center justify-center overflow-hidden">
+            <div className='absolute flex justify-center items-center pointer-events-none'>
+              <LottieAnimation animationData={handshakeAnimation} loop={false} />
             </div>
+            <Heading
+              variant="h1"
+              gradient
+              className='z-1'
+            >
+              Welcome!
+            </Heading>
             <Text variant="body" className="text-foreground text-center">
               Thanks for visiting my portfolio.
               <br />
@@ -46,7 +46,7 @@ export const WelcomeModal = () => {
               onClick={handleClose}
               variant="primary"
               size="md"
-              className="shadow-lg w-full hover:scale-105 transition-transform"
+              className="w-full"
               autoFocus
             >
               Get Started

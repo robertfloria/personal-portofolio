@@ -50,7 +50,7 @@ const CertificateCardComponent: React.FC<CertificateCardProps> = ({
         </div>
       </div>
     </Card.Content>
-    <Card.Footer className="flex flex-col gap-2 items-start p-3 sm:p-4 md:p-6">
+    <Card.Footer className="flex flex-col gap-2 items-start p-card sm:p-card-md md:p-card-lg">
       <Card.Title className="text-base sm:text-lg md:text-xl line-clamp-2 min-h-10 sm:min-h-14 group-hover:text-primary dark:group-hover:text-primary-foreground transition-colors">
         {certificate.title}
       </Card.Title>

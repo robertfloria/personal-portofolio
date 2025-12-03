@@ -38,7 +38,7 @@ const TimelineItemComponent: React.FC<TimelineItemProps> = ({ item, index }) => 
       <Card
         animationDelay={index * 0.05}
         hover="glow"
-        className="ml-12 sm:ml-20 border-2 group p-3 sm:p-10 md:p-6"
+        className="ml-12 sm:ml-20 border-2 group p-card sm:p-card-md md:p-card-lg"
       >
         {/* Content */}
         <Card.Content>

@@ -16,7 +16,7 @@ import { Home } from 'lucide-react';
 
 export default function NotFound() {
   return (
-    <Section className="flex flex-col items-center justify-center min-h-screen p-4 md:p-6 lg:p-8">
+    <Section className="flex flex-col items-center justify-center min-h-screen p-section md:p-section-md lg:p-section-lg">
       <div className="text-center max-w-md mx-auto">
         {/* Large 404 Number */}
         <div className="mb-6">
@@ -34,7 +34,7 @@ export default function NotFound() {
           back on track.
         </Text>
 
-        <div className="flex flex-col sm:flex-row gap-6 justify-center">
+        <div className="flex flex-col sm:flex-row gap-component justify-center">
           <Link href="/">
             <Button variant="primary" leftIcon={<Home className="w-4 h-4" />}>
               Go Home

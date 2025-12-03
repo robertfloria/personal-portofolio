@@ -11,13 +11,13 @@ export function AboutSection() {
     <Section id="about" className="bg-divider-section">
       <SectionDivider variant="top" />
       <Section.Header>
-        <div className="text-center mx-auto px-4 md:px-6 lg:px-8">
+        <div className="text-center mx-auto px-section md:px-section-md lg:px-section-lg">
           <Section.Title highlightText="Offer">What I</Section.Title>
           <Section.Subtitle>{personalInfo.about}</Section.Subtitle>
         </div>
       </Section.Header>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-6 lg:px-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-grid px-section md:px-section-md lg:px-section-lg">
         {services.map((service, index) => {
           const iconKey = service.icon;
 
@@ -25,10 +25,10 @@ export function AboutSection() {
             <Card
               key={service.id}
               hover="glow"
-              className="group p-4 md:p-6 lg:p-8"
+              className="group p-card md:p-card-md lg:p-card-lg"
               animationDelay={index * 0.05}
             >
-              <Card.Content className="flex flex-row gap-4 items-start">
+              <Card.Content className="flex flex-row gap-content items-start">
                 <IconBadge
                   iconKey={iconKey}
                   variant="gradient"

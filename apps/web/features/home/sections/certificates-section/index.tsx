@@ -22,7 +22,7 @@ export function CertificatesSection() {
     <Section id="certificates" className="bg-divider-section">
       <SectionDivider variant="top" />
       <Section.Header>
-        <div className="text-center mx-auto px-4 md:px-6 lg:px-8">
+        <div className="text-center mx-auto px-section md:px-section-md lg:px-section-lg">
           <Section.Title highlightText="Achievements">Certificates &</Section.Title>
           <Section.Subtitle>
             Professional certifications and courses completed to enhance my skills
@@ -30,7 +30,7 @@ export function CertificatesSection() {
         </div>
       </Section.Header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-6 lg:px-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-grid px-section md:px-section-md lg:px-section-lg">
         {certificates.map((certificate, index) => (
           <CertificateCard
             key={certificate.id}

@@ -13,7 +13,7 @@ const NavbarDesktopNavComponent = ({
   activeSection,
   scrollToSection,
 }: NavbarDesktopNavProps) => (
-  <div className="hidden md:flex items-center gap-8">
+  <div className="hidden md:flex items-center gap-grid">
     {navItems.map((item) => {
       const isActive = activeSection === item.href;
       return (

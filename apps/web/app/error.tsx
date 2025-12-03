@@ -31,7 +31,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <Section className="flex flex-col items-center justify-center min-h-screen p-4 md:p-6 lg:p-8">
+    <Section className="flex flex-col items-center justify-center min-h-screen p-section md:p-section-md lg:p-section-lg">
       <div className="text-center max-w-md mx-auto">
         {/* Error Icon */}
         <div className="mb-6 flex justify-center">
@@ -57,7 +57,7 @@ export default function Error({
           </div>
         )}
 
-        <div className="flex flex-col sm:flex-row gap-6 justify-center">
+        <div className="flex flex-col sm:flex-row gap-component justify-center">
           <Button
             variant="primary"
             leftIcon={<RefreshCw className="w-4 h-4" />}

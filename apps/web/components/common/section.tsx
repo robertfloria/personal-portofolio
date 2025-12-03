@@ -30,8 +30,8 @@ const SectionRoot = React.forwardRef<HTMLElement, SectionRootProps>(
       <section
         id={id}
         className={cn(
-          fullHeight && 'min-h-screen flex items-center justify-center gap-6',
-          'flex flex-col gap-10',
+          fullHeight && 'min-h-screen flex items-center justify-center gap-component',
+          'flex flex-col gap-section',
           className,
         )}
         ref={ref}
