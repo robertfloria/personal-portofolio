@@ -13,7 +13,7 @@ export const HeroText: React.FC = () => {
       transition={{ duration: 0.6 }}
       className="order-2 lg:order-2 justify-center items-center flex"
     >
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

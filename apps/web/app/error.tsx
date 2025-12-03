@@ -57,7 +57,7 @@ export default function Error({
           </div>
         )}
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <Button
             variant="primary"
             leftIcon={<RefreshCw className="w-4 h-4" />}

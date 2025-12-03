@@ -62,7 +62,7 @@ const ToastItemComponent: React.FC<ToastProps> = ({
   return (
     <div
       className={cn(
-        'flex items-start gap-3 p-4 rounded-xl border',
+        'flex items-start gap-4 p-4 rounded-xl border',
         'animate-in fade-in-up duration-300',
         'max-w-md w-auto',
         config.bgClass,

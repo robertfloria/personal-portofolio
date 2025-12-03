@@ -34,7 +34,7 @@ export default function NotFound() {
           back on track.
         </Text>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <Link href="/">
             <Button variant="primary" leftIcon={<Home className="w-4 h-4" />}>
               Go Home

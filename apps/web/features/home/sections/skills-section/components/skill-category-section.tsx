@@ -18,7 +18,7 @@ const SkillCategorySectionComponent: React.FC<SkillCategorySectionProps> = ({
     <Heading variant="h3" className="flex justify-center md:justify-start">
       {categories[category as keyof typeof categories]}
     </Heading>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {categorySkills.map((skill, index) => (
         <SkillCard key={skill.name} skill={skill} animationDelay={index * 0.05} />
       ))}

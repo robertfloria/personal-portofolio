@@ -21,11 +21,11 @@ export const Toast: React.FC = () => {
 
   return (
     <div
-      className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-3 pointer-events-none w-full"
+      className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center pointer-events-none w-full"
       aria-live="polite"
       aria-atomic="true"
     >
-      <div className="flex flex-col gap-3 pointer-events-auto">
+      <div className="flex flex-col gap-6 pointer-events-auto">
         {notifications.map((notification: NotificationItem) => (
           <ToastItem
             key={notification.id}

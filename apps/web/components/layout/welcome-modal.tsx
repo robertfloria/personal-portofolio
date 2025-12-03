@@ -26,16 +26,16 @@ export const WelcomeModal = () => {
     <Modal isOpen={open} onClose={handleClose}>
       <Modal.Content className="max-w-md">
         <Modal.Body className="relative">
-          <div className="flex flex-col gap-4 items-center justify-center py-6 px-2 sm:px-8">
+          <div className="flex flex-col gap-6 items-center justify-center py-6 px-2 sm:px-8">
             <div className="rounded-full relative overflow-hidden ">
               <Heading
                 variant="h1"
                 gradient
-                className="absolute w-full h-full flex items-center justify-center z-20 drop-shadow-lg"
+                className="absolute w-full h-full flex items-center justify-center drop-shadow-lg z-20"
               >
                 Welcome!
               </Heading>
-              <LottieAnimation animationData={handshakeAnimation} className="w-60 opacity-90" />
+              <LottieAnimation animationData={handshakeAnimation} className="w-60 opacity-25" />
             </div>
             <Text variant="body" className="text-foreground text-center">
               Thanks for visiting my portfolio.
