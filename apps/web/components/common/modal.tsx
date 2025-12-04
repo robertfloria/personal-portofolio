@@ -40,66 +40,6 @@ function ModalBase({ isOpen, onClose, children, className }: ModalProps) {
   useLockBodyScroll(isOpen);
   const containerRef = React.useRef<HTMLDivElement | null>(null);
 
-  React.useEffect(() => {
-    if (!isOpen) return;
-
-    const previouslyFocused = document.activeElement as HTMLElement | null;
-
-    const container = containerRef.current;
-
-    const getFocusable = () => {
-      if (!container) return [] as HTMLElement[];
-      const nodes = container.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])',
-      );
-      return Array.from(nodes).filter((n) => n.offsetParent !== null);
-    };
-
-    const focusable = getFocusable();
-    if (focusable.length > 0) {
-      focusable[0].focus();
-    } else if (container) {
-      container.focus();
-    }
-
-    function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
-        e.stopPropagation();
-        onClose();
-        return;
-      }
-
-      if (e.key === 'Tab') {
-        const focusable = getFocusable();
-        if (focusable.length === 0) {
-          e.preventDefault();
-          return;
-        }
-        const idx = focusable.indexOf(document.activeElement as HTMLElement);
-        if (e.shiftKey) {
-          if (idx === 0 || document.activeElement === container) {
-            focusable[focusable.length - 1].focus();
-            e.preventDefault();
-          }
-        } else {
-          if (idx === focusable.length - 1) {
-            focusable[0].focus();
-            e.preventDefault();
-          }
-        }
-      }
-    }
-
-    document.addEventListener('keydown', onKey);
-
-    return () => {
-      document.removeEventListener('keydown', onKey);
-      if (previouslyFocused && typeof previouslyFocused.focus === 'function') {
-        previouslyFocused.focus();
-      }
-    };
-  }, [isOpen, onClose]);
-
   return (
     <AnimatePresence>
       {isOpen && (

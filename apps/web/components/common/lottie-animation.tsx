@@ -17,6 +17,7 @@ export const LottieAnimation: React.FC<LottieComponentProps> = ({
   autoplay = true,
   style,
   className,
+  ...props
 }) => {
   return (
     <Player
@@ -25,6 +26,7 @@ export const LottieAnimation: React.FC<LottieComponentProps> = ({
       autoplay={autoplay}
       style={style}
       className={className}
+      {...props}
     />
   );
 };
