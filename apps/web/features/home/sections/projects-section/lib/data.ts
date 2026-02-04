@@ -48,7 +48,7 @@ export const projects: Project[] = [
       '/images/projects/ai-documents/chat_light.png',
       '/images/projects/ai-documents/trust_and_security_light.png',
     ],
-    githubUrl: 'https://github.com/robertfloria/derisqo',
+    githubUrl: '',
     liveUrl: 'https://derisqo.rbx-soft.tech/',
     category: PROJECT_CATEGORIES.AI,
     featured: true,
