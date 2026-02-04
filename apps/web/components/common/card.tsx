@@ -56,8 +56,7 @@ const cardVariants = cva(
 );
 
 export interface CardRootProps
-  extends Omit<HTMLMotionProps<'div'>, 'children'>,
-    VariantProps<typeof cardVariants> {
+  extends Omit<HTMLMotionProps<'div'>, 'children'>, VariantProps<typeof cardVariants> {
   animated?: boolean;
   animationDelay?: number;
   children?: React.ReactNode;

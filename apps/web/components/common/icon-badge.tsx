@@ -58,8 +58,7 @@ const iconBadgeVariants = cva('flex items-center justify-center rounded-full tra
 });
 
 export interface IconBadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof iconBadgeVariants> {
+  extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof iconBadgeVariants> {
   iconKey: string;
   iconSize?: number;
 }

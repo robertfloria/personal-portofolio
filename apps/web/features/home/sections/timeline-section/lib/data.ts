@@ -40,7 +40,7 @@ export const timeline: TimelineItem[] = [
     startDate: 'September 2022',
     endDate: 'Present',
     description:
-      'Led frontend development for React.js applications using TypeScript, ensuring scalable and maintainable code. Implemented CI/CD pipelines with Jenkins, reducing deployment time by 30%. Contributed to backend development (ASP.NET Core, Node.js) applying SOLID principles and clean architecture. Integrated AI-assisted coding tools (GitHub Copilot, MCP Servers), accelerating feature delivery by 30% and improving code consistency. Organized internal AI workshops, promoting adoption of modern development practices.',
+      'Led frontend delivery for multiple React.js applications (TypeScript), building reusable components and maintainable patterns. Implemented and improved Jenkins CI/CD pipelines, reducing deployment time by ~30% via automation and pipeline optimization. Contributed to backend services (ASP.NET Core, Node.js) applying SOLID principles and clean architecture. Delivered features in regulated/enterprise environment with production releases, collaboration across dev/QA, and documentation in Jira/Confluence. Selected as AI Coach for cross-company workshops (Code Crafters partnership), delivering training on prompt engineering, GitHub Copilot integration, and AI-assisted development for React teams (3 sessions, 40+ developers).',
     type: 'work',
     location: 'Cluj-Napoca, Romania',
     current: true,
@@ -49,10 +49,22 @@ export const timeline: TimelineItem[] = [
     id: '5',
     title: 'Software Developer, Freelance',
     organization: 'B2B, Contract',
-    startDate: 'August 2025',
+    startDate: 'July 2025',
     endDate: 'Present',
     description:
       'Delivered full-stack web applications (React.js/Next.js, Node.js/NestJS) and cross-platform mobile apps (React Native). Implemented AI-powered features and automated workflows, accelerating delivery and enhancing user experience. Built secure authentication and payment systems (OAuth 2.0, Google/Apple Pay, IAP) for subscription models. Designed and optimized relational databases (MySQL, Transact-SQL) for scalability and security. CI/CD Automated deployments using GitHub Actions, Firebase Hosting, Railway, and Docker for containerized backends. Enhanced delivery speed by up to 30% through the use of AI-powered development tools.',
+    type: 'work',
+    location: 'Remote',
+    current: true,
+  },
+  {
+    id: '6',
+    title: 'Founder & Full-Stack Developer',
+    organization: 'Derisqo',
+    startDate: 'October 2025',
+    endDate: 'Present',
+    description:
+      'Solo-built AI-powered SaaS platform for meeting transcription and contract analysis. Public beta with Stripe billing integration. Architected and deployed full-stack monorepo (Next.js 16, NestJS 11, PostgreSQL, Prisma) on Railway with CI/CD automation (GitHub Actions, Docker). Integrated OpenAI GPT-4o for contract risk analysis (12 clause types), sentiment detection, and action item extraction with 95%+ accuracy in testing. Implemented Whisper AI transcription supporting 6 audio formats (mp3, wav, m4a, webm, mp4) with automatic PII redaction (GDPR compliant). Built Stripe payment system with credit-based pricing and subscription tiers, achieving $0 revenue to public beta in 6 months.',
     type: 'work',
     location: 'Remote',
     current: true,
