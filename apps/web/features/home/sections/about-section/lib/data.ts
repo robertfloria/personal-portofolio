@@ -8,41 +8,44 @@ interface Service {
 export const services: Service[] = [
   {
     id: 1,
-    title: 'Web Development',
+    title: 'Full-Stack Development',
     description:
-      'Full-stack web applications focused on performance and maintainability, using React.js, Next.js, Node.js, NestJS and modern best practices',
+      'Production web and mobile apps (React/Next.js, NestJS/Node.js) with proven delivery in regulated enterprise environments. Reduced manual effort by ~40% through workflow automation and improved release speed by ~30% via CI/CD optimization.',
     icon: 'Code2',
   },
   {
     id: 2,
-    title: 'Mobile Development',
+    title: 'Payments & Monetization',
     description:
-      'Cross-platform mobile apps with React Native (Expo), published to Google Play and App Store, including IAP and OAuth integrations',
-    icon: 'Smartphone',
+      'Stripe integration (subscriptions, credits, webhooks), Apple Pay, Google Pay, and In-App Purchases (IAP) for mobile apps. Built billing systems for SaaS products with metered usage and subscription tiers.',
+    icon: 'CreditCard',
   },
   {
     id: 3,
-    title: 'AI Integration',
-    description: 'Integrate AI features using OpenAI API, MCP servers, and custom AI solutions',
+    title: 'AI & LLM Features',
+    description:
+      'OpenAI GPT-4o integration for analysis and extraction, Whisper transcription, PII redaction workflows, and structured outputs. Built AI-powered SaaS products from concept to production.',
     icon: 'Brain',
   },
   {
     id: 4,
-    title: 'CI/CD & DevOps',
+    title: 'Mobile Development',
     description:
-      'Implemented CI/CD pipelines (GitHub Actions, Jenkins) and containerized deployments (Docker) reducing deployment time and improving release reliability',
-    icon: 'Rocket',
+      'Cross-platform apps with React Native (Expo), published to Google Play and App Store. OAuth integration (Google, Apple), push notifications, and IAP for subscription models. Optimized for performance and user experience.',
+    icon: 'Smartphone',
   },
   {
     id: 5,
-    title: 'Backend Development',
-    description: 'Scalable backend APIs with Node.js, NestJS, Express.js',
-    icon: 'Server',
+    title: 'DevOps & CI/CD',
+    description:
+      'Docker containerization, GitHub Actions and Jenkins pipelines, Railway/Vercel deployments. Improved release automation reducing deployment time by ~30% and achieving 99.9% uptime for production services.',
+    icon: 'Rocket',
   },
   {
     id: 6,
-    title: 'Technical Consulting',
-    description: 'Architecture design, code reviews, and best practices consultation',
-    icon: 'Users',
+    title: 'Database & API Design',
+    description:
+      'PostgreSQL, MySQL, SQL Server with schema design and query optimization. RESTful APIs with NestJS/Express following SOLID principles and clean architecture patterns for regulated environments.',
+    icon: 'Database',
   },
 ];

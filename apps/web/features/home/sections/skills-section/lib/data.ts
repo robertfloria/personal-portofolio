@@ -116,6 +116,20 @@ export const skills: Skill[] = [
     yearsOfExperience: 4,
   },
   {
+    name: 'Jest',
+    category: SKILLS_CATEGORIES.BACKEND,
+    proficiency: 85,
+    iconKey: 'TestTube',
+    yearsOfExperience: 4,
+  },
+  {
+    name: 'Testing Library',
+    category: SKILLS_CATEGORIES.BACKEND,
+    proficiency: 85,
+    iconKey: 'TestTube',
+    yearsOfExperience: 3,
+  },
+  {
     name: 'Docker',
     category: SKILLS_CATEGORIES.DEVOPS,
     proficiency: 85,

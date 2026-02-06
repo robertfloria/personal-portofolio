@@ -30,7 +30,7 @@ export function ProjectsSection() {
   return (
     <Section id="projects" className="bg-divider-section">
       <SectionDivider variant="top" />
-      <Section.Header className='max-w-7xl mx-auto w-full'>
+      <Section.Header className="max-w-7xl mx-auto w-full">
         <div className="text-center mx-auto px-section md:px-section-md lg:px-section-lg">
           <Section.Title highlightText="Projects">Featured</Section.Title>
           <Section.Subtitle>
