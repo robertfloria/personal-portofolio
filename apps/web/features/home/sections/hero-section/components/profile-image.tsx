@@ -109,7 +109,7 @@ export const ProfileImage: React.FC = () => {
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
           </span>
           <Text variant="label" className="text-primary font-semibold">
-            Available for work
+            Available
           </Text>
         </motion.div>
       </div>

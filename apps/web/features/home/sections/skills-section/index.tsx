@@ -12,7 +12,7 @@ export function SkillsSection() {
 
   return (
     <Section id="skills" className="p-section md:p-section-md lg:p-section-lg">
-      <Section.Header>
+      <Section.Header className='max-w-7xl mx-auto w-full'>
         <div className="text-center mx-auto">
           <Section.Title highlightText="Expertise">Skills &</Section.Title>
           <Section.Subtitle>
@@ -21,7 +21,7 @@ export function SkillsSection() {
         </div>
       </Section.Header>
 
-      <div className="flex flex-col gap-section">
+      <div className="flex flex-col gap-section max-w-7xl mx-auto w-full">
         {Object.entries(groupedSkills).map(([category, categorySkills]) => (
           <SkillCategorySection
             key={category}

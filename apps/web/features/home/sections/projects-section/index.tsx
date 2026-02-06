@@ -30,7 +30,7 @@ export function ProjectsSection() {
   return (
     <Section id="projects" className="bg-divider-section">
       <SectionDivider variant="top" />
-      <Section.Header>
+      <Section.Header className='max-w-7xl mx-auto w-full'>
         <div className="text-center mx-auto px-section md:px-section-md lg:px-section-lg">
           <Section.Title highlightText="Projects">Featured</Section.Title>
           <Section.Subtitle>
@@ -40,7 +40,7 @@ export function ProjectsSection() {
         </div>
       </Section.Header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-grid px-section md:px-section-md lg:px-section-lg">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-grid px-section md:px-section-md lg:px-section-lg">
         {projects.map((project, index) => (
           <ProjectCard
             key={project.id}

@@ -9,7 +9,7 @@ import globeAnimation from '../../../../public/lottie/globe.json';
 export function ContactSection() {
   return (
     <Section id="contact" className="p-section md:p-section-md lg:p-section-lg">
-      <Section.Header>
+      <Section.Header className='max-w-7xl mx-auto w-full'>
         <div className="text-center mx-auto">
           <Section.Title highlightText="Touch">Get In</Section.Title>
           <Section.Subtitle>
@@ -17,10 +17,10 @@ export function ContactSection() {
           </Section.Subtitle>
         </div>
       </Section.Header>
-      <div className="flex justify-center">
+      <div className="max-w-4xl mx-auto w-full flex justify-center">
         <Card
           variant="default"
-          className="p-card sm:p-card-md md:p-card-lg w-full md:w-[70vw] md:max-w-[900px]"
+          className="p-card sm:p-card-md md:p-card-lg w-full"
           hover="none"
           animationDelay={0.2}
         >

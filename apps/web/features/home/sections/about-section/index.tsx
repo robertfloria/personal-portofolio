@@ -10,14 +10,14 @@ export function AboutSection() {
   return (
     <Section id="about" className="bg-divider-section">
       <SectionDivider variant="top" />
-      <Section.Header>
+      <Section.Header className='max-w-7xl mx-auto w-full'>
         <div className="text-center mx-auto px-section md:px-section-md lg:px-section-lg">
           <Section.Title highlightText="Offer">What I</Section.Title>
           <Section.Subtitle>{personalInfo.about}</Section.Subtitle>
         </div>
       </Section.Header>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-grid px-section md:px-section-md lg:px-section-lg">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-grid px-section md:px-section-md lg:px-section-lg">
         {services.map((service, index) => {
           const iconKey = service.icon;
 
