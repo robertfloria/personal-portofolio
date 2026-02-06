@@ -35,6 +35,7 @@ export const WelcomeModal = React.forwardRef((props, ref: ForwardedRef<boolean>)
             <LottieAnimation
               animationData={handshakeAnimation}
               loop={false}
+              speed={1.5}
               onComplete={handleHandshakeAnimationEnd}
             />
           </div>
