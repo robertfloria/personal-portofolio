@@ -64,7 +64,7 @@ export const timeline: TimelineItem[] = [
     startDate: 'October 2025',
     endDate: 'Present',
     description:
-      'Solo-built AI-powered SaaS platform for meeting transcription and contract analysis. Public beta with Stripe billing integration. Architected and deployed full-stack monorepo (Next.js 16, NestJS 11, PostgreSQL, Prisma) on Railway with CI/CD automation (GitHub Actions, Docker). Integrated OpenAI GPT-4o for contract risk analysis (12 clause types), sentiment detection, and action item extraction with 95%+ accuracy in testing. Implemented Whisper AI transcription supporting 6 audio formats (mp3, wav, m4a, webm, mp4) with automatic PII redaction (GDPR compliant). Built Stripe payment system with credit-based pricing and subscription tiers, achieving $0 revenue to public beta in 6 months.',
+      'Solo-built AI-powered SaaS platform for meeting transcription and contract analysis. Public beta with Stripe billing integration. Architected and deployed full-stack monorepo (Next.js 16, NestJS 11, PostgreSQL, Prisma) on Railway with CI/CD automation (GitHub Actions, Docker). Integrated OpenAI GPT-4o for contract risk analysis (12 clause types), sentiment detection, and action item extraction with 95%+ accuracy in testing. Implemented Whisper AI transcription supporting 6 audio formats (mp3, wav, m4a, webm, mp4) with automatic PII redaction (GDPR compliant). Built Stripe payment system with credit-based pricing and subscription tiers.',
     type: 'work',
     location: 'Remote',
     current: true,
