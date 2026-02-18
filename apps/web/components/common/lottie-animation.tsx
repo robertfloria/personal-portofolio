@@ -9,8 +9,10 @@
  * @example
  * <LottieAnimation animationData={data} speed={1.5} style={{ width: 200 }} />
  */
-import React from 'react';
-import Player, { LottieComponentProps } from 'lottie-react';
+'use client';
+import React, { useRef } from 'react';
+import Player, { LottieComponentProps, LottieRefCurrentProps } from 'lottie-react';
+import type { AnimationEvents, AnimationEventName } from 'lottie-web';
 
 interface LottieAnimationProps extends Omit<LottieComponentProps, 'lottieRef'> {
   speed?: number;
@@ -29,9 +31,11 @@ export const LottieAnimation: React.FC<LottieAnimationProps> = ({
   onEnterFrame,
   ...props
 }) => {
-  const handleDOMLoaded = (e: any) => {
-    if (e && speed !== 1) {
-      e.setSpeed(speed);
+  const lottieRef = useRef<LottieRefCurrentProps>(null);
+
+  const handleDOMLoaded = (e: AnimationEvents[AnimationEventName]) => {
+    if (lottieRef.current && speed !== 1) {
+      lottieRef.current.setSpeed(speed);
     }
     if (onDOMLoaded) {
       onDOMLoaded(e);
@@ -40,6 +44,7 @@ export const LottieAnimation: React.FC<LottieAnimationProps> = ({
 
   return (
     <Player
+      lottieRef={lottieRef}
       animationData={animationData}
       loop={loop}
       autoplay={autoplay}

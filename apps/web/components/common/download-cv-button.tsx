@@ -1,19 +1,22 @@
 /**
  * DownloadCvButton component
  *
- * Renders a button to download the CV PDF from the API.
- * - Uses useCvDownload hook for mutation and loading state.
- * - Handles file download and error notification.
- * - Accepts custom className and children.
+ * Renders a link styled as a button that downloads the CV PDF from a static path.
  *
  * @example
- * <DownloadCvButton>Download CV</DownloadCvButton>
+ * <DownloadCvButton />
  */
 import React from 'react';
-import { Button } from '@/components/common';
-import { useCvDownload } from '@/hooks/use-cv-download';
-import { downloadFile } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { DownloadIcon } from 'lucide-react';
+
+const CV_STATIC_PATH = '/cv/robert-floria-cv.pdf';
+
+const sizeClasses = {
+  sm: 'px-4 py-2 text-sm',
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-4 text-lg',
+};
 
 export interface DownloadCvButtonProps {
   className?: string;
@@ -26,39 +29,21 @@ export const DownloadCvButton: React.FC<DownloadCvButtonProps> = ({
   size = 'lg',
   textVariant = 'default',
 }) => {
-  const { data: cachedData, refetch, isLoading, isFetching } = useCvDownload();
-
-  const handleDownload = async () => {
-    // Use cached data if available, otherwise fetch
-    if (cachedData) {
-      downloadFile(cachedData, 'cv.pdf');
-      return;
-    }
-
-    const result = await refetch();
-    if (result.isSuccess && result.data) {
-      downloadFile(result.data, 'cv.pdf');
-    }
-  };
-
-  const loading = isLoading || isFetching;
-
   return (
-    <Button
-      onClick={handleDownload}
-      disabled={loading}
-      className={className}
-      variant="outline"
-      size={size}
-      leftIcon={<DownloadIcon size={textVariant === 'default' ? 20 : 15} />}
+    <a
+      href={CV_STATIC_PATH}
+      download="robert-floria-cv.pdf"
+      className={cn(
+        'inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all',
+        'border-2 border-border dark:border-card text-foreground',
+        'hover:bg-[hsl(var(--card)/0.05)] dark:hover:bg-[hsl(var(--card)/0.8)] hover:-translate-y-0.5',
+        'focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
+        sizeClasses[size],
+        className,
+      )}
     >
-      {loading
-        ? textVariant === 'default'
-          ? 'Downloading...'
-          : '...'
-        : textVariant === 'default'
-          ? 'Download CV'
-          : 'CV'}
-    </Button>
+      <DownloadIcon size={textVariant === 'default' ? 20 : 15} />
+      {textVariant === 'default' ? 'Download CV' : 'CV'}
+    </a>
   );
 };

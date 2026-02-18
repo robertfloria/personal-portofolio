@@ -1,12 +1,12 @@
 'use client';
 
-import React, { ForwardedRef, useEffect, useState } from 'react';
+import React, { useEffect, useState, forwardRef } from 'react';
 import { Button, Heading, Text, Modal, LottieAnimation } from '@/components/common';
 import handshakeAnimation from '../../public/lottie/handshake.json';
 
 const SESSION_STORAGE_KEY = 'welcomeModalDismissed';
 
-export const WelcomeModal = React.forwardRef((props, ref: ForwardedRef<boolean>) => {
+const WelcomeModalInner = () => {
   const [open, setOpen] = useState(false);
   const [handshakeAnimationPlayed, setHandshakeAnimationPlayed] = useState(false);
 
@@ -71,4 +71,7 @@ export const WelcomeModal = React.forwardRef((props, ref: ForwardedRef<boolean>)
       </Modal>
     </>
   );
-});
+};
+
+export const WelcomeModal = forwardRef(WelcomeModalInner);
+WelcomeModal.displayName = 'WelcomeModal';

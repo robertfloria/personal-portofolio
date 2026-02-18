@@ -13,5 +13,8 @@ module.exports = {
     '^framer-motion$': '<rootDir>/__mocks__/framer-motion.tsx',
     '^next-themes$': '<rootDir>/__mocks__/next-themes.tsx',
     '\\.(css|less|scss|sass)$': '<rootDir>/__mocks__/styleMock.js',
+    '^react$': '<rootDir>/../../node_modules/react',
+    '^react-dom$': '<rootDir>/../../node_modules/react-dom',
+    '^react-dom/(.*)$': '<rootDir>/../../node_modules/react-dom/$1',
   },
 };

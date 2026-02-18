@@ -10,6 +10,6 @@ describe('HeroSection', () => {
         <HeroSection />
       </Providers>,
     );
-    expect(screen.getByText(/Available for work/i)).toBeInTheDocument();
+    expect(screen.getByText('Available')).toBeInTheDocument();
   });
 });
