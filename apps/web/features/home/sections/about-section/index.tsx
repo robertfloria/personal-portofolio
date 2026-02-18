@@ -10,14 +10,14 @@ export function AboutSection() {
   return (
     <Section id="about" className="bg-divider-section">
       <SectionDivider variant="top" />
-      <Section.Header className="max-w-7xl mx-auto w-full">
+      <Section.Header className="max-w-6xl mx-auto w-full">
         <div className="text-center mx-auto px-section md:px-section-md lg:px-section-lg">
           <Section.Title highlightText="Offer">What I</Section.Title>
           <Section.Subtitle>{personalInfo.about}</Section.Subtitle>
         </div>
       </Section.Header>
 
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-grid px-section md:px-section-md lg:px-section-lg">
+      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-grid px-section md:px-section-md lg:px-section-lg">
         {services.map((service, index) => {
           const iconKey = service.icon;
 
@@ -32,13 +32,13 @@ export function AboutSection() {
                 <IconBadge
                   iconKey={iconKey}
                   variant="gradient"
-                  size="lg"
-                  iconSize={32}
+                  size="md"
+                  iconSize={22}
                   className="group-hover:scale-110 transition-transform shrink-0 mb-2 md:mb-0"
                 />
 
                 <div className="text-left">
-                  <Card.Title className="text-lg md:text-2xl group-hover:text-primary dark:group-hover:text-primary-foreground transition-colors">
+                  <Card.Title className="text-base md:text-lg group-hover:text-primary dark:group-hover:text-primary-foreground transition-colors">
                     {service.title}
                   </Card.Title>
 

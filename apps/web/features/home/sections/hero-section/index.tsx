@@ -14,7 +14,7 @@ export function HeroSection() {
       {/* Subtle animated background particles */}
       <FloatingShapes />
 
-      <div className="max-w-7xl mx-auto w-full relative z-10 flex flex-col gap-section">
+      <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col gap-section">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-grid items-center">
           <ProfileImage />
           <HeroText />

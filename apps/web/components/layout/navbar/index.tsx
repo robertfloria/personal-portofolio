@@ -106,7 +106,7 @@ export function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'navbar-glass-ultra' : 'bg-[hsl(var(--background)/1)]'} ${isMobileMenuOpen && 'rounded-b-3xl shadow-lg'}`}
     >
-      <div className="max-w-7xl mx-auto px-section sm:px-section-md lg:px-section-lg">
+      <div className="max-w-6xl mx-auto px-section sm:px-section-md lg:px-section-lg">
         <div className="flex items-center justify-between gap-grid h-16">
           <NavbarLogo scrollToSection={scrollToSection} />
           <NavbarDesktopNav

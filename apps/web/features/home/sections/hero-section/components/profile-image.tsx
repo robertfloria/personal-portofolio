@@ -16,7 +16,7 @@ export const ProfileImage: React.FC = () => {
       className="relative order-1 lg:order-1 group"
     >
       {/* Container cu padding pentru glow */}
-      <div className="relative mx-auto w-[min(80vw,400px)] h-[min(80vw,400px)] sm:w-108 sm:h-108 lg:w-120 lg:h-120 p-4">
+      <div className="relative mx-auto w-[min(70vw,320px)] h-[min(70vw,320px)] sm:w-88 sm:h-88 lg:w-96 lg:h-96 p-4">
         {/* Inner container pentru imagine și efecte */}
         <div className="relative w-full h-full">
           {/* Single animated ring gradient - refined and subtle */}
@@ -43,6 +43,7 @@ export const ProfileImage: React.FC = () => {
               sizes="(max-width: 768px) 20rem, (max-width: 1024px) 20rem, 25rem"
               className="object-cover z-10 transition-transform duration-500 group-hover:scale-105"
               priority
+              quality={100}
             />
             {/* Subtle overlay on hover */}
             <div className="absolute inset-0 bg-linear-to-t from-[hsl(var(--background)/0.15)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />

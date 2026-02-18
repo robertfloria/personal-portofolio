@@ -9,7 +9,7 @@ import globeAnimation from '../../../../public/lottie/globe.json';
 export function ContactSection() {
   return (
     <Section id="contact" className="p-section md:p-section-md lg:p-section-lg">
-      <Section.Header className="max-w-7xl mx-auto w-full">
+      <Section.Header className="max-w-6xl mx-auto w-full">
         <div className="text-center mx-auto">
           <Section.Title highlightText="Touch">Get In</Section.Title>
           <Section.Subtitle>
