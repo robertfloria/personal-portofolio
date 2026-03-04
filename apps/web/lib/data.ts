@@ -9,10 +9,10 @@ const SOCIAL_LINKS = {
 export const personalInfo: PersonalInfo = {
   name: 'Robert Nicolae Floria',
   title: 'Software Engineer',
-  subtitle: 'React.js • React Native • Next.js • NestJS • Node.js • AI Integration',
-  bio: 'Full-stack Software Engineer (5 years) delivering production web apps end-to-end. Strong in React/Next.js and Node.js/NestJS (TypeScript), with proven delivery in regulated enterprise environments and SaaS products. Reduced manual effort (~40%) through workflow automation and improved release speed (~30%) via CI/CD. Focus areas: payments (Stripe), AI features (LLM + transcription), security (OAuth2, OWASP), and observability (Sentry). Available B2B (PFA) or Full-time | Remote / Hybrid.',
+  subtitle: 'React • Next.js • Node.js • NestJS • TypeScript • AI Integration',
+  bio: 'Full-Stack Engineer (5+ years) building and shipping production web platforms end-to-end — architecture → delivery → CI/CD → ops. Strong TypeScript stack: React/Next.js + Node/NestJS, PostgreSQL/Prisma, REST/GraphQL, AWS, Vercel, Railway. Delivered ~40% workflow automation and ~30% faster deployments, with production focus on auth, webhooks/idempotency, testing, and observability.',
   about:
-    'Full-stack Software Engineer (5 years) delivering production web and mobile apps end-to-end — from architecture to deployment and maintenance. Strong in React 19/Next.js 16, Node.js/NestJS, TypeScript. Proven in regulated enterprise environments and SaaS products, with focus on payments, AI integration, security hardening, and observability.',
+    'Full-Stack Engineer (5+ years) building and shipping production web platforms end-to-end. Strong TypeScript stack: React/Next.js, Node.js/NestJS, PostgreSQL/Prisma, REST/GraphQL. Delivered measurable improvements (~40% workflow automation, ~30% faster deployments) with a focus on auth, webhooks/idempotency, testing, and observability. Available B2B (PFA)/CIM | Remote/Hybrid | Full-time/Part-time/Project-based.',
   email: 'robert.floria@rbx-soft.tech',
   phone: '+40 745 174 991',
   location: 'Cluj-Napoca, Romania',

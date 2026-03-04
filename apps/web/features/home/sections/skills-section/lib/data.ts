@@ -74,6 +74,13 @@ export const skills: Skill[] = [
     yearsOfExperience: 1.5,
   },
   {
+    name: 'Redux',
+    category: SKILLS_CATEGORIES.FRONTEND,
+    proficiency: 85,
+    iconKey: 'Box',
+    yearsOfExperience: 3,
+  },
+  {
     name: 'React Native (Expo)',
     category: SKILLS_CATEGORIES.FRONTEND,
     proficiency: 90,
@@ -207,11 +214,18 @@ export const skills: Skill[] = [
     yearsOfExperience: 2,
   },
   {
-    name: 'AWS S3',
+    name: 'AWS',
     category: SKILLS_CATEGORIES.DEVOPS,
     proficiency: 85,
     iconKey: 'Cloud',
-    yearsOfExperience: 2,
+    yearsOfExperience: 3,
+  },
+  {
+    name: 'Terraform',
+    category: SKILLS_CATEGORIES.DEVOPS,
+    proficiency: 80,
+    iconKey: 'Settings',
+    yearsOfExperience: 1.5,
   },
   {
     name: 'Railway',
@@ -264,7 +278,7 @@ export const skills: Skill[] = [
   },
   {
     name: 'Sentry',
-    category: SKILLS_CATEGORIES.AI,
+    category: SKILLS_CATEGORIES.DEVOPS,
     proficiency: 85,
     iconKey: 'Activity',
     yearsOfExperience: 1.5,
