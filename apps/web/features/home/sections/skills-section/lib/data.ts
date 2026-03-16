@@ -214,7 +214,7 @@ export const skills: Skill[] = [
     yearsOfExperience: 2,
   },
   {
-    name: 'AWS',
+    name: 'AWS (Lambda, ECS Fargate, S3, RDS)',
     category: SKILLS_CATEGORIES.DEVOPS,
     proficiency: 85,
     iconKey: 'Cloud',
@@ -311,6 +311,13 @@ export const skills: Skill[] = [
     proficiency: 90,
     iconKey: 'Github',
     yearsOfExperience: 2,
+  },
+  {
+    name: 'Claude Code',
+    category: SKILLS_CATEGORIES.TOOLS,
+    proficiency: 85,
+    iconKey: 'Bot',
+    yearsOfExperience: 1,
   },
   {
     name: 'MCP Servers',

@@ -11,7 +11,7 @@ export const iconMap = {
 export const infoItems = [
   { iconKey: 'Calendar', label: 'Age', value: personalInfo.age },
   { iconKey: 'MapPin', label: 'Location', value: personalInfo.location },
-  { iconKey: 'Briefcase', label: 'Work', value: 'Software Engineer' },
+  { iconKey: 'Briefcase', label: 'Work', value: 'Full-Stack Engineer' },
   { iconKey: 'GraduationCap', label: 'Education', value: personalInfo.education },
   { iconKey: 'Phone', label: 'Phone', value: personalInfo.phone },
 ];

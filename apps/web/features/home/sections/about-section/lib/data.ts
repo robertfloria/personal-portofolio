@@ -10,7 +10,7 @@ export const services: Service[] = [
     id: 1,
     title: 'Full-Stack Development',
     description:
-      'Production web and mobile apps (React 19/Next.js 16, NestJS/Node.js) with proven delivery in regulated enterprise environments. Reduced manual effort by ~40% through workflow automation and improved release speed by ~30% via CI/CD optimization.',
+      'End-to-end delivery of production web platforms (React/Next.js, NestJS/Node.js) — architecture, implementation, testing, CI/CD, and ops. Experienced with modular systems, microservices, and reusable frontend architectures in regulated enterprise environments. ~40% workflow automation, ~30% faster deployments.',
     icon: 'Code2',
   },
   {
@@ -31,7 +31,7 @@ export const services: Service[] = [
     id: 4,
     title: 'AI & LLM Integration',
     description:
-      'OpenAI GPT-4o/Whisper integration for analysis, transcription, and structured outputs. PII redaction workflows (regex + SHA-256 hashing), prompt engineering, and audio compression (FFmpeg/libopus) for production AI features.',
+      'OpenAI GPT-4o/Whisper for analysis, transcription, and structured outputs. Prompt engineering, AI workflow integration, PII redaction, Claude Code and GitHub Copilot to accelerate delivery. Production-proven AI features embedded in real products.',
     icon: 'Brain',
   },
   {
