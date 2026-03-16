@@ -21,7 +21,7 @@ export function SkillsSection() {
         </div>
       </Section.Header>
 
-      <div className="flex flex-col gap-section max-w-6xl mx-auto w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto w-full">
         {Object.entries(groupedSkills).map(([category, categorySkills]) => (
           <SkillCategorySection
             key={category}

@@ -1,61 +1,43 @@
+'use client';
+
 import React from 'react';
-import { Card, Heading, Text, Badge } from '@/components/common';
 import { motion } from 'framer-motion';
-import { ANIMATION_DURATIONS } from '@/lib/constants';
-import { IconBadge } from '@/components/common';
+import { cn } from '@/lib/utils';
+import { LucideIcon } from 'lucide-react';
+import * as Icons from 'lucide-react';
 import { Skill } from '../types/skill';
+
+function getIcon(key: string): LucideIcon {
+  const Icon = Icons[key as keyof typeof Icons];
+  return (Icon as LucideIcon) ?? Icons.Code;
+}
 
 interface SkillCardProps {
   skill: Skill;
-  animated?: boolean;
   animationDelay?: number;
 }
 
-const SkillCardComponent: React.FC<SkillCardProps> = ({ skill, animationDelay }) => (
-  <Card
-    key={skill.name}
-    animationDelay={animationDelay}
-    hover="glow"
-    className="group p-card sm:p-card-md md:p-card-lg"
-    variant={'glass'}
-  >
-    <Card.Content>
-      <div className="flex flex-col gap-content">
-        <div className="flex items-center gap-content">
-          {skill.iconKey && (
-            <IconBadge
-              iconKey={skill.iconKey}
-              className="w-12 h-12 group-hover:scale-110 transition-transform"
-            />
-          )}
-          <div className="flex-1">
-            <Heading variant="h4" className="text-base sm:text-lg md:text-xl text-foreground">
-              {skill.name}
-            </Heading>
-            {skill.yearsOfExperience && (
-              <Text variant="small">{skill.yearsOfExperience}+ years</Text>
-            )}
-          </div>
-          <Badge variant="primary" size="sm">
-            {skill.proficiency}%
-          </Badge>
-        </div>
-        <div className="w-full bg-[hsl(var(--card)/1)] rounded-full h-3 overflow-hidden">
-          <motion.div
-            className="bg-linear-to-r from-primary via-primary to-accent h-3 rounded-full"
-            initial={{ width: 0 }}
-            whileInView={{ width: `${skill.proficiency}%` }}
-            viewport={{ once: true }}
-            transition={{
-              duration: ANIMATION_DURATIONS.SLOW,
-              delay: animationDelay,
-              ease: 'easeOut',
-            }}
-          />
-        </div>
-      </div>
-    </Card.Content>
-  </Card>
-);
+const SkillCardComponent: React.FC<SkillCardProps> = ({ skill, animationDelay = 0 }) => {
+  const Icon = skill.iconKey ? getIcon(skill.iconKey) : null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.25, delay: animationDelay, ease: 'easeOut' }}
+      className={cn(
+        'inline-flex items-center gap-2 px-4 py-2 rounded-xl',
+        'border border-border dark:border-card bg-card/60 dark:bg-card/40',
+        'text-sm font-medium text-foreground',
+        'hover:border-primary/50 hover:bg-primary/5 hover:-translate-y-0.5',
+        'transition-all duration-200 cursor-default',
+      )}
+    >
+      {Icon && <Icon size={15} className="text-primary shrink-0" />}
+      <span>{skill.name}</span>
+    </motion.div>
+  );
+};
 
 export const SkillCard = React.memo(SkillCardComponent);

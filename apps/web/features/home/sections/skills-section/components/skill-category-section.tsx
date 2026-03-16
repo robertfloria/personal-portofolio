@@ -1,5 +1,4 @@
 import React from 'react';
-import { Heading } from '@/components/common';
 import { Skill } from '../types/skill';
 import { SkillCard } from './skill-card';
 
@@ -14,13 +13,13 @@ const SkillCategorySectionComponent: React.FC<SkillCategorySectionProps> = ({
   categorySkills,
   categories,
 }) => (
-  <div key={category} className="flex flex-col gap-component">
-    <Heading variant="h3" className="flex justify-center md:justify-start">
+  <div className="flex flex-col gap-3">
+    <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
       {categories[category as keyof typeof categories]}
-    </Heading>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-grid">
+    </p>
+    <div className="flex flex-wrap gap-2">
       {categorySkills.map((skill, index) => (
-        <SkillCard key={skill.name} skill={skill} animationDelay={index * 0.05} />
+        <SkillCard key={skill.name} skill={skill} animationDelay={index * 0.04} />
       ))}
     </div>
   </div>
