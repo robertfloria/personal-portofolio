@@ -31,7 +31,7 @@ const SkillCardComponent: React.FC<SkillCardProps> = ({ skill, animationDelay = 
         'border border-border dark:border-card bg-card/60 dark:bg-card/40',
         'text-sm font-medium text-foreground',
         'hover:border-primary/50 hover:bg-primary/5 hover:-translate-y-0.5',
-        'transition-all duration-200 cursor-default',
+        'cursor-default',
       )}
     >
       {Icon && <Icon size={15} className="text-primary shrink-0" />}

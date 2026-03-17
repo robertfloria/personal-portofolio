@@ -8,7 +8,6 @@ const SESSION_STORAGE_KEY = 'welcomeModalDismissed';
 
 const WelcomeModalInner = () => {
   const [open, setOpen] = useState(false);
-  const [handshakeAnimationPlayed, setHandshakeAnimationPlayed] = useState(false);
 
   useEffect(() => {
     // Only show if not dismissed before
@@ -23,53 +22,42 @@ const WelcomeModalInner = () => {
     sessionStorage.setItem(SESSION_STORAGE_KEY, 'true');
   };
 
-  const handleHandshakeAnimationEnd = () => {
-    setHandshakeAnimationPlayed(true);
-  };
-
   return (
-    <>
       <Modal isOpen={open} onClose={handleClose}>
-        {!handshakeAnimationPlayed && (
-          <div className="flex justify-center items-center w-[80vw] md:w-[40vw] rounded-full overflow-hidden">
-            <LottieAnimation
-              animationData={handshakeAnimation}
-              loop={false}
-              speed={1.5}
-              onComplete={handleHandshakeAnimationEnd}
-            />
-          </div>
-        )}
-        {handshakeAnimationPlayed && (
-          <Modal.Content className="max-w-md">
-            <Modal.Body className="relative overflow-hidden">
-              <div className="flex flex-col gap-component items-center justify-center overflow-hidden">
-                <Heading variant="h2" gradient className="z-1">
-                  Welcome!
-                </Heading>
-                <Text variant="body" className="text-foreground text-center">
-                  Thanks for visiting my portfolio.
-                  <br />
-                  Explore my projects, skills, and feel free to get in touch!
-                </Text>
-                <Button
-                  onClick={handleClose}
-                  variant="primary"
-                  size="md"
-                  className="w-full"
-                  autoFocus
-                >
-                  Get Started
-                </Button>
-                <Text variant="muted" className="text-center">
-                  This message will not appear again during this session.
-                </Text>
+        <Modal.Content className="max-w-md">
+          <Modal.Body className="relative overflow-hidden">
+            <div className="flex flex-col gap-component items-center justify-center overflow-hidden">
+              <div className="flex justify-center items-center w-full absolute z-[-1] opacity-25">
+                <LottieAnimation
+                  animationData={handshakeAnimation}
+                  loop={false}
+                  speed={1.5}
+                />
               </div>
-            </Modal.Body>
-          </Modal.Content>
-        )}
+              <Heading variant="h2" gradient className="z-1">
+                Welcome!
+              </Heading>
+              <Text variant="body" className="text-foreground text-center">
+                Thanks for visiting my portfolio.
+                <br />
+                Explore my projects, skills, and feel free to get in touch!
+              </Text>
+              <Button
+                onClick={handleClose}
+                variant="primary"
+                size="md"
+                className="w-full"
+                autoFocus
+              >
+                Get Started
+              </Button>
+              <Text variant="muted" className="text-center">
+                This message will not appear again during this session.
+              </Text>
+            </div>
+          </Modal.Body>
+        </Modal.Content>
       </Modal>
-    </>
   );
 };
 
