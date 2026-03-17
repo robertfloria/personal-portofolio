@@ -6,9 +6,9 @@ const headingVariants = cva('font-bold', {
   variants: {
     variant: {
       h1: 'text-3xl sm:text-4xl lg:text-5xl xl:text-6xl',
-      h2: 'text-2xl sm:text-3xl lg:text-4xl',
-      h3: 'text-xl sm:text-2xl lg:text-3xl',
-      h4: 'text-lg sm:text-xl',
+      h2: 'text-xl sm:text-2xl lg:text-3xl',
+      h3: 'text-lg sm:text-xl lg:text-2xl',
+      h4: 'text-base sm:text-lg',
       h5: 'text-base sm:text-lg',
       h6: 'text-sm sm:text-base',
     },

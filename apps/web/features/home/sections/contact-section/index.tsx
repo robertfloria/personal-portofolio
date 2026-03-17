@@ -15,7 +15,9 @@ export function ContactSection() {
             <div className="block shrink-0 pointer-events-none select-none">
               <LottieAnimation animationData={globeAnimation} style={{ width: 60, height: 60 }} />
             </div>
-            <Section.Title highlightText="Touch" className="mb-0!">Get In</Section.Title>
+            <Section.Title highlightText="Touch" className="mb-0!">
+              Get In
+            </Section.Title>
           </div>
           <Section.Subtitle>
             Have a project in mind or want to collaborate? Feel free to reach out!

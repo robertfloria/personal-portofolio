@@ -14,7 +14,7 @@ export const InfoCard: React.FC<InfoCardProps> = ({ label, value, iconKey, anima
       <IconBadge
         iconKey={iconKey}
         variant="solid"
-        size='md'
+        size="sm"
         className="group-hover:scale-110 transition-transform shrink-0"
       />
       <div>

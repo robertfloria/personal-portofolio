@@ -36,13 +36,8 @@ export const HeroText: React.FC = () => {
           transition={{ delay: 0.4 }}
         >
           <Card hover="glow" padding="md">
-            <Card.Content className="flex flex-row gap-content justify-center items-start">
-              <IconBadge iconKey="Briefcase" variant="solid" size="md" className="shrink-0" />
-              <div>
-                <Card.Header>{personalInfo.title}</Card.Header>
-                <Card.Description>{personalInfo.subtitle}</Card.Description>
-              </div>
-            </Card.Content>
+            <Card.Header>{personalInfo.title}</Card.Header>
+            <Card.Description>{personalInfo.subtitle}</Card.Description>
           </Card>
         </motion.div>
 

@@ -16,7 +16,7 @@ export const ProfileImage: React.FC = () => {
       className="relative order-1 lg:order-1 group"
     >
       {/* Container cu padding pentru glow */}
-      <div className="relative mx-auto w-[min(70vw,320px)] h-[min(70vw,320px)] sm:w-88 sm:h-88 lg:w-96 lg:h-96 p-4">
+      <div className="relative mx-auto w-[min(70vw,280px)] h-[min(70vw,280px)] sm:w-72 sm:h-72 lg:w-80 lg:h-80 p-4">
         {/* Inner container pentru imagine și efecte */}
         <div className="relative w-full h-full">
           {/* Single animated ring gradient - refined and subtle */}
