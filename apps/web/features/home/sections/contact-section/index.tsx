@@ -12,11 +12,10 @@ export function ContactSection() {
       <Section.Header className="max-w-6xl mx-auto w-full">
         <div className="text-center mx-auto">
           <div className="relative flex items-center justify-center mb-4">
-            <div className="hidden sm:block shrink-0 pointer-events-none select-none">
-              <LottieAnimation animationData={globeAnimation} style={{ width: 80, height: 80 }} />
+            <div className="block shrink-0 pointer-events-none select-none">
+              <LottieAnimation animationData={globeAnimation} style={{ width: 60, height: 60 }} />
             </div>
             <Section.Title highlightText="Touch" className="mb-0!">Get In</Section.Title>
-            <div className="hidden sm:block shrink-0" style={{ width: 80 }} />
           </div>
           <Section.Subtitle>
             Have a project in mind or want to collaborate? Feel free to reach out!
@@ -30,9 +29,6 @@ export function ContactSection() {
           hover="none"
           animationDelay={0.2}
         >
-          {/* <div className="flex items-center justify-center">
-            <LottieAnimation animationData={globeAnimation} style={{ width: 150, height: 150 }} />
-          </div> */}
           <ContactForm />
           <div className="mt-12 pt-8 border-t border-border dark:border-card">
             <h3 className="text-lg font-semibold mb-6 text-foreground text-center">

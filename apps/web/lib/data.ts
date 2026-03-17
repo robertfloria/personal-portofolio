@@ -17,7 +17,7 @@ export const personalInfo: PersonalInfo = {
   phone: '+40 745 174 991',
   location: 'Cluj-Napoca, Romania',
   age: '27',
-  education: 'Bachelor of Software Engineering',
+  education: 'Bachelor of Computer Science',
   university: 'Technical University of Cluj-Napoca',
   profileImage: '/images/profile/profile_rounded_blue.png',
 };

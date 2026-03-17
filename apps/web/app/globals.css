@@ -87,16 +87,16 @@ html::-webkit-scrollbar-thumb:hover {
     --gap-2xl: 3rem; /* 48px - gap-12  - major section divisions */
 
     /* Padding values (for containers) */
-    --padding-xs: 0.5rem; /* 8px  - p-2  - tight padding */
-    --padding-sm: 0.75rem; /* 12px - p-3  - small cards mobile */
-    --padding-md: 1rem; /* 16px - p-4  - default card padding */
-    --padding-lg: 1.5rem; /* 24px - p-6  - comfortable padding */
-    --padding-xl: 2rem; /* 32px - p-8  - spacious padding */
+    --padding-xs: 0.75rem;  /* 12px - p-3  - tight padding */
+    --padding-sm: 1rem;     /* 16px - p-4  - small cards mobile */
+    --padding-md: 1.5rem;   /* 24px - p-6  - default card padding */
+    --padding-lg: 2rem;     /* 32px - p-8  - comfortable padding */
+    --padding-xl: 2.5rem;   /* 40px - p-10 - spacious padding */
 
     /* Section padding (responsive) */
-    --section-padding-mobile: 1rem; /* p-4 */
-    --section-padding-tablet: 1.5rem; /* p-6 */
-    --section-padding-desktop: 2rem; /* p-8 */
+    --section-padding-mobile: 1.5rem;  /* p-6 */
+    --section-padding-tablet: 2rem;    /* p-8 */
+    --section-padding-desktop: 3rem;   /* p-12 */
   }
 
   .dark {
@@ -206,14 +206,14 @@ html::-webkit-scrollbar-thumb:hover {
 
   /* Card padding */
   .p-card {
-    padding: var(--padding-sm);
-  } /* 12px - mobile */
-  .p-card-md {
     padding: var(--padding-md);
-  } /* 16px - tablet */
-  .p-card-lg {
+  } /* 16px - mobile */
+  .p-card-md {
     padding: var(--padding-lg);
-  } /* 24px - desktop */
+  } /* 24px - tablet */
+  .p-card-lg {
+    padding: var(--padding-xl);
+  } /* 32px - desktop */
 
   .text-foreground {
     color: hsl(var(--foreground) / 1);

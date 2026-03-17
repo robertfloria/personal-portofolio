@@ -40,7 +40,7 @@ export const ProfileImage: React.FC = () => {
               src={personalInfo.profileImage}
               alt={personalInfo.name}
               fill
-              sizes="(max-width: 768px) 20rem, (max-width: 1024px) 20rem, 25rem"
+              sizes="(max-width: 768px) 15rem, (max-width: 1024px) 15rem, 20rem"
               className="object-cover z-10 transition-transform duration-500 group-hover:scale-105"
               priority
               quality={100}

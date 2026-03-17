@@ -13,7 +13,7 @@ export const timeline: TimelineItem[] = [
   },
   {
     id: '2',
-    title: 'Bachelor of Software Engineering',
+    title: 'Bachelor of Computer Science',
     organization: 'Technical University of Cluj-Napoca',
     startDate: 'October 2018',
     endDate: 'October 2022',

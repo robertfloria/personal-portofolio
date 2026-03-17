@@ -1,3 +1,4 @@
+import { SOCIAL_LINKS } from '@/lib';
 import { personalInfo } from '@/lib/data';
 
 export const contactMethods = [
@@ -18,10 +19,11 @@ export const contactMethods = [
     border: 'border-border',
   },
   {
-    iconKey: 'MapPin',
-    label: 'Location',
-    value: personalInfo.location,
-    gradient: 'from-accent to-secondary dark:from-accent dark:to-secondary',
+    iconKey: 'Linkedin',
+    label: 'LinkedIn',
+    value: 'robert-nicolae-floria',
+    href: SOCIAL_LINKS.LINKEDIN,
+    gradient: 'from-accent to-primary dark:from-accent dark:to-primary',
     border: 'border-border',
   },
 ];

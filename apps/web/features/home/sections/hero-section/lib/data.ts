@@ -9,9 +9,8 @@ export const iconMap = {
 
 // Icon keys must match lucide-react PascalCase export names exactly
 export const infoItems = [
-  { iconKey: 'Calendar', label: 'Age', value: personalInfo.age },
-  { iconKey: 'MapPin', label: 'Location', value: personalInfo.location },
   { iconKey: 'Briefcase', label: 'Work', value: 'Full-Stack Engineer' },
   { iconKey: 'GraduationCap', label: 'Education', value: personalInfo.education },
+  { iconKey: 'MapPin', label: 'Location', value: personalInfo.location },
   { iconKey: 'Phone', label: 'Phone', value: personalInfo.phone },
 ];

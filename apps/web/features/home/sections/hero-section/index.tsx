@@ -25,7 +25,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-grid"
+          className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-grid"
         >
           {infoItems.map((item, index) => (
             <InfoCard

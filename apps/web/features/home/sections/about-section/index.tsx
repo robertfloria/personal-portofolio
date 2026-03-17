@@ -17,7 +17,7 @@ export function AboutSection() {
         </div>
       </Section.Header>
 
-      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-grid px-section md:px-section-md lg:px-section-lg">
+      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-grid px-section md:px-section-md lg:px-section-lg">
         {services.map((service, index) => {
           const iconKey = service.icon;
 
