@@ -8,19 +8,20 @@ import globeAnimation from '../../../../public/lottie/globe.json';
 
 export function ContactSection() {
   return (
-    <Section id="contact" className="p-section md:p-section-md lg:p-section-lg">
+    <Section id="contact" className="py-20 md:py-28 px-section md:px-section-md lg:px-section-lg">
       <Section.Header className="max-w-6xl mx-auto w-full">
         <div className="text-center mx-auto">
           <div className="relative flex items-center justify-center mb-4">
             <div className="block shrink-0 pointer-events-none select-none">
               <LottieAnimation animationData={globeAnimation} style={{ width: 60, height: 60 }} />
             </div>
-            <Section.Title highlightText="Touch" className="mb-0!">
-              Get In
+            <Section.Title highlightText="Together" className="mb-0!">
+              Let&apos;s Work
             </Section.Title>
           </div>
           <Section.Subtitle>
-            Have a project in mind or want to collaborate? Feel free to reach out!
+            Need a delivery-focused contractor for a new product, modernization effort, or
+            AI-enabled workflow? Send your scope and timeline.
           </Section.Subtitle>
         </div>
       </Section.Header>
@@ -34,7 +35,7 @@ export function ContactSection() {
           <ContactForm />
           <div className="mt-12 pt-8 border-t border-border dark:border-card">
             <h3 className="text-lg font-semibold mb-6 text-foreground text-center">
-              Other Ways to Reach Me
+              Direct Contact Channels
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-component">
               {contactMethods.map((method) => (

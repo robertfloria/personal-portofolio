@@ -18,7 +18,7 @@ interface SkillCardProps {
 }
 
 const SkillCardComponent: React.FC<SkillCardProps> = ({ skill, animationDelay = 0 }) => {
-  const Icon = skill.iconKey ? getIcon(skill.iconKey) : null;
+  const iconComponent = skill.iconKey ? getIcon(skill.iconKey) : null;
 
   return (
     <motion.div
@@ -27,14 +27,14 @@ const SkillCardComponent: React.FC<SkillCardProps> = ({ skill, animationDelay = 
       viewport={{ once: true }}
       transition={{ duration: 0.25, delay: animationDelay, ease: 'easeOut' }}
       className={cn(
-        'inline-flex items-center gap-2 px-4 py-2 rounded-xl',
-        'border border-border dark:border-card bg-card/60 dark:bg-card/40',
-        'text-sm font-medium text-foreground',
-        'hover:border-primary/50 hover:bg-primary/5 hover:-translate-y-0.5',
-        'cursor-default',
+        'inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl',
+        'border border-border/70 bg-card/70 dark:bg-card/50',
+        'text-sm font-medium text-foreground/90',
+        'hover:border-[hsl(var(--primary)/0.5)] hover:text-primary hover:bg-[hsl(var(--primary)/0.06)] hover:-translate-y-0.5',
+        'transition-all duration-200 cursor-default',
       )}
     >
-      {Icon && <Icon size={15} className="text-primary shrink-0" />}
+      {iconComponent && React.createElement(iconComponent, { size: 15, className: 'text-primary shrink-0' })}
       <span>{skill.name}</span>
     </motion.div>
   );

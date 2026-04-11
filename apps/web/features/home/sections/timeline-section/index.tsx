@@ -7,13 +7,13 @@ import { TimelineList } from './components';
 
 export function TimelineSection() {
   return (
-    <Section id="timeline" className="p-section md:p-section-md lg:p-section-lg">
+    <Section id="timeline" className="py-20 md:py-28 px-section md:px-section-md lg:px-section-lg">
       <Section.Header className="max-w-6xl mx-auto w-full">
         <div className="text-center mx-auto">
-          <Section.Title highlightText="Timeline">Professional</Section.Title>
+          <Section.Title highlightText="Experience">Professional</Section.Title>
           <Section.Subtitle>
-            Career milestones and roles where I led frontend efforts, built backend services, and
-            promoted AI adoption.
+            Key education and delivery roles across enterprise teams and contractor B2B
+            engagements.
           </Section.Subtitle>
         </div>
       </Section.Header>

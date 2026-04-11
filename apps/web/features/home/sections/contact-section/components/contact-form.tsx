@@ -53,20 +53,20 @@ export const ContactForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
       <Input
-        label="Your Name"
+        label="Full Name"
         {...register('name')}
         type="text"
-        placeholder="John Doe"
+        placeholder="Your name"
         leftIcon={<User size={20} />}
         className="h-12 min-w-12"
         error={errors.name?.message}
       />
 
       <Input
-        label="Your Email"
+        label="Business Email"
         {...register('from')}
         type="email"
-        placeholder="john@example.com"
+        placeholder="name@company.com"
         leftIcon={<Mail size={20} />}
         className="h-12 min-w-12"
         error={errors.from?.message}
@@ -76,7 +76,7 @@ export const ContactForm: React.FC = () => {
         label="Subject"
         {...register('subject')}
         type="text"
-        placeholder="Project Inquiry"
+        placeholder="Full-time or Contract / B2B inquiry"
         leftIcon={<MessageSquare size={20} />}
         className="h-12 min-w-12"
         error={errors.subject?.message}
@@ -86,7 +86,7 @@ export const ContactForm: React.FC = () => {
         label="Message"
         {...register('message')}
         rows={6}
-        placeholder="Tell me about your project..."
+        placeholder="Share your project scope, timeline, and key delivery expectations."
         error={errors.message?.message}
       />
 
@@ -98,7 +98,7 @@ export const ContactForm: React.FC = () => {
         isLoading={isPending}
         leftIcon={!isPending && <Send size={20} />}
       >
-        {isPending ? 'Sending...' : 'Send Message'}
+        {isPending ? 'Sending Inquiry...' : 'Send Project Inquiry'}
       </Button>
     </form>
   );

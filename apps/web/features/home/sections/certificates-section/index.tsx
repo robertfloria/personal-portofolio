@@ -5,7 +5,6 @@ import { Section } from '@/components/common';
 import { certificates } from './lib/data';
 import { CertificateItem } from './types/certificate-item';
 import { CertificateCard, CertificateModal } from './components';
-import { SectionDivider } from '@/components/common/section-divider';
 
 export function CertificatesSection() {
   const [selectedCertificate, setSelectedCertificate] = useState<CertificateItem | null>(null);
@@ -19,13 +18,13 @@ export function CertificatesSection() {
   }, []);
 
   return (
-    <Section id="certificates" className="bg-divider-section">
-      <SectionDivider variant="top" />
+    <Section id="certificates" className="py-20 md:py-28">
       <Section.Header className="max-w-6xl mx-auto w-full">
         <div className="text-center mx-auto px-section md:px-section-md lg:px-section-lg">
-          <Section.Title highlightText="Achievements">Certificates &</Section.Title>
+          <Section.Title highlightText="Credentials">Professional</Section.Title>
           <Section.Subtitle>
-            Professional certifications and courses completed to enhance my skills
+            Certifications and formal training that support delivery quality and engineering
+            discipline.
           </Section.Subtitle>
         </div>
       </Section.Header>
@@ -46,7 +45,6 @@ export function CertificatesSection() {
         isOpen={Boolean(selectedCertificate)}
         onClose={handleCloseModal}
       />
-      <SectionDivider variant="bottom" />
     </Section>
   );
 }

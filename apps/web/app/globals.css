@@ -44,34 +44,28 @@ html::-webkit-scrollbar-thumb:hover {
 /* Theme Variables */
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    /* Light background */
-    --divider-background-section: 210 50% 96%;
-    --foreground: 220 15% 12%;
-    /* Dark text */
-    --primary: 200 90% 45%;
-    /* Vibrant blue-teal */
+    --background: 224 22% 97%;
+    --foreground: 230 28% 11%;
+    --primary: 247 72% 57%;
+    /* Deep indigo */
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 16% 92%;
-    /* Soft gray */
-    --secondary-foreground: 220 15% 12%;
-    --accent: 270 85% 60%;
-    /* Modern purple accent */
+    --secondary: 222 18% 92%;
+    --secondary-foreground: 230 28% 11%;
+    --accent: 282 68% 54%;
+    /* Vivid violet */
     --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 50%;
-    /* Red for alerts */
     --destructive-foreground: 0 0% 100%;
-    --success: 145 60% 40%;
-    /* Green for success */
+    --success: 145 58% 42%;
     --success-foreground: 0 0% 100%;
-    --muted: 210 12% 94%;
-    --muted-foreground: 210 12% 40%;
+    --muted: 224 18% 93%;
+    --muted-foreground: 222 14% 44%;
     --card: 0 0% 100%;
-    --card-foreground: 220 15% 12%;
-    --border: 220 10% 85%;
-    --input: 220 10% 85%;
-    --ring: 200 90% 45%;
-    --radius: 0.5rem;
+    --card-foreground: 230 28% 11%;
+    --border: 222 16% 86%;
+    --input: 222 16% 86%;
+    --ring: 247 72% 57%;
+    --radius: 0.875rem;
 
     /* ========================================
        SPACING SYSTEM
@@ -100,30 +94,28 @@ html::-webkit-scrollbar-thumb:hover {
   }
 
   .dark {
-    --background: 220 16% 8%;
-    /* Dark background */
-    --divider-background-section: 220 16% 12%;
-    --foreground: 0 0% 98%;
-    /* Light text */
-    --primary: 200 95% 55%;
-    /* Brighter blue-teal */
-    --primary-foreground: 220 16% 8%;
-    --secondary: 220 12% 16%;
-    --secondary-foreground: 0 0% 98%;
-    --accent: 270 85% 65%;
-    /* Purple accent */
-    --accent-foreground: 0 0% 98%;
+    --background: 230 22% 6%;
+    /* Deep navy-black */
+    --foreground: 220 14% 92%;
+    --primary: 247 80% 68%;
+    /* Vivid indigo */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 230 18% 13%;
+    --secondary-foreground: 220 14% 92%;
+    --accent: 282 72% 68%;
+    /* Vivid violet */
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 40%;
-    --destructive-foreground: 0 0% 98%;
-    --success: 145 60% 32%;
-    --success-foreground: 0 0% 98%;
-    --muted: 210 12% 14%;
-    --muted-foreground: 210 12% 60%;
-    --card: 220 16% 10%;
-    --card-foreground: 0 0% 98%;
-    --border: 220 10% 28%;
-    --input: 220 10% 28%;
-    --ring: 200 95% 55%;
+    --destructive-foreground: 210 30% 96%;
+    --success: 145 58% 38%;
+    --success-foreground: 210 30% 96%;
+    --muted: 230 16% 13%;
+    --muted-foreground: 220 10% 50%;
+    --card: 230 18% 9%;
+    --card-foreground: 220 14% 92%;
+    --border: 230 14% 19%;
+    --input: 230 14% 19%;
+    --ring: 247 80% 68%;
   }
 }
 
@@ -137,7 +129,8 @@ html::-webkit-scrollbar-thumb:hover {
   body {
     background-color: hsl(var(--background) / 1);
     color: hsl(var(--foreground) / 1);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope', sans-serif;
+    background-image: radial-gradient(ellipse at 50% 0%, hsl(var(--primary) / 0.05) 0, transparent 60%);
     scroll-behavior: smooth;
   }
 }

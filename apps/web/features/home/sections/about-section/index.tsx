@@ -3,17 +3,15 @@
 import React from 'react';
 import { personalInfo } from '@/lib/data';
 import { Section, Card, IconBadge } from '@/components/common';
-import { SectionDivider } from '../../../../components/common/section-divider';
 import { services } from './lib/data';
 
 export function AboutSection() {
   return (
-    <Section id="about" className="bg-divider-section">
-      <SectionDivider variant="top" />
+    <Section id="about" className="py-20 md:py-28">
       <Section.Header className="max-w-6xl mx-auto w-full">
         <div className="text-center mx-auto px-section md:px-section-md lg:px-section-lg">
-          <Section.Title highlightText="Offer">What I</Section.Title>
-          <Section.Subtitle>{personalInfo.about}</Section.Subtitle>
+          <Section.Title highlightText="Services">B2B</Section.Title>
+          <Section.Subtitle className="max-w-3xl">{personalInfo.about}</Section.Subtitle>
         </div>
       </Section.Header>
 
@@ -51,7 +49,6 @@ export function AboutSection() {
           );
         })}
       </div>
-      <SectionDivider variant="bottom" />
     </Section>
   );
 }

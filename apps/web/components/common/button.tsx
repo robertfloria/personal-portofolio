@@ -21,14 +21,14 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-linear-to-r from-primary to-accent text-primary-foreground hover:brightness-105 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary-strong hover:shadow-accent-strong',
+          'bg-linear-to-r from-primary to-accent text-primary-foreground hover:opacity-90 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[hsl(var(--primary)/0.35)]',
         secondary:
-          'border-2 border-border text-foreground hover:border-[hsl(var(--border)/0.8)] hover:bg-[hsl(var(--card)/0.05)] hover:-translate-y-0.5',
+          'border border-border bg-secondary text-foreground hover:border-[hsl(var(--primary)/0.5)] hover:text-primary hover:-translate-y-0.5',
         outline:
-          'border-2 border-border dark:border-card text-foreground hover:bg-[hsl(var(--card)/0.05)] dark:hover:bg-[hsl(var(--card)/0.8)] hover:-translate-y-0.5',
+          'border border-border text-foreground hover:bg-secondary hover:border-[hsl(var(--primary)/0.4)] hover:-translate-y-0.5',
         ghost:
-          'text-foreground hover:bg-[hsl(var(--card)/0.05)] dark:hover:bg-[hsl(var(--card)/0.8)] hover:-translate-y-0.5',
-        link: 'text-primary dark:text-primary-foreground underline-offset-4 hover:underline',
+          'text-foreground hover:bg-secondary hover:-translate-y-0.5',
+        link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {
         sm: 'px-4 py-2 text-sm',

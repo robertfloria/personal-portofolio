@@ -2,9 +2,9 @@
  * Application-wide constants
  */
 
-export const APP_NAME = 'Robert Nicolae Floria | Full-Stack Developer';
+export const APP_NAME = 'Robert Nicolae Floria | Full-Stack Engineering Services';
 export const APP_DESCRIPTION =
-  'Full-Stack Developer specializing in React, Next.js, NestJS, and TypeScript. Building scalable web and mobile applications with AI integration. View my portfolio, projects, and get in touch.';
+  'Full-Stack Engineer available for full-time and contract/B2B engagements. Specialized in React, Next.js, NestJS, TypeScript, cloud delivery, and AI/RAG integrations for production systems.';
 
 // Animation durations
 export const ANIMATION_DURATIONS = {
@@ -28,7 +28,7 @@ export const API_CONFIG = {
 export const SOCIAL_LINKS = {
   GITHUB: 'https://github.com/robertfloria',
   LINKEDIN: 'https://www.linkedin.com/in/robert-nicolae-floria-51981920b/',
-  EMAIL: 'mailto:robertfloria27@gmail.com',
+  EMAIL: 'mailto:robert.floria@rbx-soft.tech',
   PORTFOLIO: 'https://web-production-26d4.up.railway.app',
   GITHUB_REPO: 'https://github.com/robertfloria/personal-portofolio',
 } as const;
@@ -36,10 +36,10 @@ export const SOCIAL_LINKS = {
 // Navigation items
 export const NAV_ITEMS = [
   { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Timeline', href: '#timeline' },
-  { label: 'Certificates', href: '#certificates' },
+  { label: 'Services', href: '#about' },
+  { label: 'Capabilities', href: '#skills' },
+  { label: 'Selected Work', href: '#projects' },
+  { label: 'Experience', href: '#timeline' },
+  { label: 'Credentials', href: '#certificates' },
   { label: 'Contact', href: '#contact' },
 ] as const;

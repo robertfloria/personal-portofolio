@@ -11,12 +11,13 @@ export function SkillsSection() {
   const groupedSkills = useGroupBy<Skill, 'category'>(skills, 'category');
 
   return (
-    <Section id="skills" className="p-section md:p-section-md lg:p-section-lg">
+    <Section id="skills" className="py-20 md:py-28 px-section md:px-section-md lg:px-section-lg">
       <Section.Header className="max-w-6xl mx-auto w-full">
         <div className="text-center mx-auto">
-          <Section.Title highlightText="Expertise">Skills &</Section.Title>
+          <Section.Title highlightText="Capabilities">Core</Section.Title>
           <Section.Subtitle>
-            Technologies and tools I use to build modern web applications
+            Production-ready technologies and engineering practices I use to deliver reliable B2B
+            products.
           </Section.Subtitle>
         </div>
       </Section.Header>

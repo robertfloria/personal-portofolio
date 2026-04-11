@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
-import { Button, Card, Heading, Text, IconBadge, DownloadCvButton } from '@/components/common';
+import { Button, Heading, Text, DownloadCvButton } from '@/components/common';
 import { personalInfo } from '@/lib/data';
 import Link from 'next/link';
 
@@ -35,10 +35,10 @@ export const HeroText: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
         >
-          <Card hover="glow" padding="md">
-            <Card.Header>{personalInfo.title}</Card.Header>
-            <Card.Description>{personalInfo.subtitle}</Card.Description>
-          </Card>
+          <div className="rounded-2xl border border-border/60 bg-secondary/40 dark:bg-muted/30 px-4 py-3">
+            <p className="text-sm font-semibold text-foreground">{personalInfo.title}</p>
+            <p className="text-sm text-muted-foreground mt-0.5">{personalInfo.subtitle}</p>
+          </div>
         </motion.div>
 
         <motion.div
@@ -55,6 +55,22 @@ export const HeroText: React.FC = () => {
         </motion.div>
 
         <motion.div
+          className="flex flex-wrap gap-2 justify-center lg:justify-start"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.55 }}
+        >
+          {['Full-Time Employment', 'Contract / B2B', 'Project-Based', 'Remote / Hybrid'].map((label) => (
+            <span
+              key={label}
+              className="rounded-full border border-border/60 bg-secondary/60 dark:bg-muted/40 px-3 py-1 text-xs font-medium text-muted-foreground tracking-wide"
+            >
+              {label}
+            </span>
+          ))}
+        </motion.div>
+
+        <motion.div
           className="flex flex-wrap gap-content justify-center lg:justify-start"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -67,7 +83,7 @@ export const HeroText: React.FC = () => {
               className="flex w-full sm:w-auto"
               leftIcon={<Mail size={20} />}
             >
-              Get In Touch
+              Discuss a Project
             </Button>
           </Link>
           <DownloadCvButton className="flex w-full sm:w-auto" />

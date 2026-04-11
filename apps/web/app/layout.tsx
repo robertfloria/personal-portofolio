@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from 'next';
 import { APP_NAME, APP_DESCRIPTION } from '@/lib/constants';
-import { Inter } from 'next/font/google';
+import { Manrope } from 'next/font/google';
 import './globals.css';
 import { Footer, Navbar, Providers, Toast, WelcomeModal } from '@/components/layout';
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ['latin'],
   display: 'swap', // Optimize font loading
   preload: true,
@@ -16,8 +16,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f9fafb' },
-    { media: '(prefers-color-scheme: dark)', color: '#0f1117' },
+    { media: '(prefers-color-scheme: light)', color: '#f2f3fb' },
+    { media: '(prefers-color-scheme: dark)', color: '#09090f' },
   ],
 };
 
@@ -34,9 +34,14 @@ export const metadata: Metadata = {
     'NestJS',
     'TypeScript',
     'Software Engineer',
+    'Contractor',
+    'B2B Services',
+    'Full-Time',
     'React Native',
     'Node.js',
     'AI Integration',
+    'RAG',
+    'pgvector',
     'Portfolio',
     'Robert Nicolae Floria',
     'Cluj-Napoca',
@@ -100,11 +105,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${manrope.className} antialiased`}>
         <Providers>
           <Navbar />
           <WelcomeModal />
-          <main className="min-h-screen gap-section flex flex-col pt-16">{children}</main>
+          <main className="min-h-screen flex flex-col pt-16">{children}</main>
           <Footer />
           <Toast />
         </Providers>

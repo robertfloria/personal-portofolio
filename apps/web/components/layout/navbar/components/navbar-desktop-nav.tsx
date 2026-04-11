@@ -24,11 +24,11 @@ const NavbarDesktopNavComponent = ({
             e.preventDefault();
             scrollToSection(item.href);
           }}
-          className={`cursor-pointer font-medium transition-colors ${
+          className={`cursor-pointer relative px-3 py-1.5 text-sm font-medium transition-colors ${
             isActive
-              ? 'text-primary dark:text-primary-foreground underline decoration-2 underline-offset-4'
-              : 'text-foreground hover:text-primary dark:hover:text-primary-foreground'
-          }`}
+              ? 'text-primary'
+              : 'text-muted-foreground hover:text-foreground'
+          }${isActive ? ' after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-px after:bg-primary after:rounded-full' : ''}`}
         >
           {item.name}
         </a>

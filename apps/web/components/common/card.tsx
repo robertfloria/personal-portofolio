@@ -26,18 +26,20 @@ import { motion, type HTMLMotionProps } from 'framer-motion';
 import { ANIMATION_DURATIONS } from '@/lib/constants';
 
 const cardVariants = cva(
-  'rounded-xl border transition-transform transition-shadow duration-300 ease-out',
+  'rounded-2xl border transition-all duration-300 ease-out',
   {
     variants: {
       variant: {
         default:
-          'bg-[hsl(var(--card))] dark:bg-[hsl(var(--card))] border-[hsl(var(--border))] semantic-default',
-        glass: 'glass-zone dark:glass-strong border-border semantic-glass',
+          'bg-card border-border/70 shadow-sm dark:shadow-none',
+        glass:
+          'glass-strong border-[hsl(var(--border)/0.55)]',
       },
       hover: {
-        lift: 'hover:-translate-y-0.5 hover:brightness-105',
-        glow: 'relative overflow-visible hover:brightness-105 hover:border-primary hover:gradient-shadow-primary hover:shadow-xl',
-        scale: 'hover:scale-105',
+        lift: 'hover:-translate-y-1 hover:shadow-[0_20px_48px_-16px_hsl(var(--primary)/0.22)] hover:border-[hsl(var(--primary)/0.35)]',
+        glow:
+          'hover:-translate-y-1 hover:shadow-[0_20px_48px_-16px_hsl(var(--primary)/0.28)] hover:border-[hsl(var(--primary)/0.45)]',
+        scale: 'hover:scale-[1.01]',
         none: '',
       },
       padding: {

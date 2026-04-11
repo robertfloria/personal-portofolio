@@ -121,6 +121,11 @@ export interface SectionTitleProps extends React.HTMLAttributes<HTMLDivElement> 
 const SectionTitle = React.forwardRef<HTMLDivElement, SectionTitleProps>(
   ({ className, highlightText, children, ...props }, ref) => (
     <div ref={ref} {...props}>
+      <div className="flex items-center justify-center gap-2 mb-4">
+        <div className="h-px w-10 bg-linear-to-r from-transparent via-primary/60 to-primary/60" />
+        <div className="h-1.5 w-1.5 rounded-full bg-primary/80" />
+        <div className="h-px w-10 bg-linear-to-l from-transparent via-primary/60 to-primary/60" />
+      </div>
       <Heading variant="h2" className={cn('mb-4', className)}>
         {children}{' '}
         {highlightText && (

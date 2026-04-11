@@ -3,16 +3,6 @@ import { TimelineItem } from '../types/timeline-item';
 export const timeline: TimelineItem[] = [
   {
     id: '1',
-    title: 'Computer Science High School',
-    organization: 'High School',
-    startDate: '2014',
-    endDate: '2018',
-    description: 'Computer science profile with focus on Mathematics and programming fundamentals.',
-    type: 'education',
-    location: 'Romania',
-  },
-  {
-    id: '2',
     title: 'Bachelor of Computer Science',
     organization: 'Technical University of Cluj-Napoca',
     startDate: 'October 2018',
@@ -23,7 +13,7 @@ export const timeline: TimelineItem[] = [
     location: 'Cluj-Napoca, Romania',
   },
   {
-    id: '3',
+    id: '2',
     title: 'Software Developer, Transilvania Bank (Internship)',
     organization: 'Transilvania Bank',
     startDate: 'April 2021',
@@ -34,7 +24,7 @@ export const timeline: TimelineItem[] = [
     location: 'Cluj-Napoca, Romania',
   },
   {
-    id: '4',
+    id: '3',
     title: 'Software Developer (Full-Time)',
     organization: 'Transilvania Bank',
     startDate: 'June 2021',
@@ -46,7 +36,7 @@ export const timeline: TimelineItem[] = [
     current: true,
   },
   {
-    id: '5',
+    id: '4',
     title: 'Independent Contractor (B2B / PFA)',
     organization: 'Full-Stack Delivery',
     startDate: 'July 2025',
@@ -58,7 +48,7 @@ export const timeline: TimelineItem[] = [
     current: false,
   },
   {
-    id: '6',
+    id: '5',
     title: 'Founder (AI SaaS — Side Project)',
     organization: 'Derisqo',
     startDate: 'November 2025',

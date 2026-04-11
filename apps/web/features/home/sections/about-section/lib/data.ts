@@ -8,44 +8,44 @@ interface Service {
 export const services: Service[] = [
   {
     id: 1,
-    title: 'Full-Stack Development',
+    title: 'End-to-End Product Delivery',
     description:
-      'End-to-end delivery of production web platforms (React/Next.js, NestJS/Node.js) — architecture, implementation, testing, CI/CD, and ops. Experienced with modular systems, microservices, and reusable frontend architectures in regulated enterprise environments. ~40% workflow automation, ~30% faster deployments.',
+      'From requirements and architecture to implementation, testing, CI/CD, and production support. I deliver TypeScript products with predictable milestones and measurable business outcomes.',
     icon: 'Code2',
   },
   {
     id: 2,
-    title: 'Security & Auth',
+    title: 'Architecture & API Engineering',
     description:
-      'OAuth2 (Google), JWT/HttpOnly cookie auth, OWASP Top 10 mitigations (CSRF/XSS/CSP), rate limiting, secure webhook processing (signature verification, idempotency), audit logging, and secrets management for production systems.',
-    icon: 'Shield',
+      'Design and implementation of modular backend systems with REST/GraphQL APIs, clear boundaries, and scalable patterns for microservices-oriented environments.',
+    icon: 'Share2',
   },
   {
     id: 3,
-    title: 'Payments & Billing',
+    title: 'Cloud & DevOps Execution',
     description:
-      'Stripe integration (subscriptions, credits, metered usage, webhooks, idempotency), Apple Pay, Google Pay, and In-App Purchases. Built reliable billing systems for SaaS products with webhook-driven flows and operational tooling.',
-    icon: 'CreditCard',
+      'AWS workloads (Lambda, ECS Fargate, S3, RDS, CloudWatch), Dockerized services, IaC with Terraform, and automated CI/CD pipelines for safer and faster releases.',
+    icon: 'Cloud',
   },
   {
     id: 4,
-    title: 'AI & LLM Integration',
+    title: 'Security & Production Hardening',
     description:
-      'OpenAI GPT-4o/Whisper for analysis, transcription, and structured outputs. Prompt engineering, AI workflow integration, PII redaction, Claude Code and GitHub Copilot to accelerate delivery. Production-proven AI features embedded in real products.',
-    icon: 'Brain',
+      'Secure auth with OAuth2/JWT, webhook verification and idempotency, rate limiting, validation, secrets management, and practical OWASP-aligned protections.',
+    icon: 'Shield',
   },
   {
     id: 5,
-    title: 'Observability & Reliability',
+    title: 'Billing & Event-Driven Workflows',
     description:
-      'Sentry integration (error tracking + performance monitoring), structured logging, alerting/monitoring, background jobs with Redis/BullMQ (retries/backoff), and real-time features (SSE, WebSockets) for maintainable production systems.',
-    icon: 'Activity',
+      'Stripe subscriptions and credits, resilient webhook handling, and background processing using Redis/BullMQ with retries/backoff and real-time progress updates.',
+    icon: 'CreditCard',
   },
   {
     id: 6,
-    title: 'Database & API Design',
+    title: 'AI Workflow Integration',
     description:
-      'PostgreSQL, MongoDB, MySQL with schema design and query optimization. REST & GraphQL APIs with Swagger/OpenAPI documentation, following SOLID principles and clean architecture patterns for regulated environments.',
-    icon: 'Database',
+      'Production AI features with OpenAI and Whisper, prompt engineering, RAG systems with pgvector retrieval, structured outputs, and privacy-aware workflows (including PII redaction) integrated into real products.',
+    icon: 'Brain',
   },
 ];

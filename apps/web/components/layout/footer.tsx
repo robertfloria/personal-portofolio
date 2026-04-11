@@ -11,30 +11,36 @@ const iconMap = {
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const quickLinks = [
+    { label: 'Services', href: '#about' },
+    { label: 'Capabilities', href: '#skills' },
+    { label: 'Selected Work', href: '#projects' },
+    { label: 'Contact', href: '#contact' },
+  ];
 
   return (
-    <footer className="bg-[hsl(var(--card)/0.7)] border-t border-border">
+    <footer className="border-t border-border/60 bg-card/40 dark:bg-card/30">
       <div className="max-w-6xl mx-auto px-section sm:px-section-md lg:px-section-lg py-section-md lg:py-section-lg">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-grid text-center md:text-left">
-          <div className="w-auto flex flex-col gap-2">
-            <h3 className="text-lg font-bold text-foreground">Robert Nicolae Floria</h3>
-            <p className="text-muted-foreground">
-              Full-Stack Software Developer specializing in modern web technologies. Building
-              scalable and maintainable applications.
+          <div className="w-auto flex flex-col gap-3">
+            <h3 className="text-sm font-semibold text-foreground tracking-tight">Robert Nicolae Floria</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Full-Stack Engineering for full-time and contract/B2B engagements.
+              Delivery-focused across web, cloud, and AI integrations.
             </p>
           </div>
 
           {/* Quick Links */}
-          <div className="w-auto flex flex-col gap-2">
-            <h3 className="text-lg font-bold text-foreground">Quick Links</h3>
-            <ul className="space-y-2 flex gap-2 justify-center md:justify-start">
-              {['About', 'Skills', 'Projects', 'Contact'].map((link) => (
-                <li key={link} className="inline-block">
+          <div className="w-auto flex flex-col gap-3">
+            <h3 className="text-sm font-semibold text-foreground tracking-tight">Navigation</h3>
+            <ul className="flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-start">
+              {quickLinks.map((link) => (
+                <li key={link.label} className="inline-block">
                   <a
-                    href={`#${link.toLowerCase()}`}
-                    className="text-muted-foreground hover:text-primary dark:hover:text-primary-foreground transition-colors"
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
-                    {link}
+                    {link.label}
                   </a>
                 </li>
               ))}
@@ -42,8 +48,8 @@ export function Footer() {
           </div>
 
           {/* Social Links */}
-          <div className="w-auto flex flex-col gap-2">
-            <h3 className="text-lg font-bold text-foreground">Connect With Me</h3>
+          <div className="w-auto flex flex-col gap-3">
+            <h3 className="text-sm font-semibold text-foreground tracking-tight">Connect</h3>
             <div className="flex gap-content justify-center md:justify-start">
               {socialLinks.map((social, index) => {
                 const Icon = iconMap[social.icon as keyof typeof iconMap];
@@ -55,7 +61,7 @@ export function Footer() {
                     rel="noopener noreferrer"
                     aria-label={social.icon}
                     icon={Icon}
-                    size={20}
+                    size={18}
                     variant="outline"
                   />
                 );
@@ -64,7 +70,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-border text-center text-muted-foreground">
+        <div className="mt-8 pt-6 border-t border-border/50 text-center text-xs text-muted-foreground">
           <p>© {currentYear} Robert Nicolae Floria. All rights reserved.</p>
         </div>
       </div>
