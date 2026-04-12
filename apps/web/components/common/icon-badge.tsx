@@ -27,7 +27,7 @@ function getLucideIconComponent(key: string): LucideIcon {
   }
 }
 
-const iconBadgeVariants = cva('flex items-center justify-center rounded-full transition-all', {
+const iconBadgeVariants = cva('flex items-center justify-center rounded-full', {
   variants: {
     variant: {
       gradient:
