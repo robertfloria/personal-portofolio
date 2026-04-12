@@ -21,7 +21,7 @@ const ProjectCardComponent: React.FC<ProjectCardProps> = ({ project, animationDe
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: animationDelay, duration: ANIMATION_DURATIONS.SLOW }}
-      className="group grid grid-cols-1 lg:grid-cols-[2fr_3fr] rounded-2xl border border-border/70 bg-card overflow-hidden hover:border-[hsl(var(--primary)/0.4)] hover:shadow-[0_24px_56px_-16px_hsl(var(--primary)/0.18)] transition-all duration-300"
+      className="group grid grid-cols-1 lg:grid-cols-[2fr_3fr] rounded-2xl border border-border/70 bg-card overflow-hidden hover:border-[hsl(var(--primary)/0.4)] hover:shadow-[0_24px_56px_-16px_hsl(var(--primary)/0.18)]"
     >
       {/* ── Left: image panel ── */}
       <div className="relative min-h-56 lg:min-h-0 bg-secondary/40 dark:bg-muted/20 overflow-hidden">
@@ -31,7 +31,7 @@ const ProjectCardComponent: React.FC<ProjectCardProps> = ({ project, animationDe
             alt={project.title}
             fill
             quality={100}
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            className="object-cover group-hover:scale-[1.03]"
             sizes="(max-width: 1024px) 100vw, 40vw"
           />
         ) : (
@@ -63,7 +63,7 @@ const ProjectCardComponent: React.FC<ProjectCardProps> = ({ project, animationDe
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute bottom-3 right-3 lg:hidden inline-flex items-center gap-1.5 rounded-lg bg-primary/90 backdrop-blur-sm px-3 py-1.5 text-xs font-semibold text-primary-foreground hover:bg-primary transition-colors"
+            className="absolute bottom-3 right-3 lg:hidden inline-flex items-center gap-1.5 rounded-lg bg-primary/90 backdrop-blur-sm px-3 py-1.5 text-xs font-semibold text-primary-foreground hover:bg-primary"
           >
             <ArrowUpRight size={13} />
             Live
@@ -75,7 +75,7 @@ const ProjectCardComponent: React.FC<ProjectCardProps> = ({ project, animationDe
       <div className="flex flex-col gap-5 p-6 md:p-8">
         {/* Title + live link */}
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-lg md:text-xl font-bold text-foreground leading-snug group-hover:text-primary transition-colors">
+          <h3 className="text-lg md:text-xl font-bold text-foreground leading-snug group-hover:text-primary">
             {project.title}
           </h3>
           {project.liveUrl && (
@@ -83,7 +83,7 @@ const ProjectCardComponent: React.FC<ProjectCardProps> = ({ project, animationDe
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:flex shrink-0 items-center justify-center w-9 h-9 rounded-xl border border-border/60 bg-secondary/50 text-muted-foreground hover:border-[hsl(var(--primary)/0.5)] hover:text-primary hover:bg-[hsl(var(--primary)/0.08)] transition-all"
+              className="hidden lg:flex shrink-0 items-center justify-center w-9 h-9 rounded-xl border border-border/60 bg-secondary/50 text-muted-foreground hover:border-[hsl(var(--primary)/0.5)] hover:text-primary hover:bg-[hsl(var(--primary)/0.08)]"
               aria-label="Open live app"
             >
               <ArrowUpRight size={17} />
@@ -129,7 +129,7 @@ const ProjectCardComponent: React.FC<ProjectCardProps> = ({ project, animationDe
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold bg-linear-to-r from-primary to-accent text-primary-foreground hover:opacity-90 hover:shadow-md hover:shadow-[hsl(var(--primary)/0.3)] transition-all"
+              className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold bg-linear-to-r from-primary to-accent text-primary-foreground hover:opacity-90 hover:shadow-md hover:shadow-[hsl(var(--primary)/0.3)]"
             >
               <ArrowUpRight size={15} />
               View Live
@@ -140,7 +140,7 @@ const ProjectCardComponent: React.FC<ProjectCardProps> = ({ project, animationDe
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold border border-border/70 text-foreground/80 hover:border-[hsl(var(--primary)/0.4)] hover:text-primary hover:bg-[hsl(var(--primary)/0.05)] transition-all"
+              className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold border border-border/70 text-foreground/80 hover:border-[hsl(var(--primary)/0.4)] hover:text-primary hover:bg-[hsl(var(--primary)/0.05)]"
             >
               <Github size={15} />
               Source Code
