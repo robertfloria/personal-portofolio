@@ -26,7 +26,7 @@ import { motion, type HTMLMotionProps } from 'framer-motion';
 import { ANIMATION_DURATIONS } from '@/lib/constants';
 
 const cardVariants = cva(
-  'rounded-2xl border transition-all duration-300 ease-out',
+  'rounded-2xl border',
   {
     variants: {
       variant: {
