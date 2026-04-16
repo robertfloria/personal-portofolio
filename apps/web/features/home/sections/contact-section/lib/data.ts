@@ -21,7 +21,7 @@ export const contactMethods = [
   {
     iconKey: 'Linkedin',
     label: 'LinkedIn',
-    value: 'robert-nicolae-floria',
+    value: 'robert-nicolae-floria-51981920b',
     href: SOCIAL_LINKS.LINKEDIN,
     gradient: 'from-accent to-primary dark:from-accent dark:to-primary',
     border: 'border-border',

@@ -1,7 +1,7 @@
 {
-  "name": "Robert Nicolae Floria - Portfolio",
-  "short_name": "RNF Portfolio",
-  "description": "Full-Stack Developer Portfolio showcasing projects in React, Next.js, NestJS, and TypeScript",
+  "name": "Robert Floria - Portfolio",
+  "short_name": "Robert Portfolio",
+  "description": "Full-Stack Engineer portfolio focused on TypeScript, React/Next.js, Node.js/NestJS, cloud delivery, and AI-enabled product engineering",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f1117",

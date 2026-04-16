@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { APP_NAME, APP_DESCRIPTION } from '@/lib/constants';
 import { Manrope } from 'next/font/google';
 import './globals.css';
-import { Footer, Navbar, Providers, Toast, WelcomeModal } from '@/components/layout';
+import { Footer, Navbar, Providers, Toast } from '@/components/layout';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -24,11 +24,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: {
     default: APP_NAME,
-    template: `%s | Robert Nicolae Floria`,
+    template: `%s | Robert Floria`,
   },
   description: APP_DESCRIPTION,
   keywords: [
-    'Full-Stack Developer',
+    'Full-Stack Engineer',
     'React',
     'Next.js',
     'NestJS',
@@ -37,19 +37,19 @@ export const metadata: Metadata = {
     'Contractor',
     'B2B Services',
     'Full-Time',
-    'React Native',
+    'Cloud Engineering',
     'Node.js',
     'AI Integration',
     'RAG',
     'pgvector',
     'Portfolio',
-    'Robert Nicolae Floria',
+    'Robert Floria',
     'Cluj-Napoca',
     'Romania',
   ],
-  authors: [{ name: 'Robert Nicolae Floria', url: 'https://github.com/robertfloria' }],
-  creator: 'Robert Nicolae Floria',
-  publisher: 'Robert Nicolae Floria',
+  authors: [{ name: 'Robert Floria', url: 'https://github.com/robertfloria' }],
+  creator: 'Robert Floria',
+  publisher: 'Robert Floria',
   robots: {
     index: true,
     follow: true,
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     description: APP_DESCRIPTION,
     type: 'website',
     locale: 'en_US',
-    siteName: 'Robert Nicolae Floria Portfolio',
+    siteName: 'Robert Floria Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
@@ -81,14 +81,14 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   alternates: {
-    canonical: 'https://web-production-26d4.up.railway.app',
+    canonical: 'https://www.rbx-soft.tech',
   },
 };
 
 /**
  * RootLayout component
  *
- * Layout global pentru aplicația Next.js. Include providers, navbar, footer, toast și modal de bun venit.
+ * Layout global pentru aplicația Next.js. Include providers, navbar, footer și toast.
  * Wrapping pentru toate paginile și rutele aplicației.
  *
  * @component
@@ -108,7 +108,6 @@ export default function RootLayout({
       <body className={`${manrope.className} antialiased`}>
         <Providers>
           <Navbar />
-          <WelcomeModal />
           <main className="min-h-screen flex flex-col pt-16">{children}</main>
           <Footer />
           <Toast />

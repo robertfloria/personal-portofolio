@@ -13,8 +13,8 @@ export function ProjectsSection() {
         <div className="text-center mx-auto px-section md:px-section-md lg:px-section-lg">
           <Section.Title highlightText="Work">Selected</Section.Title>
           <Section.Subtitle>
-            A curated set of production engagements focused on delivery, reliability, and measurable
-            business outcomes.
+            Selected enterprise and product work across regulated fintech, platform integration,
+            and AI SaaS delivery.
           </Section.Subtitle>
         </div>
       </Section.Header>

@@ -10,7 +10,7 @@ export function AboutSection() {
     <Section id="about" className="py-20 md:py-28">
       <Section.Header className="max-w-6xl mx-auto w-full">
         <div className="text-center mx-auto px-section md:px-section-md lg:px-section-lg">
-          <Section.Title highlightText="Services">B2B</Section.Title>
+          <Section.Title highlightText="Offer">What I</Section.Title>
           <Section.Subtitle className="max-w-3xl">{personalInfo.about}</Section.Subtitle>
         </div>
       </Section.Header>

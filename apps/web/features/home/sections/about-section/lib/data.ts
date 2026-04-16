@@ -8,44 +8,44 @@ interface Service {
 export const services: Service[] = [
   {
     id: 1,
-    title: 'End-to-End Product Delivery',
+    title: 'End-to-End Product Engineering',
     description:
-      'From requirements and architecture to implementation, testing, CI/CD, and production support. I deliver TypeScript products with predictable milestones and measurable business outcomes.',
+      'From early product design and architecture to implementation, CI/CD, and production support across regulated and product environments.',
     icon: 'Code2',
   },
   {
     id: 2,
-    title: 'Architecture & API Engineering',
+    title: 'Full-Stack TypeScript Architecture',
     description:
-      'Design and implementation of modular backend systems with REST/GraphQL APIs, clear boundaries, and scalable patterns for microservices-oriented environments.',
-    icon: 'Share2',
+      'Hands-on frontend and backend ownership with React/Next.js and Node.js/NestJS, including modular structure, shared UI, and maintainable service boundaries.',
+    icon: 'Layers',
   },
   {
     id: 3,
-    title: 'Cloud & DevOps Execution',
+    title: 'Backend APIs & Integration Patterns',
     description:
-      'AWS workloads (Lambda, ECS Fargate, S3, RDS, CloudWatch), Dockerized services, IaC with Terraform, and automated CI/CD pipelines for safer and faster releases.',
-    icon: 'Cloud',
+      'REST/GraphQL/OpenAPI APIs with OAuth2/JWT, Keycloak, API gateway patterns, webhook idempotency, background jobs, and event-driven workflows.',
+    icon: 'Share2',
   },
   {
     id: 4,
-    title: 'Security & Production Hardening',
+    title: 'Cloud, DevOps & Observability',
     description:
-      'Secure auth with OAuth2/JWT, webhook verification and idempotency, rate limiting, validation, secrets management, and practical OWASP-aligned protections.',
-    icon: 'Shield',
+      'AWS delivery (Lambda, ECS Fargate, EC2, S3, RDS, CloudWatch, SQS), Docker, Terraform, CI/CD, release automation, secrets management, and Sentry.',
+    icon: 'Cloud',
   },
   {
     id: 5,
-    title: 'Billing & Event-Driven Workflows',
+    title: 'AI & Automation Workflows',
     description:
-      'Stripe subscriptions and credits, resilient webhook handling, and background processing using Redis/BullMQ with retries/backoff and real-time progress updates.',
-    icon: 'CreditCard',
+      'AI/LLM API integrations, Whisper transcription, RAG workflows, and prompt engineering combined with practical AI-assisted delivery processes.',
+    icon: 'Brain',
   },
   {
     id: 6,
-    title: 'AI Workflow Integration',
+    title: 'Billing, Queues & Reliability',
     description:
-      'Production AI features with OpenAI and Whisper, prompt engineering, RAG systems with pgvector retrieval, structured outputs, and privacy-aware workflows (including PII redaction) integrated into real products.',
-    icon: 'Brain',
+      'Stripe subscriptions and webhook flows, plus resilient async processing with Redis/BullMQ and RabbitMQ, retries/backoff, and real-time progress updates.',
+    icon: 'CreditCard',
   },
 ];

@@ -6,6 +6,10 @@ import { personalInfo } from '@/lib/data';
 import Link from 'next/link';
 
 export const HeroText: React.FC = () => {
+  const nameParts = personalInfo.name.trim().split(/\s+/);
+  const highlightedName = nameParts.length > 1 ? nameParts[nameParts.length - 1] : '';
+  const mainName = highlightedName ? nameParts.slice(0, -1).join(' ') : personalInfo.name;
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 50 }}
@@ -23,10 +27,12 @@ export const HeroText: React.FC = () => {
             variant="h2"
             className="flex gap-1.5 flex-wrap justify-center text-center lg:justify-start lg:text-start"
           >
-            {personalInfo.name.split(' ').slice(0, 2).join(' ')}
-            <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
-              {personalInfo.name.split(' ').slice(2).join(' ')}
-            </span>
+            {mainName}
+            {highlightedName && (
+              <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
+                {highlightedName}
+              </span>
+            )}
           </Heading>
         </motion.div>
 
@@ -60,7 +66,7 @@ export const HeroText: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.55 }}
         >
-          {['Full-Time Employment', 'Contract / B2B', 'Project-Based', 'Remote / Hybrid'].map((label) => (
+          {['Permanent Employment', 'Contract / B2B', 'Remote or Hybrid'].map((label) => (
             <span
               key={label}
               className="rounded-full border border-border/60 bg-secondary/60 dark:bg-muted/40 px-3 py-1 text-xs font-medium text-muted-foreground tracking-wide"

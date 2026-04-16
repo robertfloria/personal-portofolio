@@ -2,9 +2,9 @@
  * Application-wide constants
  */
 
-export const APP_NAME = 'Robert Nicolae Floria | Full-Stack Engineering Services';
+export const APP_NAME = 'Robert Floria | Full-Stack Engineer';
 export const APP_DESCRIPTION =
-  'Full-Stack Engineer available for full-time and contract/B2B engagements. Specialized in React, Next.js, NestJS, TypeScript, cloud delivery, and AI/RAG integrations for production systems.';
+  'Full-Stack Engineer with 5+ years delivering production web platforms end-to-end with TypeScript, React/Next.js, Node.js/NestJS, cloud delivery, and AI-enabled product engineering.';
 
 // Animation durations
 export const ANIMATION_DURATIONS = {
@@ -29,7 +29,7 @@ export const SOCIAL_LINKS = {
   GITHUB: 'https://github.com/robertfloria',
   LINKEDIN: 'https://www.linkedin.com/in/robert-nicolae-floria-51981920b/',
   EMAIL: 'mailto:robert.floria@rbx-soft.tech',
-  PORTFOLIO: 'https://web-production-26d4.up.railway.app',
+  PORTFOLIO: 'https://www.rbx-soft.tech',
   GITHUB_REPO: 'https://github.com/robertfloria/personal-portofolio',
 } as const;
 

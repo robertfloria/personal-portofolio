@@ -1,7 +1,8 @@
 import { personalInfo } from '@/lib/data';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Globe, Linkedin, Mail } from 'lucide-react';
 
 export const iconMap = {
+  globe: Globe,
   github: Github,
   linkedin: Linkedin,
   mail: Mail,
@@ -9,8 +10,16 @@ export const iconMap = {
 
 // Icon keys must match lucide-react PascalCase export names exactly
 export const infoItems = [
-  { iconKey: 'Briefcase', label: 'Engagement', value: 'Full-Time / Contract / B2B' },
-  { iconKey: 'Rocket', label: 'Delivery', value: 'Architecture -> CI/CD -> Ops' },
-  { iconKey: 'Layers', label: 'Stack', value: 'React/Next.js + Node/NestJS' },
-  { iconKey: 'MapPin', label: 'Location', value: `${personalInfo.location} (Remote/Hybrid)` },
+  { iconKey: 'Briefcase', label: 'Role', value: 'Full-Stack Engineer' },
+  {
+    iconKey: 'Layers',
+    label: 'Stack',
+    value: 'TypeScript | React/Next.js | Node.js/NestJS',
+  },
+  { iconKey: 'Sparkles', label: 'Specialty', value: 'AI-enabled Product Engineering' },
+  {
+    iconKey: 'MapPin',
+    label: 'Availability',
+    value: `${personalInfo.location} | Remote / Hybrid`,
+  },
 ];
