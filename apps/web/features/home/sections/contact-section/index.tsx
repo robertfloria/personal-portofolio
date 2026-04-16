@@ -11,14 +11,9 @@ export function ContactSection() {
     <Section id="contact" className="py-20 md:py-28 px-section md:px-section-md lg:px-section-lg">
       <Section.Header className="max-w-6xl mx-auto w-full">
         <div className="text-center mx-auto">
-          <div className="relative flex items-center justify-center mb-4">
-            <div className="block shrink-0 pointer-events-none select-none">
-              <LottieAnimation animationData={globeAnimation} style={{ width: 60, height: 60 }} />
-            </div>
-            <Section.Title highlightText="Together" className="mb-0!">
-              Let&apos;s Work
-            </Section.Title>
-          </div>
+          <Section.Title highlightText="Together">
+            Let&apos;s Work
+          </Section.Title>
           <Section.Subtitle>
             Need a delivery-focused contractor for a new product, modernization effort, or
             AI-enabled workflow? Send your scope and timeline.
