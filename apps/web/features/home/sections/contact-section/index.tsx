@@ -1,10 +1,9 @@
 'use client';
 
 import React from 'react';
-import { Section, Card, LottieAnimation } from '@/components/common';
+import { Section, Card } from '@/components/common';
 import { contactMethods } from './lib/data';
 import { ContactForm, ContactMethodCard } from './components';
-import globeAnimation from '../../../../public/lottie/globe.json';
 
 export function ContactSection() {
   return (
